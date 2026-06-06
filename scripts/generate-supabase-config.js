@@ -31,7 +31,7 @@ function parseEnv(raw) {
 
 function readEnvFile(envPath) {
   if (!fs.existsSync(envPath)) {
-    throw new Error(`Missing .env file at ${envPath}`);
+    return {};
   }
   return parseEnv(fs.readFileSync(envPath, 'utf8'));
 }
@@ -62,6 +62,12 @@ function main() {
     storageBucket: 'menu-images',
     useStaticFallback: false
   };
+
+  if (!supabaseConfig.url || !supabaseConfig.anonKey) {
+    throw new Error(
+      'Missing Supabase env values. Set BAGO_SUPABASE_URL and BAGO_SUPABASE_ANON_KEY in .env or build environment.'
+    );
+  }
 
   const privateConfig = {
     venue: {
