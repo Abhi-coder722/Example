@@ -1,0 +1,245 @@
+.admin-page {
+  min-height: 100vh;
+}
+
+.admin-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 18px clamp(16px, 5vw, 64px);
+  border-bottom: 1px solid var(--line);
+}
+
+.admin-back {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.admin-back:hover,
+.admin-back:focus-visible {
+  color: var(--ink);
+}
+
+.admin-header-main h1 {
+  margin: 0;
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1;
+}
+
+.admin-main {
+  display: grid;
+  gap: 18px;
+  padding: 18px clamp(16px, 5vw, 64px) clamp(40px, 8vw, 84px);
+}
+
+.admin-card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(248, 250, 244, 0.06);
+}
+
+.admin-card h2,
+.admin-card h3 {
+  margin: 0;
+}
+
+.admin-card p {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+.admin-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: start;
+  margin-bottom: 14px;
+}
+
+.admin-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.admin-form.compact {
+  max-width: 420px;
+}
+
+.admin-form label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
+.admin-form input,
+.admin-form textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(248, 250, 244, 0.08);
+  color: var(--ink);
+}
+
+.admin-form textarea {
+  min-height: 88px;
+  resize: vertical;
+}
+
+.admin-form input:focus,
+.admin-form textarea:focus {
+  outline: 0;
+  border-color: var(--mint);
+  box-shadow: 0 0 0 3px rgba(70, 231, 179, 0.15);
+}
+
+.admin-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.admin-grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.admin-grid.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.admin-grid.descriptions {
+  align-items: start;
+}
+
+.toggle-field {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+}
+
+.toggle-field input {
+  width: 18px;
+  min-height: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.admin-status {
+  min-height: 20px;
+  margin: 10px 0 0;
+  color: var(--wasabi);
+  font-size: 0.9rem;
+  font-weight: 850;
+}
+
+.admin-table-wrap {
+  margin-top: 14px;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.admin-separator {
+  margin: 24px 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+.admin-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.admin-table th {
+  color: var(--muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.admin-table td {
+  font-size: 0.94rem;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.status-pill.is-live {
+  border-color: rgba(70, 231, 179, 0.36);
+  background: rgba(70, 231, 179, 0.16);
+  color: #b8ffe6;
+}
+
+.status-pill.is-sold {
+  border-color: rgba(255, 90, 78, 0.36);
+  background: rgba(255, 90, 78, 0.15);
+  color: #ffd0cb;
+}
+
+.row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.row-actions button {
+  min-height: 34px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(248, 250, 244, 0.07);
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.row-actions button:hover,
+.row-actions button:focus-visible {
+  border-color: rgba(70, 231, 179, 0.5);
+  background: rgba(70, 231, 179, 0.17);
+}
+
+@media (max-width: 980px) {
+  .admin-grid.two,
+  .admin-grid.three {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-header {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-header .button {
+    justify-self: start;
+  }
+}

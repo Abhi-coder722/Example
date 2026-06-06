@@ -3,26 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bago Sushi & Asian To Go | Order Online</title>
+    <title>Bago Sushi & Asian | Order Online</title>
     <meta
       name="description"
-      content="Order sushi, bowls, burgers, fries, starters, and drinks from Bago Sushi & Asian To Go in Ingolstadt."
+      content="Order sushi, bowls, burgers, fries, starters, and drinks from Bago Sushi & Asian in Ingolstadt."
     />
-    <link rel="preconnect" href="https://tb-static.uber.com" crossorigin />
-    <link rel="preconnect" href="https://cn-geo1.uber.com" crossorigin />
-    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="icon" type="image/png" href="assets/Bago-logo.jpeg" />
     <link rel="apple-touch-icon" href="assets/favicon.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body data-theme="dark">
     <header class="site-header">
-      <a class="brand" href="#home" aria-label="Bago Sushi & Asian To Go home">
+      <a class="brand" href="#home" aria-label="Bago Sushi & Asian home">
         <span class="brand-mark" aria-hidden="true">
-          <img src="assets/bago-logo.jpg" alt="" />
+          <img src="assets/Bago-logo.jpeg" alt="" />
         </span>
         <span>
-          <strong>Bago Sushi</strong>
-          <small>Asian To Go · Ingolstadt</small>
+          <strong>Bago Sushi & Asian</strong>
+          <small>Ingolstadt</small>
         </span>
       </a>
 
@@ -57,6 +55,9 @@
             <button type="button" role="menuitemradio" data-language="tr" aria-checked="false">Turkish</button>
           </div>
         </div>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Zu hellem Design wechseln">
+          <span class="theme-icon" id="themeIcon" aria-hidden="true">🌙</span>
+        </button>
       </div>
     </header>
 
@@ -66,18 +67,31 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
           <p class="eyebrow">Luftgasse 1 · 85049 Ingolstadt</p>
-          <h1>Bago Sushi & Asian To Go</h1>
+          <h1>Bago Sushi & Asian</h1>
           <p class="hero-copy" data-i18n="heroCopy">
-            Live mit Uber-Eats-Daten synchronisiert, inklusive aktueller Preise und Bilder.
+            Frisch, schnell und mit Liebe zubereitet in der Luftgasse 1 in Ingolstadt.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="#menu" data-i18n="startOrder">Jetzt bestellen</a>
             <button class="button glass" id="jumpCart" type="button" data-i18n="viewCart">Warenkorb anzeigen</button>
           </div>
           <div class="hero-stats" aria-label="Restaurant highlights">
-            <span><strong id="heroItemCount">73</strong> <span data-i18n="heroStatItems">Menüeinträge</span></span>
-            <span><strong>12,00 €</strong> <span data-i18n="heroStatMinimum">Mindestbestellwert</span></span>
-            <span><strong>Uber Eats</strong> <span data-i18n="heroStatSource">Quelle synchronisiert</span></span>
+            <span class="stat-chip">
+              <strong id="heroItemCount">73</strong>
+              <small data-i18n="heroStatItems">Menüeinträge</small>
+            </span>
+            <span class="stat-chip">
+              <strong id="heroMinimumValue">12,00 €</strong>
+              <small data-i18n="heroStatMinimum">Mindestbestellwert</small>
+            </span>
+            <span class="stat-chip">
+              <strong data-i18n="heroStatPreparationTimeValue">25-35 Min</strong>
+              <small data-i18n="heroStatPreparationTime">Vorbereitungszeit</small>
+            </span>
+            <span class="stat-chip">
+              <strong data-i18n="heroStatPickupValue">Nur Abholung</strong>
+              <small data-i18n="heroStatPickup">Bestellmodus</small>
+            </span>
           </div>
         </div>
       </section>
@@ -98,7 +112,7 @@
           </div>
           <div class="menu-summary">
             <strong id="menuCount">73</strong>
-            <span data-i18n="menuSynced">Einträge von Uber Eats synchronisiert</span>
+            <span data-i18n="menuSynced">Menüeinträge</span>
           </div>
         </div>
 
@@ -115,7 +129,25 @@
                   autocomplete="off"
                 />
               </label>
-              <div class="category-tabs" id="categoryTabs" aria-label="Menu categories"></div>
+              <div class="category-tabs-wrap">
+                <button
+                  class="chip-scroll chip-scroll-left"
+                  id="categoryScrollLeft"
+                  type="button"
+                  aria-label="Scroll categories left"
+                >
+                  ‹
+                </button>
+                <div class="category-tabs" id="categoryTabs" aria-label="Menu categories"></div>
+                <button
+                  class="chip-scroll chip-scroll-right"
+                  id="categoryScrollRight"
+                  type="button"
+                  aria-label="Scroll categories right"
+                >
+                  ›
+                </button>
+              </div>
             </div>
 
             <div class="menu-sections" id="menuSections" aria-live="polite"></div>
@@ -137,10 +169,10 @@
 
             <form class="checkout-form" id="checkoutForm">
               <div class="checkout-card delivery-card">
-                <h3 data-i18n="deliveryTitle">Lieferung</h3>
+                <h3 data-i18n="pickupTitle">Abholung</h3>
                 <p class="delivery-note" id="deliveryNote">
                   <span class="scooter" aria-hidden="true">🛵</span>
-                  <span data-i18n="deliveryNote">Bago Sushi liefert in Kürze zu dir nach Hause.</span>
+                  <span data-i18n="pickupNote">Deine Bestellung wird zur Abholung in der Luftgasse 1 vorbereitet.</span>
                 </p>
               </div>
 
@@ -163,6 +195,10 @@
                     required
                   />
                 </label>
+                <label>
+                  <span data-i18n="emailLabel">E-Mail (optional)</span>
+                  <input name="email" type="email" autocomplete="email" maxlength="120" placeholder="name@example.com" />
+                </label>
               </div>
 
               <div class="checkout-card">
@@ -170,18 +206,43 @@
                 <div class="payment-methods" id="paymentMethods">
                   <label>
                     <input type="radio" name="payment" value="paypal" checked />
-                    <span>PayPal (072abhi@gmail.com)</span>
+                    <span data-i18n="paymentPaypal">PayPal</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="payment" value="cash" />
+                    <span data-i18n="paymentCash">Barzahlung</span>
                   </label>
                 </div>
                 <p class="payment-help" data-i18n="paymentHelp">
-                  Beim Checkout wirst du mit dem Gesamtbetrag in EUR zu PayPal weitergeleitet.
+                  Wähle eine Zahlungsmethode, um den Bestelltext direkt per WhatsApp zu öffnen.
                 </p>
+              </div>
+
+              <div class="checkout-card">
+                <h3 data-i18n="voucherTitle">Gutschein</h3>
+                <div class="voucher-row">
+                  <input
+                    id="voucherCode"
+                    name="voucher"
+                    type="text"
+                    maxlength="40"
+                    placeholder="Code eingeben"
+                    data-i18n-placeholder="voucherPlaceholder"
+                    autocomplete="off"
+                  />
+                  <button class="button glass voucher-button" id="applyVoucher" type="button" data-i18n="applyVoucher">
+                    Einlösen
+                  </button>
+                </div>
+                <p class="voucher-status" id="voucherStatus" aria-live="polite"></p>
               </div>
 
               <div class="totals" aria-live="polite">
                 <div><span data-i18n="subtotalLabel">Zwischensumme</span><strong id="subtotal">0,00 €</strong></div>
-                <div><span data-i18n="deliveryFeeLabel">Lieferung</span><strong id="deliveryFee">0,00 €</strong></div>
                 <div><span data-i18n="serviceFeeLabel">Service</span><strong id="serviceFee">0,00 €</strong></div>
+                <div class="voucher-total-row is-hidden" id="voucherTotalRow">
+                  <span data-i18n="voucherDiscountLabel">Gutschein</span><strong id="voucherDiscount">-0,00 €</strong>
+                </div>
                 <div class="minimum-row" id="minimumRow">
                   <span data-i18n="minimumGapLabel">Fehlbetrag bis Mindestwert</span><strong id="minimumGap">12,00 €</strong>
                 </div>
@@ -190,7 +251,7 @@
 
               <div class="checkout-actions">
                 <button class="button primary checkout-button" id="checkoutButton" type="submit" disabled>
-                  Mit PayPal zahlen
+                  Bestellung per WhatsApp senden
                 </button>
                 <button class="button glass cancel-order-button" id="cancelOrder" type="button" data-i18n="cancelOrder">
                   Abbrechen und zur Startseite
@@ -206,8 +267,23 @@
       <section class="details-section" id="details" aria-labelledby="detailsTitle">
         <div>
           <p class="eyebrow dark" data-i18n="detailsEyebrow">Restaurantdetails</p>
-          <h2 id="detailsTitle">Bago Sushi & Asian To Go</h2>
-          <p data-i18n="detailsAddress">Adresse: Luftgasse 1, 85049 Ingolstadt. Lieferung verfügbar.</p>
+          <h2 id="detailsTitle">Bago Sushi & Asian</h2>
+          <p data-i18n="detailsAddress">Adresse: Luftgasse 1, 85049 Ingolstadt. Aktuell nur Abholung.</p>
+          <div class="location-actions">
+            <a
+              class="button primary maps-button"
+              id="mapsLink"
+              href="https://www.google.com/maps/search/?api=1&query=48.76340717227785,11.42234503860289"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-i18n="openMaps"
+            >
+              In Google Maps öffnen
+            </a>
+            <p class="pickup-note" data-i18n="pickupOnlyNote">
+              Alle Bestellungen werden aktuell zur Abholung im Laden vorbereitet.
+            </p>
+          </div>
         </div>
         <div class="hours-card" aria-label="Opening hours">
           <h3 data-i18n="hoursTitle">Öffnungszeiten</h3>
@@ -216,6 +292,32 @@
             <div><dt data-i18n="hoursSaturday">Samstag</dt><dd>13:00-20:00</dd></div>
             <div><dt data-i18n="hoursSunday">Sonntag</dt><dd data-i18n="closedLabel">Geschlossen</dd></div>
           </dl>
+        </div>
+      </section>
+
+      <section class="about-section" id="about" aria-labelledby="aboutTitle">
+        <p class="eyebrow dark" data-i18n="aboutEyebrow">Über uns</p>
+        <div class="section-heading compact">
+          
+          <h2 id="aboutTitle" data-i18n="aboutTitle">Entdecke neue Geschmäcker bei Bago Sushi & Asian</h2>
+        </div>
+        <div class="about-copy">
+          <p data-i18n="aboutBody1">
+            Sushi, Burger, Burritos und mehr - probiere unsere frisch zubereiteten Lieblingsgerichte.
+          </p>
+          <p data-i18n="aboutBody2">
+            Wir sind ein kleines Startup im Herzen von Ingolstadt in der Luftgasse 1. Gegründet von Pyaye, einem
+            erfahrenen Koch mit mehr als fünf Jahren Praxiserfahrung in Sushi, Burgern, Burritos und weiteren
+            Spezialitäten.
+          </p>
+          <p data-i18n="aboutBody3">
+            Jedes Gericht entsteht mit Leidenschaft, Sorgfalt und Fokus auf Qualität. Wir setzen auf frische Zutaten,
+            ehrlichen Geschmack und eine Bestellung, die für unsere Gäste schnell, zuverlässig und unkompliziert ist.
+          </p>
+          <p data-i18n="aboutBody4">
+            Unser Ziel ist es, unsere Nachbarschaft mit kreativen Gerichten, fairen Preisen und echter Gastfreundschaft
+            zu begeistern.
+          </p>
         </div>
       </section>
 
@@ -246,31 +348,6 @@
           </button>
         </div>
       </section>
-
-      <section class="about-section" id="about" aria-labelledby="aboutTitle">
-        <div class="section-heading compact">
-          <p class="eyebrow dark" data-i18n="aboutEyebrow">Über uns</p>
-          <h2 id="aboutTitle" data-i18n="aboutTitle">Entdecke neue Geschmäcker bei Bago Sushi & Asia ToGo</h2>
-        </div>
-        <div class="about-copy">
-          <p data-i18n="aboutBody1">
-            Sushi, Burger, Burritos und mehr - probiere unsere frisch zubereiteten Lieblingsgerichte.
-          </p>
-          <p data-i18n="aboutBody2">
-            Wir sind ein kleines Startup im Herzen von Ingolstadt in der Luftgasse 1. Gegründet von Pyaye, einem
-            erfahrenen Koch mit mehr als fünf Jahren Praxiserfahrung in Sushi, Burgern, Burritos und weiteren
-            Spezialitäten.
-          </p>
-          <p data-i18n="aboutBody3">
-            Jedes Gericht entsteht mit Leidenschaft, Sorgfalt und Fokus auf Qualität. Wir setzen auf frische Zutaten,
-            ehrlichen Geschmack und eine Bestellung, die für unsere Gäste schnell, zuverlässig und unkompliziert ist.
-          </p>
-          <p data-i18n="aboutBody4">
-            Unser Ziel ist es, unsere Nachbarschaft mit kreativen Gerichten, fairen Preisen und echter Gastfreundschaft
-            zu begeistern.
-          </p>
-        </div>
-      </section>
     </main>
 
     <div class="cart-backdrop" id="cartBackdrop" hidden></div>
@@ -284,7 +361,10 @@
       </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
     <script src="menu-data.js"></script>
+    <script src="shared/business-logic.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

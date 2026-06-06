@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bago Sushi & Asian | Payment Success</title>
+    <meta name="description" content="PayPal return page for Bago Sushi & Asian orders." />
+    <link rel="icon" type="image/png" href="assets/Bago-logo.jpeg" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .paypal-success {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+      }
+
+      .paypal-success-card {
+        width: min(640px, 100%);
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(16, 21, 21, 0.9);
+        box-shadow: var(--shadow);
+      }
+
+      .paypal-success-card h1 {
+        margin: 0;
+        font-family: ui-serif, Georgia, "Times New Roman", serif;
+        font-size: clamp(2rem, 6vw, 3.2rem);
+        line-height: 1;
+      }
+
+      .paypal-success-card p {
+        margin: 12px 0 0;
+        color: var(--soft);
+      }
+
+      .paypal-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="paypal-success">
+      <section class="paypal-success-card">
+        <p class="eyebrow">Payment</p>
+        <h1 id="paymentTitle">PayPal Rückkehr</h1>
+        <p id="paymentMessage">Wir prüfen deine Zahlung und bereiten die Bestellung vor.</p>
+        <div class="paypal-actions">
+          <a class="button primary" href="index.html">Zur Startseite</a>
+          <a class="button glass" id="whatsappLink" href="#" rel="noopener" target="_blank">WhatsApp erneut öffnen</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script>
+      (function () {
+        const PENDING_PAYPAL_ORDER_KEY = 'bagoPendingPaypalOrder';
+        const LAST_SHARED_PAYPAL_TX_KEY = 'bagoLastSharedPaypalTx';
+
+        const titleNode = document.querySelector('#paymentTitle');
+        const messageNode = document.querySelector('#paymentMessage');
+        const whatsappLink = document.querySelector('#whatsappLink');
+
+        const venue =
+          (window.BAGO_VENUE && typeof window.BAGO_VENUE === 'object' ? window.BAGO_VENUE : null) || {
+            name: 'Bago Sushi & Asian',
+            whatsappNumber: '+491774675823'
+          };
+
+        function getWhatsAppBaseUrl() {
+          const cleanPhone = String(venue.whatsappNumber || '').replace(/\D/g, '');
+          return `https://wa.me/${cleanPhone}`;
+        }
+
+        function readPendingOrder() {
+          try {
+            const raw = localStorage.getItem(PENDING_PAYPAL_ORDER_KEY);
+            return raw ? JSON.parse(raw) : null;
+          } catch {
+            return null;
+          }
+        }
+
+        function openWhatsApp(url) {
+          const popup = window.open(url, '_blank', 'noopener');
+          if (!popup) {
+            window.location.href = url;
+            return false;
+          }
+          return true;
+        }
+
+        async function updateOrderStatus(orderId, status, paymentReference) {
+          const cfg = window.BAGO_SUPABASE || {};
+          const url = String(cfg.url || '').trim();
+          const key = String(cfg.anonKey || '').trim();
+          const table = String(cfg.ordersTable || 'orders').trim();
+          if (!url || !key || !window.supabase?.createClient || !orderId) return;
+
+          const client = window.supabase.createClient(url, key);
+          const payload = { order_status: status };
+          if (paymentReference) payload.payment_reference = paymentReference;
+
+          await client.from(table).update(payload).eq('id', orderId);
+        }
+
+        function buildPaidWhatsAppUrl(order, transactionId) {
+          const money = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'EUR' });
+          const totals = order.totals || { subtotal: 0, service: 0, voucherDiscount: 0, total: 0 };
+          const lines = order.items || [];
+
+          const messageLines = [
+            `New order #${order.orderNumber || ''}`.trim(),
+            `Restaurant: ${venue.name || 'Bago Sushi & Asian'}`,
+            `Customer Name: ${order.customerName || '-'}`,
+            `Phone: ${order.customerPhone || '-'}`,
+            ...(order.customerEmail ? [`Email: ${order.customerEmail}`] : []),
+            'Payment Method: PayPal',
+            'Payment Status: PAID',
+            `PayPal Transaction ID: ${transactionId || 'N/A'}`,
+            '',
+            'Order Details:',
+            ...lines.map((item) => `- ${item.quantity}x ${item.name} (${money.format(item.lineTotal || 0)})`),
+            '',
+            `Subtotal: ${money.format(totals.subtotal || 0)}`,
+            `Service: ${money.format(totals.service || 0)}`,
+            ...(totals.voucherDiscount > 0 ? [`Voucher: -${money.format(totals.voucherDiscount || 0)}`] : []),
+            `Order Total: ${money.format(totals.total || 0)}`
+          ];
+
+          return `${getWhatsAppBaseUrl()}?text=${encodeURIComponent(messageLines.join('\n'))}`;
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        const transactionId = params.get('tx') || '';
+        const status = String(params.get('st') || '').toLowerCase();
+        const isPaid = status === 'completed' || status === 'paid' || status === 'success' || (Boolean(transactionId) && !status);
+        const order = readPendingOrder();
+
+        if (!order) {
+          titleNode.textContent = 'Keine Bestelldaten gefunden';
+          messageNode.textContent = 'Bitte kehre zur Startseite zurück und starte die Bestellung erneut.';
+          whatsappLink.hidden = true;
+          return;
+        }
+
+        if (!isPaid) {
+          titleNode.textContent = 'Zahlung nicht bestätigt';
+          messageNode.textContent = 'PayPal hat die Zahlung noch nicht als abgeschlossen gemeldet.';
+          whatsappLink.hidden = true;
+          return;
+        }
+
+        const lastSharedTx = localStorage.getItem(LAST_SHARED_PAYPAL_TX_KEY);
+        if (transactionId && transactionId === lastSharedTx) {
+          titleNode.textContent = 'Zahlung bereits verarbeitet';
+          messageNode.textContent = 'Diese PayPal-Transaktion wurde bereits per WhatsApp weitergeleitet.';
+          whatsappLink.hidden = true;
+          return;
+        }
+
+        const whatsappUrl = buildPaidWhatsAppUrl(order, transactionId);
+        whatsappLink.href = whatsappUrl;
+        titleNode.textContent = 'Zahlung erfolgreich';
+        messageNode.textContent = 'WhatsApp wird mit den Bestelldaten, Kundendaten und Transaktions-ID geöffnet.';
+        updateOrderStatus(order.orderId, 'paid', transactionId);
+
+        if (transactionId) {
+          localStorage.setItem(LAST_SHARED_PAYPAL_TX_KEY, transactionId);
+        }
+        localStorage.removeItem(PENDING_PAYPAL_ORDER_KEY);
+        localStorage.setItem('bagoCart', JSON.stringify({}));
+
+        openWhatsApp(whatsappUrl);
+      })();
+    </script>
+  </body>
+</html>

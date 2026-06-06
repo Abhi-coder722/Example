@@ -1,20 +1,7 @@
-const orderedCategories = [...BAGO_CATEGORIES];
-
-const menuItems = orderedCategories.flatMap((category) =>
-  category.items.map((item) => ({
-    ...item,
-    categoryId: category.id,
-    categoryName: category.name
-  }))
-);
-
-const itemById = new Map(menuItems.map((item) => [item.id, item]));
-
-const popularIds = (() => {
-  const withImages = menuItems.filter((item) => item.image).map((item) => item.id);
-  const seed = withImages.length >= 8 ? withImages : [...withImages, ...menuItems.map((item) => item.id)];
-  return [...new Set(seed)].slice(0, 8);
-})();
+let orderedCategories = [];
+let menuItems = [];
+let itemById = new Map();
+let popularIds = [];
 
 const TRANSLATIONS = {
   de: {
@@ -22,37 +9,59 @@ const TRANSLATIONS = {
     navMenu: 'Menü',
     navDetails: 'Details',
     cartLabel: 'Warenkorb',
-    heroCopy: 'Live mit Uber-Eats-Daten synchronisiert, inklusive aktueller Preise und Bilder.',
+    heroCopy: 'Frisch, schnell und mit Liebe zubereitet in der Luftgasse 1 in Ingolstadt.',
     startOrder: 'Jetzt bestellen',
     viewCart: 'Warenkorb anzeigen',
     heroStatItems: 'Menüeinträge',
     heroStatMinimum: 'Mindestbestellwert',
-    heroStatSource: 'Quelle synchronisiert',
+    heroStatPreparationTime: 'Vorbereitungszeit',
+    heroStatPreparationTimeValue: '25-35 Min',
+    heroStatPickup: 'Bestellmodus',
+    heroStatPickupValue: 'Nur Abholung',
     popularEyebrow: 'Schnelle Auswahl',
     popularTitle: 'Am häufigsten bestellt',
     menuEyebrow: 'Komplettes Menü',
     menuTitle: 'Rolls, Bowls, Burger, Pommes, Getränke',
-    menuSynced: 'Einträge von Uber Eats synchronisiert',
+    menuSynced: 'Menüeinträge',
     searchLabel: 'Menü durchsuchen',
     searchPlaceholder: 'Suche nach Lachs, Burrito, Pommes...',
     checkoutEyebrow: 'Checkout',
     cartTitle: 'Dein Warenkorb',
     emptyCart: 'Wähle eine Roll, Bowl, einen Burger oder eine Beilage, um zu starten.',
-    deliveryTitle: 'Lieferung',
-    deliveryNote: 'Bago Sushi liefert in Kürze zu dir nach Hause.',
+    pickupTitle: 'Abholung',
+    pickupNote: 'Deine Bestellung wird zur Abholung in der Luftgasse 1 vorbereitet.',
     contactTitle: 'Kontakt',
     nameLabel: 'Name',
     phoneLabel: 'Telefon',
+    emailLabel: 'E-Mail (optional)',
     paymentTitle: 'Zahlung',
-    paymentHelp: 'Beim Checkout wirst du mit dem Gesamtbetrag in EUR zu PayPal weitergeleitet.',
+    paymentPaypal: 'PayPal',
+    paymentCash: 'Barzahlung',
+    paymentHelp:
+      'Barzahlung: Beim Klick auf Bestellung aufgeben wird WhatsApp geöffnet. PayPal: Bezahlen, dann wird WhatsApp nach erfolgreicher Rückkehr automatisch geöffnet.',
+    voucherTitle: 'Gutschein',
+    voucherPlaceholder: 'Code eingeben',
+    applyVoucher: 'Einlösen',
+    voucherDiscountLabel: 'Gutschein',
+    voucherApplied: 'Gutschein {code} angewendet (-{amount}).',
+    voucherInvalid: 'Dieser Gutscheincode ist ungültig.',
+    voucherInactive: 'Dieser Gutschein ist deaktiviert.',
+    voucherLimitReached: 'Dieser Gutschein wurde bereits vollständig eingelöst.',
+    voucherApplyFailed: 'Gutschein konnte aktuell nicht geprüft werden.',
     subtotalLabel: 'Zwischensumme',
-    deliveryFeeLabel: 'Lieferung',
     serviceFeeLabel: 'Service',
     minimumGapLabel: 'Fehlbetrag bis Mindestwert',
     totalLabel: 'Gesamt',
+    buttonPlaceOrder: 'Bestellung aufgeben',
+    buttonPayNow: 'Jetzt zahlen',
     cancelOrder: 'Abbrechen und zur Startseite',
+    soldOut: 'Ausverkauft',
+    loadingMenu: 'Menü wird geladen...',
+    menuUnavailable: 'Menü ist gerade nicht verfügbar.',
     detailsEyebrow: 'Restaurantdetails',
-    detailsAddress: 'Adresse: Luftgasse 1, 85049 Ingolstadt. Lieferung verfügbar.',
+    detailsAddress: 'Adresse: Luftgasse 1, 85049 Ingolstadt. Aktuell nur Abholung.',
+    openMaps: 'In Google Maps öffnen',
+    pickupOnlyNote: 'Alle Bestellungen werden aktuell zur Abholung im Laden vorbereitet.',
     hoursTitle: 'Öffnungszeiten',
     hoursWeekdays: 'Mo-Fr',
     hoursSaturday: 'Samstag',
@@ -65,7 +74,7 @@ const TRANSLATIONS = {
     legalStreitbeilegung: 'Verbraucherstreitbeilegung',
     closeButton: 'Schließen',
     aboutEyebrow: 'Über uns',
-    aboutTitle: 'Entdecke neue Geschmäcker bei Bago Sushi & Asia ToGo',
+    aboutTitle: 'Entdecke neue Geschmäcker bei Bago Sushi & Asian',
     aboutBody1: 'Sushi, Burger, Burritos und mehr - probiere unsere frisch zubereiteten Lieblingsgerichte.',
     aboutBody2:
       'Wir sind ein kleines Startup im Herzen von Ingolstadt in der Luftgasse 1. Gegründet von Pyaye, einem erfahrenen Koch mit mehr als fünf Jahren Praxiserfahrung in Sushi, Burgern, Burritos und weiteren Spezialitäten.',
@@ -77,53 +86,91 @@ const TRANSLATIONS = {
     itemSingle: 'Eintrag',
     itemPlural: 'Einträge',
     noMenuMatch: 'Keine passenden Menüeinträge gefunden.',
-    itemDescriptionFallback: 'Frisch zubereitet bei Bago Sushi & Asian To Go.',
+    itemDescriptionFallback: 'Frisch zubereitet bei Bago Sushi & Asian.',
     addItemsToCheckout: 'Artikel hinzufügen',
     addMoreAmount: 'Noch {amount} hinzufügen',
-    payWithPaypal: 'Mit PayPal zahlen',
     nameValidation: 'Bitte den vollständigen Namen eingeben.',
     phoneValidationEmpty: 'Bitte eine Telefonnummer eingeben.',
     phoneValidationInvalid: 'Bitte eine gültige Telefonnummer mit 8 bis 15 Ziffern eingeben.',
+    emailValidationInvalid: 'Bitte eine gültige E-Mail-Adresse eingeben.',
     statusAddItemFirst: 'Bitte zuerst mindestens einen Artikel hinzufügen.',
     statusMinimumGap: 'Mindestbestellwert {minimum}. Bitte noch {gap} hinzufügen.',
-    statusRedirecting: 'Weiterleitung zu PayPal...'
+    statusVoucherRequired: 'Bitte den Gutschein erst anwenden, bevor du fortfährst.',
+    statusVoucherRecheckFailed: 'Gutschein konnte nicht eingelöst werden. Bitte erneut prüfen.',
+    statusOrderSaveFailed: 'Bestellung konnte nicht gespeichert werden. Bitte erneut versuchen.',
+    statusWhatsappOpening: 'WhatsApp wird mit deiner Bestellnachricht geöffnet...',
+    statusWhatsappBlocked: 'WhatsApp konnte nicht automatisch geöffnet werden. Bitte erneut versuchen.',
+    statusRedirectingPaypal: 'Weiterleitung zu PayPal Checkout...',
+    statusPaypalCancelled: 'PayPal-Zahlung wurde abgebrochen.',
+    statusPaypalOrderMissing: 'PayPal-Rückkehr erkannt, aber keine gespeicherten Bestelldaten gefunden.',
+    statusPaypalReturnPending: 'PayPal-Rückkehr erkannt. Zahlungsstatus nicht bestätigt.',
+    waHeader: 'Neue Bestellung',
+    waBusiness: 'Restaurant',
+    waCustomer: 'Name',
+    waPhone: 'Telefon',
+    waPayment: 'Zahlung',
+    waItems: 'Artikel',
+    themeSwitchToLight: 'Zu hellem Design wechseln',
+    themeSwitchToDark: 'Zu dunklem Design wechseln'
   },
   en: {
     navPopular: 'Popular',
     navMenu: 'Menu',
     navDetails: 'Details',
     cartLabel: 'Cart',
-    heroCopy: 'Synced live with Uber Eats data, including current prices and images.',
+    heroCopy: 'Fresh, fast, and prepared with care in Luftgasse 1, Ingolstadt.',
     startOrder: 'Start Order',
     viewCart: 'View Cart',
-    heroStatItems: 'menu items',
-    heroStatMinimum: 'minimum order',
-    heroStatSource: 'source synced',
+    heroStatItems: 'Menu Items',
+    heroStatMinimum: 'Minimum Order',
+    heroStatPreparationTime: 'Preparation Time',
+    heroStatPreparationTimeValue: '25-35 min',
+    heroStatPickup: 'Order mode',
+    heroStatPickupValue: 'Pickup only',
     popularEyebrow: 'Quick picks',
     popularTitle: 'Most ordered',
     menuEyebrow: 'Full menu',
     menuTitle: 'Rolls, bowls, burgers, fries, drinks',
-    menuSynced: 'items synced from Uber Eats',
+    menuSynced: 'Menu items',
     searchLabel: 'Search menu',
     searchPlaceholder: 'Try salmon, burrito, fries...',
     checkoutEyebrow: 'Checkout',
     cartTitle: 'Your cart',
     emptyCart: 'Pick a roll, bowl, burger, or side to start your order.',
-    deliveryTitle: 'Delivery',
-    deliveryNote: 'Bago Sushi will deliver to your home soon.',
+    pickupTitle: 'Pickup',
+    pickupNote: 'Your order is prepared for pickup at Luftgasse 1.',
     contactTitle: 'Contact',
     nameLabel: 'Name',
     phoneLabel: 'Phone',
+    emailLabel: 'Email (optional)',
     paymentTitle: 'Payment',
-    paymentHelp: 'Checkout redirects to PayPal with your total in EUR.',
+    paymentPaypal: 'PayPal',
+    paymentCash: 'Cash',
+    paymentHelp:
+      'Cash: click Place Order to open WhatsApp. PayPal: complete checkout first, then WhatsApp opens automatically after successful return.',
+    voucherTitle: 'Voucher',
+    voucherPlaceholder: 'Enter code',
+    applyVoucher: 'Apply',
+    voucherDiscountLabel: 'Voucher',
+    voucherApplied: 'Voucher {code} applied (-{amount}).',
+    voucherInvalid: 'This voucher code is invalid.',
+    voucherInactive: 'This voucher is inactive.',
+    voucherLimitReached: 'This voucher has reached its usage limit.',
+    voucherApplyFailed: 'Voucher validation is currently unavailable.',
     subtotalLabel: 'Subtotal',
-    deliveryFeeLabel: 'Delivery',
     serviceFeeLabel: 'Service',
     minimumGapLabel: 'Minimum gap',
     totalLabel: 'Total',
+    buttonPlaceOrder: 'Place Order',
+    buttonPayNow: 'Pay Now',
     cancelOrder: 'Cancel and return home',
+    soldOut: 'Sold out',
+    loadingMenu: 'Loading menu...',
+    menuUnavailable: 'Menu is currently unavailable.',
     detailsEyebrow: 'Restaurant details',
-    detailsAddress: 'Address: Luftgasse 1, 85049 Ingolstadt. Delivery available.',
+    detailsAddress: 'Address: Luftgasse 1, 85049 Ingolstadt. Pickup only at the moment.',
+    openMaps: 'Open in Google Maps',
+    pickupOnlyNote: 'All orders are currently prepared for pickup at our shop.',
     hoursTitle: 'Opening hours',
     hoursWeekdays: 'Mon-Fri',
     hoursSaturday: 'Saturday',
@@ -136,7 +183,7 @@ const TRANSLATIONS = {
     legalStreitbeilegung: 'Consumer dispute resolution',
     closeButton: 'Close',
     aboutEyebrow: 'About Us',
-    aboutTitle: 'Discover new tastes at Bago Sushi & Asia ToGo',
+    aboutTitle: 'Discover new tastes at Bago Sushi & Asian',
     aboutBody1: 'Sushi, burgers, burritos, and more. Come and enjoy our fresh favorites.',
     aboutBody2:
       'We are a small startup in the heart of Ingolstadt at Luftgasse 1. Founded by Pyaye, an experienced chef with more than five years of proven expertise in sushi, burgers, burritos, and other specialties.',
@@ -147,53 +194,92 @@ const TRANSLATIONS = {
     itemSingle: 'item',
     itemPlural: 'items',
     noMenuMatch: 'No menu items match that search.',
-    itemDescriptionFallback: 'Freshly prepared by Bago Sushi & Asian To Go.',
+    itemDescriptionFallback: 'Freshly prepared by Bago Sushi & Asian.',
     addItemsToCheckout: 'Add items to checkout',
     addMoreAmount: 'Add {amount} more',
-    payWithPaypal: 'Pay with PayPal',
     nameValidation: "Please enter the customer's full name.",
     phoneValidationEmpty: 'Please enter a phone number.',
     phoneValidationInvalid: 'Enter a valid phone number with 8 to 15 digits.',
+    emailValidationInvalid: 'Enter a valid email address.',
     statusAddItemFirst: 'Add at least one item first.',
     statusMinimumGap: 'Minimum order is {minimum}. Add {gap} more.',
-    statusRedirecting: 'Redirecting to PayPal...'
+    statusVoucherRequired: 'Apply the voucher first before checkout.',
+    statusVoucherRecheckFailed: 'Voucher could not be redeemed. Please re-apply.',
+    statusOrderSaveFailed: 'Could not save your order. Please try again.',
+    statusWhatsappOpening: 'Opening WhatsApp with your order details...',
+    statusWhatsappBlocked: 'Could not open WhatsApp automatically. Please try again.',
+    statusRedirectingPaypal: 'Redirecting to PayPal Checkout...',
+    statusPaypalCancelled: 'PayPal payment was canceled.',
+    statusPaypalOrderMissing: 'PayPal returned but no saved order data was found.',
+    statusPaypalReturnPending: 'PayPal returned, but payment status was not confirmed.',
+    waHeader: 'New order',
+    waBusiness: 'Restaurant',
+    waCustomer: 'Name',
+    waPhone: 'Phone',
+    waPayment: 'Payment',
+    waItems: 'Items',
+    themeSwitchToLight: 'Switch to light theme',
+    themeSwitchToDark: 'Switch to dark theme'
   },
   ru: {
     navPopular: 'Популярное',
     navMenu: 'Меню',
     navDetails: 'Детали',
     cartLabel: 'Корзина',
-    heroCopy: 'Меню синхронизировано с Uber Eats, включая актуальные цены и изображения.',
+    heroCopy: 'Свежо, быстро и с заботой. Luftgasse 1, Ingolstadt.',
     startOrder: 'Начать заказ',
     viewCart: 'Открыть корзину',
-    heroStatItems: 'позиций меню',
-    heroStatMinimum: 'минимальный заказ',
-    heroStatSource: 'синхронизировано',
+    heroStatItems: 'Позиции меню',
+    heroStatMinimum: 'Минимальный заказ',
+    heroStatPreparationTime: 'Время приготовления',
+    heroStatPreparationTimeValue: '25-35 мин',
+    heroStatPickup: 'Формат заказа',
+    heroStatPickupValue: 'Только самовывоз',
     popularEyebrow: 'Быстрый выбор',
     popularTitle: 'Чаще всего заказывают',
     menuEyebrow: 'Полное меню',
-    menuTitle: 'Роллы, боулы, бургеры, картофель фри, напитки',
-    menuSynced: 'позиции синхронизированы с Uber Eats',
+    menuTitle: 'Роллы, боулы, бургеры, фри, напитки',
+    menuSynced: 'Позиции меню',
     searchLabel: 'Поиск по меню',
     searchPlaceholder: 'Например: лосось, буррито, фри...',
     checkoutEyebrow: 'Оформление',
     cartTitle: 'Ваша корзина',
-    emptyCart: 'Выберите ролл, боул, бургер или гарнир, чтобы начать заказ.',
-    deliveryTitle: 'Доставка',
-    deliveryNote: 'Bago Sushi скоро доставит заказ к вам домой.',
+    emptyCart: 'Выберите товар, чтобы начать заказ.',
+    pickupTitle: 'Самовывоз',
+    pickupNote: 'Ваш заказ будет подготовлен для самовывоза по адресу Luftgasse 1.',
     contactTitle: 'Контакты',
     nameLabel: 'Имя',
     phoneLabel: 'Телефон',
+    emailLabel: 'E-mail (необязательно)',
     paymentTitle: 'Оплата',
-    paymentHelp: 'При оформлении вы будете перенаправлены в PayPal для оплаты в EUR.',
+    paymentPaypal: 'PayPal',
+    paymentCash: 'Наличные',
+    paymentHelp:
+      'Наличные: нажмите Place Order для отправки в WhatsApp. PayPal: сначала оплатите, затем после успешного возврата WhatsApp откроется автоматически.',
+    voucherTitle: 'Купон',
+    voucherPlaceholder: 'Введите код',
+    applyVoucher: 'Применить',
+    voucherDiscountLabel: 'Купон',
+    voucherApplied: 'Купон {code} применен (-{amount}).',
+    voucherInvalid: 'Код купона недействителен.',
+    voucherInactive: 'Этот купон деактивирован.',
+    voucherLimitReached: 'Лимит использования купона достигнут.',
+    voucherApplyFailed: 'Сейчас не удалось проверить купон.',
     subtotalLabel: 'Промежуточный итог',
-    deliveryFeeLabel: 'Доставка',
     serviceFeeLabel: 'Сервис',
     minimumGapLabel: 'До минимума осталось',
     totalLabel: 'Итого',
+    buttonPlaceOrder: 'Оформить заказ',
+    buttonPayNow: 'Оплатить сейчас',
+    sendViaWhatsapp: 'Отправить заказ через WhatsApp',
     cancelOrder: 'Отменить и вернуться на главную',
+    soldOut: 'Распродано',
+    loadingMenu: 'Загрузка меню...',
+    menuUnavailable: 'Меню временно недоступно.',
     detailsEyebrow: 'Информация о ресторане',
-    detailsAddress: 'Адрес: Luftgasse 1, 85049 Ingolstadt. Доставка доступна.',
+    detailsAddress: 'Адрес: Luftgasse 1, 85049 Ingolstadt. Сейчас доступен только самовывоз.',
+    openMaps: 'Открыть в Google Maps',
+    pickupOnlyNote: 'Сейчас все заказы подготавливаются для самовывоза из нашего магазина.',
     hoursTitle: 'Часы работы',
     hoursWeekdays: 'Пн-Пт',
     hoursSaturday: 'Суббота',
@@ -206,7 +292,7 @@ const TRANSLATIONS = {
     legalStreitbeilegung: 'Разрешение потребительских споров',
     closeButton: 'Закрыть',
     aboutEyebrow: 'О нас',
-    aboutTitle: 'Откройте новые вкусы в Bago Sushi & Asia ToGo',
+    aboutTitle: 'Откройте новые вкусы в Bago Sushi & Asian',
     aboutBody1: 'Суши, бургеры, буррито и многое другое. Попробуйте наши свежие блюда.',
     aboutBody2:
       'Мы небольшой стартап в центре Ингольштадта по адресу Luftgasse 1. Проект основан Пьяе, опытным шефом с более чем 5-летней практикой в приготовлении суши, бургеров, буррито и других блюд.',
@@ -217,53 +303,92 @@ const TRANSLATIONS = {
     itemSingle: 'позиция',
     itemPlural: 'позиций',
     noMenuMatch: 'По вашему запросу ничего не найдено.',
-    itemDescriptionFallback: 'Свежеприготовлено в Bago Sushi & Asian To Go.',
+    itemDescriptionFallback: 'Свежеприготовлено в Bago Sushi & Asian.',
     addItemsToCheckout: 'Добавьте позиции',
     addMoreAmount: 'Добавьте еще на {amount}',
-    payWithPaypal: 'Оплатить через PayPal',
     nameValidation: 'Пожалуйста, укажите полное имя.',
     phoneValidationEmpty: 'Пожалуйста, укажите номер телефона.',
     phoneValidationInvalid: 'Введите корректный номер телефона (8-15 цифр).',
+    emailValidationInvalid: 'Введите корректный адрес электронной почты.',
     statusAddItemFirst: 'Сначала добавьте хотя бы одну позицию.',
     statusMinimumGap: 'Минимальный заказ: {minimum}. Добавьте еще {gap}.',
-    statusRedirecting: 'Переход в PayPal...'
+    statusVoucherRequired: 'Сначала примените купон перед оформлением заказа.',
+    statusVoucherRecheckFailed: 'Купон не удалось списать. Примените заново.',
+    statusOrderSaveFailed: 'Не удалось сохранить заказ. Попробуйте еще раз.',
+    statusWhatsappOpening: 'Открываем WhatsApp с деталями заказа...',
+    statusWhatsappBlocked: 'Не удалось автоматически открыть WhatsApp. Попробуйте еще раз.',
+    statusRedirectingPaypal: 'Перенаправляем на PayPal Checkout...',
+    statusPaypalCancelled: 'Оплата PayPal была отменена.',
+    statusPaypalOrderMissing: 'PayPal вернул пользователя, но данные заказа не найдены.',
+    statusPaypalReturnPending: 'PayPal вернул пользователя, но статус оплаты не подтвержден.',
+    waHeader: 'Новый заказ',
+    waBusiness: 'Ресторан',
+    waCustomer: 'Имя',
+    waPhone: 'Телефон',
+    waPayment: 'Оплата',
+    waItems: 'Позиции',
+    themeSwitchToLight: 'Переключить на светлую тему',
+    themeSwitchToDark: 'Переключить на тёмную тему'
   },
   ja: {
     navPopular: '人気',
     navMenu: 'メニュー',
     navDetails: '店舗情報',
     cartLabel: 'カート',
-    heroCopy: 'Uber Eatsの最新データ（価格・画像）と同期しています。',
+    heroCopy: '新鮮でスピーディー。Luftgasse 1, Ingolstadt。',
     startOrder: '注文を始める',
     viewCart: 'カートを見る',
     heroStatItems: 'メニュー項目',
     heroStatMinimum: '最低注文額',
-    heroStatSource: '同期済み',
+    heroStatPreparationTime: '準備時間',
+    heroStatPreparationTimeValue: '25-35 分',
+    heroStatPickup: '注文方法',
+    heroStatPickupValue: '店頭受け取りのみ',
     popularEyebrow: 'おすすめ',
     popularTitle: 'よく注文される商品',
     menuEyebrow: '全メニュー',
     menuTitle: 'ロール、ボウル、バーガー、フライ、ドリンク',
-    menuSynced: 'Uber Eatsから同期した商品',
+    menuSynced: 'メニュー項目',
     searchLabel: 'メニュー検索',
     searchPlaceholder: '例: サーモン、ブリトー、フライ...',
     checkoutEyebrow: 'チェックアウト',
     cartTitle: 'カート',
     emptyCart: '注文を始めるには商品を追加してください。',
-    deliveryTitle: '配達',
-    deliveryNote: 'Bago Sushiがまもなくお届けします。',
+    pickupTitle: '受け取り',
+    pickupNote: 'ご注文はLuftgasse 1で店頭受け取り用に準備されます。',
     contactTitle: '連絡先',
     nameLabel: '名前',
     phoneLabel: '電話番号',
+    emailLabel: 'メール（任意）',
     paymentTitle: '支払い',
-    paymentHelp: 'チェックアウト後、EUR合計金額でPayPalに移動します。',
+    paymentPaypal: 'PayPal',
+    paymentCash: '現金',
+    paymentHelp:
+      '現金: Place Orderを押すとWhatsAppが開きます。PayPal: 決済完了後、成功画面から自動でWhatsAppが開きます。',
+    voucherTitle: 'クーポン',
+    voucherPlaceholder: 'コードを入力',
+    applyVoucher: '適用',
+    voucherDiscountLabel: 'クーポン',
+    voucherApplied: 'クーポン {code} を適用しました (-{amount})。',
+    voucherInvalid: 'このクーポンコードは無効です。',
+    voucherInactive: 'このクーポンは無効化されています。',
+    voucherLimitReached: 'このクーポンは利用上限に達しました。',
+    voucherApplyFailed: '現在クーポンを確認できません。',
     subtotalLabel: '小計',
-    deliveryFeeLabel: '配達料',
     serviceFeeLabel: 'サービス料',
     minimumGapLabel: '最低注文まで',
     totalLabel: '合計',
+    buttonPlaceOrder: '注文を確定',
+    buttonPayNow: '今すぐ支払う',
+    sendViaWhatsapp: 'WhatsAppで注文送信',
     cancelOrder: 'キャンセルしてホームへ戻る',
+    soldOut: '売り切れ',
+    loadingMenu: 'メニューを読み込み中...',
+    menuUnavailable: '現在メニューを表示できません。',
     detailsEyebrow: '店舗情報',
-    detailsAddress: '住所: Luftgasse 1, 85049 Ingolstadt。配達対応。',
+    detailsAddress: '住所: Luftgasse 1, 85049 Ingolstadt。現在は店頭受け取りのみです。',
+    openMaps: 'Google Mapsで開く',
+    pickupOnlyNote: '現在すべてのご注文は店舗受け取りでご用意しています。',
     hoursTitle: '営業時間',
     hoursWeekdays: '月-金',
     hoursSaturday: '土曜日',
@@ -276,7 +401,7 @@ const TRANSLATIONS = {
     legalStreitbeilegung: '消費者紛争解決',
     closeButton: '閉じる',
     aboutEyebrow: '私たちについて',
-    aboutTitle: 'Bago Sushi & Asia ToGoで新しい味を発見',
+    aboutTitle: 'Bago Sushi & Asianで新しい味を発見',
     aboutBody1: '寿司、バーガー、ブリトーなど、できたての料理をお楽しみください。',
     aboutBody2:
       '私たちはインゴルシュタット中心部（Luftgasse 1）にある小さなスタートアップです。創業者のPyayeは、寿司・バーガー・ブリトーなどで5年以上の経験を持つシェフです。',
@@ -287,53 +412,92 @@ const TRANSLATIONS = {
     itemSingle: '件',
     itemPlural: '件',
     noMenuMatch: '条件に一致する商品が見つかりません。',
-    itemDescriptionFallback: 'Bago Sushi & Asian To Goで新鮮に調理。',
+    itemDescriptionFallback: 'Bago Sushi & Asianで新鮮に調理。',
     addItemsToCheckout: '商品を追加',
     addMoreAmount: '{amount} 追加してください',
-    payWithPaypal: 'PayPalで支払う',
     nameValidation: '氏名を入力してください。',
     phoneValidationEmpty: '電話番号を入力してください。',
     phoneValidationInvalid: '8〜15桁の有効な電話番号を入力してください。',
+    emailValidationInvalid: '有効なメールアドレスを入力してください。',
     statusAddItemFirst: 'まず商品を追加してください。',
     statusMinimumGap: '最低注文額は {minimum} です。あと {gap} 追加してください。',
-    statusRedirecting: 'PayPalへ移動中...'
+    statusVoucherRequired: 'チェックアウト前にクーポンを適用してください。',
+    statusVoucherRecheckFailed: 'クーポンを利用できませんでした。再度適用してください。',
+    statusOrderSaveFailed: '注文を保存できませんでした。もう一度お試しください。',
+    statusWhatsappOpening: '注文内容入りのWhatsAppを開いています...',
+    statusWhatsappBlocked: 'WhatsAppを自動で開けませんでした。もう一度お試しください。',
+    statusRedirectingPaypal: 'PayPal Checkoutへ移動しています...',
+    statusPaypalCancelled: 'PayPal支払いがキャンセルされました。',
+    statusPaypalOrderMissing: 'PayPalから戻りましたが、保存済み注文データが見つかりません。',
+    statusPaypalReturnPending: 'PayPalから戻りましたが、支払い状況が確認できませんでした。',
+    waHeader: '新規注文',
+    waBusiness: '店舗',
+    waCustomer: 'お名前',
+    waPhone: '電話番号',
+    waPayment: '支払い',
+    waItems: '注文商品',
+    themeSwitchToLight: 'ライトテーマに切り替え',
+    themeSwitchToDark: 'ダークテーマに切り替え'
   },
   tr: {
     navPopular: 'Popüler',
     navMenu: 'Menü',
     navDetails: 'Detaylar',
     cartLabel: 'Sepet',
-    heroCopy: 'Uber Eats verileriyle canlı senkron: güncel fiyatlar ve görseller.',
+    heroCopy: 'Taze, hızlı ve özenle hazırlanır. Luftgasse 1, Ingolstadt.',
     startOrder: 'Siparişe Başla',
     viewCart: 'Sepeti Gör',
-    heroStatItems: 'menü ürünü',
-    heroStatMinimum: 'minimum sipariş',
-    heroStatSource: 'kaynak senkron',
+    heroStatItems: 'Menü Ürünü',
+    heroStatMinimum: 'Minimum Sipariş',
+    heroStatPreparationTime: 'Hazırlık Süresi',
+    heroStatPreparationTimeValue: '25-35 dk',
+    heroStatPickup: 'Sipariş Tipi',
+    heroStatPickupValue: 'Sadece gel-al',
     popularEyebrow: 'Hızlı seçim',
     popularTitle: 'En çok sipariş edilenler',
     menuEyebrow: 'Tam menü',
     menuTitle: 'Roll, bowl, burger, patates, içecek',
-    menuSynced: 'Uber Eats ile senkronlanan ürünler',
+    menuSynced: 'Menü ürünleri',
     searchLabel: 'Menüde ara',
     searchPlaceholder: 'Somon, burrito, patates ara...',
     checkoutEyebrow: 'Ödeme',
     cartTitle: 'Sepetin',
     emptyCart: 'Siparişe başlamak için ürün ekleyin.',
-    deliveryTitle: 'Teslimat',
-    deliveryNote: 'Bago Sushi siparişinizi yakında teslim edecek.',
+    pickupTitle: 'Gel-al',
+    pickupNote: 'Siparişiniz Luftgasse 1 adresinde teslim almak için hazırlanacaktır.',
     contactTitle: 'İletişim',
     nameLabel: 'Ad',
     phoneLabel: 'Telefon',
+    emailLabel: 'E-posta (opsiyonel)',
     paymentTitle: 'Ödeme',
-    paymentHelp: 'Ödeme adımında toplam tutarla PayPal sayfasına yönlendirilirsiniz.',
+    paymentPaypal: 'PayPal',
+    paymentCash: 'Nakit',
+    paymentHelp:
+      'Nakit: Place Order tıklayınca WhatsApp açılır. PayPal: ödemeyi tamamladıktan sonra başarılı dönüşte WhatsApp otomatik açılır.',
+    voucherTitle: 'Kupon',
+    voucherPlaceholder: 'Kod girin',
+    applyVoucher: 'Uygula',
+    voucherDiscountLabel: 'Kupon',
+    voucherApplied: '{code} kuponu uygulandı (-{amount}).',
+    voucherInvalid: 'Bu kupon kodu geçersiz.',
+    voucherInactive: 'Bu kupon pasif durumda.',
+    voucherLimitReached: 'Bu kupon kullanım limitine ulaştı.',
+    voucherApplyFailed: 'Kupon şu anda doğrulanamadı.',
     subtotalLabel: 'Ara toplam',
-    deliveryFeeLabel: 'Teslimat',
     serviceFeeLabel: 'Servis',
     minimumGapLabel: 'Minimum için kalan',
     totalLabel: 'Toplam',
+    buttonPlaceOrder: 'Siparişi ver',
+    buttonPayNow: 'Hemen öde',
+    sendViaWhatsapp: 'Siparişi WhatsApp ile gönder',
     cancelOrder: 'İptal et ve ana sayfaya dön',
+    soldOut: 'Tükendi',
+    loadingMenu: 'Menü yükleniyor...',
+    menuUnavailable: 'Menü şu anda kullanılamıyor.',
     detailsEyebrow: 'Restoran detayları',
-    detailsAddress: 'Adres: Luftgasse 1, 85049 Ingolstadt. Teslimat mevcut.',
+    detailsAddress: 'Adres: Luftgasse 1, 85049 Ingolstadt. Şu anda sadece gel-al mevcut.',
+    openMaps: 'Google Maps\'te aç',
+    pickupOnlyNote: 'Şu anda tüm siparişler mağazamızdan teslim alınmak üzere hazırlanır.',
     hoursTitle: 'Açılış saatleri',
     hoursWeekdays: 'Pzt-Cuma',
     hoursSaturday: 'Cumartesi',
@@ -346,7 +510,7 @@ const TRANSLATIONS = {
     legalStreitbeilegung: 'Tüketici uyuşmazlık çözümü',
     closeButton: 'Kapat',
     aboutEyebrow: 'Hakkımızda',
-    aboutTitle: 'Bago Sushi & Asia ToGo ile yeni tatlar keşfedin',
+    aboutTitle: 'Bago Sushi & Asian ile yeni tatlar keşfedin',
     aboutBody1: 'Sushi, burger, burrito ve daha fazlası. Taze lezzetlerimizi deneyin.',
     aboutBody2:
       'Ingolstadt merkezinde, Luftgasse 1 adresinde küçük bir girişimiz. Kurucu şef Pyaye, sushi, burger, burrito ve diğer spesiyallerde 5+ yıllık deneyime sahip.',
@@ -357,16 +521,32 @@ const TRANSLATIONS = {
     itemSingle: 'ürün',
     itemPlural: 'ürün',
     noMenuMatch: 'Aramaya uygun menü ürünü bulunamadı.',
-    itemDescriptionFallback: 'Bago Sushi & Asian To Go tarafından taze hazırlanır.',
+    itemDescriptionFallback: 'Bago Sushi & Asian tarafından taze hazırlanır.',
     addItemsToCheckout: 'Ürün ekleyin',
     addMoreAmount: '{amount} daha ekleyin',
-    payWithPaypal: 'PayPal ile öde',
     nameValidation: 'Lütfen müşterinin tam adını girin.',
     phoneValidationEmpty: 'Lütfen telefon numarası girin.',
     phoneValidationInvalid: '8-15 haneli geçerli bir telefon numarası girin.',
+    emailValidationInvalid: 'Lütfen geçerli bir e-posta adresi girin.',
     statusAddItemFirst: 'Önce en az bir ürün ekleyin.',
     statusMinimumGap: 'Minimum sipariş {minimum}. Lütfen {gap} daha ekleyin.',
-    statusRedirecting: 'PayPal yönlendirmesi yapılıyor...'
+    statusVoucherRequired: 'Ödeme öncesi kuponu uygulayın.',
+    statusVoucherRecheckFailed: 'Kupon kullanılamadı. Lütfen yeniden uygulayın.',
+    statusOrderSaveFailed: 'Sipariş kaydedilemedi. Lütfen tekrar deneyin.',
+    statusWhatsappOpening: 'Sipariş detaylarıyla WhatsApp açılıyor...',
+    statusWhatsappBlocked: 'WhatsApp otomatik açılamadı. Lütfen tekrar deneyin.',
+    statusRedirectingPaypal: 'PayPal Checkout yönlendiriliyor...',
+    statusPaypalCancelled: 'PayPal ödemesi iptal edildi.',
+    statusPaypalOrderMissing: 'PayPal dönüşü alındı ancak kayıtlı sipariş bulunamadı.',
+    statusPaypalReturnPending: 'PayPal dönüşü alındı ancak ödeme durumu doğrulanamadı.',
+    waHeader: 'Yeni sipariş',
+    waBusiness: 'Restoran',
+    waCustomer: 'Ad',
+    waPhone: 'Telefon',
+    waPayment: 'Ödeme',
+    waItems: 'Ürünler',
+    themeSwitchToLight: 'Açık temaya geç',
+    themeSwitchToDark: 'Koyu temaya geç'
   }
 };
 
@@ -386,50 +566,241 @@ const LANGUAGE_LOCALES = {
   tr: 'tr-TR'
 };
 
+const CATEGORY_NAME_TRANSLATIONS = {
+  'Burger-Menüs 🍔🍟🥤': {
+    en: 'Burger Menus 🍔🍟🥤',
+    ru: 'Бургер-меню 🍔🍟🥤',
+    ja: 'バーガーセット 🍔🍟🥤',
+    tr: 'Burger Menüleri 🍔🍟🥤'
+  },
+  'Sushi Menü 🍱': {
+    en: 'Sushi Menus 🍱',
+    ru: 'Суши-меню 🍱',
+    ja: '寿司メニュー 🍱',
+    tr: 'Suşi Menüleri 🍱'
+  },
+  'Vorspeisen 🧀': {
+    en: 'Starters 🧀',
+    ru: 'Закуски 🧀',
+    ja: '前菜 🧀',
+    tr: 'Başlangıçlar 🧀'
+  },
+  'Salate 🥗': {
+    en: 'Salads 🥗',
+    ru: 'Салаты 🥗',
+    ja: 'サラダ 🥗',
+    tr: 'Salatalar 🥗'
+  },
+  'Maki 🍣': {
+    en: 'Maki 🍣',
+    ru: 'Маки 🍣',
+    ja: '巻き寿司 🍣',
+    tr: 'Maki 🍣'
+  },
+  'Sushi Burrito 🍣': {
+    en: 'Sushi Burrito 🍣',
+    ru: 'Суши-буррито 🍣',
+    ja: 'スシーブリトー 🍣',
+    tr: 'Suşi Burrito 🍣'
+  },
+  'Rainbow Rolls 🍣': {
+    en: 'Rainbow Rolls 🍣',
+    ru: 'Рейнбоу роллы 🍣',
+    ja: 'レインボーロール 🍣',
+    tr: 'Rainbow Roll 🍣'
+  },
+  'Futo Maki 🍣': {
+    en: 'Futo Maki 🍣',
+    ru: 'Футо маки 🍣',
+    ja: '太巻き 🍣',
+    tr: 'Futo Maki 🍣'
+  },
+  'California Rolls 🍣': {
+    en: 'California Rolls 🍣',
+    ru: 'Калифорния роллы 🍣',
+    ja: 'カリフォルニアロール 🍣',
+    tr: 'California Roll 🍣'
+  },
+  'Nigiri Sushi 🍣': {
+    en: 'Nigiri Sushi 🍣',
+    ru: 'Нигири суши 🍣',
+    ja: 'にぎり寿司 🍣',
+    tr: 'Nigiri Suşi 🍣'
+  },
+  'Crunchy Rolls 🍣': {
+    en: 'Crunchy Rolls 🍣',
+    ru: 'Кранчи роллы 🍣',
+    ja: 'クランチロール 🍣',
+    tr: 'Çıtır Roll 🍣'
+  },
+  'Sushi Rice Bowls 🍚': {
+    en: 'Sushi Rice Bowls 🍚',
+    ru: 'Суши боулы 🍚',
+    ja: '寿司ライスボウル 🍚',
+    tr: 'Suşi Pirinç Bowlları 🍚'
+  },
+  'Gebratener Reis 🍚': {
+    en: 'Fried Rice 🍚',
+    ru: 'Жареный рис 🍚',
+    ja: 'チャーハン 🍚',
+    tr: 'Kızarmış Pilav 🍚'
+  },
+  'Burger und Pommes Frites🍔': {
+    en: 'Burger and Fries 🍔',
+    ru: 'Бургеры и картофель фри 🍔',
+    ja: 'バーガーとフライドポテト 🍔',
+    tr: 'Burger ve Patates 🍔'
+  },
+  'Alkoholfreie Getränke 🥤': {
+    en: 'Soft Drinks 🥤',
+    ru: 'Безалкогольные напитки 🥤',
+    ja: 'ソフトドリンク 🥤',
+    tr: 'Alkolsüz İçecekler 🥤'
+  },
+  Besteck: {
+    en: 'Cutlery',
+    ru: 'Приборы',
+    ja: 'カトラリー',
+    tr: 'Çatal Bıçak'
+  }
+};
+
+const MENU_TEXT_RULES = {
+  en: [
+    [/Menü/gi, 'Menu'],
+    [/\bmit\b/gi, 'with'],
+    [/\bund\b/gi, 'and'],
+    [/\bstück\b/gi, 'pcs'],
+    [/Es werden jeweils/gi, 'Served as'],
+    [/servier(?:t)?/gi, 'served'],
+    [/außer/gi, 'except'],
+    [/veganer/gi, 'vegan'],
+    [/eingelegten/gi, 'pickled'],
+    [/Lachs/gi, 'Salmon'],
+    [/Thunfisch/gi, 'Tuna'],
+    [/Gurke(?:n)?/gi, 'Cucumber'],
+    [/Paprika(?:l)?/gi, 'Bell pepper'],
+    [/Rettich/gi, 'Radish'],
+    [/Frischkäse/gi, 'Cream cheese'],
+    [/Garnelen/gi, 'Shrimp'],
+    [/Eier omelett/gi, 'Egg omelet'],
+    [/Getränk/gi, 'Drink'],
+    [/getränk/gi, 'drink'],
+    [/wahl/gi, 'choice'],
+    [/Pommes frites/gi, 'fries'],
+    [/Mini Frühlingsrollen/gi, 'Mini spring rolls'],
+    [/Vegetarische Samosa/gi, 'Vegetarian samosa'],
+    [/Gebratener Reis/gi, 'Fried rice']
+  ],
+  ru: [
+    [/Menü/gi, 'меню'],
+    [/\bmit\b/gi, 'с'],
+    [/\bund\b/gi, 'и'],
+    [/\bstück\b/gi, 'шт.'],
+    [/Es werden jeweils/gi, 'Подается'],
+    [/servier(?:t)?/gi, ''],
+    [/außer/gi, 'кроме'],
+    [/veganer/gi, 'веганский'],
+    [/Lachs/gi, 'лосось'],
+    [/Thunfisch/gi, 'тунец'],
+    [/Gurke(?:n)?/gi, 'огурец'],
+    [/Paprika(?:l)?/gi, 'паприка'],
+    [/Rettich/gi, 'редька'],
+    [/Frischkäse/gi, 'сливочный сыр'],
+    [/Garnelen/gi, 'креветки'],
+    [/Eier omelett/gi, 'омлет'],
+    [/Getränk/gi, 'напиток'],
+    [/Pommes frites/gi, 'картофель фри'],
+    [/Gebratener Reis/gi, 'жареный рис']
+  ],
+  ja: [
+    [/Menü/gi, 'メニュー'],
+    [/\bmit\b/gi, '入り'],
+    [/\bund\b/gi, 'と'],
+    [/\bstück\b/gi, '個'],
+    [/Es werden jeweils/gi, '提供数'],
+    [/servier(?:t)?/gi, '提供'],
+    [/außer/gi, '除く'],
+    [/veganer/gi, 'ヴィーガン'],
+    [/Lachs/gi, 'サーモン'],
+    [/Thunfisch/gi, 'マグロ'],
+    [/Gurke(?:n)?/gi, 'きゅうり'],
+    [/Paprika(?:l)?/gi, 'パプリカ'],
+    [/Rettich/gi, '大根'],
+    [/Frischkäse/gi, 'クリームチーズ'],
+    [/Garnelen/gi, 'エビ'],
+    [/Eier omelett/gi, '玉子焼き'],
+    [/Getränk/gi, 'ドリンク'],
+    [/Pommes frites/gi, 'フライドポテト'],
+    [/Gebratener Reis/gi, 'チャーハン']
+  ],
+  tr: [
+    [/Menü/gi, 'Menü'],
+    [/\bmit\b/gi, 'ile'],
+    [/\bund\b/gi, 've'],
+    [/\bstück\b/gi, 'adet'],
+    [/Es werden jeweils/gi, 'Servis'],
+    [/servier(?:t)?/gi, 'edilir'],
+    [/außer/gi, 'hariç'],
+    [/veganer/gi, 'vegan'],
+    [/Lachs/gi, 'somon'],
+    [/Thunfisch/gi, 'ton balığı'],
+    [/Gurke(?:n)?/gi, 'salatalık'],
+    [/Paprika(?:l)?/gi, 'biber'],
+    [/Rettich/gi, 'turp'],
+    [/Frischkäse/gi, 'krem peynir'],
+    [/Garnelen/gi, 'karides'],
+    [/Eier omelett/gi, 'yumurta omlet'],
+    [/Getränk/gi, 'içecek'],
+    [/Pommes frites/gi, 'patates kızartması'],
+    [/Gebratener Reis/gi, 'kızarmış pilav']
+  ]
+};
+
 const LEGAL_TEXT = {
   impressum: {
     de: {
       title: 'Impressum',
       paragraphs: [
-        'Diensteanbieter: Bago Sushi & Asian To Go',
+        'Diensteanbieter: Bago Sushi & Asian',
         'Anschrift: Luftgasse 1, 85049 Ingolstadt, Deutschland',
-        'Kontakt: +49 1525 1003077, 072abhi@gmail.com',
+        'Kontakt: +49 1525 1003077, bagosushi123@gmail.com',
         'Vertretungsberechtigte Person und Handelsregister/USt-ID bitte vor Live-Schaltung ergänzen.'
       ]
     },
     en: {
       title: 'Impressum',
       paragraphs: [
-        'Service provider: Bago Sushi & Asian To Go',
+        'Service provider: Bago Sushi & Asian',
         'Address: Luftgasse 1, 85049 Ingolstadt, Germany',
-        'Contact: +49 1525 1003077, 072abhi@gmail.com',
+        'Contact: +49 1525 1003077, bagosushi123@gmail.com',
         'Please complete authorized representative and register/VAT information before publishing.'
       ]
     },
     ru: {
       title: 'Impressum',
       paragraphs: [
-        'Поставщик услуг: Bago Sushi & Asian To Go',
+        'Поставщик услуг: Bago Sushi & Asian',
         'Адрес: Luftgasse 1, 85049 Ingolstadt, Германия',
-        'Контакты: +49 1525 1003077, 072abhi@gmail.com',
+        'Контакты: +49 1525 1003077, bagosushi123@gmail.com',
         'Перед публикацией необходимо дополнить данные о представителе и регистрации/НДС.'
       ]
     },
     ja: {
       title: 'Impressum',
       paragraphs: [
-        '事業者: Bago Sushi & Asian To Go',
+        '事業者: Bago Sushi & Asian',
         '住所: Luftgasse 1, 85049 Ingolstadt, Germany',
-        '連絡先: +49 1525 1003077, 072abhi@gmail.com',
+        '連絡先: +49 1525 1003077, bagosushi123@gmail.com',
         '公開前に代表者名および登記/VAT情報を補完してください。'
       ]
     },
     tr: {
       title: 'Impressum',
       paragraphs: [
-        'Hizmet sağlayıcı: Bago Sushi & Asian To Go',
+        'Hizmet sağlayıcı: Bago Sushi & Asian',
         'Adres: Luftgasse 1, 85049 Ingolstadt, Almanya',
-        'İletişim: +49 1525 1003077, 072abhi@gmail.com',
+        'İletişim: +49 1525 1003077, bagosushi123@gmail.com',
         'Yayın öncesinde yetkili kişi ve sicil/KDV bilgilerini tamamlayın.'
       ]
     }
@@ -480,35 +851,35 @@ const LEGAL_TEXT = {
     de: {
       title: 'Verbraucherstreitbeilegung',
       paragraphs: [
-        'Hinweis nach § 36 VSBG: Bago Sushi & Asian To Go ist derzeit nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.',
+        'Hinweis nach § 36 VSBG: Bago Sushi & Asian ist derzeit nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.',
         'Hinweis zur EU-OS-Plattform: Die europäische Online-Streitbeilegungsplattform wurde am 20. Juli 2025 eingestellt.'
       ]
     },
     en: {
       title: 'Consumer dispute resolution',
       paragraphs: [
-        'Notice under Section 36 VSBG: Bago Sushi & Asian To Go is currently neither willing nor obliged to participate in dispute resolution before a consumer arbitration board.',
+        'Notice under Section 36 VSBG: Bago Sushi & Asian is currently neither willing nor obliged to participate in dispute resolution before a consumer arbitration board.',
         'EU ODR platform notice: the European Online Dispute Resolution platform was discontinued on July 20, 2025.'
       ]
     },
     ru: {
       title: 'Разрешение потребительских споров',
       paragraphs: [
-        'Согласно §36 VSBG, Bago Sushi & Asian To Go в настоящее время не обязана и не готова участвовать в процедурах урегулирования споров через потребительскую арбитражную организацию.',
+        'Согласно §36 VSBG, Bago Sushi & Asian в настоящее время не обязана и не готова участвовать в процедурах урегулирования споров через потребительскую арбитражную организацию.',
         'Платформа ЕС ODR была закрыта 20 июля 2025 года.'
       ]
     },
     ja: {
       title: '消費者紛争解決',
       paragraphs: [
-        'VSBG第36条に基づき、Bago Sushi & Asian To Goは現在、消費者仲裁機関での紛争解決手続きに参加する意思および義務はありません。',
+        'VSBG第36条に基づき、Bago Sushi & Asianは現在、消費者仲裁機関での紛争解決手続きに参加する意思および義務はありません。',
         'EUのODRプラットフォームは2025年7月20日に終了しました。'
       ]
     },
     tr: {
       title: 'Tüketici uyuşmazlık çözümü',
       paragraphs: [
-        '§36 VSBG uyarınca Bago Sushi & Asian To Go, tüketici hakem heyeti önündeki uyuşmazlık çözüm süreçlerine katılmaya hazır veya yükümlü değildir.',
+        '§36 VSBG uyarınca Bago Sushi & Asian, tüketici hakem heyeti önündeki uyuşmazlık çözüm süreçlerine katılmaya hazır veya yükümlü değildir.',
         'AB Çevrim içi Uyuşmazlık Çözüm (ODR) platformu 20 Temmuz 2025 tarihinde kapatılmıştır.'
       ]
     }
@@ -520,18 +891,73 @@ const state = {
   search: '',
   cart: loadCart(),
   language: 'de',
-  activeLegalKey: null
+  theme: 'dark',
+  activeLegalKey: null,
+  appliedVoucher: null
 };
 
+const THEME_STORAGE_KEY = 'bagoTheme';
+const PENDING_PAYPAL_ORDER_KEY = 'bagoPendingPaypalOrder';
+const LAST_SHARED_PAYPAL_TX_KEY = 'bagoLastSharedPaypalTx';
+const DEFAULT_SUPABASE_CONFIG = {
+  url: '',
+  anonKey: '',
+  menuTable: 'menu_items',
+  customersTable: 'customers',
+  ordersTable: 'orders',
+  orderItemsTable: 'order_items',
+  vouchersTable: 'vouchers',
+  storageBucket: 'menu-images',
+  useStaticFallback: true
+};
+const BAGO_SUPABASE = {
+  ...DEFAULT_SUPABASE_CONFIG,
+  ...(window.BAGO_SUPABASE || {})
+};
+
+const DEFAULT_VENUE_CONFIG = {
+  name: 'Bago Sushi & Asian',
+  heroImage: 'assets/hero-table.png',
+  address: 'Luftgasse 1, 85049 Ingolstadt',
+  pickupLat: 48.76340717227785,
+  pickupLng: 11.42234503860289,
+  orderMinimum: 12,
+  preparationTime: '25-35 Min',
+  serviceFeePercent: 0,
+  serviceFeeMin: 0,
+  serviceFeeMax: 0,
+  whatsappNumber: '+491774675823',
+  paypalEmail: ''
+};
+const LEGACY_VENUE_CONFIG = typeof BAGO_VENUE !== 'undefined' ? BAGO_VENUE : {};
+const mergedVenueConfig = {
+  ...DEFAULT_VENUE_CONFIG,
+  ...LEGACY_VENUE_CONFIG,
+  ...(window.BAGO_VENUE || {})
+};
+if (!mergedVenueConfig.preparationTime && mergedVenueConfig.deliveryTime) {
+  mergedVenueConfig.preparationTime = mergedVenueConfig.deliveryTime;
+}
+const VENUE_CONFIG = mergedVenueConfig;
+
+const STATIC_CATEGORIES = typeof BAGO_CATEGORIES !== 'undefined' && Array.isArray(BAGO_CATEGORIES) ? BAGO_CATEGORIES : [];
+const STATIC_MOST_ORDERED = typeof BAGO_MOST_ORDERED !== 'undefined' && Array.isArray(BAGO_MOST_ORDERED) ? BAGO_MOST_ORDERED : [];
+const BAGO_BIZ = window.BagoBusiness || {};
+
+const menuTextCache = new Map();
 let money = buildMoneyFormatter(state.language);
 
 const categoryTabs = document.querySelector('#categoryTabs');
+const categoryScrollLeft = document.querySelector('#categoryScrollLeft');
+const categoryScrollRight = document.querySelector('#categoryScrollRight');
 const menuSections = document.querySelector('#menuSections');
 const popularGrid = document.querySelector('#popularGrid');
 const menuSearch = document.querySelector('#menuSearch');
 const menuCount = document.querySelector('#menuCount');
 const heroItemCount = document.querySelector('#heroItemCount');
 const heroImage = document.querySelector('#heroImage');
+const heroMinimumValue = document.querySelector('#heroMinimumValue');
+const mapsLink = document.querySelector('#mapsLink');
 
 const cartPanel = document.querySelector('#cartPanel');
 const cartBackdrop = document.querySelector('#cartBackdrop');
@@ -544,21 +970,29 @@ const cartItems = document.querySelector('#cartItems');
 const emptyCart = document.querySelector('#emptyCart');
 const cartCount = document.querySelector('#cartCount');
 const subtotalEl = document.querySelector('#subtotal');
-const deliveryFeeEl = document.querySelector('#deliveryFee');
 const serviceFeeEl = document.querySelector('#serviceFee');
+const voucherTotalRow = document.querySelector('#voucherTotalRow');
+const voucherDiscountEl = document.querySelector('#voucherDiscount');
 const minimumRow = document.querySelector('#minimumRow');
 const minimumGapEl = document.querySelector('#minimumGap');
 const totalEl = document.querySelector('#total');
 
 const checkoutButton = document.querySelector('#checkoutButton');
 const checkoutForm = document.querySelector('#checkoutForm');
+const paymentMethods = document.querySelector('#paymentMethods');
 const formStatus = document.querySelector('#formStatus');
 const nameInput = checkoutForm.elements.name;
 const phoneInput = checkoutForm.elements.phone;
+const emailInput = checkoutForm.elements.email;
+const voucherCodeInput = document.querySelector('#voucherCode');
+const applyVoucherButton = document.querySelector('#applyVoucher');
+const voucherStatus = document.querySelector('#voucherStatus');
 
 const languageToggle = document.querySelector('#languageToggle');
 const languageMenu = document.querySelector('#languageMenu');
 const languageLabel = document.querySelector('#languageLabel');
+const themeToggle = document.querySelector('#themeToggle');
+const themeIcon = document.querySelector('#themeIcon');
 
 const legalModal = document.querySelector('#legalModal');
 const legalModalTitle = document.querySelector('#legalModalTitle');
@@ -581,6 +1015,434 @@ function formatT(key, values = {}) {
   return t(key).replace(/\{(\w+)\}/g, (_, token) => (values[token] == null ? '' : values[token]));
 }
 
+function normalizePhoneValue(value) {
+  if (typeof BAGO_BIZ.normalizePhone === 'function') {
+    return BAGO_BIZ.normalizePhone(value);
+  }
+  return String(value || '')
+    .replace(/[^\d+]/g, '')
+    .replace(/\++/g, '+')
+    .trim();
+}
+
+function normalizeEmailValue(value) {
+  if (typeof BAGO_BIZ.normalizeEmail === 'function') {
+    return BAGO_BIZ.normalizeEmail(value);
+  }
+  return String(value || '').trim().toLowerCase();
+}
+
+function normalizeVoucherCodeValue(value) {
+  if (typeof BAGO_BIZ.normalizeVoucherCode === 'function') {
+    return BAGO_BIZ.normalizeVoucherCode(value);
+  }
+  return String(value || '').trim().toUpperCase();
+}
+
+function validateVoucherRowValue(row) {
+  if (typeof BAGO_BIZ.validateVoucherRow === 'function') {
+    return BAGO_BIZ.validateVoucherRow(row);
+  }
+  if (!row) return { ok: false, error: 'not_found' };
+  if (row.active === false) return { ok: false, error: 'inactive' };
+  const usageLimit = Math.max(1, Number.parseInt(row.usage_limit, 10) || 1);
+  const timesUsed = Math.max(0, Number.parseInt(row.times_used, 10) || 0);
+  if (timesUsed >= usageLimit) return { ok: false, error: 'usage_limit_reached' };
+  return {
+    ok: true,
+    error: '',
+    voucher: {
+      id: row.id,
+      code: normalizeVoucherCodeValue(row.code),
+      discountAmount: Number.parseFloat(row.discount_amount) || 0,
+      usageLimit,
+      timesUsed
+    }
+  };
+}
+
+function createSlug(value) {
+  return String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function normalizeMatchKey(value) {
+  return String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+function looksLikeUuid(value) {
+  return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
+    String(value || '').trim()
+  );
+}
+
+function listHintValues(hint) {
+  if (!hint) return [];
+  if (typeof hint === 'string') return [hint];
+  if (typeof hint !== 'object') return [];
+
+  return [hint.id, hint.fallbackId, hint.name, hint.title]
+    .filter((value) => value != null && String(value).trim())
+    .map((value) => String(value).trim());
+}
+
+function itemBaseName(item) {
+  return pickTranslation(item.nameTranslations, item.name || '');
+}
+
+function resolvePopularIds(visibleItems) {
+  const resolved = [];
+  const availableIds = new Set(visibleItems.map((item) => item.id));
+  const normalizedItemNames = visibleItems.map((item) => ({
+    id: item.id,
+    normalized: normalizeMatchKey(itemBaseName(item))
+  }));
+
+  if (STATIC_MOST_ORDERED.length) {
+    STATIC_MOST_ORDERED.forEach((hint) => {
+      if (resolved.length >= 8) return;
+      const values = listHintValues(hint);
+      let selectedId = '';
+
+      for (const value of values) {
+        if (looksLikeUuid(value) && availableIds.has(value)) {
+          selectedId = value;
+          break;
+        }
+      }
+
+      if (!selectedId) {
+        for (const value of values) {
+          const normalizedValue = normalizeMatchKey(value);
+          if (!normalizedValue) continue;
+
+          const exactMatch = normalizedItemNames.find((entry) => entry.normalized === normalizedValue);
+          if (exactMatch) {
+            selectedId = exactMatch.id;
+            break;
+          }
+
+          const looseMatch = normalizedItemNames.find(
+            (entry) =>
+              entry.normalized &&
+              (entry.normalized.includes(normalizedValue) || normalizedValue.includes(entry.normalized))
+          );
+          if (looseMatch) {
+            selectedId = looseMatch.id;
+            break;
+          }
+        }
+      }
+
+      if (selectedId && !resolved.includes(selectedId)) {
+        resolved.push(selectedId);
+      }
+    });
+  }
+
+  if (resolved.length < 8) {
+    const withImages = visibleItems.filter((item) => item.image).map((item) => item.id);
+    const seed = withImages.length >= 8 ? withImages : [...withImages, ...visibleItems.map((item) => item.id)];
+    seed.forEach((id) => {
+      if (resolved.length >= 8) return;
+      if (!resolved.includes(id)) resolved.push(id);
+    });
+  }
+
+  return resolved.slice(0, 8);
+}
+
+function buildPickupMapsUrl() {
+  const lat = Number(VENUE_CONFIG.pickupLat);
+  const lng = Number(VENUE_CONFIG.pickupLng);
+  const query =
+    Number.isFinite(lat) && Number.isFinite(lng)
+      ? `${lat},${lng}`
+      : String(VENUE_CONFIG.address || 'Luftgasse 1, 85049 Ingolstadt');
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
+function updateCategoryScrollButtons() {
+  if (!categoryTabs || !categoryScrollLeft || !categoryScrollRight) return;
+  const maxScrollLeft = categoryTabs.scrollWidth - categoryTabs.clientWidth;
+  const canScroll = maxScrollLeft > 4;
+
+  categoryScrollLeft.hidden = !canScroll;
+  categoryScrollRight.hidden = !canScroll;
+  categoryScrollLeft.disabled = !canScroll || categoryTabs.scrollLeft <= 4;
+  categoryScrollRight.disabled = !canScroll || categoryTabs.scrollLeft >= maxScrollLeft - 4;
+}
+
+function scrollCategoryTabs(direction) {
+  if (!categoryTabs) return;
+  const amount = Math.max(140, Math.round(categoryTabs.clientWidth * 0.7));
+  categoryTabs.scrollBy({ left: direction * amount, behavior: 'smooth' });
+}
+
+function parseJsonObject(value) {
+  if (!value) return null;
+  if (typeof value === 'object' && !Array.isArray(value)) return value;
+  if (typeof value !== 'string') return null;
+  try {
+    const parsed = JSON.parse(value);
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : null;
+  } catch {
+    return null;
+  }
+}
+
+function normalizeTranslationMap(raw) {
+  if (!raw || typeof raw !== 'object') return {};
+  return Object.fromEntries(
+    Object.entries(raw)
+      .filter(([key, value]) => key && value != null && String(value).trim())
+      .map(([key, value]) => [key.toLowerCase(), String(value).trim()])
+  );
+}
+
+function extractTranslations(row, prefix) {
+  const prefixed = {};
+  Object.entries(row || {}).forEach(([key, value]) => {
+    if (!key.startsWith(`${prefix}_`)) return;
+    if (key === `${prefix}_translations`) return;
+    const lang = key.slice(prefix.length + 1).toLowerCase();
+    if (!lang || value == null || String(value).trim() === '') return;
+    prefixed[lang] = String(value).trim();
+  });
+
+  const nested = normalizeTranslationMap(parseJsonObject(row?.[`${prefix}_translations`]));
+  return {
+    ...nested,
+    ...prefixed
+  };
+}
+
+function pickTranslation(translations, fallback = '') {
+  if (!translations || typeof translations !== 'object') return fallback;
+  const preferred =
+    translations[state.language] ||
+    translations.de ||
+    translations.en ||
+    translations.ru ||
+    translations.ja ||
+    translations.tr;
+  if (preferred) return preferred;
+  const firstValue = Object.values(translations).find((value) => value && String(value).trim());
+  return firstValue || fallback;
+}
+
+function normalizeImageUrl(value) {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+  return raw;
+}
+
+function sortMenuRows(rows) {
+  return [...rows].sort((a, b) => {
+    const categoryA = String(a.category || '').toLowerCase();
+    const categoryB = String(b.category || '').toLowerCase();
+    if (categoryA !== categoryB) return categoryA.localeCompare(categoryB);
+
+    const nameA = String(a.name_de || a.name_en || a.name || '').toLowerCase();
+    const nameB = String(b.name_de || b.name_en || b.name || '').toLowerCase();
+    return nameA.localeCompare(nameB);
+  });
+}
+
+function buildCategoriesFromRows(rows) {
+  const grouped = new Map();
+
+  sortMenuRows(rows).forEach((row) => {
+    const categoryName = String(row.category || row.category_de || row.category_en || 'Menu').trim() || 'Menu';
+    const key = categoryName.toLowerCase();
+
+    if (!grouped.has(key)) {
+      grouped.set(key, {
+        id: createSlug(categoryName) || `category-${grouped.size + 1}`,
+        name: categoryName,
+        description: '',
+        items: []
+      });
+    }
+
+    const rowNameTranslations = extractTranslations(row, 'name');
+    if (!rowNameTranslations.de && row.name) {
+      rowNameTranslations.de = String(row.name).trim();
+    }
+    const rowDescriptionTranslations = extractTranslations(row, 'description');
+    if (!rowDescriptionTranslations.de && row.description) {
+      rowDescriptionTranslations.de = String(row.description).trim();
+    }
+
+    const defaultName = pickTranslation(rowNameTranslations, 'Menu item');
+    const defaultDescription = pickTranslation(rowDescriptionTranslations, '');
+    const price = Number.parseFloat(row.price);
+
+    const bucket = grouped.get(key);
+    bucket.items.push({
+      id: String(row.id || `${key}-${bucket.items.length + 1}`),
+      name: defaultName,
+      description: defaultDescription,
+      nameTranslations: rowNameTranslations,
+      descriptionTranslations: rowDescriptionTranslations,
+      price: Number.isFinite(price) ? price : 0,
+      image: normalizeImageUrl(row.image_url || row.image || row.imageUrl || ''),
+      available: row.available !== false
+    });
+  });
+
+  return [...grouped.values()];
+}
+
+function refreshMenuIndexes(categories) {
+  orderedCategories = categories.map((category) => ({
+    ...category,
+    items: (category.items || []).map((item) => ({
+      ...item,
+      image: normalizeImageUrl(item.image || item.image_url || item.imageUrl || ''),
+      categoryId: category.id,
+      categoryName: category.name
+    }))
+  }));
+
+  menuItems = orderedCategories.flatMap((category) => category.items);
+  itemById = new Map(menuItems.map((item) => [item.id, item]));
+
+  const visibleItems = menuItems.filter((item) => item.available !== false);
+  popularIds = resolvePopularIds(visibleItems);
+
+  state.cart = loadCart();
+  if (state.filter !== 'all' && !orderedCategories.some((category) => category.id === state.filter)) {
+    state.filter = 'all';
+  }
+}
+
+function getSupabaseClient() {
+  const url = BAGO_SUPABASE.url;
+  const anonKey = BAGO_SUPABASE.anonKey;
+  const isPlaceholder = /YOUR_PROJECT|YOUR_ANON/i.test(`${url} ${anonKey}`);
+  if (!url || !anonKey || isPlaceholder || !window.supabase?.createClient) {
+    return null;
+  }
+
+  return window.supabase.createClient(url, anonKey);
+}
+
+async function fetchMenuFromSupabase() {
+  const client = getSupabaseClient();
+  if (!client) return null;
+
+  const tableNames = [...new Set([BAGO_SUPABASE.menuTable, 'menu_items', 'menu'].filter(Boolean))];
+  for (const tableName of tableNames) {
+    const { data, error } = await client.from(tableName).select('*');
+    if (!error) {
+      if (!Array.isArray(data) || !data.length) return [];
+      return buildCategoriesFromRows(data);
+    }
+
+    const message = error.message || '';
+    const tableMissing = /does not exist|could not find the table/i.test(message);
+    if (!tableMissing || tableName === tableNames[tableNames.length - 1]) {
+      console.error(`Supabase menu fetch failed for "${tableName}":`, message);
+      return null;
+    }
+  }
+
+  return null;
+}
+
+async function initializeMenuData() {
+  menuSections.innerHTML = `<p class="empty-cart">${escapeHtml(t('loadingMenu'))}</p>`;
+
+  const remoteCategories = await fetchMenuFromSupabase();
+  const hasRemoteData = Array.isArray(remoteCategories) && remoteCategories.length > 0;
+  const supabaseConfigured = Boolean(
+    BAGO_SUPABASE.url &&
+      BAGO_SUPABASE.anonKey &&
+      !/YOUR_PROJECT|YOUR_ANON/i.test(`${BAGO_SUPABASE.url} ${BAGO_SUPABASE.anonKey}`) &&
+      window.supabase?.createClient
+  );
+  const fallbackAllowed = BAGO_SUPABASE.useStaticFallback || !supabaseConfigured;
+  const fallbackCategories = fallbackAllowed ? STATIC_CATEGORIES : [];
+  const chosenCategories = hasRemoteData ? remoteCategories : fallbackCategories;
+
+  if (!chosenCategories.length) {
+    orderedCategories = [];
+    menuItems = [];
+    itemById = new Map();
+    popularIds = [];
+    menuSections.innerHTML = `<p class="empty-cart">${escapeHtml(t('menuUnavailable'))}</p>`;
+    return;
+  }
+
+  refreshMenuIndexes(chosenCategories);
+}
+
+function loadCart() {
+  const saved = JSON.parse(localStorage.getItem('bagoCart') || '{}');
+  return Object.fromEntries(
+    Object.entries(saved).filter(([id, quantity]) => {
+      const item = itemById.get(id);
+      return Boolean(item) && item.available !== false && quantity > 0;
+    })
+  );
+}
+
+function saveCart() {
+  localStorage.setItem('bagoCart', JSON.stringify(state.cart));
+}
+
+function escapeHtml(value = '') {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function translateMenuText(text, language) {
+  if (!text) return '';
+  if (language === 'de') return text;
+
+  const cacheKey = `${language}::${text}`;
+  if (menuTextCache.has(cacheKey)) return menuTextCache.get(cacheKey);
+
+  let translated = text;
+  const rules = MENU_TEXT_RULES[language] || [];
+  rules.forEach(([pattern, replacement]) => {
+    translated = translated.replace(pattern, replacement);
+  });
+
+  menuTextCache.set(cacheKey, translated);
+  return translated;
+}
+
+function getCategoryDisplayName(categoryName) {
+  const mapped = CATEGORY_NAME_TRANSLATIONS[categoryName]?.[state.language];
+  if (mapped) return mapped;
+  return translateMenuText(categoryName, state.language);
+}
+
+function getItemDisplayName(item) {
+  const baseName = pickTranslation(item.nameTranslations, item.name);
+  return translateMenuText(baseName, state.language);
+}
+
+function itemDescription(item) {
+  const base = pickTranslation(item.descriptionTranslations, item.description || t('itemDescriptionFallback'));
+  return translateMenuText(base, state.language);
+}
+
 function applyStaticTranslations() {
   document.documentElement.lang = state.language;
 
@@ -600,6 +1462,15 @@ function applyStaticTranslations() {
     button.classList.toggle('is-active', active);
     button.setAttribute('aria-checked', String(active));
   });
+  updateThemeToggleLabel();
+
+  if (heroMinimumValue) {
+    heroMinimumValue.textContent = money.format(VENUE_CONFIG.orderMinimum || 0);
+  }
+  const prepTimeNode = document.querySelector('[data-i18n="heroStatPreparationTimeValue"]');
+  if (prepTimeNode && VENUE_CONFIG.preparationTime) {
+    prepTimeNode.textContent = VENUE_CONFIG.preparationTime;
+  }
 
   if (state.activeLegalKey) {
     renderLegalContent(state.activeLegalKey);
@@ -609,30 +1480,70 @@ function applyStaticTranslations() {
 function applyLanguage() {
   money = buildMoneyFormatter(state.language);
   applyStaticTranslations();
+  if (state.appliedVoucher) {
+    setVoucherStatusMessage(
+      formatT('voucherApplied', {
+        code: state.appliedVoucher.code,
+        amount: money.format(state.appliedVoucher.discountAmount || 0)
+      })
+    );
+  }
   renderCategoryTabs();
   renderOrderSurfaces();
 }
 
-function loadCart() {
-  const saved = JSON.parse(localStorage.getItem('bagoCart') || '{}');
-  return Object.fromEntries(Object.entries(saved).filter(([id, quantity]) => itemById.has(id) && quantity > 0));
+function getInitialTheme() {
+  const saved = localStorage.getItem(THEME_STORAGE_KEY);
+  if (saved === 'light' || saved === 'dark') {
+    return saved;
+  }
+
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    return 'light';
+  }
+
+  return 'dark';
 }
 
-function saveCart() {
-  localStorage.setItem('bagoCart', JSON.stringify(state.cart));
+function updateThemeToggleLabel() {
+  if (!themeToggle || !themeIcon) return;
+  const isDark = state.theme === 'dark';
+  themeIcon.textContent = isDark ? '🌙' : '☀️';
+  const label = isDark ? t('themeSwitchToLight') : t('themeSwitchToDark');
+  themeToggle.setAttribute('aria-label', label);
+  themeToggle.title = label;
 }
 
-function escapeHtml(value = '') {
-  return String(value)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
+function applyTheme(theme) {
+  const normalizedTheme = theme === 'light' ? 'light' : 'dark';
+  state.theme = normalizedTheme;
+  document.body.setAttribute('data-theme', normalizedTheme);
+  updateThemeToggleLabel();
 }
 
-function itemDescription(item) {
-  return item.description || t('itemDescriptionFallback');
+function toggleTheme() {
+  const nextTheme = state.theme === 'dark' ? 'light' : 'dark';
+  localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+  applyTheme(nextTheme);
+}
+
+function setupInspectGuard() {
+  document.addEventListener('contextmenu', (event) => {
+    // event.preventDefault();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    const key = String(event.key || '').toLowerCase();
+    const blockedShortcut =
+      event.key === 'F12' ||
+      ((event.ctrlKey || event.metaKey) && event.shiftKey && ['i', 'j', 'c'].includes(key)) ||
+      (event.metaKey && event.altKey && ['i', 'j', 'c', 'u'].includes(key)) ||
+      ((event.ctrlKey || event.metaKey) && key === 'u');
+
+    if (blockedShortcut) {
+      event.preventDefault();
+    }
+  });
 }
 
 function renderMedia(item) {
@@ -640,7 +1551,7 @@ function renderMedia(item) {
 
   return `
       <div class="food-media">
-        <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy" />
+        <img src="${escapeHtml(item.image)}" alt="${escapeHtml(getItemDisplayName(item))}" loading="lazy" />
       </div>
     `;
 }
@@ -649,18 +1560,22 @@ function getQuantity(itemId) {
   return state.cart[itemId] || 0;
 }
 
-function renderStepper(itemId, label) {
-  const quantity = getQuantity(itemId);
+function renderStepper(item, label) {
+  if (item.available === false) {
+    return `<span class="sold-out-pill">${escapeHtml(t('soldOut'))}</span>`;
+  }
+
+  const quantity = getQuantity(item.id);
 
   if (!quantity) {
-    return `<button class="add-button" type="button" data-add="${itemId}" aria-label="Add ${escapeHtml(label)}">+</button>`;
+    return `<button class="add-button" type="button" data-add="${item.id}" aria-label="Add ${escapeHtml(label)}">+</button>`;
   }
 
   return `
     <div class="quantity-stepper" aria-label="${escapeHtml(label)} quantity">
-      <button type="button" data-decrease="${itemId}" aria-label="Remove one ${escapeHtml(label)}">−</button>
+      <button type="button" data-decrease="${item.id}" aria-label="Remove one ${escapeHtml(label)}">−</button>
       <span>${quantity}</span>
-      <button type="button" data-increase="${itemId}" aria-label="Add one ${escapeHtml(label)}">+</button>
+      <button type="button" data-increase="${item.id}" aria-label="Add one ${escapeHtml(label)}">+</button>
     </div>
   `;
 }
@@ -672,38 +1587,85 @@ function renderCategoryTabs() {
       const count = category.items.length;
       return `
         <button class="${state.filter === category.id ? 'is-active' : ''}" type="button" data-filter="${category.id}">
-          ${escapeHtml(category.name)} ${count}
+          ${escapeHtml(getCategoryDisplayName(category.name))} ${count}
         </button>
       `;
     })
   ];
 
   categoryTabs.innerHTML = tabs.join('');
+  requestAnimationFrame(updateCategoryScrollButtons);
 }
 
 function matchesSearch(item, category, query) {
   if (!query) return true;
-  return [item.name, item.description, category.name, category.description].join(' ').toLowerCase().includes(query);
+
+  const translatedName = getItemDisplayName(item);
+  const translatedDescription = itemDescription(item);
+  const translatedCategory = getCategoryDisplayName(category.name);
+
+  return [
+    item.name,
+    item.description,
+    category.name,
+    category.description,
+    translatedName,
+    translatedDescription,
+    translatedCategory
+  ]
+    .join(' ')
+    .toLowerCase()
+    .includes(query);
 }
 
 function renderMenuCard(item) {
   const hasMediaClass = item.image ? 'has-media' : '';
+  const displayName = getItemDisplayName(item);
+  const displayDescription = itemDescription(item);
+
   return `
     <article class="menu-card ${hasMediaClass}">
       ${renderMedia(item)}
       <div class="menu-card-body">
         <div class="menu-card-title">
-          <h4>${escapeHtml(item.name)}</h4>
+          <h4>${escapeHtml(displayName)}</h4>
           <span class="price">${money.format(item.price)}</span>
         </div>
-        <p>${escapeHtml(itemDescription(item))}</p>
+        <p>${escapeHtml(displayDescription)}</p>
         <div class="item-actions">
-          <span>${escapeHtml(item.categoryName)}</span>
-          ${renderStepper(item.id, item.name)}
+          <span>${escapeHtml(getCategoryDisplayName(item.categoryName))}</span>
+          ${renderStepper(item, displayName)}
         </div>
       </div>
     </article>
   `;
+}
+
+function renderCompactMenuRow(item) {
+  const displayName = getItemDisplayName(item);
+  const description = itemDescription(item);
+
+  return `
+    <li class="compact-menu-row">
+      <div class="compact-menu-copy">
+        <h4>${escapeHtml(displayName)}</h4>
+        <p>${escapeHtml(description)}</p>
+      </div>
+      <div class="compact-menu-actions">
+        <span class="price">${money.format(item.price)}</span>
+        ${renderStepper(item, displayName)}
+      </div>
+    </li>
+  `;
+}
+
+function splitCategoryItems(items) {
+  if (typeof BAGO_BIZ.splitItemsByImage === 'function') {
+    return BAGO_BIZ.splitItemsByImage(items || []);
+  }
+  const withImage = (items || []).filter((item) => Boolean(item.image));
+  const withoutImage = (items || []).filter((item) => !item.image);
+  return { withImage, withoutImage };
 }
 
 function renderMenu() {
@@ -724,18 +1686,18 @@ function renderMenu() {
   menuSections.innerHTML = categories
     .map((category) => {
       const countLabel = category.items.length === 1 ? t('itemSingle') : t('itemPlural');
+      const split = splitCategoryItems(category.items);
       return `
         <section class="menu-category" id="${escapeHtml(category.id)}">
           <div class="category-heading">
             <div>
-              <h3>${escapeHtml(category.name)}</h3>
-              ${category.description ? `<p>${escapeHtml(category.description)}</p>` : ''}
+              <h3>${escapeHtml(getCategoryDisplayName(category.name))}</h3>
+              ${category.description ? `<p>${escapeHtml(translateMenuText(category.description, state.language))}</p>` : ''}
             </div>
             <span>${category.items.length} ${escapeHtml(countLabel)}</span>
           </div>
-          <div class="item-grid">
-            ${category.items.map(renderMenuCard).join('')}
-          </div>
+          ${split.withImage.length ? `<div class="item-grid">${split.withImage.map(renderMenuCard).join('')}</div>` : ''}
+          ${split.withoutImage.length ? `<ul class="compact-menu-list">${split.withoutImage.map(renderCompactMenuRow).join('')}</ul>` : ''}
         </section>
       `;
     })
@@ -748,17 +1710,18 @@ function renderPopular() {
   popularGrid.innerHTML = popularItems
     .map((item) => {
       const hasMediaClass = item.image ? 'has-media' : '';
+      const displayName = getItemDisplayName(item);
       return `
         <article class="popular-card ${hasMediaClass}">
           ${renderMedia(item)}
           <div class="popular-card-content">
             <div>
-              <h3>${escapeHtml(item.name)}</h3>
+              <h3>${escapeHtml(displayName)}</h3>
               <p>${escapeHtml(itemDescription(item))}</p>
             </div>
             <div class="price-row">
               <span class="price">${money.format(item.price)}</span>
-              ${renderStepper(item.id, item.name)}
+              ${renderStepper(item, displayName)}
             </div>
           </div>
         </article>
@@ -774,19 +1737,36 @@ function getCartLines() {
 }
 
 function getTotals() {
-  const subtotal = getCartLines().reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const lines = getCartLines();
+  const voucherDiscount = state.appliedVoucher?.discountAmount || 0;
+
+  if (typeof BAGO_BIZ.calculateTotals === 'function') {
+    return BAGO_BIZ.calculateTotals({
+      lines,
+      orderMinimum: VENUE_CONFIG.orderMinimum,
+      serviceFeePercent: VENUE_CONFIG.serviceFeePercent,
+      serviceFeeMin: VENUE_CONFIG.serviceFeeMin,
+      serviceFeeMax: VENUE_CONFIG.serviceFeeMax,
+      voucherDiscount
+    });
+  }
+
+  const subtotal = lines.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const hasItems = subtotal > 0;
-  const delivery = hasItems ? BAGO_VENUE.deliveryBase : 0;
-  const rawService = subtotal * BAGO_VENUE.serviceFeePercent;
-  const service = hasItems ? Math.min(BAGO_VENUE.serviceFeeMax, Math.max(BAGO_VENUE.serviceFeeMin, rawService)) : 0;
-  const minimumGap = Math.max(0, BAGO_VENUE.orderMinimum - subtotal);
+  const rawService = subtotal * VENUE_CONFIG.serviceFeePercent;
+  const service = hasItems
+    ? Math.min(VENUE_CONFIG.serviceFeeMax, Math.max(VENUE_CONFIG.serviceFeeMin, rawService))
+    : 0;
+  const grossTotal = subtotal + service;
+  const safeVoucher = Math.min(grossTotal, Math.max(0, Number.parseFloat(voucherDiscount) || 0));
+  const minimumGap = Math.max(0, VENUE_CONFIG.orderMinimum - subtotal);
 
   return {
     subtotal,
-    delivery,
     service,
+    voucherDiscount: safeVoucher,
     minimumGap,
-    total: subtotal + delivery + service
+    total: Math.max(0, grossTotal - safeVoucher)
   };
 }
 
@@ -817,9 +1797,617 @@ function validatePhone() {
   return !message;
 }
 
+function validateEmail() {
+  if (!emailInput) return true;
+  const value = emailInput.value.trim();
+  const message = !value || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? '' : t('emailValidationInvalid');
+  setFieldValidity(emailInput, message);
+  return !message;
+}
+
 function validateCheckoutFields() {
-  const validators = [validateName, validatePhone];
+  const validators = [validateName, validatePhone, validateEmail];
   return validators.map((validate) => validate()).every(Boolean);
+}
+
+function getSelectedPayment() {
+  return checkoutForm.elements.payment?.value || 'paypal';
+}
+
+function getWhatsAppBaseUrl() {
+  const cleanPhone = String(VENUE_CONFIG.whatsappNumber || '').replace(/\D/g, '');
+  return `https://wa.me/${cleanPhone}`;
+}
+
+function openWhatsApp(url) {
+  const popup = window.open(url, '_blank', 'noopener');
+  if (!popup) {
+    window.location.href = url;
+    return false;
+  }
+  return true;
+}
+
+function clearPayPalReturnParams() {
+  const url = new URL(window.location.href);
+  ['paypal_success', 'paypal_cancel', 'tx', 'st', 'amt', 'cc', 'cm', 'item_number', 'item_name'].forEach((key) =>
+    url.searchParams.delete(key)
+  );
+  const nextUrl = `${url.pathname}${url.search}${url.hash}`;
+  window.history.replaceState({}, document.title, nextUrl);
+}
+
+function collectValidatedOrderContext() {
+  checkoutForm.classList.add('was-validated');
+  const totals = getTotals();
+  const lines = getCartLines();
+
+  if (!lines.length) {
+    formStatus.textContent = t('statusAddItemFirst');
+    return null;
+  }
+
+  if (totals.minimumGap > 0) {
+    formStatus.textContent = formatT('statusMinimumGap', {
+      minimum: money.format(VENUE_CONFIG.orderMinimum),
+      gap: money.format(totals.minimumGap)
+    });
+    return null;
+  }
+
+  validateCheckoutFields();
+  if (!checkoutForm.reportValidity()) {
+    return null;
+  }
+
+  const typedVoucherCode = normalizeVoucherCodeValue(voucherCodeInput?.value || '');
+  const appliedVoucherCode = state.appliedVoucher?.code || '';
+  if (typedVoucherCode && typedVoucherCode !== appliedVoucherCode) {
+    formStatus.textContent = t('statusVoucherRequired');
+    return null;
+  }
+
+  const payment = getSelectedPayment();
+  const paymentLabel = payment === 'cash' ? t('paymentCash') : t('paymentPaypal');
+  const orderNumber = Math.floor(1000 + Math.random() * 9000);
+
+  return {
+    orderNumber,
+    payment,
+    paymentLabel,
+    lines,
+    totals,
+    customerName: nameInput.value.trim(),
+    customerPhone: phoneInput.value.trim(),
+    customerEmail: emailInput?.value.trim() || '',
+    voucherCode: appliedVoucherCode,
+    voucher: state.appliedVoucher,
+    language: state.language
+  };
+}
+
+function resolveVoucherErrorMessage(errorCode) {
+  if (errorCode === 'inactive') return t('voucherInactive');
+  if (errorCode === 'usage_limit_reached' || errorCode === 'limit_reached') return t('voucherLimitReached');
+  if (errorCode === 'not_found') return t('voucherInvalid');
+  return t('voucherApplyFailed');
+}
+
+function setVoucherStatusMessage(message, isError = false) {
+  if (!voucherStatus) return;
+  voucherStatus.textContent = message || '';
+  voucherStatus.classList.toggle('is-error', Boolean(message) && isError);
+}
+
+function clearAppliedVoucher() {
+  state.appliedVoucher = null;
+  if (voucherCodeInput && !voucherCodeInput.value.trim()) {
+    setVoucherStatusMessage('');
+  }
+}
+
+async function fetchVoucherForCode(voucherCode) {
+  const client = getSupabaseClient();
+  if (!client) {
+    return { ok: false, error: 'client_missing' };
+  }
+
+  const code = normalizeVoucherCodeValue(voucherCode);
+  if (!code) {
+    return { ok: false, error: 'not_found' };
+  }
+
+  const rpcResult = await client.rpc('validate_voucher_code', { p_code: code });
+  if (!rpcResult.error) {
+    const row = Array.isArray(rpcResult.data) ? rpcResult.data[0] : rpcResult.data;
+    if (!row) {
+      return { ok: false, error: 'not_found' };
+    }
+    if (row.ok === false || row.error_code) {
+      return { ok: false, error: row.error_code || 'not_found' };
+    }
+    return {
+      ok: true,
+      voucher: {
+        id: row.voucher_id || row.id,
+        code: normalizeVoucherCodeValue(row.code),
+        discountAmount: Number.parseFloat(row.discount_amount) || 0,
+        usageLimit: Math.max(1, Number.parseInt(row.usage_limit, 10) || 1),
+        timesUsed: Math.max(0, Number.parseInt(row.times_used, 10) || 0)
+      }
+    };
+  }
+
+  const rpcMessage = rpcResult.error?.message || '';
+  const shouldFallbackSelect =
+    /validate_voucher_code|schema cache|function .* does not exist|could not find/i.test(rpcMessage);
+
+  if (!shouldFallbackSelect) {
+    return { ok: false, error: 'fetch_failed', details: rpcMessage };
+  }
+
+  const { data, error } = await client
+    .from(BAGO_SUPABASE.vouchersTable)
+    .select('id, code, discount_amount, active, usage_limit, times_used')
+    .eq('code', code)
+    .limit(1);
+
+  if (error) {
+    return { ok: false, error: 'fetch_failed', details: error.message };
+  }
+
+  const validation = validateVoucherRowValue(Array.isArray(data) ? data[0] : null);
+  if (!validation.ok) {
+    return { ok: false, error: validation.error };
+  }
+
+  return { ok: true, voucher: validation.voucher };
+}
+
+async function applyVoucherCode() {
+  const code = normalizeVoucherCodeValue(voucherCodeInput?.value || '');
+  if (!code) {
+    clearAppliedVoucher();
+    setVoucherStatusMessage('');
+    renderCart();
+    return;
+  }
+
+  setVoucherStatusMessage(`${t('voucherTitle')}...`);
+  const result = await fetchVoucherForCode(code);
+
+  if (!result.ok) {
+    clearAppliedVoucher();
+    setVoucherStatusMessage(resolveVoucherErrorMessage(result.error), true);
+    renderCart();
+    return;
+  }
+
+  state.appliedVoucher = result.voucher;
+  voucherCodeInput.value = result.voucher.code;
+  setVoucherStatusMessage(
+    formatT('voucherApplied', {
+      code: result.voucher.code,
+      amount: money.format(result.voucher.discountAmount)
+    })
+  );
+  renderCart();
+}
+
+async function redeemVoucherIfNeeded(orderContext) {
+  if (!orderContext.voucherCode) {
+    return { ok: true, voucher: null };
+  }
+
+  const client = getSupabaseClient();
+  if (!client) {
+    return { ok: false, error: 'client_missing' };
+  }
+
+  const { data, error } = await client.rpc('redeem_voucher', { p_code: orderContext.voucherCode });
+  if (error) {
+    return { ok: false, error: 'fetch_failed', details: error.message };
+  }
+
+  const row = Array.isArray(data) ? data[0] : data;
+  if (!row) {
+    return { ok: false, error: 'not_found' };
+  }
+
+  if (row.error_code) {
+    return { ok: false, error: row.error_code };
+  }
+
+  return {
+    ok: true,
+    voucher: {
+      id: row.voucher_id || row.id,
+      code: normalizeVoucherCodeValue(row.code),
+      discountAmount: Number.parseFloat(row.discount_amount) || 0
+    }
+  };
+}
+
+async function findExistingCustomer(client, contact) {
+  if (contact.phoneNormalized) {
+    const byPhone = await client
+      .from(BAGO_SUPABASE.customersTable)
+      .select('*')
+      .eq('phone_normalized', contact.phoneNormalized)
+      .limit(1);
+    if (!byPhone.error && Array.isArray(byPhone.data) && byPhone.data.length) {
+      return byPhone.data[0];
+    }
+  }
+
+  if (contact.emailNormalized) {
+    const byEmail = await client
+      .from(BAGO_SUPABASE.customersTable)
+      .select('*')
+      .eq('email_normalized', contact.emailNormalized)
+      .limit(1);
+    if (!byEmail.error && Array.isArray(byEmail.data) && byEmail.data.length) {
+      return byEmail.data[0];
+    }
+  }
+
+  return null;
+}
+
+async function upsertCustomerForOrder(client, orderContext) {
+  const phoneNormalized = normalizePhoneValue(orderContext.customerPhone);
+  const emailNormalized = normalizeEmailValue(orderContext.customerEmail);
+  const now = new Date().toISOString();
+
+  const existing = await findExistingCustomer(client, { phoneNormalized, emailNormalized });
+  const payload = {
+    name: orderContext.customerName,
+    phone: orderContext.customerPhone,
+    phone_normalized: phoneNormalized,
+    email: orderContext.customerEmail || null,
+    email_normalized: emailNormalized || null,
+    last_activity_at: now
+  };
+
+  if (existing) {
+    const { data, error } = await client
+      .from(BAGO_SUPABASE.customersTable)
+      .update(payload)
+      .eq('id', existing.id)
+      .select('id')
+      .single();
+    if (error) {
+      throw new Error(error.message);
+    }
+    return data.id;
+  }
+
+  const { data, error } = await client
+    .from(BAGO_SUPABASE.customersTable)
+    .insert({
+      ...payload,
+      created_at: now
+    })
+    .select('id')
+    .single();
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data.id;
+}
+
+async function persistOrderInDatabase(orderContext, options = {}) {
+  const client = getSupabaseClient();
+  if (!client) {
+    throw new Error('Supabase client missing');
+  }
+
+  const customerId = await upsertCustomerForOrder(client, orderContext);
+  const orderPayload = {
+    customer_id: customerId,
+    order_total: orderContext.totals.total,
+    payment_method: orderContext.payment,
+    order_status: options.orderStatus || 'pending_confirmation',
+    payment_reference: options.paymentReference || null,
+    voucher_code: orderContext.voucherCode || null,
+    voucher_discount: orderContext.totals.voucherDiscount || 0,
+    customer_name: orderContext.customerName,
+    customer_phone: orderContext.customerPhone,
+    customer_email: orderContext.customerEmail || null
+  };
+
+  const { data: orderData, error: orderError } = await client
+    .from(BAGO_SUPABASE.ordersTable)
+    .insert(orderPayload)
+    .select('id')
+    .single();
+
+  if (orderError) {
+    throw new Error(orderError.message);
+  }
+
+  const orderItems = orderContext.lines.map((item) => ({
+    order_id: orderData.id,
+    item_id: item.id,
+    item_name: pickTranslation(item.nameTranslations, item.name || ''),
+    quantity: item.quantity,
+    unit_price: item.price,
+    line_total: item.price * item.quantity
+  }));
+
+  const { error: itemsError } = await client.from(BAGO_SUPABASE.orderItemsTable).insert(orderItems);
+  if (itemsError) {
+    throw new Error(itemsError.message);
+  }
+
+  return orderData.id;
+}
+
+async function updateOrderStatus(orderId, status, paymentReference = '') {
+  if (!orderId) return;
+  const client = getSupabaseClient();
+  if (!client) return;
+
+  const payload = {
+    order_status: status
+  };
+  if (paymentReference) {
+    payload.payment_reference = paymentReference;
+  }
+
+  const { error } = await client.from(BAGO_SUPABASE.ordersTable).update(payload).eq('id', orderId);
+  if (error) {
+    console.error('Order status update failed:', error.message);
+  }
+}
+
+function buildCashWhatsAppUrl(orderContext) {
+  const messageLines = [
+    `${t('waHeader')} #${orderContext.orderNumber}`,
+    `${t('waBusiness')}: ${VENUE_CONFIG.name}`,
+    `${t('waCustomer')}: ${orderContext.customerName}`,
+    `${t('waPhone')}: ${orderContext.customerPhone}`,
+    ...(orderContext.customerEmail ? [`Email: ${orderContext.customerEmail}`] : []),
+    `${t('waPayment')}: ${orderContext.paymentLabel}`,
+    '',
+    `${t('waItems')}:`,
+    ...orderContext.lines.map(
+      (item) => `- ${item.quantity}x ${getItemDisplayName(item)} (${money.format(item.price * item.quantity)})`
+    ),
+    '',
+    `${t('subtotalLabel')}: ${money.format(orderContext.totals.subtotal)}`,
+    `${t('serviceFeeLabel')}: ${money.format(orderContext.totals.service)}`,
+    ...(orderContext.totals.voucherDiscount > 0
+      ? [`${t('voucherDiscountLabel')}: -${money.format(orderContext.totals.voucherDiscount)}`]
+      : []),
+    `${t('totalLabel')}: ${money.format(orderContext.totals.total)}`
+  ];
+
+  return `${getWhatsAppBaseUrl()}?text=${encodeURIComponent(messageLines.join('\n'))}`;
+}
+
+function savePendingPayPalOrder(orderContext) {
+  const pendingPayload = {
+    orderNumber: orderContext.orderNumber,
+    customerName: orderContext.customerName,
+    customerPhone: orderContext.customerPhone,
+    customerEmail: orderContext.customerEmail,
+    orderId: orderContext.orderId || null,
+    language: orderContext.language,
+    totals: orderContext.totals,
+    voucherCode: orderContext.voucherCode || '',
+    items: orderContext.lines.map((item) => ({
+      id: item.id,
+      name: getItemDisplayName(item),
+      quantity: item.quantity,
+      lineTotal: item.price * item.quantity
+    })),
+    createdAt: new Date().toISOString()
+  };
+  localStorage.setItem(PENDING_PAYPAL_ORDER_KEY, JSON.stringify(pendingPayload));
+}
+
+function readPendingPayPalOrder() {
+  try {
+    const raw = localStorage.getItem(PENDING_PAYPAL_ORDER_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
+function buildPayPalCheckoutUrl(orderContext) {
+  const baseUrl = new URL(window.location.href);
+  baseUrl.search = '';
+  baseUrl.hash = '';
+
+  const returnUrl = new URL('paypal-success.html', baseUrl.toString());
+
+  const cancelUrl = new URL(baseUrl.toString());
+  cancelUrl.searchParams.set('paypal_cancel', '1');
+
+  const params = new URLSearchParams({
+    cmd: '_xclick',
+    business: VENUE_CONFIG.paypalEmail,
+    item_name: `${VENUE_CONFIG.name} Order #${orderContext.orderNumber}`,
+    item_number: String(orderContext.orderNumber),
+    invoice: `BAGO-${orderContext.orderNumber}-${Date.now()}`,
+    custom: String(orderContext.orderNumber),
+    currency_code: 'EUR',
+    amount: orderContext.totals.total.toFixed(2),
+    no_shipping: '1',
+    return: returnUrl.toString(),
+    cancel_return: cancelUrl.toString(),
+    charset: 'UTF-8',
+    lc: 'DE'
+  });
+
+  return `https://www.paypal.com/cgi-bin/webscr?${params.toString()}`;
+}
+
+function buildPaidWhatsAppUrlFromPayPalReturn(pendingOrder, transactionId) {
+  const formatter = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'EUR' });
+  const totals = pendingOrder.totals || { subtotal: 0, service: 0, voucherDiscount: 0, total: 0 };
+
+  const messageLines = [
+    `New order #${pendingOrder.orderNumber || ''}`.trim(),
+    `Restaurant: ${VENUE_CONFIG.name}`,
+    `Customer Name: ${pendingOrder.customerName || '-'}`,
+    `Phone: ${pendingOrder.customerPhone || '-'}`,
+    ...(pendingOrder.customerEmail ? [`Email: ${pendingOrder.customerEmail}`] : []),
+    `Payment Method: PayPal`,
+    `Payment Status: PAID`,
+    `PayPal Transaction ID: ${transactionId || 'N/A'}`,
+    '',
+    'Order Details:',
+    ...(pendingOrder.items || []).map((item) => `- ${item.quantity}x ${item.name} (${formatter.format(item.lineTotal || 0)})`),
+    '',
+    `Subtotal: ${formatter.format(totals.subtotal || 0)}`,
+    `Service: ${formatter.format(totals.service || 0)}`,
+    ...(totals.voucherDiscount > 0 ? [`Voucher: -${formatter.format(totals.voucherDiscount || 0)}`] : []),
+    `Order Total: ${formatter.format(totals.total || 0)}`
+  ];
+
+  return `${getWhatsAppBaseUrl()}?text=${encodeURIComponent(messageLines.join('\n'))}`;
+}
+
+async function sendCashOrderToWhatsApp() {
+  const orderContext = collectValidatedOrderContext();
+  if (!orderContext) {
+    return false;
+  }
+
+  const voucherResult = await redeemVoucherIfNeeded(orderContext);
+  if (!voucherResult.ok) {
+    formStatus.textContent = t('statusVoucherRecheckFailed');
+    setVoucherStatusMessage(resolveVoucherErrorMessage(voucherResult.error), true);
+    return false;
+  }
+  if (voucherResult.voucher) {
+    orderContext.voucherCode = voucherResult.voucher.code;
+    state.appliedVoucher = voucherResult.voucher;
+  }
+  orderContext.totals = getTotals();
+
+  try {
+    orderContext.orderId = await persistOrderInDatabase(orderContext, {
+      orderStatus: 'pending_confirmation'
+    });
+  } catch (error) {
+    console.error('Order persistence failed:', error);
+    formStatus.textContent = t('statusOrderSaveFailed');
+    return false;
+  }
+
+  const url = buildCashWhatsAppUrl(orderContext);
+  const opened = openWhatsApp(url);
+  formStatus.textContent = opened ? t('statusWhatsappOpening') : t('statusWhatsappBlocked');
+  return true;
+}
+
+async function startPayPalCheckoutFlow() {
+  const orderContext = collectValidatedOrderContext();
+  if (!orderContext) {
+    return false;
+  }
+
+  const voucherResult = await redeemVoucherIfNeeded(orderContext);
+  if (!voucherResult.ok) {
+    formStatus.textContent = t('statusVoucherRecheckFailed');
+    setVoucherStatusMessage(resolveVoucherErrorMessage(voucherResult.error), true);
+    return false;
+  }
+  if (voucherResult.voucher) {
+    orderContext.voucherCode = voucherResult.voucher.code;
+    state.appliedVoucher = voucherResult.voucher;
+  }
+  orderContext.totals = getTotals();
+
+  try {
+    orderContext.orderId = await persistOrderInDatabase(orderContext, {
+      orderStatus: 'payment_pending'
+    });
+  } catch (error) {
+    console.error('Order persistence failed:', error);
+    formStatus.textContent = t('statusOrderSaveFailed');
+    return false;
+  }
+
+  savePendingPayPalOrder(orderContext);
+  const paypalUrl = buildPayPalCheckoutUrl(orderContext);
+  formStatus.textContent = t('statusRedirectingPaypal');
+  window.location.href = paypalUrl;
+  return true;
+}
+
+function handlePayPalReturn() {
+  const url = new URL(window.location.href);
+  const params = url.searchParams;
+  const pendingOrder = readPendingPayPalOrder();
+
+  if (params.get('paypal_cancel') === '1') {
+    if (pendingOrder?.orderId) {
+      updateOrderStatus(pendingOrder.orderId, 'cancelled');
+    }
+    formStatus.textContent = t('statusPaypalCancelled');
+    clearPayPalReturnParams();
+    return;
+  }
+
+  const hasPayPalReturn = params.get('paypal_success') === '1' || params.has('tx') || params.has('st');
+  if (!hasPayPalReturn) {
+    return;
+  }
+
+  const transactionId = params.get('tx') || '';
+  const statusRaw = (params.get('st') || '').toLowerCase();
+  const isPaid =
+    statusRaw === 'completed' ||
+    statusRaw === 'paid' ||
+    statusRaw === 'success' ||
+    (Boolean(transactionId) && !statusRaw);
+  clearPayPalReturnParams();
+
+  if (!pendingOrder) {
+    formStatus.textContent = t('statusPaypalOrderMissing');
+    return;
+  }
+
+  if (!isPaid) {
+    formStatus.textContent = t('statusPaypalReturnPending');
+    return;
+  }
+
+  const lastSharedTx = localStorage.getItem(LAST_SHARED_PAYPAL_TX_KEY);
+  if (transactionId && lastSharedTx === transactionId) {
+    return;
+  }
+
+  const waUrl = buildPaidWhatsAppUrlFromPayPalReturn(pendingOrder, transactionId);
+  if (pendingOrder?.orderId) {
+    updateOrderStatus(pendingOrder.orderId, 'paid', transactionId);
+  }
+  if (transactionId) {
+    localStorage.setItem(LAST_SHARED_PAYPAL_TX_KEY, transactionId);
+  }
+
+  localStorage.removeItem(PENDING_PAYPAL_ORDER_KEY);
+  state.cart = {};
+  saveCart();
+  renderOrderSurfaces();
+  formStatus.textContent = t('statusWhatsappOpening');
+
+  openWhatsApp(waUrl);
+}
+
+async function handleCheckoutSubmit() {
+  if (getSelectedPayment() === 'paypal') {
+    return startPayPalCheckoutFlow();
+  }
+
+  return sendCashOrderToWhatsApp();
 }
 
 function renderCart() {
@@ -832,10 +2420,10 @@ function renderCart() {
       (item) => `
         <article class="cart-line">
           <div>
-            <h3>${escapeHtml(item.name)}</h3>
+            <h3>${escapeHtml(getItemDisplayName(item))}</h3>
             <p>${money.format(item.price)} each</p>
           </div>
-          ${renderStepper(item.id, item.name)}
+          ${renderStepper(item, getItemDisplayName(item))}
         </article>
       `
     )
@@ -844,8 +2432,13 @@ function renderCart() {
   emptyCart.hidden = lines.length > 0;
   cartCount.textContent = totalQuantity;
   subtotalEl.textContent = money.format(totals.subtotal);
-  deliveryFeeEl.textContent = money.format(totals.delivery);
   serviceFeeEl.textContent = money.format(totals.service);
+  if (voucherDiscountEl) {
+    voucherDiscountEl.textContent = `-${money.format(totals.voucherDiscount || 0)}`;
+  }
+  if (voucherTotalRow) {
+    voucherTotalRow.classList.toggle('is-hidden', !lines.length || !(totals.voucherDiscount > 0));
+  }
   minimumGapEl.textContent = money.format(totals.minimumGap);
   minimumRow.classList.toggle('is-hidden', !lines.length || totals.minimumGap === 0);
   totalEl.textContent = money.format(totals.total);
@@ -856,7 +2449,7 @@ function renderCart() {
   } else if (totals.minimumGap > 0) {
     checkoutButton.textContent = formatT('addMoreAmount', { amount: money.format(totals.minimumGap) });
   } else {
-    checkoutButton.textContent = t('payWithPaypal');
+    checkoutButton.textContent = getSelectedPayment() === 'paypal' ? t('buttonPayNow') : t('buttonPlaceOrder');
   }
 }
 
@@ -867,6 +2460,10 @@ function renderOrderSurfaces() {
 }
 
 function addItem(id) {
+  const item = itemById.get(id);
+  if (!item || item.available === false) {
+    return;
+  }
   state.cart[id] = (state.cart[id] || 0) + 1;
   saveCart();
   renderOrderSurfaces();
@@ -894,26 +2491,14 @@ function setCartOpen(isOpen) {
 
 function resetOrder() {
   state.cart = {};
+  clearAppliedVoucher();
   saveCart();
   checkoutForm.reset();
   checkoutForm.classList.remove('was-validated');
+  checkoutForm.elements.payment.value = 'paypal';
   formStatus.textContent = '';
+  setVoucherStatusMessage('');
   renderOrderSurfaces();
-}
-
-function buildPaypalUrl(totalAmount, orderNumber) {
-  const params = new URLSearchParams({
-    cmd: '_xclick',
-    business: BAGO_VENUE.paypalEmail,
-    item_name: `Bago Sushi Order #${orderNumber}`,
-    currency_code: 'EUR',
-    amount: totalAmount.toFixed(2),
-    no_shipping: '1',
-    charset: 'UTF-8',
-    lc: 'DE'
-  });
-
-  return `https://www.paypal.com/cgi-bin/webscr?${params.toString()}`;
 }
 
 function renderLegalContent(legalKey) {
@@ -1004,6 +2589,20 @@ menuSearch.addEventListener('input', () => {
   renderMenu();
 });
 
+if (categoryScrollLeft) {
+  categoryScrollLeft.addEventListener('click', () => scrollCategoryTabs(-1));
+}
+
+if (categoryScrollRight) {
+  categoryScrollRight.addEventListener('click', () => scrollCategoryTabs(1));
+}
+
+if (categoryTabs) {
+  categoryTabs.addEventListener('scroll', updateCategoryScrollButtons, { passive: true });
+}
+
+window.addEventListener('resize', updateCategoryScrollButtons);
+
 cartToggle.addEventListener('click', () => setCartOpen(true));
 jumpCart.addEventListener('click', () => setCartOpen(true));
 closeCart.addEventListener('click', () => setCartOpen(false));
@@ -1020,38 +2619,58 @@ checkoutForm.addEventListener('input', () => {
   validateCheckoutFields();
 });
 
-checkoutForm.addEventListener('submit', (event) => {
+if (voucherCodeInput) {
+  voucherCodeInput.addEventListener('input', () => {
+    const code = normalizeVoucherCodeValue(voucherCodeInput.value);
+    if (!code) {
+      clearAppliedVoucher();
+      setVoucherStatusMessage('');
+      renderCart();
+      return;
+    }
+    if (state.appliedVoucher?.code && state.appliedVoucher.code !== code) {
+      clearAppliedVoucher();
+      setVoucherStatusMessage('');
+      renderCart();
+    }
+  });
+}
+
+if (applyVoucherButton) {
+  applyVoucherButton.addEventListener('click', async () => {
+    applyVoucherButton.disabled = true;
+    try {
+      await applyVoucherCode();
+    } finally {
+      applyVoucherButton.disabled = false;
+    }
+  });
+}
+
+paymentMethods.addEventListener('change', () => {
+  formStatus.textContent = '';
+  renderCart();
+});
+
+checkoutForm.addEventListener('submit', async (event) => {
   event.preventDefault();
-  checkoutForm.classList.add('was-validated');
-  const totals = getTotals();
-
-  if (!getCartLines().length) {
-    formStatus.textContent = t('statusAddItemFirst');
-    return;
+  checkoutButton.disabled = true;
+  try {
+    await handleCheckoutSubmit();
+  } finally {
+    renderCart();
   }
-
-  if (totals.minimumGap > 0) {
-    formStatus.textContent = formatT('statusMinimumGap', {
-      minimum: money.format(BAGO_VENUE.orderMinimum),
-      gap: money.format(totals.minimumGap)
-    });
-    return;
-  }
-
-  validateCheckoutFields();
-  if (!checkoutForm.reportValidity()) {
-    return;
-  }
-
-  const orderNumber = Math.floor(1000 + Math.random() * 9000);
-  const paypalUrl = buildPaypalUrl(totals.total, orderNumber);
-  formStatus.textContent = t('statusRedirecting');
-  window.location.href = paypalUrl;
 });
 
 languageToggle.addEventListener('click', () => {
   toggleLanguageMenu();
 });
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    toggleTheme();
+  });
+}
 
 legalModalClose.addEventListener('click', closeLegalModal);
 legalModalCancel.addEventListener('click', closeLegalModal);
@@ -1064,10 +2683,22 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-if (heroImage && BAGO_VENUE.heroImage) {
-  heroImage.src = BAGO_VENUE.heroImage;
+if (heroImage && VENUE_CONFIG.heroImage) {
+  heroImage.src = VENUE_CONFIG.heroImage;
 }
 
-menuCount.textContent = menuItems.length;
-heroItemCount.textContent = menuItems.length;
-applyLanguage();
+if (mapsLink) {
+  mapsLink.href = buildPickupMapsUrl();
+}
+
+async function initializeApp() {
+  applyTheme(getInitialTheme());
+  setupInspectGuard();
+  await initializeMenuData();
+  menuCount.textContent = menuItems.length;
+  heroItemCount.textContent = menuItems.length;
+  applyLanguage();
+  handlePayPalReturn();
+}
+
+initializeApp();

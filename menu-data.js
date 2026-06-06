@@ -1,19 +1,51 @@
 const BAGO_VENUE = {
-  "name": "Bago Sushi & Asian ToGo",
-  "sourceUrl": "https://www.ubereats.com/de/store/bago-sushi-%26-asian-togo/-uzJFFqIVsq8Ga_EO4FTiw",
-  "sourceLabel": "Uber Eats",
-  "sourceFetchedAt": "2026-06-06T12:09:42.271Z",
+  "name": "Bago Sushi & Asian",
   "heroImage": "https://tb-static.uber.com/prod/image-proc/processed_images/fa5cd9dd636a53eed3f9ee50e5bc9686/5283d81c664b43c5f57a3a186d273063.jpeg",
   "logoImage": "assets/bago-logo.jpg",
-  "address": "Luftgasse 1, Ingolstadt, EMEA 85049",
+  "address": "Luftgasse 1, 85049 Ingolstadt",
+  "pickupLat": 48.76340717227785,
+  "pickupLng": 11.42234503860289,
   "orderMinimum": 12,
-  "deliveryBase": 0,
+  "preparationTime": "25-35 Min",
   "serviceFeePercent": 0,
   "serviceFeeMin": 0,
   "serviceFeeMax": 0,
-  "whatsappNumber": "+4915251003077",
-  "paypalEmail": "072abhi@gmail.com"
+  "whatsappNumber": "+491774675823",
+  "paypalEmail": "bagosushi123@gmail.com"
 };
+
+const BAGO_MOST_ORDERED = [
+  {
+    "id": "9d135ded-3718-4855-aeb1-e88606e31a64",
+    "name": "Crunchyroll Vegetarisch",
+    "fallbackId": "dfa7d813-04b1-4c41-95b9-1154d6689fe4"
+  },
+  {
+    "id": "0f172b10-4dfa-484b-a2be-5932602b756e",
+    "name": "L1 Futo Lachs Menü",
+    "fallbackId": "6006d85c-d298-4963-921c-4d5e800b0ca4"
+  },
+  {
+    "id": "e91dd37f-442c-4b87-9559-55dc81dae93d",
+    "name": "Rainbow Avocado",
+    "fallbackId": "1b87c2d3-bad3-4657-a3b5-e8e6558f70e7"
+  },
+  {
+    "id": "0868f950-f4d0-40be-a887-1785788a136b",
+    "name": "L6 Lachs Tunfisch Menü",
+    "fallbackId": "01de9501-dafd-47c4-8af6-a89bfd6a8447"
+  },
+  {
+    "id": "9f137685-756b-449f-9c4a-515e5e621247",
+    "name": "B2 Burrito Chicken",
+    "fallbackId": "b36da041-1226-4ee9-aefe-cfa52fb5cfb3"
+  },
+  {
+    "id": "d32dbff6-e00d-4d2a-a2e1-727514ad043a",
+    "name": "Mini Frühlingsrollen",
+    "fallbackId": "59e7496f-75d6-4af3-b0ac-53155c82a5fd"
+  }
+];
 
 const BAGO_CATEGORIES = [
   {

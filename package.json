@@ -1,0 +1,7 @@
+{
+  "name": "bago-sushi-asian-site",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  }
+}
