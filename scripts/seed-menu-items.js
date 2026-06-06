@@ -58,7 +58,7 @@ function loadSupabaseConfig(projectRoot) {
   const fromEnv = {
     url: String(process.env.BAGO_SUPABASE_URL || process.env.SUPABASE_URL || '').trim(),
     anonKey: String(process.env.BAGO_SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY || '').trim(),
-    menuTable: String(process.env.BAGO_SUPABASE_MENU_TABLE || 'menu_items').trim()
+    menuTable: 'menu_items'
   };
 
   if (fromEnv.url && fromEnv.anonKey) {

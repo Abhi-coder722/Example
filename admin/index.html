@@ -14,28 +14,60 @@
   </head>
   <body class="admin-page">
     <header class="admin-header">
-      <a class="admin-back" href="../index.html">← Zur Website</a>
+      <a class="admin-back" href="../index.html" data-i18n="adminBack">← Zur Website</a>
       <div class="admin-header-main">
-        <p class="eyebrow">Admin</p>
-        <h1>Menu Verwaltung</h1>
+        <p class="eyebrow" data-i18n="adminEyebrow">Admin</p>
+        <h1 data-i18n="adminTitle">Menü Verwaltung</h1>
       </div>
-      <button class="button glass" id="logoutButton" type="button" hidden>Logout</button>
+      <div class="admin-header-actions">
+        <div class="language-switcher" id="languageSwitcher">
+          <button
+            class="language-toggle"
+            id="languageToggle"
+            type="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="languageMenu"
+          >
+            <span id="languageLabel">German</span>
+            <span aria-hidden="true">▾</span>
+          </button>
+          <div class="language-menu" id="languageMenu" role="menu" hidden>
+            <button type="button" role="menuitemradio" data-language="de" aria-checked="true" data-i18n="langGerman">
+              German
+            </button>
+            <button type="button" role="menuitemradio" data-language="en" aria-checked="false" data-i18n="langEnglish">
+              English
+            </button>
+            <button type="button" role="menuitemradio" data-language="ru" aria-checked="false" data-i18n="langRussian">
+              Russian
+            </button>
+            <button type="button" role="menuitemradio" data-language="ja" aria-checked="false" data-i18n="langJapanese">
+              Japanese
+            </button>
+            <button type="button" role="menuitemradio" data-language="tr" aria-checked="false" data-i18n="langTurkish">
+              Turkish
+            </button>
+          </div>
+        </div>
+        <button class="button glass" id="logoutButton" type="button" hidden data-i18n="logoutButton">Logout</button>
+      </div>
     </header>
 
     <main class="admin-main">
       <section class="admin-card" id="loginCard">
-        <h2>Owner Login</h2>
-        <p>Melde dich mit deinem Supabase Account an, um Menüeinträge zu verwalten.</p>
+        <h2 data-i18n="loginTitle">Owner Login</h2>
+        <p data-i18n="loginIntro">Melde dich mit deinem Supabase Account an, um Menüeinträge zu verwalten.</p>
         <form id="loginForm" class="admin-form compact">
           <label>
-            <span>Email</span>
+            <span data-i18n="emailLabel">Email</span>
             <input name="email" type="email" autocomplete="email" required />
           </label>
           <label>
-            <span>Passwort</span>
+            <span data-i18n="passwordLabel">Passwort</span>
             <input name="password" type="password" autocomplete="current-password" required minlength="6" />
           </label>
-          <button class="button primary" type="submit">Einloggen</button>
+          <button class="button primary" type="submit" data-i18n="loginButton">Einloggen</button>
         </form>
         <p class="admin-status" id="loginStatus" aria-live="polite"></p>
       </section>
@@ -43,62 +75,69 @@
       <section class="admin-card" id="adminCard" hidden>
         <div class="admin-card-head">
           <div>
-            <h2>Menüeinträge</h2>
-            <p>Hinzufügen, bearbeiten, löschen, Sold-out setzen und Bilder hochladen.</p>
+            <h2 data-i18n="menuEntriesTitle">Menüeinträge</h2>
+            <p data-i18n="menuEntriesIntro">Hinzufügen, bearbeiten, löschen, Sold-out setzen und Bilder hochladen.</p>
           </div>
-          <button class="button glass" id="refreshItems" type="button">Aktualisieren</button>
+          <button class="button glass" id="refreshItems" type="button" data-i18n="refreshItems">Aktualisieren</button>
         </div>
 
         <form id="itemForm" class="admin-form">
           <input name="id" type="hidden" />
           <div class="admin-grid two">
             <label>
-              <span>Kategorie</span>
-              <input name="category" type="text" required maxlength="120" placeholder="z. B. Maki" />
+              <span data-i18n="categoryLabel">Kategorie</span>
+              <input
+                name="category"
+                type="text"
+                required
+                maxlength="120"
+                placeholder="z. B. Maki"
+                data-i18n-placeholder="categoryPlaceholder"
+              />
             </label>
             <label>
-              <span>Preis (EUR)</span>
+              <span data-i18n="priceLabel">Preis (EUR)</span>
               <input name="price" type="number" required min="0" max="999" step="0.01" placeholder="7.90" />
             </label>
           </div>
 
           <div class="admin-grid two">
             <label>
-              <span>Bild-URL (optional)</span>
+              <span data-i18n="imageUrlLabel">Bild-URL (optional)</span>
               <input name="image_url" type="url" placeholder="https://..." />
             </label>
             <label>
-              <span>Bild hochladen (optional)</span>
+              <span data-i18n="imageUploadLabel">Bild hochladen (optional)</span>
               <input name="image_file" type="file" accept="image/*" />
             </label>
           </div>
 
           <label class="toggle-field">
             <input name="available" type="checkbox" checked />
-            <span>Verfügbar (deaktivieren = Sold Out)</span>
+            <span data-i18n="availabilityLabel">Verfügbar (deaktivieren = Sold Out)</span>
           </label>
 
-          <h3>Namen</h3>
+          <h3 data-i18n="namesTitle">Namen</h3>
           <div class="admin-grid three">
-            <label><span>Deutsch</span><input name="name_de" type="text" required maxlength="160" /></label>
-            <label><span>English</span><input name="name_en" type="text" maxlength="160" /></label>
-            <label><span>Russian</span><input name="name_ru" type="text" maxlength="160" /></label>
-            <label><span>Japanese</span><input name="name_ja" type="text" maxlength="160" /></label>
-            <label><span>Turkish</span><input name="name_tr" type="text" maxlength="160" /></label>
+            <label><span data-i18n="langGerman">Deutsch</span><input name="name_de" type="text" required maxlength="160" /></label>
+            <label><span data-i18n="langEnglish">English</span><input name="name_en" type="text" maxlength="160" /></label>
+            <label><span data-i18n="langRussian">Russian</span><input name="name_ru" type="text" maxlength="160" /></label>
+            <label><span data-i18n="langJapanese">Japanese</span><input name="name_ja" type="text" maxlength="160" /></label>
+            <label><span data-i18n="langTurkish">Turkish</span><input name="name_tr" type="text" maxlength="160" /></label>
           </div>
 
-          <h3>Beschreibungen</h3>
+          <h3 data-i18n="descriptionsTitle">Beschreibungen</h3>
           <div class="admin-grid three descriptions">
-            <label><span>Deutsch</span><textarea name="description_de" rows="3" maxlength="500"></textarea></label>
-            <label><span>English</span><textarea name="description_en" rows="3" maxlength="500"></textarea></label>
-            <label><span>Russian</span><textarea name="description_ru" rows="3" maxlength="500"></textarea></label>
-            <label><span>Japanese</span><textarea name="description_ja" rows="3" maxlength="500"></textarea></label>
-            <label><span>Turkish</span><textarea name="description_tr" rows="3" maxlength="500"></textarea></label>
+            <label><span data-i18n="langGerman">Deutsch</span><textarea name="description_de" rows="3" maxlength="500"></textarea></label>
+            <label><span data-i18n="langEnglish">English</span><textarea name="description_en" rows="3" maxlength="500"></textarea></label>
+            <label><span data-i18n="langRussian">Russian</span><textarea name="description_ru" rows="3" maxlength="500"></textarea></label>
+            <label><span data-i18n="langJapanese">Japanese</span><textarea name="description_ja" rows="3" maxlength="500"></textarea></label>
+            <label><span data-i18n="langTurkish">Turkish</span><textarea name="description_tr" rows="3" maxlength="500"></textarea></label>
           </div>
 
           <div class="admin-actions">
             <button class="button primary" id="saveItem" type="submit">Eintrag speichern</button>
-            <button class="button glass" id="resetForm" type="button">Formular zurücksetzen</button>
+            <button class="button glass" id="resetForm" type="button" data-i18n="resetItemForm">Formular zurücksetzen</button>
           </div>
         </form>
 
@@ -108,11 +147,11 @@
           <table class="admin-table">
             <thead>
               <tr>
-                <th>Kategorie</th>
-                <th>Name (DE)</th>
-                <th>Preis</th>
-                <th>Status</th>
-                <th>Aktionen</th>
+                <th data-i18n="tableCategory">Kategorie</th>
+                <th data-i18n="tableNameDe">Name (DE)</th>
+                <th data-i18n="tablePrice">Preis</th>
+                <th data-i18n="tableStatus">Status</th>
+                <th data-i18n="tableActions">Aktionen</th>
               </tr>
             </thead>
             <tbody id="itemsTableBody"></tbody>
@@ -123,37 +162,41 @@
 
         <div class="admin-card-head">
           <div>
-            <h2>Voucher Verwaltung</h2>
-            <p>Codes erstellen, aktivieren/deaktivieren und Nutzungslimit steuern.</p>
+            <h2 data-i18n="voucherTitle">Voucher Verwaltung</h2>
+            <p data-i18n="voucherIntro">Codes erstellen, aktivieren/deaktivieren und Nutzungslimit steuern.</p>
           </div>
-          <button class="button glass" id="refreshVouchers" type="button">Vouchers aktualisieren</button>
+          <button class="button glass" id="refreshVouchers" type="button" data-i18n="refreshVouchers">
+            Vouchers aktualisieren
+          </button>
         </div>
 
         <form id="voucherForm" class="admin-form">
           <input name="id" type="hidden" />
           <div class="admin-grid three">
             <label>
-              <span>Code</span>
+              <span data-i18n="voucherCodeLabel">Code</span>
               <input name="code" type="text" required maxlength="40" placeholder="WELCOME10" />
             </label>
             <label>
-              <span>Rabattbetrag (EUR)</span>
+              <span data-i18n="voucherAmountLabel">Rabattbetrag (EUR)</span>
               <input name="discount_amount" type="number" required min="0.01" max="500" step="0.01" placeholder="2.00" />
             </label>
             <label>
-              <span>Nutzungslimit</span>
+              <span data-i18n="voucherUsageLimitLabel">Nutzungslimit</span>
               <input name="usage_limit" type="number" required min="1" step="1" value="1" />
             </label>
           </div>
 
           <label class="toggle-field">
             <input name="active" type="checkbox" checked />
-            <span>Aktiv</span>
+            <span data-i18n="voucherActiveLabel">Aktiv</span>
           </label>
 
           <div class="admin-actions">
             <button class="button primary" id="saveVoucher" type="submit">Voucher speichern</button>
-            <button class="button glass" id="resetVoucherForm" type="button">Voucher-Form zurücksetzen</button>
+            <button class="button glass" id="resetVoucherForm" type="button" data-i18n="resetVoucherForm">
+              Voucher-Form zurücksetzen
+            </button>
           </div>
         </form>
 
@@ -163,11 +206,11 @@
           <table class="admin-table">
             <thead>
               <tr>
-                <th>Code</th>
-                <th>Rabatt</th>
-                <th>Aktiv</th>
-                <th>Verwendung</th>
-                <th>Aktionen</th>
+                <th data-i18n="voucherTableCode">Code</th>
+                <th data-i18n="voucherTableDiscount">Rabatt</th>
+                <th data-i18n="voucherTableActive">Aktiv</th>
+                <th data-i18n="voucherTableUsage">Verwendung</th>
+                <th data-i18n="voucherTableActions">Aktionen</th>
               </tr>
             </thead>
             <tbody id="vouchersTableBody"></tbody>

@@ -11,6 +11,12 @@
   border-bottom: 1px solid var(--line);
 }
 
+.admin-header-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .admin-back {
   color: var(--muted);
   font-weight: 800;
@@ -239,7 +245,8 @@
     grid-template-columns: 1fr;
   }
 
-  .admin-header .button {
+  .admin-header .button,
+  .admin-header-actions {
     justify-self: start;
   }
 }

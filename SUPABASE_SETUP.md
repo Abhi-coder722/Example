@@ -69,19 +69,9 @@ Capabilities:
 - voucher active/inactive toggle
 - usage-limit management
 
-## 6. Optional fallback behavior
+## 6. Fallback behavior
 
-Set in `.env`:
-
-```bash
-BAGO_SUPABASE_USE_STATIC_FALLBACK=true
-```
-
-Then run:
-
-```bash
-npm run config:build
-```
+`useStaticFallback` is set in the generated runtime config and is no longer read from `.env`.
 
 ## 7. One-shot clean import from menu-data.js
 

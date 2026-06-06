@@ -43,11 +43,6 @@ function pick(envValues, key, fallback = '') {
   return fallback;
 }
 
-function asBool(value, fallback = false) {
-  if (value == null || String(value).trim() === '') return fallback;
-  return /^(1|true|yes|on)$/i.test(String(value).trim());
-}
-
 function main() {
   const root = process.cwd();
   const envPath = path.join(root, '.env');
@@ -59,13 +54,13 @@ function main() {
   const supabaseConfig = {
     url: pick(envValues, 'BAGO_SUPABASE_URL', ''),
     anonKey: pick(envValues, 'BAGO_SUPABASE_ANON_KEY', ''),
-    menuTable: pick(envValues, 'BAGO_SUPABASE_MENU_TABLE', 'menu_items'),
-    customersTable: pick(envValues, 'BAGO_SUPABASE_CUSTOMERS_TABLE', 'customers'),
-    ordersTable: pick(envValues, 'BAGO_SUPABASE_ORDERS_TABLE', 'orders'),
-    orderItemsTable: pick(envValues, 'BAGO_SUPABASE_ORDER_ITEMS_TABLE', 'order_items'),
-    vouchersTable: pick(envValues, 'BAGO_SUPABASE_VOUCHERS_TABLE', 'vouchers'),
-    storageBucket: pick(envValues, 'BAGO_SUPABASE_STORAGE_BUCKET', 'menu-images'),
-    useStaticFallback: asBool(pick(envValues, 'BAGO_SUPABASE_USE_STATIC_FALLBACK', 'false'), false)
+    menuTable: 'menu_items',
+    customersTable: 'customers',
+    ordersTable: 'orders',
+    orderItemsTable: 'order_items',
+    vouchersTable: 'vouchers',
+    storageBucket: 'menu-images',
+    useStaticFallback: false
   };
 
   const privateConfig = {

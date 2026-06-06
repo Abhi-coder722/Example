@@ -764,7 +764,7 @@ const LEGAL_TEXT = {
       paragraphs: [
         'Diensteanbieter: Bago Sushi & Asian',
         'Anschrift: Luftgasse 1, 85049 Ingolstadt, Deutschland',
-        'Kontakt: +49 1525 1003077, bagosushi123@gmail.com',
+        'Kontakt: +49 1774675823, bagosushi123@gmail.com',
         'Vertretungsberechtigte Person und Handelsregister/USt-ID bitte vor Live-Schaltung ergänzen.'
       ]
     },
@@ -773,7 +773,7 @@ const LEGAL_TEXT = {
       paragraphs: [
         'Service provider: Bago Sushi & Asian',
         'Address: Luftgasse 1, 85049 Ingolstadt, Germany',
-        'Contact: +49 1525 1003077, bagosushi123@gmail.com',
+        'Contact: +49 1774675823, bagosushi123@gmail.com',
         'Please complete authorized representative and register/VAT information before publishing.'
       ]
     },
@@ -782,7 +782,7 @@ const LEGAL_TEXT = {
       paragraphs: [
         'Поставщик услуг: Bago Sushi & Asian',
         'Адрес: Luftgasse 1, 85049 Ingolstadt, Германия',
-        'Контакты: +49 1525 1003077, bagosushi123@gmail.com',
+        'Контакты: +49 1774675823, bagosushi123@gmail.com',
         'Перед публикацией необходимо дополнить данные о представителе и регистрации/НДС.'
       ]
     },
@@ -791,7 +791,7 @@ const LEGAL_TEXT = {
       paragraphs: [
         '事業者: Bago Sushi & Asian',
         '住所: Luftgasse 1, 85049 Ingolstadt, Germany',
-        '連絡先: +49 1525 1003077, bagosushi123@gmail.com',
+        '連絡先: +49 1774675823, bagosushi123@gmail.com',
         '公開前に代表者名および登記/VAT情報を補完してください。'
       ]
     },
@@ -800,7 +800,7 @@ const LEGAL_TEXT = {
       paragraphs: [
         'Hizmet sağlayıcı: Bago Sushi & Asian',
         'Adres: Luftgasse 1, 85049 Ingolstadt, Almanya',
-        'İletişim: +49 1525 1003077, bagosushi123@gmail.com',
+        'İletişim: +49 1774675823, bagosushi123@gmail.com',
         'Yayın öncesinde yetkili kişi ve sicil/KDV bilgilerini tamamlayın.'
       ]
     }
@@ -927,7 +927,7 @@ const DEFAULT_VENUE_CONFIG = {
   serviceFeePercent: 0,
   serviceFeeMin: 0,
   serviceFeeMax: 0,
-  whatsappNumber: '+4915251003077',
+  whatsappNumber: '+491774675823',
   paypalEmail: ''
 };
 const LEGACY_VENUE_CONFIG = typeof BAGO_VENUE !== 'undefined' ? BAGO_VENUE : {};

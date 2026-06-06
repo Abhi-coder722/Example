@@ -81,7 +81,7 @@ test('complete checkout + voucher + order persistence + returning customer recog
 
   const firstOrder = runCheckout(db, {
     customerName: 'Pyaye',
-    customerPhone: '+49 1525 1003077',
+    customerPhone: '+49 1774675823',
     customerEmail: 'pyaye@example.com',
     paymentMethod: 'cash',
     voucherCode: 'welcome2',
@@ -102,7 +102,7 @@ test('complete checkout + voucher + order persistence + returning customer recog
 
   const secondOrder = runCheckout(db, {
     customerName: 'Pyaye Updated',
-    customerPhone: '+49 1525 1003077',
+    customerPhone: '+49 1774675823',
     customerEmail: 'pyaye@example.com',
     paymentMethod: 'paypal',
     voucherCode: 'WELCOME2',
