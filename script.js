@@ -914,6 +914,7 @@ const BAGO_SUPABASE = {
   ...DEFAULT_SUPABASE_CONFIG,
   ...(window.BAGO_SUPABASE || {})
 };
+const BAGO_PRIVATE = window.BAGO_PRIVATE && typeof window.BAGO_PRIVATE === 'object' ? window.BAGO_PRIVATE : {};
 
 const DEFAULT_VENUE_CONFIG = {
   name: 'Bago Sushi & Asian',
@@ -926,14 +927,15 @@ const DEFAULT_VENUE_CONFIG = {
   serviceFeePercent: 0,
   serviceFeeMin: 0,
   serviceFeeMax: 0,
-  whatsappNumber: '+491774675823',
+  whatsappNumber: '+4915251003077',
   paypalEmail: ''
 };
 const LEGACY_VENUE_CONFIG = typeof BAGO_VENUE !== 'undefined' ? BAGO_VENUE : {};
 const mergedVenueConfig = {
   ...DEFAULT_VENUE_CONFIG,
   ...LEGACY_VENUE_CONFIG,
-  ...(window.BAGO_VENUE || {})
+  ...(window.BAGO_VENUE || {}),
+  ...((BAGO_PRIVATE.venue && typeof BAGO_PRIVATE.venue === 'object' ? BAGO_PRIVATE.venue : {}))
 };
 if (!mergedVenueConfig.preparationTime && mergedVenueConfig.deliveryTime) {
   mergedVenueConfig.preparationTime = mergedVenueConfig.deliveryTime;

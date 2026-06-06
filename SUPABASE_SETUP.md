@@ -33,18 +33,18 @@ This applies:
 - voucher RPCs: `validate_voucher_code`, `redeem_voucher`
 - `menu-images` public storage bucket + policies
 
-## 4. Configure frontend keys
+## 4. Configure environment variables
 
-Edit `supabase-config.js` and set:
+1. Copy `.env.example` to `.env`
+2. Fill your own values in `.env`
+3. Generate local runtime config:
 
-- `url`
-- `anonKey`
-- optional `menuTable`
-- optional `customersTable`
-- optional `ordersTable`
-- optional `orderItemsTable`
-- optional `vouchersTable`
-- optional `storageBucket`
+```bash
+cd "/Users/abhishek.patel/Documents/New project-editable"
+npm run config:build
+```
+
+This creates a local `supabase-config.js` from `.env` (ignored by git).
 
 ## 5. Owner login for /admin
 
@@ -71,30 +71,34 @@ Capabilities:
 
 ## 6. Optional fallback behavior
 
-`supabase-config.js` has:
+Set in `.env`:
 
-```js
-useStaticFallback: false
+```bash
+BAGO_SUPABASE_USE_STATIC_FALLBACK=true
 ```
 
-Set to `true` if you want temporary local fallback data when Supabase is unavailable.
+Then run:
+
+```bash
+npm run config:build
+```
 
 ## 7. One-shot clean import from menu-data.js
 
 To clear old rows and import all current UberEats-derived menu entries:
 
-Option A (recommended): service role key
+Option A (recommended): put `SUPABASE_SERVICE_ROLE_KEY` in `.env` and run:
 
 ```bash
 cd "/Users/abhishek.patel/Documents/New project-editable"
-SUPABASE_SERVICE_ROLE_KEY="YOUR_SERVICE_ROLE_KEY" node scripts/seed-menu-items.js
+node scripts/seed-menu-items.js
 ```
 
-Option B: owner login (authenticated RLS path)
+Option B: owner login (authenticated RLS path). Put `OWNER_EMAIL` + `OWNER_PASSWORD` in `.env`, then:
 
 ```bash
 cd "/Users/abhishek.patel/Documents/New project-editable"
-OWNER_EMAIL="owner@restaurant.com" OWNER_PASSWORD="YOUR_PASSWORD" node scripts/seed-menu-items.js
+node scripts/seed-menu-items.js
 ```
 
 This script will:

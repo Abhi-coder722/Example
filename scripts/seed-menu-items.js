@@ -12,8 +12,66 @@ function fail(message, extra) {
   process.exit(1);
 }
 
+function parseEnv(raw) {
+  const values = {};
+
+  raw.split(/\r?\n/).forEach((line) => {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) return;
+
+    const separatorIndex = trimmed.indexOf('=');
+    if (separatorIndex <= 0) return;
+
+    const key = trimmed.slice(0, separatorIndex).trim();
+    let value = trimmed.slice(separatorIndex + 1).trim();
+
+    if (
+      (value.startsWith('"') && value.endsWith('"')) ||
+      (value.startsWith("'") && value.endsWith("'"))
+    ) {
+      value = value.slice(1, -1);
+    }
+
+    values[key] = value.replace(/\\n/g, '\n');
+  });
+
+  return values;
+}
+
+function applyDotEnv(projectRoot) {
+  const envPath = path.join(projectRoot, '.env');
+  if (!fs.existsSync(envPath)) {
+    return {};
+  }
+
+  const parsed = parseEnv(fs.readFileSync(envPath, 'utf8'));
+  Object.entries(parsed).forEach(([key, value]) => {
+    if (process.env[key] == null || process.env[key] === '') {
+      process.env[key] = value;
+    }
+  });
+
+  return parsed;
+}
+
 function loadSupabaseConfig(projectRoot) {
+  const fromEnv = {
+    url: String(process.env.BAGO_SUPABASE_URL || process.env.SUPABASE_URL || '').trim(),
+    anonKey: String(process.env.BAGO_SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY || '').trim(),
+    menuTable: String(process.env.BAGO_SUPABASE_MENU_TABLE || 'menu_items').trim()
+  };
+
+  if (fromEnv.url && fromEnv.anonKey) {
+    return fromEnv;
+  }
+
   const configPath = path.join(projectRoot, 'supabase-config.js');
+  if (!fs.existsSync(configPath)) {
+    fail(
+      'Missing Supabase config. Set BAGO_SUPABASE_URL and BAGO_SUPABASE_ANON_KEY in .env, then run npm run config:build.'
+    );
+  }
+
   const raw = fs.readFileSync(configPath, 'utf8');
   const match = raw.match(/window\.BAGO_SUPABASE\s*=\s*(\{[\s\S]*?\});?/);
   if (!match) fail('Could not parse supabase-config.js');
@@ -119,6 +177,7 @@ function buildAuthHeaders(anonKey, token) {
 
 async function main() {
   const projectRoot = process.cwd();
+  applyDotEnv(projectRoot);
   const config = loadSupabaseConfig(projectRoot);
   const menu = loadMenuData(projectRoot);
   const rows = buildRows(menu.categories);

@@ -68,11 +68,20 @@
         const messageNode = document.querySelector('#paymentMessage');
         const whatsappLink = document.querySelector('#whatsappLink');
 
-        const venue =
-          (window.BAGO_VENUE && typeof window.BAGO_VENUE === 'object' ? window.BAGO_VENUE : null) || {
-            name: 'Bago Sushi & Asian',
-            whatsappNumber: '+491774675823'
-          };
+        const privateVenue =
+          window.BAGO_PRIVATE &&
+          typeof window.BAGO_PRIVATE === 'object' &&
+          window.BAGO_PRIVATE.venue &&
+          typeof window.BAGO_PRIVATE.venue === 'object'
+            ? window.BAGO_PRIVATE.venue
+            : {};
+
+        const venue = {
+          name: 'Bago Sushi & Asian',
+          whatsappNumber: '+4915251003077',
+          ...((window.BAGO_VENUE && typeof window.BAGO_VENUE === 'object' ? window.BAGO_VENUE : null) || {}),
+          ...privateVenue
+        };
 
         function getWhatsAppBaseUrl() {
           const cleanPhone = String(venue.whatsappNumber || '').replace(/\D/g, '');

@@ -10,8 +10,8 @@ const BAGO_VENUE = {
   "serviceFeePercent": 0,
   "serviceFeeMin": 0,
   "serviceFeeMax": 0,
-  "whatsappNumber": "+491774675823",
-  "paypalEmail": "bagosushi123@gmail.com"
+  "whatsappNumber": "",
+  "paypalEmail": ""
 };
 
 const BAGO_MOST_ORDERED = [

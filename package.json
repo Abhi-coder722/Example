@@ -2,6 +2,7 @@
   "name": "bago-sushi-asian-site",
   "private": true,
   "scripts": {
+    "config:build": "node scripts/generate-supabase-config.js",
     "test": "node --test"
   }
 }
