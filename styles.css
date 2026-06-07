@@ -287,6 +287,64 @@ img {
   color: var(--dark-text);
 }
 
+.floating-cart-reminder {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 46;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 14px 0 12px;
+  border: 1px solid rgba(70, 231, 179, 0.42);
+  border-radius: 999px;
+  background: rgba(8, 11, 11, 0.9);
+  color: var(--ink);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(10px);
+  transition: transform 170ms ease, opacity 170ms ease, border-color 170ms ease;
+}
+
+.floating-cart-reminder:hover,
+.floating-cart-reminder:focus-visible {
+  border-color: rgba(70, 231, 179, 0.7);
+  transform: translateY(-1px);
+}
+
+.floating-cart-reminder.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+}
+
+.floating-cart-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.floating-cart-text {
+  font-size: 0.86rem;
+  font-weight: 850;
+}
+
+.floating-cart-count {
+  display: grid;
+  min-width: 24px;
+  height: 24px;
+  place-items: center;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--mint);
+  color: var(--dark-text);
+  font-size: 0.78rem;
+  font-weight: 950;
+}
+
+.floating-cart-reminder.has-items .floating-cart-count {
+  background: var(--wasabi);
+}
+
 .hero {
   position: relative;
   display: grid;
@@ -1492,6 +1550,13 @@ body[data-theme="light"] .language-menu button:focus-visible {
   color: #16322a;
 }
 
+body[data-theme="light"] .floating-cart-reminder {
+  border-color: rgba(16, 33, 28, 0.2);
+  background: rgba(255, 255, 255, 0.96);
+  color: #16322a;
+  box-shadow: 0 12px 28px rgba(10, 30, 24, 0.16);
+}
+
 .confirmation-panel {
   position: relative;
   width: min(520px, 100%);
@@ -1624,6 +1689,18 @@ body[data-theme="light"] .language-menu button:focus-visible {
     min-width: 40px;
   }
 
+  .floating-cart-reminder {
+    right: 12px;
+    bottom: 12px;
+    min-height: 44px;
+    padding: 0 8px;
+    gap: 6px;
+  }
+
+  .floating-cart-text {
+    display: none;
+  }
+
   .hero {
     min-height: 570px;
   }
@@ -1700,5 +1777,10 @@ body[data-theme="light"] .language-menu button:focus-visible {
   .brand strong {
     max-width: 122px;
     font-size: 0.86rem;
+  }
+
+  .floating-cart-reminder {
+    right: 10px;
+    bottom: 10px;
   }
 }

@@ -9,6 +9,8 @@ const TRANSLATIONS = {
     navMenu: 'Menü',
     navDetails: 'Details',
     cartLabel: 'Warenkorb',
+    floatingCartLabel: 'Warenkorb',
+    floatingCartAria: 'Warenkorb öffnen',
     heroCopy: 'Frisch, schnell und mit Liebe zubereitet in der Luftgasse 1 in Ingolstadt.',
     startOrder: 'Jetzt bestellen',
     viewCart: 'Warenkorb anzeigen',
@@ -118,6 +120,8 @@ const TRANSLATIONS = {
     navMenu: 'Menu',
     navDetails: 'Details',
     cartLabel: 'Cart',
+    floatingCartLabel: 'Cart',
+    floatingCartAria: 'Open cart',
     heroCopy: 'Fresh, fast, and prepared with care in Luftgasse 1, Ingolstadt.',
     startOrder: 'Start Order',
     viewCart: 'View Cart',
@@ -226,6 +230,8 @@ const TRANSLATIONS = {
     navMenu: 'Меню',
     navDetails: 'Детали',
     cartLabel: 'Корзина',
+    floatingCartLabel: 'Корзина',
+    floatingCartAria: 'Открыть корзину',
     heroCopy: 'Свежо, быстро и с заботой. Luftgasse 1, Ingolstadt.',
     startOrder: 'Начать заказ',
     viewCart: 'Открыть корзину',
@@ -335,6 +341,8 @@ const TRANSLATIONS = {
     navMenu: 'メニュー',
     navDetails: '店舗情報',
     cartLabel: 'カート',
+    floatingCartLabel: 'カート',
+    floatingCartAria: 'カートを開く',
     heroCopy: '新鮮でスピーディー。Luftgasse 1, Ingolstadt。',
     startOrder: '注文を始める',
     viewCart: 'カートを見る',
@@ -444,6 +452,8 @@ const TRANSLATIONS = {
     navMenu: 'Menü',
     navDetails: 'Detaylar',
     cartLabel: 'Sepet',
+    floatingCartLabel: 'Sepet',
+    floatingCartAria: 'Sepeti aç',
     heroCopy: 'Taze, hızlı ve özenle hazırlanır. Luftgasse 1, Ingolstadt.',
     startOrder: 'Siparişe Başla',
     viewCart: 'Sepeti Gör',
@@ -964,6 +974,8 @@ const mapsLink = document.querySelector('#mapsLink');
 const cartPanel = document.querySelector('#cartPanel');
 const cartBackdrop = document.querySelector('#cartBackdrop');
 const cartToggle = document.querySelector('#cartToggle');
+const floatingCartReminder = document.querySelector('#floatingCartReminder');
+const floatingCartCount = document.querySelector('#floatingCartCount');
 const closeCart = document.querySelector('#closeCart');
 const jumpCart = document.querySelector('#jumpCart');
 const cancelOrderButton = document.querySelector('#cancelOrder');
@@ -1464,6 +1476,9 @@ function applyStaticTranslations() {
     button.classList.toggle('is-active', active);
     button.setAttribute('aria-checked', String(active));
   });
+  if (floatingCartReminder) {
+    floatingCartReminder.setAttribute('aria-label', t('floatingCartAria'));
+  }
   updateThemeToggleLabel();
 
   if (heroMinimumValue) {
@@ -2412,6 +2427,14 @@ async function handleCheckoutSubmit() {
   return sendCashOrderToWhatsApp();
 }
 
+function syncFloatingCartReminder(totalQuantity = 0, isCartOpen = false) {
+  if (!floatingCartReminder || !floatingCartCount) return;
+  const safeQuantity = Number.isFinite(totalQuantity) ? Math.max(0, totalQuantity) : 0;
+  floatingCartCount.textContent = String(safeQuantity);
+  floatingCartReminder.classList.toggle('has-items', safeQuantity > 0);
+  floatingCartReminder.classList.toggle('is-hidden', isCartOpen);
+}
+
 function renderCart() {
   const lines = getCartLines();
   const totals = getTotals();
@@ -2433,6 +2456,7 @@ function renderCart() {
 
   emptyCart.hidden = lines.length > 0;
   cartCount.textContent = totalQuantity;
+  syncFloatingCartReminder(totalQuantity, cartPanel.classList.contains('is-open'));
   subtotalEl.textContent = money.format(totals.subtotal);
   serviceFeeEl.textContent = money.format(totals.service);
   if (voucherDiscountEl) {
@@ -2489,6 +2513,7 @@ function setCartOpen(isOpen) {
   cartBackdrop.hidden = !isOpen;
   document.body.classList.toggle('cart-open', isOpen);
   cartToggle.setAttribute('aria-expanded', String(isOpen));
+  syncFloatingCartReminder(Number.parseInt(cartCount.textContent, 10) || 0, isOpen);
 }
 
 function resetOrder() {
@@ -2606,6 +2631,9 @@ if (categoryTabs) {
 window.addEventListener('resize', updateCategoryScrollButtons);
 
 cartToggle.addEventListener('click', () => setCartOpen(true));
+if (floatingCartReminder) {
+  floatingCartReminder.addEventListener('click', () => setCartOpen(true));
+}
 jumpCart.addEventListener('click', () => setCartOpen(true));
 closeCart.addEventListener('click', () => setCartOpen(false));
 cartBackdrop.addEventListener('click', () => setCartOpen(false));
