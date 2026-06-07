@@ -41,6 +41,12 @@ const TRANSLATIONS = {
     tablePrice: 'Preis',
     tableStatus: 'Status',
     tableActions: 'Aktionen',
+    itemSearchLabel: 'Einträge suchen',
+    itemSearchPlaceholder: 'Nach Name, Kategorie oder Beschreibung suchen...',
+    paginationPrev: 'Zurück',
+    paginationNext: 'Weiter',
+    paginationInfo: 'Seite {page} von {totalPages}',
+    paginationSummary: '{from}-{to} von {total}',
     voucherTitle: 'Voucher Verwaltung',
     voucherIntro: 'Codes erstellen, aktivieren/deaktivieren und Nutzungslimit steuern.',
     refreshVouchers: 'Vouchers aktualisieren',
@@ -57,6 +63,7 @@ const TRANSLATIONS = {
     voucherTableUsage: 'Verwendung',
     voucherTableActions: 'Aktionen',
     statusNoMenuItems: 'Keine Menüeinträge vorhanden.',
+    statusNoMenuItemsFiltered: 'Keine Menüeinträge passend zur Suche.',
     statusNoVouchers: 'Keine Voucher vorhanden.',
     statusAvailable: 'Verfügbar',
     statusSoldOut: 'Sold Out',
@@ -127,7 +134,7 @@ const TRANSLATIONS = {
     availabilityLabel: 'Available (disable = Sold Out)',
     namesTitle: 'Names',
     descriptionsTitle: 'Descriptions',
-    langGerman: 'German',
+    langGerman: 'Deutsch',
     langEnglish: 'English',
     langRussian: 'Russian',
     langJapanese: 'Japanese',
@@ -140,6 +147,12 @@ const TRANSLATIONS = {
     tablePrice: 'Price',
     tableStatus: 'Status',
     tableActions: 'Actions',
+    itemSearchLabel: 'Search entries',
+    itemSearchPlaceholder: 'Search by name, category, or description...',
+    paginationPrev: 'Previous',
+    paginationNext: 'Next',
+    paginationInfo: 'Page {page} of {totalPages}',
+    paginationSummary: '{from}-{to} of {total}',
     voucherTitle: 'Voucher Management',
     voucherIntro: 'Create codes, activate/deactivate, and manage usage limits.',
     refreshVouchers: 'Refresh vouchers',
@@ -156,6 +169,7 @@ const TRANSLATIONS = {
     voucherTableUsage: 'Usage',
     voucherTableActions: 'Actions',
     statusNoMenuItems: 'No menu items available.',
+    statusNoMenuItemsFiltered: 'No menu entries match your search.',
     statusNoVouchers: 'No vouchers available.',
     statusAvailable: 'Available',
     statusSoldOut: 'Sold Out',
@@ -238,6 +252,12 @@ const TRANSLATIONS = {
     tablePrice: 'Цена',
     tableStatus: 'Статус',
     tableActions: 'Действия',
+    itemSearchLabel: 'Поиск записей',
+    itemSearchPlaceholder: 'Поиск по названию, категории или описанию...',
+    paginationPrev: 'Назад',
+    paginationNext: 'Вперёд',
+    paginationInfo: 'Страница {page} из {totalPages}',
+    paginationSummary: '{from}-{to} из {total}',
     voucherTitle: 'Управление ваучерами',
     voucherIntro: 'Создавайте коды, включайте/выключайте и управляйте лимитом использования.',
     refreshVouchers: 'Обновить ваучеры',
@@ -254,6 +274,7 @@ const TRANSLATIONS = {
     voucherTableUsage: 'Использование',
     voucherTableActions: 'Действия',
     statusNoMenuItems: 'Позиции меню отсутствуют.',
+    statusNoMenuItemsFiltered: 'По вашему запросу ничего не найдено.',
     statusNoVouchers: 'Ваучеры отсутствуют.',
     statusAvailable: 'Доступно',
     statusSoldOut: 'Sold Out',
@@ -336,6 +357,12 @@ const TRANSLATIONS = {
     tablePrice: '価格',
     tableStatus: 'ステータス',
     tableActions: '操作',
+    itemSearchLabel: '項目を検索',
+    itemSearchPlaceholder: '名前・カテゴリ・説明で検索...',
+    paginationPrev: '前へ',
+    paginationNext: '次へ',
+    paginationInfo: '{totalPages} ページ中 {page} ページ',
+    paginationSummary: '{total} 件中 {from}-{to}',
     voucherTitle: 'クーポン管理',
     voucherIntro: 'コード作成、有効/無効、利用上限を管理します。',
     refreshVouchers: 'クーポン更新',
@@ -352,6 +379,7 @@ const TRANSLATIONS = {
     voucherTableUsage: '利用数',
     voucherTableActions: '操作',
     statusNoMenuItems: 'メニュー項目がありません。',
+    statusNoMenuItemsFiltered: '検索条件に一致する項目がありません。',
     statusNoVouchers: 'クーポンがありません。',
     statusAvailable: '販売中',
     statusSoldOut: '売り切れ',
@@ -434,6 +462,12 @@ const TRANSLATIONS = {
     tablePrice: 'Fiyat',
     tableStatus: 'Durum',
     tableActions: 'İşlemler',
+    itemSearchLabel: 'Kayıt ara',
+    itemSearchPlaceholder: 'Ad, kategori veya açıklama ile ara...',
+    paginationPrev: 'Önceki',
+    paginationNext: 'Sonraki',
+    paginationInfo: 'Sayfa {page}/{totalPages}',
+    paginationSummary: '{from}-{to} / {total}',
     voucherTitle: 'Kupon Yönetimi',
     voucherIntro: 'Kod oluştur, aktif/pasif yap ve kullanım limitini yönet.',
     refreshVouchers: 'Kuponları yenile',
@@ -450,6 +484,7 @@ const TRANSLATIONS = {
     voucherTableUsage: 'Kullanım',
     voucherTableActions: 'İşlemler',
     statusNoMenuItems: 'Menü öğesi yok.',
+    statusNoMenuItemsFiltered: 'Aramayla eşleşen kayıt bulunamadı.',
     statusNoVouchers: 'Kupon yok.',
     statusAvailable: 'Mevcut',
     statusSoldOut: 'Tükendi',
@@ -501,7 +536,7 @@ const TRANSLATIONS = {
 };
 
 const LANGUAGE_NAMES = {
-  de: 'German',
+  de: 'Deutsch',
   en: 'English',
   ru: 'Russian',
   ja: 'Japanese',
@@ -517,6 +552,8 @@ const LANGUAGE_LOCALES = {
 };
 
 const LANGUAGE_STORAGE_KEY = 'bagoAdminLanguage';
+const ITEMS_PER_PAGE = 12;
+const VOUCHERS_PER_PAGE = 10;
 
 const loginCard = document.querySelector('#loginCard');
 const adminCard = document.querySelector('#adminCard');
@@ -532,7 +569,16 @@ const loginStatus = document.querySelector('#loginStatus');
 const adminStatus = document.querySelector('#adminStatus');
 const voucherStatus = document.querySelector('#voucherStatus');
 const itemsTableBody = document.querySelector('#itemsTableBody');
+const itemSearchInput = document.querySelector('#itemSearchInput');
 const vouchersTableBody = document.querySelector('#vouchersTableBody');
+const itemsPagination = document.querySelector('#itemsPagination');
+const itemsPrevPageButton = document.querySelector('#itemsPrevPage');
+const itemsNextPageButton = document.querySelector('#itemsNextPage');
+const itemsPageInfo = document.querySelector('#itemsPageInfo');
+const vouchersPagination = document.querySelector('#vouchersPagination');
+const vouchersPrevPageButton = document.querySelector('#vouchersPrevPage');
+const vouchersNextPageButton = document.querySelector('#vouchersNextPage');
+const vouchersPageInfo = document.querySelector('#vouchersPageInfo');
 const languageToggle = document.querySelector('#languageToggle');
 const languageMenu = document.querySelector('#languageMenu');
 const languageLabel = document.querySelector('#languageLabel');
@@ -543,6 +589,9 @@ const state = {
   busy: false,
   voucherBusy: false,
   session: null,
+  itemSearch: '',
+  itemsPage: 1,
+  vouchersPage: 1,
   language: getInitialLanguage()
 };
 
@@ -587,6 +636,56 @@ function formatEuro(value) {
   const amount = Number.parseFloat(value);
   const safe = Number.isFinite(amount) ? amount : 0;
   return moneyFormatter.format(safe);
+}
+
+function getTotalPages(totalCount, pageSize) {
+  return Math.max(1, Math.ceil(Math.max(0, totalCount) / pageSize));
+}
+
+function clampPage(page, totalPages) {
+  return Math.min(Math.max(1, page), Math.max(1, totalPages));
+}
+
+function paginateEntries(entries, currentPage, pageSize) {
+  const total = entries.length;
+  const totalPages = getTotalPages(total, pageSize);
+  const page = clampPage(currentPage, totalPages);
+  const startIndex = (page - 1) * pageSize;
+  const pageEntries = entries.slice(startIndex, startIndex + pageSize);
+  const from = total ? startIndex + 1 : 0;
+  const to = total ? Math.min(startIndex + pageSize, total) : 0;
+
+  return {
+    entries: pageEntries,
+    page,
+    total,
+    totalPages,
+    from,
+    to
+  };
+}
+
+function renderTablePagination(elements, pagination) {
+  const { container, prevButton, nextButton, infoNode } = elements;
+  if (!container || !prevButton || !nextButton || !infoNode) return;
+
+  if (!pagination.total) {
+    container.hidden = true;
+    infoNode.textContent = '';
+    return;
+  }
+
+  container.hidden = false;
+  prevButton.disabled = pagination.page <= 1;
+  nextButton.disabled = pagination.page >= pagination.totalPages;
+  infoNode.textContent = `${formatT('paginationInfo', {
+    page: pagination.page,
+    totalPages: pagination.totalPages
+  })} · ${formatT('paginationSummary', {
+    from: pagination.from,
+    to: pagination.to,
+    total: pagination.total
+  })}`;
 }
 
 function setStatus(target, message, isError = false) {
@@ -636,6 +735,33 @@ function getTranslations(prefix) {
 
 function compactObject(values) {
   return Object.fromEntries(Object.entries(values).filter(([, value]) => normalize(value)));
+}
+
+function buildSearchBlob(item) {
+  return [
+    item.category,
+    item.name,
+    item.name_de,
+    item.name_en,
+    item.name_ru,
+    item.name_ja,
+    item.name_tr,
+    item.description,
+    item.description_de,
+    item.description_en,
+    item.description_ru,
+    item.description_ja,
+    item.description_tr
+  ]
+    .map((value) => normalize(value).toLowerCase())
+    .filter(Boolean)
+    .join(' ');
+}
+
+function getFilteredItems() {
+  const query = normalize(state.itemSearch).toLowerCase();
+  if (!query) return state.items;
+  return state.items.filter((item) => buildSearchBlob(item).includes(query));
 }
 
 function buildPayload(imageUrl) {
@@ -697,27 +823,49 @@ function populateForm(item) {
 }
 
 function renderItems() {
-  if (!state.items.length) {
-    itemsTableBody.innerHTML = `<tr><td colspan="5">${escapeHtml(t('statusNoMenuItems'))}</td></tr>`;
+  if (!itemsTableBody) return;
+  const filteredItems = getFilteredItems();
+  const pagination = paginateEntries(filteredItems, state.itemsPage, ITEMS_PER_PAGE);
+  state.itemsPage = pagination.page;
+
+  if (!pagination.total) {
+    itemsTableBody.innerHTML = `<tr class="table-empty"><td data-label="" colspan="5">${escapeHtml(
+      state.items.length ? t('statusNoMenuItemsFiltered') : t('statusNoMenuItems')
+    )}</td></tr>`;
+    renderTablePagination(
+      {
+        container: itemsPagination,
+        prevButton: itemsPrevPageButton,
+        nextButton: itemsNextPageButton,
+        infoNode: itemsPageInfo
+      },
+      pagination
+    );
     return;
   }
 
-  itemsTableBody.innerHTML = state.items
+  const categoryLabel = escapeHtml(t('tableCategory'));
+  const nameLabel = escapeHtml(t('tableNameDe'));
+  const priceLabel = escapeHtml(t('tablePrice'));
+  const statusLabel = escapeHtml(t('tableStatus'));
+  const actionsLabel = escapeHtml(t('tableActions'));
+
+  itemsTableBody.innerHTML = pagination.entries
     .map((item) => {
       const name = item.name_de || item.name || '-';
       const statusLive = item.available !== false;
 
       return `
         <tr>
-          <td>${escapeHtml(item.category || '-')}</td>
-          <td>${escapeHtml(name)}</td>
-          <td>${escapeHtml(formatEuro(item.price))}</td>
-          <td>
+          <td data-label="${categoryLabel}">${escapeHtml(item.category || '-')}</td>
+          <td data-label="${nameLabel}">${escapeHtml(name)}</td>
+          <td data-label="${priceLabel}">${escapeHtml(formatEuro(item.price))}</td>
+          <td data-label="${statusLabel}">
             <span class="status-pill ${statusLive ? 'is-live' : 'is-sold'}">
               ${statusLive ? t('statusAvailable') : t('statusSoldOut')}
             </span>
           </td>
-          <td>
+          <td data-label="${actionsLabel}">
             <div class="row-actions">
               <button type="button" data-edit="${escapeHtml(item.id)}">${escapeHtml(t('actionEdit'))}</button>
               <button type="button" data-toggle="${escapeHtml(item.id)}">${escapeHtml(
@@ -730,6 +878,16 @@ function renderItems() {
       `;
     })
     .join('');
+
+  renderTablePagination(
+    {
+      container: itemsPagination,
+      prevButton: itemsPrevPageButton,
+      nextButton: itemsNextPageButton,
+      infoNode: itemsPageInfo
+    },
+    pagination
+  );
 }
 
 function populateVoucherForm(voucher) {
@@ -745,27 +903,47 @@ function populateVoucherForm(voucher) {
 
 function renderVouchers() {
   if (!vouchersTableBody) return;
-  if (!state.vouchers.length) {
-    vouchersTableBody.innerHTML = `<tr><td colspan="5">${escapeHtml(t('statusNoVouchers'))}</td></tr>`;
+  const pagination = paginateEntries(state.vouchers, state.vouchersPage, VOUCHERS_PER_PAGE);
+  state.vouchersPage = pagination.page;
+
+  if (!pagination.total) {
+    vouchersTableBody.innerHTML = `<tr class="table-empty"><td data-label="" colspan="5">${escapeHtml(
+      t('statusNoVouchers')
+    )}</td></tr>`;
+    renderTablePagination(
+      {
+        container: vouchersPagination,
+        prevButton: vouchersPrevPageButton,
+        nextButton: vouchersNextPageButton,
+        infoNode: vouchersPageInfo
+      },
+      pagination
+    );
     return;
   }
 
-  vouchersTableBody.innerHTML = state.vouchers
+  const codeLabel = escapeHtml(t('voucherTableCode'));
+  const discountLabel = escapeHtml(t('voucherTableDiscount'));
+  const activeLabel = escapeHtml(t('voucherTableActive'));
+  const usageLabel = escapeHtml(t('voucherTableUsage'));
+  const actionsLabel = escapeHtml(t('voucherTableActions'));
+
+  vouchersTableBody.innerHTML = pagination.entries
     .map((voucher) => {
       const isActive = voucher.active !== false;
       const usageLimit = Math.max(1, Number.parseInt(voucher.usage_limit, 10) || 1);
       const timesUsed = Math.max(0, Number.parseInt(voucher.times_used, 10) || 0);
       return `
         <tr>
-          <td>${escapeHtml(voucher.code || '-')}</td>
-          <td>${escapeHtml(formatEuro(voucher.discount_amount))}</td>
-          <td>
+          <td data-label="${codeLabel}">${escapeHtml(voucher.code || '-')}</td>
+          <td data-label="${discountLabel}">${escapeHtml(formatEuro(voucher.discount_amount))}</td>
+          <td data-label="${activeLabel}">
             <span class="status-pill ${isActive ? 'is-live' : 'is-sold'}">
               ${isActive ? t('statusActive') : t('statusInactive')}
             </span>
           </td>
-          <td>${timesUsed}/${usageLimit}</td>
-          <td>
+          <td data-label="${usageLabel}">${timesUsed}/${usageLimit}</td>
+          <td data-label="${actionsLabel}">
             <div class="row-actions">
               <button type="button" data-voucher-edit="${escapeHtml(voucher.id)}">${escapeHtml(t('actionEdit'))}</button>
               <button type="button" data-voucher-toggle="${escapeHtml(voucher.id)}">${escapeHtml(
@@ -778,6 +956,16 @@ function renderVouchers() {
       `;
     })
     .join('');
+
+  renderTablePagination(
+    {
+      container: vouchersPagination,
+      prevButton: vouchersPrevPageButton,
+      nextButton: vouchersNextPageButton,
+      infoNode: vouchersPageInfo
+    },
+    pagination
+  );
 }
 
 function closeLanguageMenu() {
@@ -807,7 +995,7 @@ function applyStaticTranslations() {
   });
 
   if (languageLabel) {
-    languageLabel.textContent = LANGUAGE_NAMES[state.language] || 'German';
+    languageLabel.textContent = LANGUAGE_NAMES[state.language] || 'Deutsch';
   }
 
   if (languageMenu) {
@@ -879,6 +1067,7 @@ async function refreshItems() {
   }
 
   state.items = Array.isArray(data) ? data : [];
+  state.itemsPage = clampPage(state.itemsPage, getTotalPages(getFilteredItems().length, ITEMS_PER_PAGE));
   renderItems();
   setStatus(adminStatus, formatT('statusItemsLoaded', { count: state.items.length }));
 }
@@ -902,6 +1091,7 @@ async function refreshVouchers() {
   }
 
   state.vouchers = Array.isArray(data) ? data : [];
+  state.vouchersPage = clampPage(state.vouchersPage, getTotalPages(state.vouchers.length, VOUCHERS_PER_PAGE));
   renderVouchers();
   setStatus(voucherStatus, formatT('statusVouchersLoaded', { count: state.vouchers.length }));
 }
@@ -921,6 +1111,12 @@ function setAuthState(session) {
   } else {
     state.items = [];
     state.vouchers = [];
+    state.itemSearch = '';
+    state.itemsPage = 1;
+    state.vouchersPage = 1;
+    if (itemSearchInput) {
+      itemSearchInput.value = '';
+    }
     renderItems();
     renderVouchers();
     clearVoucherForm();
@@ -1100,6 +1296,22 @@ async function deleteVoucher(id) {
   await refreshVouchers();
 }
 
+function changeItemsPage(delta) {
+  const totalPages = getTotalPages(getFilteredItems().length, ITEMS_PER_PAGE);
+  const nextPage = clampPage(state.itemsPage + delta, totalPages);
+  if (nextPage === state.itemsPage) return;
+  state.itemsPage = nextPage;
+  renderItems();
+}
+
+function changeVouchersPage(delta) {
+  const totalPages = getTotalPages(state.vouchers.length, VOUCHERS_PER_PAGE);
+  const nextPage = clampPage(state.vouchersPage + delta, totalPages);
+  if (nextPage === state.vouchersPage) return;
+  state.vouchersPage = nextPage;
+  renderVouchers();
+}
+
 async function handleTableActions(event) {
   const editButton = event.target.closest('[data-edit]');
   const toggleButton = event.target.closest('[data-toggle]');
@@ -1221,9 +1433,27 @@ if (resetVoucherFormButton) {
 }
 
 itemForm.addEventListener('submit', saveItem);
+
+if (itemSearchInput) {
+  itemSearchInput.addEventListener('input', () => {
+    state.itemSearch = itemSearchInput.value;
+    state.itemsPage = 1;
+    renderItems();
+  });
+}
+
 itemsTableBody.addEventListener('click', (event) => {
   handleTableActions(event);
 });
+
+if (itemsPrevPageButton && itemsNextPageButton) {
+  itemsPrevPageButton.addEventListener('click', () => {
+    changeItemsPage(-1);
+  });
+  itemsNextPageButton.addEventListener('click', () => {
+    changeItemsPage(1);
+  });
+}
 
 if (voucherForm) {
   voucherForm.addEventListener('submit', saveVoucher);
@@ -1232,6 +1462,15 @@ if (voucherForm) {
 if (vouchersTableBody) {
   vouchersTableBody.addEventListener('click', (event) => {
     handleVoucherTableActions(event);
+  });
+}
+
+if (vouchersPrevPageButton && vouchersNextPageButton) {
+  vouchersPrevPageButton.addEventListener('click', () => {
+    changeVouchersPage(-1);
+  });
+  vouchersNextPageButton.addEventListener('click', () => {
+    changeVouchersPage(1);
   });
 }
 

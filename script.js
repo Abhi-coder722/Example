@@ -551,11 +551,11 @@ const TRANSLATIONS = {
 };
 
 const LANGUAGE_NAMES = {
-  de: 'German',
-  en: 'English',
-  ru: 'Russian',
-  ja: 'Japanese',
-  tr: 'Turkish'
+  de: 'DE',
+  en: 'EN',
+  ru: 'RU',
+  ja: 'JA',
+  tr: 'TR'
 };
 
 const LANGUAGE_LOCALES = {
@@ -1458,7 +1458,7 @@ function applyStaticTranslations() {
     node.placeholder = t(key);
   });
 
-  languageLabel.textContent = LANGUAGE_NAMES[state.language] || 'German';
+  languageLabel.textContent = LANGUAGE_NAMES[state.language] || 'DE';
   languageMenu.querySelectorAll('[data-language]').forEach((button) => {
     const active = button.dataset.language === state.language;
     button.classList.toggle('is-active', active);

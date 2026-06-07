@@ -29,12 +29,12 @@
             aria-expanded="false"
             aria-controls="languageMenu"
           >
-            <span id="languageLabel">German</span>
+            <span id="languageLabel">Deutsch</span>
             <span aria-hidden="true">▾</span>
           </button>
           <div class="language-menu" id="languageMenu" role="menu" hidden>
             <button type="button" role="menuitemradio" data-language="de" aria-checked="true" data-i18n="langGerman">
-              German
+              Deutsch
             </button>
             <button type="button" role="menuitemradio" data-language="en" aria-checked="false" data-i18n="langEnglish">
               English
@@ -143,6 +143,19 @@
 
         <p class="admin-status" id="adminStatus" aria-live="polite"></p>
 
+        <div class="admin-table-tools">
+          <label class="admin-search" for="itemSearchInput">
+            <span data-i18n="itemSearchLabel">Einträge suchen</span>
+            <input
+              id="itemSearchInput"
+              type="search"
+              autocomplete="off"
+              data-i18n-placeholder="itemSearchPlaceholder"
+              placeholder="Nach Name, Kategorie oder Beschreibung suchen..."
+            />
+          </label>
+        </div>
+
         <div class="admin-table-wrap">
           <table class="admin-table">
             <thead>
@@ -156,6 +169,11 @@
             </thead>
             <tbody id="itemsTableBody"></tbody>
           </table>
+        </div>
+        <div class="table-pagination" id="itemsPagination" hidden>
+          <button class="button glass" id="itemsPrevPage" type="button" data-i18n="paginationPrev">Zurück</button>
+          <p class="table-pagination-info" id="itemsPageInfo"></p>
+          <button class="button glass" id="itemsNextPage" type="button" data-i18n="paginationNext">Weiter</button>
         </div>
 
         <hr class="admin-separator" />
@@ -215,6 +233,11 @@
             </thead>
             <tbody id="vouchersTableBody"></tbody>
           </table>
+        </div>
+        <div class="table-pagination" id="vouchersPagination" hidden>
+          <button class="button glass" id="vouchersPrevPage" type="button" data-i18n="paginationPrev">Zurück</button>
+          <p class="table-pagination-info" id="vouchersPageInfo"></p>
+          <button class="button glass" id="vouchersNextPage" type="button" data-i18n="paginationNext">Weiter</button>
         </div>
       </section>
     </main>
