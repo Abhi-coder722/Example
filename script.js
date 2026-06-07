@@ -84,6 +84,14 @@ const TRANSLATIONS = {
       'Jedes Gericht entsteht mit Leidenschaft, Sorgfalt und Fokus auf Qualität. Wir setzen auf frische Zutaten, ehrlichen Geschmack und eine Bestellung, die für unsere Gäste schnell, zuverlässig und unkompliziert ist.',
     aboutBody4:
       'Unser Ziel ist es, unsere Nachbarschaft mit kreativen Gerichten, fairen Preisen und echter Gastfreundschaft zu begeistern.',
+    allergensEyebrow: 'Zusatzstoffe & Allergene',
+    allergensTitle: 'Zusatzstoffe & Allergene',
+    allergensAdditives:
+      'Zusatzstoffe: 1=mit Farbstoff, 2=mit Konservierungsstoffen, 3=mit Antioxidationsmitteln, 4=mit Geschmacksverstärker, 5=geschwefelt, 6=geschwärzt, 7=mit Phosphat, 8=mit Süßungsmittel, 11=mit Nitritpökelsalz, 13=koffeinhaltig, 19=Laktose, 22=mit Zucker und Süßungsmitteln.',
+    allergensAllergens:
+      'Allergene: A=Gluten, A1=Weizen, A2=Roggen, A4=Hafer, B=Krebstiere, C=Eier, D=Fisch, F=Sojabohnen, G=Milch, L=Sellerie, M=Senf, N=Sesamsamen, O=Schwefeldioxid, R=Weichtiere.',
+    allergensDisclaimer:
+      'Alle Preise in EUR inkl. MwSt. und Bedienung. Für die Kennzeichnung der Speisen mit Zusatzstoffen und Allergenen übernehmen wir keine Haftung. Bei Fragen wenden Sie sich bitte an das Servicepersonal.',
     allLabel: 'Alle',
     itemSingle: 'Eintrag',
     itemPlural: 'Einträge',
@@ -194,6 +202,14 @@ const TRANSLATIONS = {
     aboutBody3:
       'Every dish is made with passion, care, and attention to quality. We focus on fresh ingredients, authentic taste, and a smooth customer experience.',
     aboutBody4: 'Our goal is to serve our neighborhood with creativity, fair prices, and genuine hospitality.',
+    allergensEyebrow: 'Additives & Allergens',
+    allergensTitle: 'Additives & Allergens',
+    allergensAdditives:
+      'Additives: 1=with colorant, 2=with preservatives, 3=with antioxidants, 4=with flavor enhancer, 5=sulphured, 6=blackened, 7=with phosphate, 8=with sweetener, 11=with nitrite curing salt, 13=contains caffeine, 19=lactose, 22=with sugar and sweeteners.',
+    allergensAllergens:
+      'Allergens: A=gluten, A1=wheat, A2=rye, A4=oats, B=crustaceans, C=eggs, D=fish, F=soybeans, G=milk, L=celery, M=mustard, N=sesame seeds, O=sulphur dioxide, R=molluscs.',
+    allergensDisclaimer:
+      'All prices are in EUR incl. VAT and service. We assume no liability for the labeling of dishes with additives and allergens. For questions, please contact our service staff.',
     allLabel: 'All',
     itemSingle: 'item',
     itemPlural: 'items',
@@ -305,6 +321,14 @@ const TRANSLATIONS = {
     aboutBody3:
       'Каждое блюдо готовится с вниманием и любовью к качеству. Мы используем свежие ингредиенты и заботимся о высоком уровне сервиса.',
     aboutBody4: 'Наша цель — радовать гостей креативными блюдами, честными ценами и настоящим гостеприимством.',
+    allergensEyebrow: 'Добавки и аллергены',
+    allergensTitle: 'Добавки и аллергены',
+    allergensAdditives:
+      'Добавки: 1=с красителем, 2=с консервантами, 3=с антиоксидантами, 4=с усилителем вкуса, 5=сульфитированные, 6=черненые, 7=с фосфатом, 8=с подсластителем, 11=с нитритной посолочной солью, 13=содержит кофеин, 19=лактоза, 22=с сахаром и подсластителями.',
+    allergensAllergens:
+      'Аллергены: A=глютен, A1=пшеница, A2=рожь, A4=овес, B=ракообразные, C=яйца, D=рыба, F=соевые бобы, G=молоко, L=сельдерей, M=горчица, N=кунжут, O=диоксид серы, R=моллюски.',
+    allergensDisclaimer:
+      'Все цены указаны в EUR, включая НДС и обслуживание. Мы не несем ответственности за маркировку блюд добавками и аллергенами. По вопросам обращайтесь к персоналу.',
     allLabel: 'Все',
     itemSingle: 'позиция',
     itemPlural: 'позиций',
@@ -416,6 +440,14 @@ const TRANSLATIONS = {
     aboutBody3:
       'すべての料理を情熱と丁寧さを持って作り、品質を大切にしています。新鮮な食材と満足度の高いサービスを重視しています。',
     aboutBody4: '地域のお客様に、創造的な料理と適正価格、温かいおもてなしを届けることが目標です。',
+    allergensEyebrow: '添加物とアレルゲン',
+    allergensTitle: '添加物とアレルゲン',
+    allergensAdditives:
+      '添加物: 1=着色料使用, 2=保存料使用, 3=酸化防止剤使用, 4=調味料(うま味調味料)使用, 5=亜硫酸塩処理, 6=黒色化, 7=リン酸塩使用, 8=甘味料使用, 11=亜硝酸塩入り塩せき剤使用, 13=カフェイン含有, 19=乳糖, 22=砂糖と甘味料使用。',
+    allergensAllergens:
+      'アレルゲン: A=グルテン, A1=小麦, A2=ライ麦, A4=オーツ麦, B=甲殻類, C=卵, D=魚, F=大豆, G=乳, L=セロリ, M=マスタード, N=ごま, O=二酸化硫黄, R=軟体類。',
+    allergensDisclaimer:
+      '価格はすべてEUR表記で、付加価値税およびサービス料を含みます。添加物・アレルゲン表示の正確性について、当店は責任を負いかねます。ご不明点はスタッフまでお尋ねください。',
     allLabel: 'すべて',
     itemSingle: '件',
     itemPlural: '件',
@@ -527,6 +559,14 @@ const TRANSLATIONS = {
     aboutBody3:
       'Her yemeği tutkuyla, özenle ve kalite odaklı hazırlıyoruz. Taze malzemeler ve müşteri memnuniyeti önceliğimizdir.',
     aboutBody4: 'Hedefimiz, mahallemize yaratıcı lezzetler, adil fiyatlar ve samimi misafirperverlik sunmaktır.',
+    allergensEyebrow: 'Katkı Maddeleri ve Alerjenler',
+    allergensTitle: 'Katkı Maddeleri ve Alerjenler',
+    allergensAdditives:
+      'Katkı maddeleri: 1=renklendirici içerir, 2=koruyucu içerir, 3=antioksidan içerir, 4=lezzet artırıcı içerir, 5=kükürtlenmiş, 6=siyahlaştırılmış, 7=fosfat içerir, 8=tatlandırıcı içerir, 11=nitritli kürleme tuzu içerir, 13=kafein içerir, 19=laktoz, 22=şeker ve tatlandırıcı içerir.',
+    allergensAllergens:
+      'Alerjenler: A=gluten, A1=buğday, A2=çavdar, A4=yulaf, B=kabuklular, C=yumurta, D=balık, F=soya fasulyesi, G=süt, L=kereviz, M=hardal, N=susam, O=kükürt dioksit, R=yumuşakçalar.',
+    allergensDisclaimer:
+      'Tüm fiyatlar EUR cinsindedir ve KDV ile servis dahildir. Yemeklerin katkı maddeleri ve alerjenlerle işaretlenmesine ilişkin sorumluluk kabul edilmez. Sorularınız için servis personeline başvurun.',
     allLabel: 'Tümü',
     itemSingle: 'ürün',
     itemPlural: 'ürün',

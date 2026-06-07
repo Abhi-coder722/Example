@@ -1415,6 +1415,24 @@ img {
   border-top: 1px solid var(--line);
 }
 
+.allergens-section {
+  padding: clamp(36px, 6vw, 62px) clamp(16px, 5vw, 64px) clamp(62px, 9vw, 102px);
+  border-top: 1px solid var(--line);
+}
+
+.allergens-copy {
+  display: grid;
+  gap: 10px;
+  max-width: 980px;
+}
+
+.allergens-copy p {
+  margin: 0;
+  color: var(--soft);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
 .legal-heading h2 {
   font-size: clamp(1.8rem, 4.4vw, 3rem);
 }
@@ -1555,6 +1573,12 @@ body[data-theme="light"] .floating-cart-reminder {
   background: rgba(255, 255, 255, 0.96);
   color: #16322a;
   box-shadow: 0 12px 28px rgba(10, 30, 24, 0.16);
+}
+
+body[data-theme="light"] .sold-out-pill {
+  border-color: rgba(185, 28, 28, 0.55);
+  background: rgba(220, 38, 38, 0.2);
+  color: #b91c1c;
 }
 
 .confirmation-panel {
