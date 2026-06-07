@@ -36,6 +36,13 @@ const TRANSLATIONS = {
     nameLabel: 'Name',
     phoneLabel: 'Telefon',
     emailLabel: 'E-Mail (optional)',
+    scheduleTitle: 'Bestellzeit',
+    scheduleAsap: 'Sofort',
+    scheduleLater: 'Später planen',
+    scheduleDateTimeLabel: 'Abholdatum und Uhrzeit',
+    scheduleHelpOpen: 'Geöffnet: Du kannst jetzt bestellen oder einen späteren Zeitpunkt wählen.',
+    scheduleHelpLater: 'Wähle ein Datum und eine Uhrzeit innerhalb der Öffnungszeiten.',
+    scheduleHelpClosed: 'Der Laden ist aktuell geschlossen. Bitte eine Abholzeit planen.',
     paymentTitle: 'Zahlung',
     paymentPaypal: 'PayPal',
     paymentCash: 'Barzahlung',
@@ -65,9 +72,18 @@ const TRANSLATIONS = {
     openMaps: 'In Google Maps öffnen',
     pickupOnlyNote: 'Alle Bestellungen werden aktuell zur Abholung im Laden vorbereitet.',
     hoursTitle: 'Öffnungszeiten',
+    hoursOpenNow: 'Aktuell geöffnet',
+    hoursClosedNow: 'Aktuell geschlossen',
     hoursWeekdays: 'Mo-Fr',
     hoursSaturday: 'Samstag',
     hoursSunday: 'Sonntag',
+    dayMonday: 'Montag',
+    dayTuesday: 'Dienstag',
+    dayWednesday: 'Mittwoch',
+    dayThursday: 'Donnerstag',
+    dayFriday: 'Freitag',
+    daySaturday: 'Samstag',
+    daySunday: 'Sonntag',
     closedLabel: 'Geschlossen',
     legalEyebrow: 'Rechtliches',
     legalTitle: 'Rechtliche Informationen',
@@ -103,8 +119,12 @@ const TRANSLATIONS = {
     phoneValidationEmpty: 'Bitte eine Telefonnummer eingeben.',
     phoneValidationInvalid: 'Bitte eine gültige Telefonnummer mit 8 bis 15 Ziffern eingeben.',
     emailValidationInvalid: 'Bitte eine gültige E-Mail-Adresse eingeben.',
+    scheduleValidationRequired: 'Bitte Datum und Uhrzeit für die geplante Abholung auswählen.',
+    scheduleValidationFuture: 'Die geplante Abholzeit muss in der Zukunft liegen.',
+    scheduleValidationWithinHours: 'Bitte eine Zeit innerhalb der Öffnungszeiten wählen.',
     statusAddItemFirst: 'Bitte zuerst mindestens einen Artikel hinzufügen.',
     statusMinimumGap: 'Mindestbestellwert {minimum}. Bitte noch {gap} hinzufügen.',
+    statusClosedScheduleRequired: 'Der Laden ist aktuell geschlossen. Bitte eine geplante Abholzeit wählen.',
     statusVoucherRequired: 'Bitte den Gutschein erst anwenden, bevor du fortfährst.',
     statusVoucherRecheckFailed: 'Gutschein konnte nicht eingelöst werden. Bitte erneut prüfen.',
     statusOrderSaveFailed: 'Bestellung konnte nicht gespeichert werden. Bitte erneut versuchen.',
@@ -119,6 +139,9 @@ const TRANSLATIONS = {
     waCustomer: 'Name',
     waPhone: 'Telefon',
     waPayment: 'Zahlung',
+    waFulfillment: 'Abholung',
+    waFulfillmentNow: 'Sofort',
+    waFulfillmentScheduled: 'Geplant für {datetime}',
     waItems: 'Artikel',
     themeSwitchToLight: 'Zu hellem Design wechseln',
     themeSwitchToDark: 'Zu dunklem Design wechseln'
@@ -155,6 +178,13 @@ const TRANSLATIONS = {
     nameLabel: 'Name',
     phoneLabel: 'Phone',
     emailLabel: 'Email (optional)',
+    scheduleTitle: 'Order time',
+    scheduleAsap: 'As soon as possible',
+    scheduleLater: 'Schedule for later',
+    scheduleDateTimeLabel: 'Pickup date and time',
+    scheduleHelpOpen: 'Open now: order immediately or schedule for later.',
+    scheduleHelpLater: 'Choose a pickup date and time within opening hours.',
+    scheduleHelpClosed: 'The restaurant is currently closed. Please schedule your pickup.',
     paymentTitle: 'Payment',
     paymentPaypal: 'PayPal',
     paymentCash: 'Cash',
@@ -184,9 +214,18 @@ const TRANSLATIONS = {
     openMaps: 'Open in Google Maps',
     pickupOnlyNote: 'All orders are currently prepared for pickup at our shop.',
     hoursTitle: 'Opening hours',
+    hoursOpenNow: 'Open now',
+    hoursClosedNow: 'Closed now',
     hoursWeekdays: 'Mon-Fri',
     hoursSaturday: 'Saturday',
     hoursSunday: 'Sunday',
+    dayMonday: 'Monday',
+    dayTuesday: 'Tuesday',
+    dayWednesday: 'Wednesday',
+    dayThursday: 'Thursday',
+    dayFriday: 'Friday',
+    daySaturday: 'Saturday',
+    daySunday: 'Sunday',
     closedLabel: 'Closed',
     legalEyebrow: 'Legal',
     legalTitle: 'Legal information',
@@ -221,8 +260,12 @@ const TRANSLATIONS = {
     phoneValidationEmpty: 'Please enter a phone number.',
     phoneValidationInvalid: 'Enter a valid phone number with 8 to 15 digits.',
     emailValidationInvalid: 'Enter a valid email address.',
+    scheduleValidationRequired: 'Please select a pickup date and time.',
+    scheduleValidationFuture: 'Scheduled pickup time must be in the future.',
+    scheduleValidationWithinHours: 'Please choose a time within opening hours.',
     statusAddItemFirst: 'Add at least one item first.',
     statusMinimumGap: 'Minimum order is {minimum}. Add {gap} more.',
+    statusClosedScheduleRequired: 'The restaurant is currently closed. Please select a scheduled pickup time.',
     statusVoucherRequired: 'Apply the voucher first before checkout.',
     statusVoucherRecheckFailed: 'Voucher could not be redeemed. Please re-apply.',
     statusOrderSaveFailed: 'Could not save your order. Please try again.',
@@ -237,6 +280,9 @@ const TRANSLATIONS = {
     waCustomer: 'Name',
     waPhone: 'Phone',
     waPayment: 'Payment',
+    waFulfillment: 'Pickup',
+    waFulfillmentNow: 'As soon as possible',
+    waFulfillmentScheduled: 'Scheduled for {datetime}',
     waItems: 'Items',
     themeSwitchToLight: 'Switch to light theme',
     themeSwitchToDark: 'Switch to dark theme'
@@ -273,6 +319,13 @@ const TRANSLATIONS = {
     nameLabel: 'Имя',
     phoneLabel: 'Телефон',
     emailLabel: 'E-mail (необязательно)',
+    scheduleTitle: 'Время заказа',
+    scheduleAsap: 'Как можно скорее',
+    scheduleLater: 'Запланировать позже',
+    scheduleDateTimeLabel: 'Дата и время самовывоза',
+    scheduleHelpOpen: 'Сейчас открыто: можно заказать сразу или запланировать время.',
+    scheduleHelpLater: 'Выберите дату и время в рамках часов работы.',
+    scheduleHelpClosed: 'Сейчас закрыто. Пожалуйста, запланируйте время самовывоза.',
     paymentTitle: 'Оплата',
     paymentPaypal: 'PayPal',
     paymentCash: 'Наличные',
@@ -303,9 +356,18 @@ const TRANSLATIONS = {
     openMaps: 'Открыть в Google Maps',
     pickupOnlyNote: 'Сейчас все заказы подготавливаются для самовывоза из нашего магазина.',
     hoursTitle: 'Часы работы',
+    hoursOpenNow: 'Сейчас открыто',
+    hoursClosedNow: 'Сейчас закрыто',
     hoursWeekdays: 'Пн-Пт',
     hoursSaturday: 'Суббота',
     hoursSunday: 'Воскресенье',
+    dayMonday: 'Понедельник',
+    dayTuesday: 'Вторник',
+    dayWednesday: 'Среда',
+    dayThursday: 'Четверг',
+    dayFriday: 'Пятница',
+    daySaturday: 'Суббота',
+    daySunday: 'Воскресенье',
     closedLabel: 'Закрыто',
     legalEyebrow: 'Юридическая информация',
     legalTitle: 'Юридическая информация',
@@ -340,8 +402,12 @@ const TRANSLATIONS = {
     phoneValidationEmpty: 'Пожалуйста, укажите номер телефона.',
     phoneValidationInvalid: 'Введите корректный номер телефона (8-15 цифр).',
     emailValidationInvalid: 'Введите корректный адрес электронной почты.',
+    scheduleValidationRequired: 'Выберите дату и время самовывоза.',
+    scheduleValidationFuture: 'Запланированное время должно быть в будущем.',
+    scheduleValidationWithinHours: 'Выберите время в рамках часов работы.',
     statusAddItemFirst: 'Сначала добавьте хотя бы одну позицию.',
     statusMinimumGap: 'Минимальный заказ: {minimum}. Добавьте еще {gap}.',
+    statusClosedScheduleRequired: 'Сейчас закрыто. Пожалуйста, выберите запланированное время самовывоза.',
     statusVoucherRequired: 'Сначала примените купон перед оформлением заказа.',
     statusVoucherRecheckFailed: 'Купон не удалось списать. Примените заново.',
     statusOrderSaveFailed: 'Не удалось сохранить заказ. Попробуйте еще раз.',
@@ -356,6 +422,9 @@ const TRANSLATIONS = {
     waCustomer: 'Имя',
     waPhone: 'Телефон',
     waPayment: 'Оплата',
+    waFulfillment: 'Самовывоз',
+    waFulfillmentNow: 'Как можно скорее',
+    waFulfillmentScheduled: 'Запланировано на {datetime}',
     waItems: 'Позиции',
     themeSwitchToLight: 'Переключить на светлую тему',
     themeSwitchToDark: 'Переключить на тёмную тему'
@@ -392,6 +461,13 @@ const TRANSLATIONS = {
     nameLabel: '名前',
     phoneLabel: '電話番号',
     emailLabel: 'メール（任意）',
+    scheduleTitle: '受け取り時間',
+    scheduleAsap: 'できるだけ早く',
+    scheduleLater: '日時を指定',
+    scheduleDateTimeLabel: '受け取り日時',
+    scheduleHelpOpen: '現在営業中です。今すぐ注文するか、後の時間を指定できます。',
+    scheduleHelpLater: '営業時間内の受け取り日時を選択してください。',
+    scheduleHelpClosed: '現在休業中です。受け取り日時を指定してください。',
     paymentTitle: '支払い',
     paymentPaypal: 'PayPal',
     paymentCash: '現金',
@@ -422,9 +498,18 @@ const TRANSLATIONS = {
     openMaps: 'Google Mapsで開く',
     pickupOnlyNote: '現在すべてのご注文は店舗受け取りでご用意しています。',
     hoursTitle: '営業時間',
+    hoursOpenNow: '現在営業中',
+    hoursClosedNow: '現在休業中',
     hoursWeekdays: '月-金',
     hoursSaturday: '土曜日',
     hoursSunday: '日曜日',
+    dayMonday: '月曜日',
+    dayTuesday: '火曜日',
+    dayWednesday: '水曜日',
+    dayThursday: '木曜日',
+    dayFriday: '金曜日',
+    daySaturday: '土曜日',
+    daySunday: '日曜日',
     closedLabel: '休業',
     legalEyebrow: '法的情報',
     legalTitle: '法的情報',
@@ -459,8 +544,12 @@ const TRANSLATIONS = {
     phoneValidationEmpty: '電話番号を入力してください。',
     phoneValidationInvalid: '8〜15桁の有効な電話番号を入力してください。',
     emailValidationInvalid: '有効なメールアドレスを入力してください。',
+    scheduleValidationRequired: '受け取り日時を選択してください。',
+    scheduleValidationFuture: '受け取り日時は現在より後の時間を指定してください。',
+    scheduleValidationWithinHours: '営業時間内の時間を選択してください。',
     statusAddItemFirst: 'まず商品を追加してください。',
     statusMinimumGap: '最低注文額は {minimum} です。あと {gap} 追加してください。',
+    statusClosedScheduleRequired: '現在休業中です。受け取り日時を指定してください。',
     statusVoucherRequired: 'チェックアウト前にクーポンを適用してください。',
     statusVoucherRecheckFailed: 'クーポンを利用できませんでした。再度適用してください。',
     statusOrderSaveFailed: '注文を保存できませんでした。もう一度お試しください。',
@@ -475,6 +564,9 @@ const TRANSLATIONS = {
     waCustomer: 'お名前',
     waPhone: '電話番号',
     waPayment: '支払い',
+    waFulfillment: '受け取り',
+    waFulfillmentNow: 'できるだけ早く',
+    waFulfillmentScheduled: '{datetime} に受け取り予定',
     waItems: '注文商品',
     themeSwitchToLight: 'ライトテーマに切り替え',
     themeSwitchToDark: 'ダークテーマに切り替え'
@@ -511,6 +603,13 @@ const TRANSLATIONS = {
     nameLabel: 'Ad',
     phoneLabel: 'Telefon',
     emailLabel: 'E-posta (opsiyonel)',
+    scheduleTitle: 'Sipariş zamanı',
+    scheduleAsap: 'Mümkün olan en kısa sürede',
+    scheduleLater: 'Daha sonra planla',
+    scheduleDateTimeLabel: 'Teslim alma tarihi ve saati',
+    scheduleHelpOpen: 'Şu an açık: hemen sipariş verebilir veya ileri bir saat seçebilirsin.',
+    scheduleHelpLater: 'Açılış saatleri içinde bir tarih ve saat seçin.',
+    scheduleHelpClosed: 'Restoran şu an kapalı. Lütfen teslim alma zamanını planlayın.',
     paymentTitle: 'Ödeme',
     paymentPaypal: 'PayPal',
     paymentCash: 'Nakit',
@@ -541,9 +640,18 @@ const TRANSLATIONS = {
     openMaps: 'Google Maps\'te aç',
     pickupOnlyNote: 'Şu anda tüm siparişler mağazamızdan teslim alınmak üzere hazırlanır.',
     hoursTitle: 'Açılış saatleri',
+    hoursOpenNow: 'Şu anda açık',
+    hoursClosedNow: 'Şu anda kapalı',
     hoursWeekdays: 'Pzt-Cuma',
     hoursSaturday: 'Cumartesi',
     hoursSunday: 'Pazar',
+    dayMonday: 'Pazartesi',
+    dayTuesday: 'Salı',
+    dayWednesday: 'Çarşamba',
+    dayThursday: 'Perşembe',
+    dayFriday: 'Cuma',
+    daySaturday: 'Cumartesi',
+    daySunday: 'Pazar',
     closedLabel: 'Kapalı',
     legalEyebrow: 'Yasal',
     legalTitle: 'Yasal bilgiler',
@@ -578,8 +686,12 @@ const TRANSLATIONS = {
     phoneValidationEmpty: 'Lütfen telefon numarası girin.',
     phoneValidationInvalid: '8-15 haneli geçerli bir telefon numarası girin.',
     emailValidationInvalid: 'Lütfen geçerli bir e-posta adresi girin.',
+    scheduleValidationRequired: 'Lütfen teslim alma tarihini ve saatini seçin.',
+    scheduleValidationFuture: 'Planlanan teslim alma saati gelecekte olmalıdır.',
+    scheduleValidationWithinHours: 'Lütfen açılış saatleri içinde bir zaman seçin.',
     statusAddItemFirst: 'Önce en az bir ürün ekleyin.',
     statusMinimumGap: 'Minimum sipariş {minimum}. Lütfen {gap} daha ekleyin.',
+    statusClosedScheduleRequired: 'Restoran şu an kapalı. Lütfen planlı teslim alma zamanı seçin.',
     statusVoucherRequired: 'Ödeme öncesi kuponu uygulayın.',
     statusVoucherRecheckFailed: 'Kupon kullanılamadı. Lütfen yeniden uygulayın.',
     statusOrderSaveFailed: 'Sipariş kaydedilemedi. Lütfen tekrar deneyin.',
@@ -594,6 +706,9 @@ const TRANSLATIONS = {
     waCustomer: 'Ad',
     waPhone: 'Telefon',
     waPayment: 'Ödeme',
+    waFulfillment: 'Teslim alma',
+    waFulfillmentNow: 'Mümkün olan en kısa sürede',
+    waFulfillmentScheduled: '{datetime} için planlandı',
     waItems: 'Ürünler',
     themeSwitchToLight: 'Açık temaya geç',
     themeSwitchToDark: 'Koyu temaya geç'
@@ -815,7 +930,7 @@ const LEGAL_TEXT = {
         'Diensteanbieter: Bago Sushi & Asian',
         'Anschrift: Luftgasse 1, 85049 Ingolstadt, Deutschland',
         'Kontakt: +49 1774675823, bagosushi123@gmail.com',
-        'Vertretungsberechtigte Person und Handelsregister/USt-ID bitte vor Live-Schaltung ergänzen.'
+        'Vertretungsberechtigte Person: Pyae sone zaw'
       ]
     },
     en: {
@@ -824,7 +939,7 @@ const LEGAL_TEXT = {
         'Service provider: Bago Sushi & Asian',
         'Address: Luftgasse 1, 85049 Ingolstadt, Germany',
         'Contact: +49 1774675823, bagosushi123@gmail.com',
-        'Please complete authorized representative and register/VAT information before publishing.'
+        'Authorized representative: Pyae sone zaw'
       ]
     },
     ru: {
@@ -833,7 +948,7 @@ const LEGAL_TEXT = {
         'Поставщик услуг: Bago Sushi & Asian',
         'Адрес: Luftgasse 1, 85049 Ingolstadt, Германия',
         'Контакты: +49 1774675823, bagosushi123@gmail.com',
-        'Перед публикацией необходимо дополнить данные о представителе и регистрации/НДС.'
+        'Уполномоченный представитель: Pyae sone zaw'
       ]
     },
     ja: {
@@ -842,7 +957,7 @@ const LEGAL_TEXT = {
         '事業者: Bago Sushi & Asian',
         '住所: Luftgasse 1, 85049 Ingolstadt, Germany',
         '連絡先: +49 1774675823, bagosushi123@gmail.com',
-        '公開前に代表者名および登記/VAT情報を補完してください。'
+        '代表者名: Pyae sone zaw'
       ]
     },
     tr: {
@@ -851,7 +966,7 @@ const LEGAL_TEXT = {
         'Hizmet sağlayıcı: Bago Sushi & Asian',
         'Adres: Luftgasse 1, 85049 Ingolstadt, Almanya',
         'İletişim: +49 1774675823, bagosushi123@gmail.com',
-        'Yayın öncesinde yetkili kişi ve sicil/KDV bilgilerini tamamlayın.'
+        'Yetkili temsilci: Pyae sone zaw'
       ]
     }
   },
@@ -943,7 +1058,8 @@ const state = {
   language: 'de',
   theme: 'dark',
   activeLegalKey: null,
-  appliedVoucher: null
+  appliedVoucher: null,
+  openingHours: {}
 };
 
 const THEME_STORAGE_KEY = 'bagoTheme';
@@ -957,6 +1073,7 @@ const DEFAULT_SUPABASE_CONFIG = {
   ordersTable: 'orders',
   orderItemsTable: 'order_items',
   vouchersTable: 'vouchers',
+  openingHoursTable: 'opening_hours',
   storageBucket: 'menu-images',
   useStaticFallback: true
 };
@@ -995,6 +1112,16 @@ const VENUE_CONFIG = mergedVenueConfig;
 const STATIC_CATEGORIES = typeof BAGO_CATEGORIES !== 'undefined' && Array.isArray(BAGO_CATEGORIES) ? BAGO_CATEGORIES : [];
 const STATIC_MOST_ORDERED = typeof BAGO_MOST_ORDERED !== 'undefined' && Array.isArray(BAGO_MOST_ORDERED) ? BAGO_MOST_ORDERED : [];
 const BAGO_BIZ = window.BagoBusiness || {};
+const OPENING_HOURS_DISPLAY_ORDER = [1, 2, 3, 4, 5, 6, 0];
+const DAY_LABEL_KEYS = {
+  0: 'daySunday',
+  1: 'dayMonday',
+  2: 'dayTuesday',
+  3: 'dayWednesday',
+  4: 'dayThursday',
+  5: 'dayFriday',
+  6: 'daySaturday'
+};
 
 const menuTextCache = new Map();
 let money = buildMoneyFormatter(state.language);
@@ -1010,6 +1137,8 @@ const heroItemCount = document.querySelector('#heroItemCount');
 const heroImage = document.querySelector('#heroImage');
 const heroMinimumValue = document.querySelector('#heroMinimumValue');
 const mapsLink = document.querySelector('#mapsLink');
+const hoursList = document.querySelector('#hoursList');
+const hoursStatusLine = document.querySelector('#hoursStatusLine');
 
 const cartPanel = document.querySelector('#cartPanel');
 const cartBackdrop = document.querySelector('#cartBackdrop');
@@ -1034,10 +1163,16 @@ const totalEl = document.querySelector('#total');
 const checkoutButton = document.querySelector('#checkoutButton');
 const checkoutForm = document.querySelector('#checkoutForm');
 const paymentMethods = document.querySelector('#paymentMethods');
+const fulfillmentMethods = document.querySelector('#fulfillmentMethods');
 const formStatus = document.querySelector('#formStatus');
 const nameInput = checkoutForm.elements.name;
 const phoneInput = checkoutForm.elements.phone;
 const emailInput = checkoutForm.elements.email;
+const scheduledAtInput = checkoutForm.elements.scheduled_at;
+const scheduledAtField = document.querySelector('#scheduledAtField');
+const scheduleHelp = document.querySelector('#scheduleHelp');
+const fulfillmentAsapLabel = document.querySelector('#fulfillmentAsapLabel');
+const fulfillmentScheduledLabel = document.querySelector('#fulfillmentScheduledLabel');
 const voucherCodeInput = document.querySelector('#voucherCode');
 const applyVoucherButton = document.querySelector('#applyVoucher');
 const voucherStatus = document.querySelector('#voucherStatus');
@@ -1223,6 +1358,194 @@ function buildPickupMapsUrl() {
       ? `${lat},${lng}`
       : String(VENUE_CONFIG.address || 'Luftgasse 1, 85049 Ingolstadt');
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
+function pad2(value) {
+  return String(value).padStart(2, '0');
+}
+
+function normalizeTimeText(value) {
+  const raw = String(value || '').trim();
+  const match = raw.match(/^(\d{1,2}):(\d{2})/);
+  if (!match) return '';
+  const hour = Number.parseInt(match[1], 10);
+  const minute = Number.parseInt(match[2], 10);
+  if (!Number.isFinite(hour) || !Number.isFinite(minute) || hour < 0 || hour > 23 || minute < 0 || minute > 59) {
+    return '';
+  }
+  return `${pad2(hour)}:${pad2(minute)}`;
+}
+
+function getDefaultOpeningHours() {
+  return {
+    0: { dayOfWeek: 0, isClosed: true, opensAt: '', closesAt: '' },
+    1: { dayOfWeek: 1, isClosed: false, opensAt: '11:30', closesAt: '20:00' },
+    2: { dayOfWeek: 2, isClosed: false, opensAt: '11:30', closesAt: '20:00' },
+    3: { dayOfWeek: 3, isClosed: false, opensAt: '11:30', closesAt: '20:00' },
+    4: { dayOfWeek: 4, isClosed: false, opensAt: '11:30', closesAt: '20:00' },
+    5: { dayOfWeek: 5, isClosed: false, opensAt: '11:30', closesAt: '20:00' },
+    6: { dayOfWeek: 6, isClosed: false, opensAt: '13:00', closesAt: '20:00' }
+  };
+}
+
+function coerceDayOfWeek(value) {
+  const day = Number.parseInt(value, 10);
+  if (!Number.isFinite(day) || day < 0 || day > 6) return null;
+  return day;
+}
+
+function mergeOpeningHoursRows(rows) {
+  const merged = getDefaultOpeningHours();
+  (Array.isArray(rows) ? rows : []).forEach((row) => {
+    const day = coerceDayOfWeek(row?.day_of_week);
+    if (day == null) return;
+    const opensAt = normalizeTimeText(row?.opens_at);
+    const closesAt = normalizeTimeText(row?.closes_at);
+    const isClosed = row?.is_closed === true || !opensAt || !closesAt || closesAt <= opensAt;
+    merged[day] = {
+      dayOfWeek: day,
+      isClosed,
+      opensAt: isClosed ? '' : opensAt,
+      closesAt: isClosed ? '' : closesAt
+    };
+  });
+  return merged;
+}
+
+function getOpeningHoursForDay(dayOfWeek) {
+  const day = coerceDayOfWeek(dayOfWeek);
+  if (day == null) return null;
+  return state.openingHours?.[day] || getDefaultOpeningHours()[day];
+}
+
+function timeToMinutes(timeText) {
+  const normalized = normalizeTimeText(timeText);
+  if (!normalized) return null;
+  const [hourText, minuteText] = normalized.split(':');
+  return Number.parseInt(hourText, 10) * 60 + Number.parseInt(minuteText, 10);
+}
+
+function isDateWithinOpeningHours(dateValue) {
+  const date = dateValue instanceof Date ? dateValue : new Date(dateValue);
+  if (Number.isNaN(date.getTime())) return false;
+  const entry = getOpeningHoursForDay(date.getDay());
+  if (!entry || entry.isClosed) return false;
+
+  const openMinutes = timeToMinutes(entry.opensAt);
+  const closeMinutes = timeToMinutes(entry.closesAt);
+  if (openMinutes == null || closeMinutes == null || closeMinutes <= openMinutes) return false;
+
+  const minutes = date.getHours() * 60 + date.getMinutes();
+  return minutes >= openMinutes && minutes < closeMinutes;
+}
+
+function isRestaurantOpenNow() {
+  return isDateWithinOpeningHours(new Date());
+}
+
+function formatOpeningWindow(entry) {
+  if (!entry || entry.isClosed) {
+    return t('closedLabel');
+  }
+  return `${entry.opensAt}-${entry.closesAt}`;
+}
+
+function formatDateTimeLocalValue(date) {
+  const value = date instanceof Date ? date : new Date(date);
+  if (Number.isNaN(value.getTime())) return '';
+  return `${value.getFullYear()}-${pad2(value.getMonth() + 1)}-${pad2(value.getDate())}T${pad2(value.getHours())}:${pad2(
+    value.getMinutes()
+  )}`;
+}
+
+function parseDateTimeLocalValue(value) {
+  const raw = String(value || '').trim();
+  if (!raw) return null;
+  const parsed = new Date(raw);
+  if (Number.isNaN(parsed.getTime())) return null;
+  return parsed;
+}
+
+function formatScheduledDateTime(date) {
+  const formatter = new Intl.DateTimeFormat(LANGUAGE_LOCALES[state.language] || 'de-DE', {
+    weekday: 'short',
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+  return formatter.format(date);
+}
+
+function getSelectedFulfillment() {
+  return checkoutForm.elements.fulfillment?.value || 'asap';
+}
+
+function renderOpeningHoursCard() {
+  if (!hoursList) return;
+  hoursList.innerHTML = OPENING_HOURS_DISPLAY_ORDER.map((dayOfWeek) => {
+    const label = t(DAY_LABEL_KEYS[dayOfWeek] || 'dayMonday');
+    const entry = getOpeningHoursForDay(dayOfWeek);
+    return `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(formatOpeningWindow(entry))}</dd></div>`;
+  }).join('');
+
+  if (hoursStatusLine) {
+    const openNow = isRestaurantOpenNow();
+    hoursStatusLine.textContent = openNow ? t('hoursOpenNow') : t('hoursClosedNow');
+    hoursStatusLine.classList.toggle('is-closed', !openNow);
+  }
+}
+
+function refreshScheduleInputMinValue() {
+  if (!scheduledAtInput) return;
+  const minDate = new Date();
+  minDate.setMinutes(minDate.getMinutes() + 5);
+  minDate.setSeconds(0, 0);
+  scheduledAtInput.min = formatDateTimeLocalValue(minDate);
+}
+
+function syncFulfillmentControls() {
+  if (!checkoutForm || !fulfillmentMethods) return;
+
+  const asapInput = checkoutForm.querySelector('input[name="fulfillment"][value="asap"]');
+  const scheduledInput = checkoutForm.querySelector('input[name="fulfillment"][value="scheduled"]');
+  if (!asapInput || !scheduledInput) return;
+
+  const openNow = isRestaurantOpenNow();
+
+  if (openNow) {
+    asapInput.disabled = false;
+    fulfillmentAsapLabel?.classList.remove('is-disabled');
+    if (!asapInput.checked && !scheduledInput.checked) {
+      asapInput.checked = true;
+    }
+  } else {
+    asapInput.checked = false;
+    asapInput.disabled = true;
+    scheduledInput.checked = true;
+    fulfillmentAsapLabel?.classList.add('is-disabled');
+  }
+
+  const scheduledMode = scheduledInput.checked;
+  if (scheduledAtField) {
+    scheduledAtField.classList.toggle('is-hidden', !scheduledMode);
+  }
+  if (scheduledAtInput) {
+    scheduledAtInput.required = scheduledMode;
+  }
+
+  refreshScheduleInputMinValue();
+
+  if (scheduleHelp) {
+    if (!openNow) {
+      scheduleHelp.textContent = t('scheduleHelpClosed');
+    } else if (scheduledMode) {
+      scheduleHelp.textContent = t('scheduleHelpLater');
+    } else {
+      scheduleHelp.textContent = t('scheduleHelpOpen');
+    }
+  }
 }
 
 function updateCategoryScrollButtons() {
@@ -1414,6 +1737,33 @@ async function fetchMenuFromSupabase() {
   return null;
 }
 
+async function fetchOpeningHoursFromSupabase() {
+  const client = getSupabaseClient();
+  if (!client) return null;
+
+  const tableNames = [...new Set([BAGO_SUPABASE.openingHoursTable, 'opening_hours'].filter(Boolean))];
+  for (const tableName of tableNames) {
+    const { data, error } = await client.from(tableName).select('*').order('day_of_week', { ascending: true });
+    if (!error) {
+      return mergeOpeningHoursRows(data);
+    }
+
+    const message = error.message || '';
+    const tableMissing = /does not exist|could not find the table/i.test(message);
+    if (!tableMissing || tableName === tableNames[tableNames.length - 1]) {
+      console.error(`Supabase opening hours fetch failed for "${tableName}":`, message);
+      return null;
+    }
+  }
+
+  return null;
+}
+
+async function initializeOpeningHours() {
+  const remoteHours = await fetchOpeningHoursFromSupabase();
+  state.openingHours = remoteHours || getDefaultOpeningHours();
+}
+
 async function initializeMenuData() {
   menuSections.innerHTML = `<p class="empty-cart">${escapeHtml(t('loadingMenu'))}</p>`;
 
@@ -1528,6 +1878,8 @@ function applyStaticTranslations() {
   if (prepTimeNode && VENUE_CONFIG.preparationTime) {
     prepTimeNode.textContent = VENUE_CONFIG.preparationTime;
   }
+  renderOpeningHoursCard();
+  syncFulfillmentControls();
 
   if (state.activeLegalKey) {
     renderLegalContent(state.activeLegalKey);
@@ -1828,6 +2180,7 @@ function getTotals() {
 }
 
 function setFieldValidity(input, message) {
+  if (!input) return;
   input.setCustomValidity(message);
   input.classList.toggle('has-error', checkoutForm.classList.contains('was-validated') && Boolean(message));
 }
@@ -1862,8 +2215,32 @@ function validateEmail() {
   return !message;
 }
 
+function validateScheduleSelection() {
+  if (!scheduledAtInput) return true;
+
+  const openNow = isRestaurantOpenNow();
+  const fulfillment = getSelectedFulfillment();
+  let message = '';
+
+  if (!openNow && fulfillment !== 'scheduled') {
+    message = t('statusClosedScheduleRequired');
+  } else if (fulfillment === 'scheduled') {
+    const scheduledDate = parseDateTimeLocalValue(scheduledAtInput.value);
+    if (!scheduledDate) {
+      message = t('scheduleValidationRequired');
+    } else if (scheduledDate.getTime() <= Date.now()) {
+      message = t('scheduleValidationFuture');
+    } else if (!isDateWithinOpeningHours(scheduledDate)) {
+      message = t('scheduleValidationWithinHours');
+    }
+  }
+
+  setFieldValidity(scheduledAtInput, message);
+  return !message;
+}
+
 function validateCheckoutFields() {
-  const validators = [validateName, validatePhone, validateEmail];
+  const validators = [validateName, validatePhone, validateEmail, validateScheduleSelection];
   return validators.map((validate) => validate()).every(Boolean);
 }
 
@@ -1926,6 +2303,22 @@ function collectValidatedOrderContext() {
 
   const payment = getSelectedPayment();
   const paymentLabel = payment === 'cash' ? t('paymentCash') : t('paymentPaypal');
+  const fulfillment = getSelectedFulfillment();
+  if (!isRestaurantOpenNow() && fulfillment !== 'scheduled') {
+    formStatus.textContent = t('statusClosedScheduleRequired');
+    return null;
+  }
+
+  const scheduledDate = fulfillment === 'scheduled' ? parseDateTimeLocalValue(scheduledAtInput?.value) : null;
+  if (fulfillment === 'scheduled' && !scheduledDate) {
+    formStatus.textContent = t('scheduleValidationRequired');
+    return null;
+  }
+
+  const scheduleLabel =
+    fulfillment === 'scheduled' && scheduledDate
+      ? formatT('waFulfillmentScheduled', { datetime: formatScheduledDateTime(scheduledDate) })
+      : t('waFulfillmentNow');
   const orderNumber = Math.floor(1000 + Math.random() * 9000);
 
   return {
@@ -1939,7 +2332,11 @@ function collectValidatedOrderContext() {
     customerEmail: emailInput?.value.trim() || '',
     voucherCode: appliedVoucherCode,
     voucher: state.appliedVoucher,
-    language: state.language
+    language: state.language,
+    fulfillment,
+    scheduleLabel,
+    isScheduled: fulfillment === 'scheduled',
+    scheduledForIso: scheduledDate ? scheduledDate.toISOString() : null
   };
 }
 
@@ -2172,7 +2569,9 @@ async function persistOrderInDatabase(orderContext, options = {}) {
     voucher_discount: orderContext.totals.voucherDiscount || 0,
     customer_name: orderContext.customerName,
     customer_phone: orderContext.customerPhone,
-    customer_email: orderContext.customerEmail || null
+    customer_email: orderContext.customerEmail || null,
+    is_scheduled: orderContext.isScheduled === true,
+    scheduled_for: orderContext.scheduledForIso || null
   };
 
   const { data: orderData, error: orderError } = await client
@@ -2228,6 +2627,7 @@ function buildCashWhatsAppUrl(orderContext) {
     `${t('waPhone')}: ${orderContext.customerPhone}`,
     ...(orderContext.customerEmail ? [`Email: ${orderContext.customerEmail}`] : []),
     `${t('waPayment')}: ${orderContext.paymentLabel}`,
+    `${t('waFulfillment')}: ${orderContext.scheduleLabel}`,
     '',
     `${t('waItems')}:`,
     ...orderContext.lines.map(
@@ -2253,6 +2653,9 @@ function savePendingPayPalOrder(orderContext) {
     customerEmail: orderContext.customerEmail,
     orderId: orderContext.orderId || null,
     language: orderContext.language,
+    scheduleLabel: orderContext.scheduleLabel || t('waFulfillmentNow'),
+    isScheduled: orderContext.isScheduled === true,
+    scheduledForIso: orderContext.scheduledForIso || null,
     totals: orderContext.totals,
     voucherCode: orderContext.voucherCode || '',
     items: orderContext.lines.map((item) => ({
@@ -2315,6 +2718,7 @@ function buildPaidWhatsAppUrlFromPayPalReturn(pendingOrder, transactionId) {
     `Phone: ${pendingOrder.customerPhone || '-'}`,
     ...(pendingOrder.customerEmail ? [`Email: ${pendingOrder.customerEmail}`] : []),
     `Payment Method: PayPal`,
+    `Pickup: ${pendingOrder.scheduleLabel || 'As soon as possible'}`,
     `Payment Status: PAID`,
     `PayPal Transaction ID: ${transactionId || 'N/A'}`,
     '',
@@ -2479,6 +2883,7 @@ function renderCart() {
   const lines = getCartLines();
   const totals = getTotals();
   const totalQuantity = lines.reduce((sum, item) => sum + item.quantity, 0);
+  syncFulfillmentControls();
 
   cartItems.innerHTML = lines
     .map(
@@ -2509,7 +2914,11 @@ function renderCart() {
   minimumRow.classList.toggle('is-hidden', !lines.length || totals.minimumGap === 0);
   totalEl.textContent = money.format(totals.total);
 
-  checkoutButton.disabled = !lines.length || totals.minimumGap > 0;
+  const scheduledMode = getSelectedFulfillment() === 'scheduled';
+  const hasScheduledDate = Boolean(parseDateTimeLocalValue(scheduledAtInput?.value));
+  const scheduleIncomplete = scheduledMode && !hasScheduledDate;
+
+  checkoutButton.disabled = !lines.length || totals.minimumGap > 0 || scheduleIncomplete;
   if (!lines.length) {
     checkoutButton.textContent = t('addItemsToCheckout');
   } else if (totals.minimumGap > 0) {
@@ -2563,8 +2972,16 @@ function resetOrder() {
   checkoutForm.reset();
   checkoutForm.classList.remove('was-validated');
   checkoutForm.elements.payment.value = 'paypal';
+  if (checkoutForm.elements.fulfillment) {
+    checkoutForm.elements.fulfillment.value = 'asap';
+  }
+  if (scheduledAtInput) {
+    scheduledAtInput.value = '';
+    setFieldValidity(scheduledAtInput, '');
+  }
   formStatus.textContent = '';
   setVoucherStatusMessage('');
+  syncFulfillmentControls();
   renderOrderSurfaces();
 }
 
@@ -2685,8 +3102,11 @@ cancelOrderButton.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-checkoutForm.addEventListener('input', () => {
+checkoutForm.addEventListener('input', (event) => {
   validateCheckoutFields();
+  if (event.target === scheduledAtInput) {
+    renderCart();
+  }
 });
 
 if (voucherCodeInput) {
@@ -2721,6 +3141,21 @@ paymentMethods.addEventListener('change', () => {
   formStatus.textContent = '';
   renderCart();
 });
+
+if (fulfillmentMethods) {
+  fulfillmentMethods.addEventListener('change', () => {
+    formStatus.textContent = '';
+    validateCheckoutFields();
+    renderCart();
+  });
+}
+
+if (scheduledAtInput) {
+  scheduledAtInput.addEventListener('change', () => {
+    validateCheckoutFields();
+    renderCart();
+  });
+}
 
 checkoutForm.addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -2764,11 +3199,16 @@ if (mapsLink) {
 async function initializeApp() {
   applyTheme(getInitialTheme());
   setupInspectGuard();
-  await initializeMenuData();
+  await Promise.all([initializeMenuData(), initializeOpeningHours()]);
   menuCount.textContent = menuItems.length;
   heroItemCount.textContent = menuItems.length;
   applyLanguage();
   handlePayPalReturn();
+  setInterval(() => {
+    renderOpeningHoursCard();
+    syncFulfillmentControls();
+    renderCart();
+  }, 60000);
 }
 
 initializeApp();

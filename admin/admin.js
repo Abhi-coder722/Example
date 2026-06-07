@@ -3,6 +3,7 @@ const SUPABASE_URL = config.url || '';
 const SUPABASE_ANON_KEY = config.anonKey || '';
 const MENU_TABLE = config.menuTable || 'menu_items';
 const VOUCHERS_TABLE = config.vouchersTable || 'vouchers';
+const OPENING_HOURS_TABLE = config.openingHoursTable || 'opening_hours';
 const STORAGE_BUCKET = config.storageBucket || 'menu-images';
 const SUPABASE_PLACEHOLDER = /YOUR_PROJECT|YOUR_ANON/i.test(`${SUPABASE_URL} ${SUPABASE_ANON_KEY}`);
 
@@ -62,6 +63,20 @@ const TRANSLATIONS = {
     voucherTableActive: 'Aktiv',
     voucherTableUsage: 'Verwendung',
     voucherTableActions: 'Aktionen',
+    openingHoursTitle: 'Öffnungszeiten',
+    openingHoursIntro: 'Lege Öffnungszeiten für Montag bis Sonntag fest.',
+    refreshOpeningHours: 'Öffnungszeiten aktualisieren',
+    saveOpeningHours: 'Öffnungszeiten speichern',
+    openingHoursClosed: 'Geschlossen',
+    openingHoursFrom: 'Von',
+    openingHoursTo: 'Bis',
+    dayMonday: 'Montag',
+    dayTuesday: 'Dienstag',
+    dayWednesday: 'Mittwoch',
+    dayThursday: 'Donnerstag',
+    dayFriday: 'Freitag',
+    daySaturday: 'Samstag',
+    daySunday: 'Sonntag',
     statusNoMenuItems: 'Keine Menüeinträge vorhanden.',
     statusNoMenuItemsFiltered: 'Keine Menüeinträge passend zur Suche.',
     statusNoVouchers: 'Keine Voucher vorhanden.',
@@ -101,6 +116,12 @@ const TRANSLATIONS = {
     confirmDeleteVoucher: 'Soll {code} wirklich gelöscht werden?',
     statusVoucherDeleteFailed: 'Löschen fehlgeschlagen: {message}',
     statusVoucherDeleted: 'Voucher gelöscht.',
+    statusOpeningHoursLoading: 'Öffnungszeiten werden geladen...',
+    statusOpeningHoursLoaded: 'Öffnungszeiten geladen.',
+    statusOpeningHoursSaving: 'Öffnungszeiten werden gespeichert...',
+    statusOpeningHoursSaved: 'Öffnungszeiten gespeichert.',
+    errorOpeningHoursTimeRequired: 'Bitte für jeden geöffneten Tag Start- und Endzeit angeben.',
+    errorOpeningHoursRange: 'Die Endzeit muss nach der Startzeit liegen.',
     statusEditLoaded: 'Eintrag zum Bearbeiten geladen.',
     statusVoucherEditLoaded: 'Voucher zum Bearbeiten geladen.',
     statusSupabaseMissing:
@@ -168,6 +189,20 @@ const TRANSLATIONS = {
     voucherTableActive: 'Active',
     voucherTableUsage: 'Usage',
     voucherTableActions: 'Actions',
+    openingHoursTitle: 'Opening Hours',
+    openingHoursIntro: 'Set opening hours for Monday through Sunday.',
+    refreshOpeningHours: 'Refresh opening hours',
+    saveOpeningHours: 'Save opening hours',
+    openingHoursClosed: 'Closed',
+    openingHoursFrom: 'From',
+    openingHoursTo: 'To',
+    dayMonday: 'Monday',
+    dayTuesday: 'Tuesday',
+    dayWednesday: 'Wednesday',
+    dayThursday: 'Thursday',
+    dayFriday: 'Friday',
+    daySaturday: 'Saturday',
+    daySunday: 'Sunday',
     statusNoMenuItems: 'No menu items available.',
     statusNoMenuItemsFiltered: 'No menu entries match your search.',
     statusNoVouchers: 'No vouchers available.',
@@ -207,6 +242,12 @@ const TRANSLATIONS = {
     confirmDeleteVoucher: 'Delete voucher {code}?',
     statusVoucherDeleteFailed: 'Delete failed: {message}',
     statusVoucherDeleted: 'Voucher deleted.',
+    statusOpeningHoursLoading: 'Loading opening hours...',
+    statusOpeningHoursLoaded: 'Opening hours loaded.',
+    statusOpeningHoursSaving: 'Saving opening hours...',
+    statusOpeningHoursSaved: 'Opening hours saved.',
+    errorOpeningHoursTimeRequired: 'Please set start and end time for every open day.',
+    errorOpeningHoursRange: 'End time must be later than start time.',
     statusEditLoaded: 'Item loaded for editing.',
     statusVoucherEditLoaded: 'Voucher loaded for editing.',
     statusSupabaseMissing: 'Supabase is not configured. Update .env and run npm run config:build.',
@@ -273,6 +314,20 @@ const TRANSLATIONS = {
     voucherTableActive: 'Активен',
     voucherTableUsage: 'Использование',
     voucherTableActions: 'Действия',
+    openingHoursTitle: 'Часы работы',
+    openingHoursIntro: 'Настройте часы работы с понедельника по воскресенье.',
+    refreshOpeningHours: 'Обновить часы работы',
+    saveOpeningHours: 'Сохранить часы работы',
+    openingHoursClosed: 'Закрыто',
+    openingHoursFrom: 'С',
+    openingHoursTo: 'До',
+    dayMonday: 'Понедельник',
+    dayTuesday: 'Вторник',
+    dayWednesday: 'Среда',
+    dayThursday: 'Четверг',
+    dayFriday: 'Пятница',
+    daySaturday: 'Суббота',
+    daySunday: 'Воскресенье',
     statusNoMenuItems: 'Позиции меню отсутствуют.',
     statusNoMenuItemsFiltered: 'По вашему запросу ничего не найдено.',
     statusNoVouchers: 'Ваучеры отсутствуют.',
@@ -312,6 +367,12 @@ const TRANSLATIONS = {
     confirmDeleteVoucher: 'Удалить ваучер {code}?',
     statusVoucherDeleteFailed: 'Не удалось удалить: {message}',
     statusVoucherDeleted: 'Ваучер удален.',
+    statusOpeningHoursLoading: 'Загрузка часов работы...',
+    statusOpeningHoursLoaded: 'Часы работы загружены.',
+    statusOpeningHoursSaving: 'Сохранение часов работы...',
+    statusOpeningHoursSaved: 'Часы работы сохранены.',
+    errorOpeningHoursTimeRequired: 'Для каждого открытого дня укажите время начала и окончания.',
+    errorOpeningHoursRange: 'Время окончания должно быть позже времени начала.',
     statusEditLoaded: 'Запись загружена для редактирования.',
     statusVoucherEditLoaded: 'Ваучер загружен для редактирования.',
     statusSupabaseMissing: 'Supabase не настроен. Обновите .env и выполните npm run config:build.',
@@ -378,6 +439,20 @@ const TRANSLATIONS = {
     voucherTableActive: '有効',
     voucherTableUsage: '利用数',
     voucherTableActions: '操作',
+    openingHoursTitle: '営業時間',
+    openingHoursIntro: '月曜日から日曜日までの営業時間を設定します。',
+    refreshOpeningHours: '営業時間を更新',
+    saveOpeningHours: '営業時間を保存',
+    openingHoursClosed: '休業',
+    openingHoursFrom: '開始',
+    openingHoursTo: '終了',
+    dayMonday: '月曜日',
+    dayTuesday: '火曜日',
+    dayWednesday: '水曜日',
+    dayThursday: '木曜日',
+    dayFriday: '金曜日',
+    daySaturday: '土曜日',
+    daySunday: '日曜日',
     statusNoMenuItems: 'メニュー項目がありません。',
     statusNoMenuItemsFiltered: '検索条件に一致する項目がありません。',
     statusNoVouchers: 'クーポンがありません。',
@@ -417,6 +492,12 @@ const TRANSLATIONS = {
     confirmDeleteVoucher: 'クーポン {code} を削除しますか？',
     statusVoucherDeleteFailed: '削除に失敗しました: {message}',
     statusVoucherDeleted: 'クーポンを削除しました。',
+    statusOpeningHoursLoading: '営業時間を読み込み中...',
+    statusOpeningHoursLoaded: '営業時間を読み込みました。',
+    statusOpeningHoursSaving: '営業時間を保存中...',
+    statusOpeningHoursSaved: '営業時間を保存しました。',
+    errorOpeningHoursTimeRequired: '営業日の開始時刻と終了時刻を入力してください。',
+    errorOpeningHoursRange: '終了時刻は開始時刻より後にしてください。',
     statusEditLoaded: '編集用に読み込みました。',
     statusVoucherEditLoaded: 'クーポンを編集用に読み込みました。',
     statusSupabaseMissing: 'Supabase が未設定です。.env を更新し npm run config:build を実行してください。',
@@ -483,6 +564,20 @@ const TRANSLATIONS = {
     voucherTableActive: 'Aktif',
     voucherTableUsage: 'Kullanım',
     voucherTableActions: 'İşlemler',
+    openingHoursTitle: 'Açılış saatleri',
+    openingHoursIntro: 'Pazartesi’den Pazar’a kadar açılış saatlerini ayarlayın.',
+    refreshOpeningHours: 'Açılış saatlerini yenile',
+    saveOpeningHours: 'Açılış saatlerini kaydet',
+    openingHoursClosed: 'Kapalı',
+    openingHoursFrom: 'Başlangıç',
+    openingHoursTo: 'Bitiş',
+    dayMonday: 'Pazartesi',
+    dayTuesday: 'Salı',
+    dayWednesday: 'Çarşamba',
+    dayThursday: 'Perşembe',
+    dayFriday: 'Cuma',
+    daySaturday: 'Cumartesi',
+    daySunday: 'Pazar',
     statusNoMenuItems: 'Menü öğesi yok.',
     statusNoMenuItemsFiltered: 'Aramayla eşleşen kayıt bulunamadı.',
     statusNoVouchers: 'Kupon yok.',
@@ -522,6 +617,12 @@ const TRANSLATIONS = {
     confirmDeleteVoucher: '{code} kuponu silinsin mi?',
     statusVoucherDeleteFailed: 'Silme başarısız: {message}',
     statusVoucherDeleted: 'Kupon silindi.',
+    statusOpeningHoursLoading: 'Açılış saatleri yükleniyor...',
+    statusOpeningHoursLoaded: 'Açılış saatleri yüklendi.',
+    statusOpeningHoursSaving: 'Açılış saatleri kaydediliyor...',
+    statusOpeningHoursSaved: 'Açılış saatleri kaydedildi.',
+    errorOpeningHoursTimeRequired: 'Her açık gün için başlangıç ve bitiş saatini girin.',
+    errorOpeningHoursRange: 'Bitiş saati başlangıçtan sonra olmalıdır.',
     statusEditLoaded: 'Kayıt düzenleme için yüklendi.',
     statusVoucherEditLoaded: 'Kupon düzenleme için yüklendi.',
     statusSupabaseMissing: 'Supabase yapılandırılmadı. .env güncelle ve npm run config:build çalıştır.',
@@ -565,9 +666,13 @@ const resetFormButton = document.querySelector('#resetForm');
 const voucherForm = document.querySelector('#voucherForm');
 const refreshVouchersButton = document.querySelector('#refreshVouchers');
 const resetVoucherFormButton = document.querySelector('#resetVoucherForm');
+const openingHoursForm = document.querySelector('#openingHoursForm');
+const openingHoursRows = document.querySelector('#openingHoursRows');
+const refreshOpeningHoursButton = document.querySelector('#refreshOpeningHours');
 const loginStatus = document.querySelector('#loginStatus');
 const adminStatus = document.querySelector('#adminStatus');
 const voucherStatus = document.querySelector('#voucherStatus');
+const openingHoursStatus = document.querySelector('#openingHoursStatus');
 const itemsTableBody = document.querySelector('#itemsTableBody');
 const itemSearchInput = document.querySelector('#itemSearchInput');
 const vouchersTableBody = document.querySelector('#vouchersTableBody');
@@ -582,12 +687,24 @@ const vouchersPageInfo = document.querySelector('#vouchersPageInfo');
 const languageToggle = document.querySelector('#languageToggle');
 const languageMenu = document.querySelector('#languageMenu');
 const languageLabel = document.querySelector('#languageLabel');
+const WEEK_DAY_ORDER = [1, 2, 3, 4, 5, 6, 0];
+const DAY_LABEL_KEYS = {
+  0: 'daySunday',
+  1: 'dayMonday',
+  2: 'dayTuesday',
+  3: 'dayWednesday',
+  4: 'dayThursday',
+  5: 'dayFriday',
+  6: 'daySaturday'
+};
 
 const state = {
   items: [],
   vouchers: [],
+  openingHours: [],
   busy: false,
   voucherBusy: false,
+  openingHoursBusy: false,
   session: null,
   itemSearch: '',
   itemsPage: 1,
@@ -721,6 +838,123 @@ function clearVoucherForm() {
   voucherForm.elements.active.checked = true;
   voucherForm.elements.usage_limit.value = '1';
   setVoucherFormMode(false);
+}
+
+function normalizeTimeValue(value) {
+  const raw = normalize(value);
+  const match = raw.match(/^(\d{1,2}):(\d{2})/);
+  if (!match) return '';
+  const hour = Number.parseInt(match[1], 10);
+  const minute = Number.parseInt(match[2], 10);
+  if (!Number.isFinite(hour) || !Number.isFinite(minute) || hour < 0 || hour > 23 || minute < 0 || minute > 59) {
+    return '';
+  }
+  return `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
+}
+
+function buildDefaultOpeningHours() {
+  return [
+    { day_of_week: 0, is_closed: true, opens_at: '', closes_at: '' },
+    { day_of_week: 1, is_closed: false, opens_at: '11:30', closes_at: '20:00' },
+    { day_of_week: 2, is_closed: false, opens_at: '11:30', closes_at: '20:00' },
+    { day_of_week: 3, is_closed: false, opens_at: '11:30', closes_at: '20:00' },
+    { day_of_week: 4, is_closed: false, opens_at: '11:30', closes_at: '20:00' },
+    { day_of_week: 5, is_closed: false, opens_at: '11:30', closes_at: '20:00' },
+    { day_of_week: 6, is_closed: false, opens_at: '13:00', closes_at: '20:00' }
+  ];
+}
+
+function normalizeOpeningHoursRows(rows) {
+  const defaults = buildDefaultOpeningHours();
+  const byDay = new Map(defaults.map((entry) => [entry.day_of_week, { ...entry }]));
+
+  (Array.isArray(rows) ? rows : []).forEach((row) => {
+    const day = Number.parseInt(row?.day_of_week, 10);
+    if (!Number.isFinite(day) || day < 0 || day > 6) return;
+    const opensAt = normalizeTimeValue(row?.opens_at);
+    const closesAt = normalizeTimeValue(row?.closes_at);
+    const isClosed = row?.is_closed === true || !opensAt || !closesAt || closesAt <= opensAt;
+    byDay.set(day, {
+      id: row?.id || null,
+      day_of_week: day,
+      is_closed: isClosed,
+      opens_at: isClosed ? '' : opensAt,
+      closes_at: isClosed ? '' : closesAt
+    });
+  });
+
+  return [...byDay.values()].sort((a, b) => a.day_of_week - b.day_of_week);
+}
+
+function getOpeningHoursEntry(dayOfWeek) {
+  return state.openingHours.find((entry) => Number.parseInt(entry.day_of_week, 10) === dayOfWeek) || null;
+}
+
+function renderOpeningHours() {
+  if (!openingHoursRows) return;
+  const defaults = normalizeOpeningHoursRows([]);
+
+  openingHoursRows.innerHTML = WEEK_DAY_ORDER.map((dayOfWeek) => {
+    const entry = getOpeningHoursEntry(dayOfWeek) || defaults.find((row) => row.day_of_week === dayOfWeek);
+    const isClosed = entry?.is_closed === true;
+    const fromLabel = escapeHtml(t('openingHoursFrom'));
+    const toLabel = escapeHtml(t('openingHoursTo'));
+    const closedLabel = escapeHtml(t('openingHoursClosed'));
+    const dayLabel = escapeHtml(t(DAY_LABEL_KEYS[dayOfWeek] || 'dayMonday'));
+
+    return `
+      <article class="opening-hour-row" data-day="${dayOfWeek}">
+        <h3 class="opening-hour-day">${dayLabel}</h3>
+        <label class="toggle-field opening-hour-toggle">
+          <input type="checkbox" data-hours-closed="${dayOfWeek}" ${isClosed ? 'checked' : ''} />
+          <span>${closedLabel}</span>
+        </label>
+        <label class="opening-hour-time ${isClosed ? 'is-disabled' : ''}">
+          <span>${fromLabel}</span>
+          <input type="time" data-hours-open="${dayOfWeek}" value="${escapeHtml(entry?.opens_at || '')}" ${
+      isClosed ? 'disabled' : ''
+    } />
+        </label>
+        <label class="opening-hour-time ${isClosed ? 'is-disabled' : ''}">
+          <span>${toLabel}</span>
+          <input type="time" data-hours-close="${dayOfWeek}" value="${escapeHtml(entry?.closes_at || '')}" ${
+      isClosed ? 'disabled' : ''
+    } />
+        </label>
+      </article>
+    `;
+  }).join('');
+}
+
+function collectOpeningHoursPayload() {
+  const payload = [];
+  const nowIso = new Date().toISOString();
+
+  WEEK_DAY_ORDER.forEach((dayOfWeek) => {
+    const closedInput = openingHoursRows.querySelector(`[data-hours-closed="${dayOfWeek}"]`);
+    const openInput = openingHoursRows.querySelector(`[data-hours-open="${dayOfWeek}"]`);
+    const closeInput = openingHoursRows.querySelector(`[data-hours-close="${dayOfWeek}"]`);
+    const isClosed = Boolean(closedInput?.checked);
+    const opensAt = normalizeTimeValue(openInput?.value || '');
+    const closesAt = normalizeTimeValue(closeInput?.value || '');
+
+    if (!isClosed && (!opensAt || !closesAt)) {
+      throw new Error(t('errorOpeningHoursTimeRequired'));
+    }
+    if (!isClosed && closesAt <= opensAt) {
+      throw new Error(t('errorOpeningHoursRange'));
+    }
+
+    payload.push({
+      day_of_week: dayOfWeek,
+      is_closed: isClosed,
+      opens_at: isClosed ? null : opensAt,
+      closes_at: isClosed ? null : closesAt,
+      updated_at: nowIso
+    });
+  });
+
+  return payload;
 }
 
 function getTranslations(prefix) {
@@ -1015,6 +1249,7 @@ function applyLanguage() {
   applyStaticTranslations();
   renderItems();
   renderVouchers();
+  renderOpeningHours();
 }
 
 function setLanguage(language) {
@@ -1096,6 +1331,44 @@ async function refreshVouchers() {
   setStatus(voucherStatus, formatT('statusVouchersLoaded', { count: state.vouchers.length }));
 }
 
+async function refreshOpeningHours() {
+  if (!state.session || !openingHoursRows) return;
+  setStatus(openingHoursStatus, t('statusOpeningHoursLoading'));
+
+  const { data, error } = await supabaseClient.from(OPENING_HOURS_TABLE).select('*').order('day_of_week', { ascending: true });
+  if (error) {
+    setStatus(openingHoursStatus, formatT('statusLoadError', { message: error.message }), true);
+    return;
+  }
+
+  state.openingHours = normalizeOpeningHoursRows(data);
+  renderOpeningHours();
+  setStatus(openingHoursStatus, t('statusOpeningHoursLoaded'));
+}
+
+async function saveOpeningHours(event) {
+  event.preventDefault();
+  if (!state.session || state.openingHoursBusy || !openingHoursRows) return;
+
+  state.openingHoursBusy = true;
+  setStatus(openingHoursStatus, t('statusOpeningHoursSaving'));
+
+  try {
+    const payload = collectOpeningHoursPayload();
+    const { error } = await supabaseClient.from(OPENING_HOURS_TABLE).upsert(payload, { onConflict: 'day_of_week' });
+    if (error) {
+      throw new Error(error.message);
+    }
+
+    setStatus(openingHoursStatus, t('statusOpeningHoursSaved'));
+    await refreshOpeningHours();
+  } catch (error) {
+    setStatus(openingHoursStatus, error.message || t('statusUnknownSaveError'), true);
+  } finally {
+    state.openingHoursBusy = false;
+  }
+}
+
 function setAuthState(session) {
   state.session = session;
   const loggedIn = Boolean(session);
@@ -1108,9 +1381,11 @@ function setAuthState(session) {
     setStatus(loginStatus, '');
     refreshItems();
     refreshVouchers();
+    refreshOpeningHours();
   } else {
     state.items = [];
     state.vouchers = [];
+    state.openingHours = normalizeOpeningHoursRows([]);
     state.itemSearch = '';
     state.itemsPage = 1;
     state.vouchersPage = 1;
@@ -1119,7 +1394,9 @@ function setAuthState(session) {
     }
     renderItems();
     renderVouchers();
+    renderOpeningHours();
     clearVoucherForm();
+    setStatus(openingHoursStatus, '');
   }
 }
 
@@ -1432,6 +1709,32 @@ if (resetVoucherFormButton) {
   });
 }
 
+if (refreshOpeningHoursButton) {
+  refreshOpeningHoursButton.addEventListener('click', () => {
+    refreshOpeningHours();
+  });
+}
+
+if (openingHoursRows) {
+  openingHoursRows.addEventListener('change', (event) => {
+    const closedInput = event.target.closest('[data-hours-closed]');
+    if (!closedInput) return;
+    const day = closedInput.dataset.hoursClosed;
+    const openInput = openingHoursRows.querySelector(`[data-hours-open="${day}"]`);
+    const closeInput = openingHoursRows.querySelector(`[data-hours-close="${day}"]`);
+    const isClosed = closedInput.checked;
+
+    if (openInput) {
+      openInput.disabled = isClosed;
+      openInput.closest('.opening-hour-time')?.classList.toggle('is-disabled', isClosed);
+    }
+    if (closeInput) {
+      closeInput.disabled = isClosed;
+      closeInput.closest('.opening-hour-time')?.classList.toggle('is-disabled', isClosed);
+    }
+  });
+}
+
 itemForm.addEventListener('submit', saveItem);
 
 if (itemSearchInput) {
@@ -1457,6 +1760,10 @@ if (itemsPrevPageButton && itemsNextPageButton) {
 
 if (voucherForm) {
   voucherForm.addEventListener('submit', saveVoucher);
+}
+
+if (openingHoursForm) {
+  openingHoursForm.addEventListener('submit', saveOpeningHours);
 }
 
 if (vouchersTableBody) {
@@ -1503,5 +1810,6 @@ document.addEventListener('keydown', (event) => {
 
 clearItemForm();
 clearVoucherForm();
+state.openingHours = normalizeOpeningHoursRows([]);
 applyLanguage();
 initializeAuth();

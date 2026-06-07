@@ -212,6 +212,8 @@
       customer_name: String(input?.customer_name || input?.customerName || ''),
       customer_phone: String(input?.customer_phone || input?.customerPhone || ''),
       customer_email: input?.customer_email || input?.customerEmail || null,
+      is_scheduled: Boolean(input?.is_scheduled ?? input?.isScheduled ?? false),
+      scheduled_for: input?.scheduled_for || input?.scheduledFor || null,
       ordered_at: input?.ordered_at || now,
       created_at: input?.created_at || now
     };

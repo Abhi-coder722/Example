@@ -239,6 +239,28 @@
           <p class="table-pagination-info" id="vouchersPageInfo"></p>
           <button class="button glass" id="vouchersNextPage" type="button" data-i18n="paginationNext">Weiter</button>
         </div>
+
+        <hr class="admin-separator" />
+
+        <div class="admin-card-head">
+          <div>
+            <h2 data-i18n="openingHoursTitle">Öffnungszeiten</h2>
+            <p data-i18n="openingHoursIntro">Lege Öffnungszeiten für Montag bis Sonntag fest.</p>
+          </div>
+          <button class="button glass" id="refreshOpeningHours" type="button" data-i18n="refreshOpeningHours">
+            Öffnungszeiten aktualisieren
+          </button>
+        </div>
+
+        <form id="openingHoursForm" class="admin-form">
+          <div class="opening-hours-grid" id="openingHoursRows"></div>
+          <div class="admin-actions">
+            <button class="button primary" id="saveOpeningHours" type="submit" data-i18n="saveOpeningHours">
+              Öffnungszeiten speichern
+            </button>
+          </div>
+        </form>
+        <p class="admin-status" id="openingHoursStatus" aria-live="polite"></p>
       </section>
     </main>
 

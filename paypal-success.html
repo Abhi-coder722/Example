@@ -124,6 +124,7 @@
           const money = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'EUR' });
           const totals = order.totals || { subtotal: 0, service: 0, voucherDiscount: 0, total: 0 };
           const lines = order.items || [];
+          const scheduleLabel = order.scheduleLabel || 'As soon as possible';
 
           const messageLines = [
             `New order #${order.orderNumber || ''}`.trim(),
@@ -132,6 +133,7 @@
             `Phone: ${order.customerPhone || '-'}`,
             ...(order.customerEmail ? [`Email: ${order.customerEmail}`] : []),
             'Payment Method: PayPal',
+            `Pickup: ${scheduleLabel}`,
             'Payment Status: PAID',
             `PayPal Transaction ID: ${transactionId || 'N/A'}`,
             '',

@@ -202,6 +202,27 @@
               </div>
 
               <div class="checkout-card">
+                <h3 data-i18n="scheduleTitle">Bestellzeit</h3>
+                <div class="segmented" id="fulfillmentMethods">
+                  <label id="fulfillmentAsapLabel">
+                    <input type="radio" name="fulfillment" value="asap" checked />
+                    <span data-i18n="scheduleAsap">Sofort</span>
+                  </label>
+                  <label id="fulfillmentScheduledLabel">
+                    <input type="radio" name="fulfillment" value="scheduled" />
+                    <span data-i18n="scheduleLater">Später planen</span>
+                  </label>
+                </div>
+                <label class="scheduled-at-field is-hidden" id="scheduledAtField">
+                  <span data-i18n="scheduleDateTimeLabel">Abholdatum und Uhrzeit</span>
+                  <input name="scheduled_at" id="scheduledAtInput" type="datetime-local" />
+                </label>
+                <p class="payment-help" id="scheduleHelp" data-i18n="scheduleHelpOpen">
+                  Geöffnet: Du kannst jetzt bestellen oder einen späteren Zeitpunkt wählen.
+                </p>
+              </div>
+
+              <div class="checkout-card">
                 <h3 data-i18n="paymentTitle">Zahlung</h3>
                 <div class="payment-methods" id="paymentMethods">
                   <label>
@@ -287,11 +308,16 @@
         </div>
         <div class="hours-card" aria-label="Opening hours">
           <h3 data-i18n="hoursTitle">Öffnungszeiten</h3>
-          <dl>
-            <div><dt data-i18n="hoursWeekdays">Mo-Fr</dt><dd>11:30-20:00</dd></div>
-            <div><dt data-i18n="hoursSaturday">Samstag</dt><dd>13:00-20:00</dd></div>
-            <div><dt data-i18n="hoursSunday">Sonntag</dt><dd data-i18n="closedLabel">Geschlossen</dd></div>
+          <dl id="hoursList">
+            <div><dt data-i18n="dayMonday">Montag</dt><dd>11:30-20:00</dd></div>
+            <div><dt data-i18n="dayTuesday">Dienstag</dt><dd>11:30-20:00</dd></div>
+            <div><dt data-i18n="dayWednesday">Mittwoch</dt><dd>11:30-20:00</dd></div>
+            <div><dt data-i18n="dayThursday">Donnerstag</dt><dd>11:30-20:00</dd></div>
+            <div><dt data-i18n="dayFriday">Freitag</dt><dd>11:30-20:00</dd></div>
+            <div><dt data-i18n="daySaturday">Samstag</dt><dd>13:00-20:00</dd></div>
+            <div><dt data-i18n="daySunday">Sonntag</dt><dd data-i18n="closedLabel">Geschlossen</dd></div>
           </dl>
+          <p class="hours-status" id="hoursStatusLine" data-i18n="hoursClosedNow">Aktuell geschlossen</p>
         </div>
       </section>
 

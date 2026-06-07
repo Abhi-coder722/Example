@@ -1158,6 +1158,12 @@ img {
   flex: 1 1 auto;
 }
 
+.segmented label.is-disabled,
+.payment-methods label.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
 .segmented input,
 .payment-methods input {
   position: absolute;
@@ -1188,17 +1194,13 @@ img {
   color: var(--dark-text);
 }
 
-.payment-methods label.is-disabled {
-  cursor: not-allowed;
-  opacity: 0.42;
-}
-
 .card-fields {
   display: grid;
   gap: 12px;
 }
 
 .card-fields.is-hidden,
+.scheduled-at-field.is-hidden,
 .delivery-fields.is-hidden,
 .minimum-row.is-hidden,
 .voucher-total-row.is-hidden {
@@ -1301,6 +1303,11 @@ img {
   align-items: center;
 }
 
+.scheduled-at-field {
+  display: grid;
+  gap: 6px;
+}
+
 .voucher-button {
   min-height: 44px;
   padding: 10px 14px;
@@ -1392,6 +1399,16 @@ img {
 .hours-card dd {
   margin: 0;
   font-weight: 950;
+}
+
+.hours-status {
+  margin: 14px 0 0;
+  color: var(--number-tone);
+  font-weight: 850;
+}
+
+.hours-status.is-closed {
+  color: #ff897f;
 }
 
 .about-section {
