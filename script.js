@@ -929,7 +929,7 @@ const LEGAL_TEXT = {
       paragraphs: [
         'Diensteanbieter: Bago Sushi & Asian',
         'Anschrift: Luftgasse 1, 85049 Ingolstadt, Deutschland',
-        'Kontakt: +49 1774675823, bagosushi123@gmail.com',
+        'Kontakt: +49 1774675823, bagosushi@gmx.de',
         'Vertretungsberechtigte Person: Pyae sone zaw'
       ]
     },
@@ -938,7 +938,7 @@ const LEGAL_TEXT = {
       paragraphs: [
         'Service provider: Bago Sushi & Asian',
         'Address: Luftgasse 1, 85049 Ingolstadt, Germany',
-        'Contact: +49 1774675823, bagosushi123@gmail.com',
+        'Contact: +49 1774675823, bagosushi@gmx.de',
         'Authorized representative: Pyae sone zaw'
       ]
     },
@@ -947,7 +947,7 @@ const LEGAL_TEXT = {
       paragraphs: [
         'Поставщик услуг: Bago Sushi & Asian',
         'Адрес: Luftgasse 1, 85049 Ingolstadt, Германия',
-        'Контакты: +49 1774675823, bagosushi123@gmail.com',
+        'Контакты: +49 1774675823, bagosushi@gmx.de',
         'Уполномоченный представитель: Pyae sone zaw'
       ]
     },
@@ -956,7 +956,7 @@ const LEGAL_TEXT = {
       paragraphs: [
         '事業者: Bago Sushi & Asian',
         '住所: Luftgasse 1, 85049 Ingolstadt, Germany',
-        '連絡先: +49 1774675823, bagosushi123@gmail.com',
+        '連絡先: +49 1774675823, bagosushi@gmx.de',
         '代表者名: Pyae sone zaw'
       ]
     },
@@ -965,7 +965,7 @@ const LEGAL_TEXT = {
       paragraphs: [
         'Hizmet sağlayıcı: Bago Sushi & Asian',
         'Adres: Luftgasse 1, 85049 Ingolstadt, Almanya',
-        'İletişim: +49 1774675823, bagosushi123@gmail.com',
+        'İletişim: +49 1774675823, bagosushi@gmx.de',
         'Yetkili temsilci: Pyae sone zaw'
       ]
     }
