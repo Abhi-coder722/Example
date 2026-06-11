@@ -1437,6 +1437,12 @@ img {
   background: #f8fbff;
 }
 
+.card-logo-amex {
+  color: #f5fbff;
+  border-color: rgba(125, 222, 255, 0.52);
+  background: linear-gradient(135deg, #1a8fbd, #0f4c75);
+}
+
 .card-logo-mastercard {
   gap: 6px;
   color: #17212f;
@@ -1489,6 +1495,12 @@ body[data-theme="light"] .card-logo-giro {
 body[data-theme="light"] .card-logo-visa,
 body[data-theme="light"] .card-logo-mastercard {
   border-color: rgba(16, 33, 28, 0.18);
+}
+
+body[data-theme="light"] .card-logo-amex {
+  color: #ffffff;
+  border-color: rgba(26, 143, 189, 0.36);
+  background: linear-gradient(135deg, #29a8d8, #166992);
 }
 
 body[data-theme="light"] .payment-option-chip {
