@@ -63,6 +63,7 @@
       (function () {
         const PENDING_PAYPAL_ORDER_KEY = 'bagoPendingPaypalOrder';
         const LAST_SHARED_PAYPAL_TX_KEY = 'bagoLastSharedPaypalTx';
+        const WHATSAPP_CONFIRMATION_KEY = 'bagoWhatsappConfirmation';
 
         const titleNode = document.querySelector('#paymentTitle');
         const messageNode = document.querySelector('#paymentMessage');
@@ -100,10 +101,45 @@
         function openWhatsApp(url) {
           const popup = window.open(url, '_blank', 'noopener');
           if (!popup) {
+            markWhatsappConfirmationAsLeftPage();
             window.location.href = url;
             return false;
           }
           return true;
+        }
+
+        function readPendingWhatsappConfirmation() {
+          try {
+            const raw = localStorage.getItem(WHATSAPP_CONFIRMATION_KEY);
+            if (!raw) return null;
+            const parsed = JSON.parse(raw);
+            if (!parsed || typeof parsed !== 'object') return null;
+            return parsed;
+          } catch {
+            return null;
+          }
+        }
+
+        function writePendingWhatsappConfirmation(payload) {
+          localStorage.setItem(WHATSAPP_CONFIRMATION_KEY, JSON.stringify(payload));
+        }
+
+        function armWhatsappConfirmationPrompt(order) {
+          writePendingWhatsappConfirmation({
+            orderNumber: order?.orderNumber || null,
+            orderId: order?.orderId || null,
+            createdAt: Date.now(),
+            hasLeftPage: false
+          });
+        }
+
+        function markWhatsappConfirmationAsLeftPage() {
+          const pending = readPendingWhatsappConfirmation();
+          if (!pending || pending.hasLeftPage) return;
+          writePendingWhatsappConfirmation({
+            ...pending,
+            hasLeftPage: true
+          });
         }
 
         async function updateOrderStatus(orderId, status, paymentReference) {
@@ -118,6 +154,35 @@
           if (paymentReference) payload.payment_reference = paymentReference;
 
           await client.from(table).update(payload).eq('id', orderId);
+        }
+
+        function normalizeTrackingPayload(payload) {
+          if (!payload || typeof payload !== 'object' || Array.isArray(payload)) return {};
+          try {
+            return JSON.parse(JSON.stringify(payload));
+          } catch {
+            return {};
+          }
+        }
+
+        async function trackOrderEvent(orderId, eventType, payload, source) {
+          try {
+            const cfg = window.BAGO_SUPABASE || {};
+            const url = String(cfg.url || '').trim();
+            const key = String(cfg.anonKey || '').trim();
+            const table = String(cfg.orderEventsTable || 'order_events').trim();
+            if (!url || !key || !window.supabase?.createClient || !orderId || !eventType || !table) return;
+
+            const client = window.supabase.createClient(url, key);
+            await client.from(table).insert({
+              order_id: orderId,
+              event_type: String(eventType).trim(),
+              source: String(source || 'paypal_success').trim() || 'paypal_success',
+              event_payload: normalizeTrackingPayload(payload || {})
+            });
+          } catch (error) {
+            console.error('Order event tracking failed:', error);
+          }
         }
 
         function buildPaidWhatsAppUrl(order, transactionId) {
@@ -163,6 +228,7 @@
         }
 
         if (!isPaid) {
+          trackOrderEvent(order.orderId, 'paypal_return_unpaid', { paymentStatus: status || null }, 'paypal_success');
           titleNode.textContent = 'Zahlung nicht bestätigt';
           messageNode.textContent = 'PayPal hat die Zahlung noch nicht als abgeschlossen gemeldet.';
           whatsappLink.hidden = true;
@@ -179,17 +245,59 @@
 
         const whatsappUrl = buildPaidWhatsAppUrl(order, transactionId);
         whatsappLink.href = whatsappUrl;
+        whatsappLink.addEventListener('click', () => {
+          armWhatsappConfirmationPrompt(order);
+        });
         titleNode.textContent = 'Zahlung erfolgreich';
         messageNode.textContent = 'WhatsApp wird mit den Bestelldaten, Kundendaten und Transaktions-ID geöffnet.';
         updateOrderStatus(order.orderId, 'paid', transactionId);
+        trackOrderEvent(
+          order.orderId,
+          'paypal_paid',
+          {
+            transactionId: transactionId || null,
+            paymentStatus: status || 'completed'
+          },
+          'paypal_success'
+        );
 
         if (transactionId) {
           localStorage.setItem(LAST_SHARED_PAYPAL_TX_KEY, transactionId);
         }
         localStorage.removeItem(PENDING_PAYPAL_ORDER_KEY);
         localStorage.setItem('bagoCart', JSON.stringify({}));
+        trackOrderEvent(
+          order.orderId,
+          'paypal_whatsapp_open_requested',
+          {
+            transactionId: transactionId || null
+          },
+          'paypal_success'
+        );
+        armWhatsappConfirmationPrompt(order);
+        const opened = openWhatsApp(whatsappUrl);
+        if (!opened) {
+          trackOrderEvent(
+            order.orderId,
+            'paypal_whatsapp_popup_blocked',
+            {
+              transactionId: transactionId || null
+            },
+            'paypal_success'
+          );
+        }
 
-        openWhatsApp(whatsappUrl);
+        window.addEventListener('blur', () => {
+          markWhatsappConfirmationAsLeftPage();
+        });
+        window.addEventListener('pagehide', () => {
+          markWhatsappConfirmationAsLeftPage();
+        });
+        document.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === 'hidden') {
+            markWhatsappConfirmationAsLeftPage();
+          }
+        });
       })();
     </script>
   </body>

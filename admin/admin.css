@@ -243,6 +243,10 @@
   font-size: 0.94rem;
 }
 
+.admin-table tr.is-selected {
+  background: rgba(70, 231, 179, 0.09);
+}
+
 .status-pill {
   display: inline-flex;
   align-items: center;
@@ -287,6 +291,28 @@
 .row-actions button:focus-visible {
   border-color: rgba(70, 231, 179, 0.5);
   background: rgba(70, 231, 179, 0.17);
+}
+
+.status-pill.is-neutral {
+  border-color: rgba(248, 250, 244, 0.26);
+  background: rgba(248, 250, 244, 0.11);
+  color: var(--ink);
+}
+
+.order-events-head {
+  margin-top: 16px;
+}
+
+.event-payload {
+  margin: 0;
+  max-width: 560px;
+  overflow: hidden;
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .opening-hours-grid {
@@ -426,6 +452,11 @@
 
   .admin-table td:last-child {
     padding-top: 10px;
+  }
+
+  .event-payload {
+    max-width: 100%;
+    text-align: right;
   }
 
   .row-actions {

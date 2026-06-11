@@ -2,6 +2,8 @@ const config = window.BAGO_SUPABASE || {};
 const SUPABASE_URL = config.url || '';
 const SUPABASE_ANON_KEY = config.anonKey || '';
 const MENU_TABLE = config.menuTable || 'menu_items';
+const ORDERS_TABLE = config.ordersTable || 'orders';
+const ORDER_EVENTS_TABLE = config.orderEventsTable || 'order_events';
 const VOUCHERS_TABLE = config.vouchersTable || 'vouchers';
 const OPENING_HOURS_TABLE = config.openingHoursTable || 'opening_hours';
 const STORAGE_BUCKET = config.storageBucket || 'menu-images';
@@ -70,6 +72,26 @@ const TRANSLATIONS = {
     openingHoursClosed: 'Geschlossen',
     openingHoursFrom: 'Von',
     openingHoursTo: 'Bis',
+    orderTrackingTitle: 'Bestellverfolgung',
+    orderTrackingIntro: 'Sieh dir Bestellungen und den Ereignisverlauf (Timeline) an.',
+    refreshOrders: 'Bestellungen aktualisieren',
+    orderSearchLabel: 'Bestellungen suchen',
+    orderSearchPlaceholder: 'Nach Kunde, Telefon, Status oder Zahlungsart suchen...',
+    orderTableId: 'Bestellung',
+    orderTableDate: 'Datum',
+    orderTableCustomer: 'Kunde',
+    orderTablePayment: 'Zahlung',
+    orderTableStatus: 'Status',
+    orderTableTotal: 'Gesamt',
+    orderTableActions: 'Aktionen',
+    orderActionViewTimeline: 'Timeline',
+    orderEventsTitle: 'Bestell-Timeline',
+    orderEventsHint: 'Wähle eine Bestellung aus, um Ereignisse zu sehen.',
+    orderEventsFor: 'Timeline für {orderId}',
+    eventTableTime: 'Zeit',
+    eventTableType: 'Typ',
+    eventTableSource: 'Quelle',
+    eventTablePayload: 'Details',
     dayMonday: 'Montag',
     dayTuesday: 'Dienstag',
     dayWednesday: 'Mittwoch',
@@ -80,6 +102,15 @@ const TRANSLATIONS = {
     statusNoMenuItems: 'Keine Menüeinträge vorhanden.',
     statusNoMenuItemsFiltered: 'Keine Menüeinträge passend zur Suche.',
     statusNoVouchers: 'Keine Voucher vorhanden.',
+    statusNoOrders: 'Keine Bestellungen vorhanden.',
+    statusNoOrdersFiltered: 'Keine Bestellungen passend zur Suche.',
+    statusNoOrderEvents: 'Für diese Bestellung gibt es noch keine Ereignisse.',
+    statusOrdersLoading: 'Bestellungen werden geladen...',
+    statusOrdersLoaded: '{count} Bestellungen geladen.',
+    statusOrderEventsLoading: 'Bestell-Timeline wird geladen...',
+    statusOrderEventsLoaded: '{count} Ereignisse geladen.',
+    statusOrderEventsTableMissing:
+      'Die Tabelle order_events fehlt noch. Bitte zuerst die neueste Supabase-Migration ausführen.',
     statusAvailable: 'Verfügbar',
     statusSoldOut: 'Sold Out',
     statusActive: 'Aktiv',
@@ -196,6 +227,26 @@ const TRANSLATIONS = {
     openingHoursClosed: 'Closed',
     openingHoursFrom: 'From',
     openingHoursTo: 'To',
+    orderTrackingTitle: 'Order Tracking',
+    orderTrackingIntro: 'Review orders and their event timeline.',
+    refreshOrders: 'Refresh orders',
+    orderSearchLabel: 'Search orders',
+    orderSearchPlaceholder: 'Search by customer, phone, status, or payment method...',
+    orderTableId: 'Order',
+    orderTableDate: 'Date',
+    orderTableCustomer: 'Customer',
+    orderTablePayment: 'Payment',
+    orderTableStatus: 'Status',
+    orderTableTotal: 'Total',
+    orderTableActions: 'Actions',
+    orderActionViewTimeline: 'Timeline',
+    orderEventsTitle: 'Order Timeline',
+    orderEventsHint: 'Select an order to view its events.',
+    orderEventsFor: 'Timeline for {orderId}',
+    eventTableTime: 'Time',
+    eventTableType: 'Type',
+    eventTableSource: 'Source',
+    eventTablePayload: 'Details',
     dayMonday: 'Monday',
     dayTuesday: 'Tuesday',
     dayWednesday: 'Wednesday',
@@ -206,6 +257,14 @@ const TRANSLATIONS = {
     statusNoMenuItems: 'No menu items available.',
     statusNoMenuItemsFiltered: 'No menu entries match your search.',
     statusNoVouchers: 'No vouchers available.',
+    statusNoOrders: 'No orders available.',
+    statusNoOrdersFiltered: 'No orders match your search.',
+    statusNoOrderEvents: 'No events found for this order yet.',
+    statusOrdersLoading: 'Loading orders...',
+    statusOrdersLoaded: '{count} orders loaded.',
+    statusOrderEventsLoading: 'Loading order timeline...',
+    statusOrderEventsLoaded: '{count} events loaded.',
+    statusOrderEventsTableMissing: 'order_events table is missing. Run the latest Supabase migration first.',
     statusAvailable: 'Available',
     statusSoldOut: 'Sold Out',
     statusActive: 'Active',
@@ -321,6 +380,26 @@ const TRANSLATIONS = {
     openingHoursClosed: 'Закрыто',
     openingHoursFrom: 'С',
     openingHoursTo: 'До',
+    orderTrackingTitle: 'Отслеживание заказов',
+    orderTrackingIntro: 'Просматривайте заказы и их таймлайн событий.',
+    refreshOrders: 'Обновить заказы',
+    orderSearchLabel: 'Поиск заказов',
+    orderSearchPlaceholder: 'Поиск по клиенту, телефону, статусу или оплате...',
+    orderTableId: 'Заказ',
+    orderTableDate: 'Дата',
+    orderTableCustomer: 'Клиент',
+    orderTablePayment: 'Оплата',
+    orderTableStatus: 'Статус',
+    orderTableTotal: 'Сумма',
+    orderTableActions: 'Действия',
+    orderActionViewTimeline: 'Таймлайн',
+    orderEventsTitle: 'Таймлайн заказа',
+    orderEventsHint: 'Выберите заказ, чтобы увидеть события.',
+    orderEventsFor: 'Таймлайн для {orderId}',
+    eventTableTime: 'Время',
+    eventTableType: 'Тип',
+    eventTableSource: 'Источник',
+    eventTablePayload: 'Детали',
     dayMonday: 'Понедельник',
     dayTuesday: 'Вторник',
     dayWednesday: 'Среда',
@@ -331,6 +410,15 @@ const TRANSLATIONS = {
     statusNoMenuItems: 'Позиции меню отсутствуют.',
     statusNoMenuItemsFiltered: 'По вашему запросу ничего не найдено.',
     statusNoVouchers: 'Ваучеры отсутствуют.',
+    statusNoOrders: 'Заказы отсутствуют.',
+    statusNoOrdersFiltered: 'Нет заказов по текущему поиску.',
+    statusNoOrderEvents: 'Для этого заказа пока нет событий.',
+    statusOrdersLoading: 'Загрузка заказов...',
+    statusOrdersLoaded: 'Загружено заказов: {count}.',
+    statusOrderEventsLoading: 'Загрузка таймлайна заказа...',
+    statusOrderEventsLoaded: 'Загружено событий: {count}.',
+    statusOrderEventsTableMissing:
+      'Таблица order_events отсутствует. Сначала примените последнюю миграцию Supabase.',
     statusAvailable: 'Доступно',
     statusSoldOut: 'Sold Out',
     statusActive: 'Активен',
@@ -446,6 +534,26 @@ const TRANSLATIONS = {
     openingHoursClosed: '休業',
     openingHoursFrom: '開始',
     openingHoursTo: '終了',
+    orderTrackingTitle: '注文トラッキング',
+    orderTrackingIntro: '注文一覧とイベントタイムラインを確認できます。',
+    refreshOrders: '注文を更新',
+    orderSearchLabel: '注文を検索',
+    orderSearchPlaceholder: '顧客名・電話・ステータス・支払い方法で検索...',
+    orderTableId: '注文',
+    orderTableDate: '日時',
+    orderTableCustomer: '顧客',
+    orderTablePayment: '支払い',
+    orderTableStatus: 'ステータス',
+    orderTableTotal: '合計',
+    orderTableActions: '操作',
+    orderActionViewTimeline: 'タイムライン',
+    orderEventsTitle: '注文タイムライン',
+    orderEventsHint: '注文を選択するとイベントを表示します。',
+    orderEventsFor: '{orderId} のタイムライン',
+    eventTableTime: '時間',
+    eventTableType: '種類',
+    eventTableSource: 'ソース',
+    eventTablePayload: '詳細',
     dayMonday: '月曜日',
     dayTuesday: '火曜日',
     dayWednesday: '水曜日',
@@ -456,6 +564,14 @@ const TRANSLATIONS = {
     statusNoMenuItems: 'メニュー項目がありません。',
     statusNoMenuItemsFiltered: '検索条件に一致する項目がありません。',
     statusNoVouchers: 'クーポンがありません。',
+    statusNoOrders: '注文がありません。',
+    statusNoOrdersFiltered: '検索条件に一致する注文がありません。',
+    statusNoOrderEvents: 'この注文のイベントはまだありません。',
+    statusOrdersLoading: '注文を読み込み中...',
+    statusOrdersLoaded: '{count} 件の注文を読み込みました。',
+    statusOrderEventsLoading: '注文タイムラインを読み込み中...',
+    statusOrderEventsLoaded: '{count} 件のイベントを読み込みました。',
+    statusOrderEventsTableMissing: 'order_events テーブルがありません。最新の Supabase マイグレーションを適用してください。',
     statusAvailable: '販売中',
     statusSoldOut: '売り切れ',
     statusActive: '有効',
@@ -571,6 +687,26 @@ const TRANSLATIONS = {
     openingHoursClosed: 'Kapalı',
     openingHoursFrom: 'Başlangıç',
     openingHoursTo: 'Bitiş',
+    orderTrackingTitle: 'Sipariş Takibi',
+    orderTrackingIntro: 'Siparişleri ve olay zaman çizelgesini görüntüleyin.',
+    refreshOrders: 'Siparişleri yenile',
+    orderSearchLabel: 'Sipariş ara',
+    orderSearchPlaceholder: 'Müşteri, telefon, durum veya ödeme yöntemi ile ara...',
+    orderTableId: 'Sipariş',
+    orderTableDate: 'Tarih',
+    orderTableCustomer: 'Müşteri',
+    orderTablePayment: 'Ödeme',
+    orderTableStatus: 'Durum',
+    orderTableTotal: 'Toplam',
+    orderTableActions: 'İşlemler',
+    orderActionViewTimeline: 'Zaman çizelgesi',
+    orderEventsTitle: 'Sipariş Zaman Çizelgesi',
+    orderEventsHint: 'Olayları görmek için bir sipariş seçin.',
+    orderEventsFor: '{orderId} için zaman çizelgesi',
+    eventTableTime: 'Saat',
+    eventTableType: 'Tür',
+    eventTableSource: 'Kaynak',
+    eventTablePayload: 'Detaylar',
     dayMonday: 'Pazartesi',
     dayTuesday: 'Salı',
     dayWednesday: 'Çarşamba',
@@ -581,6 +717,14 @@ const TRANSLATIONS = {
     statusNoMenuItems: 'Menü öğesi yok.',
     statusNoMenuItemsFiltered: 'Aramayla eşleşen kayıt bulunamadı.',
     statusNoVouchers: 'Kupon yok.',
+    statusNoOrders: 'Sipariş yok.',
+    statusNoOrdersFiltered: 'Aramayla eşleşen sipariş bulunamadı.',
+    statusNoOrderEvents: 'Bu sipariş için henüz olay yok.',
+    statusOrdersLoading: 'Siparişler yükleniyor...',
+    statusOrdersLoaded: '{count} sipariş yüklendi.',
+    statusOrderEventsLoading: 'Sipariş zaman çizelgesi yükleniyor...',
+    statusOrderEventsLoaded: '{count} olay yüklendi.',
+    statusOrderEventsTableMissing: 'order_events tablosu eksik. Önce en güncel Supabase migration çalıştırılmalı.',
     statusAvailable: 'Mevcut',
     statusSoldOut: 'Tükendi',
     statusActive: 'Aktif',
@@ -655,6 +799,7 @@ const LANGUAGE_LOCALES = {
 const LANGUAGE_STORAGE_KEY = 'bagoAdminLanguage';
 const ITEMS_PER_PAGE = 12;
 const VOUCHERS_PER_PAGE = 10;
+const ORDERS_PER_PAGE = 10;
 
 const loginCard = document.querySelector('#loginCard');
 const adminCard = document.querySelector('#adminCard');
@@ -669,13 +814,20 @@ const resetVoucherFormButton = document.querySelector('#resetVoucherForm');
 const openingHoursForm = document.querySelector('#openingHoursForm');
 const openingHoursRows = document.querySelector('#openingHoursRows');
 const refreshOpeningHoursButton = document.querySelector('#refreshOpeningHours');
+const refreshOrdersButton = document.querySelector('#refreshOrders');
 const loginStatus = document.querySelector('#loginStatus');
 const adminStatus = document.querySelector('#adminStatus');
 const voucherStatus = document.querySelector('#voucherStatus');
 const openingHoursStatus = document.querySelector('#openingHoursStatus');
+const orderTrackingStatus = document.querySelector('#orderTrackingStatus');
+const orderEventsStatus = document.querySelector('#orderEventsStatus');
 const itemsTableBody = document.querySelector('#itemsTableBody');
 const itemSearchInput = document.querySelector('#itemSearchInput');
+const orderSearchInput = document.querySelector('#orderSearchInput');
 const vouchersTableBody = document.querySelector('#vouchersTableBody');
+const ordersTableBody = document.querySelector('#ordersTableBody');
+const orderEventsTableBody = document.querySelector('#orderEventsTableBody');
+const orderEventsMeta = document.querySelector('#orderEventsMeta');
 const itemsPagination = document.querySelector('#itemsPagination');
 const itemsPrevPageButton = document.querySelector('#itemsPrevPage');
 const itemsNextPageButton = document.querySelector('#itemsNextPage');
@@ -684,6 +836,10 @@ const vouchersPagination = document.querySelector('#vouchersPagination');
 const vouchersPrevPageButton = document.querySelector('#vouchersPrevPage');
 const vouchersNextPageButton = document.querySelector('#vouchersNextPage');
 const vouchersPageInfo = document.querySelector('#vouchersPageInfo');
+const ordersPagination = document.querySelector('#ordersPagination');
+const ordersPrevPageButton = document.querySelector('#ordersPrevPage');
+const ordersNextPageButton = document.querySelector('#ordersNextPage');
+const ordersPageInfo = document.querySelector('#ordersPageInfo');
 const languageToggle = document.querySelector('#languageToggle');
 const languageMenu = document.querySelector('#languageMenu');
 const languageLabel = document.querySelector('#languageLabel');
@@ -701,14 +857,19 @@ const DAY_LABEL_KEYS = {
 const state = {
   items: [],
   vouchers: [],
+  orders: [],
+  orderEvents: [],
   openingHours: [],
   busy: false,
   voucherBusy: false,
   openingHoursBusy: false,
   session: null,
   itemSearch: '',
+  orderSearch: '',
   itemsPage: 1,
   vouchersPage: 1,
+  ordersPage: 1,
+  selectedOrderId: '',
   language: getInitialLanguage()
 };
 
@@ -753,6 +914,62 @@ function formatEuro(value) {
   const amount = Number.parseFloat(value);
   const safe = Number.isFinite(amount) ? amount : 0;
   return moneyFormatter.format(safe);
+}
+
+function formatDateTime(value) {
+  const date = value ? new Date(value) : null;
+  if (!date || Number.isNaN(date.getTime())) return '-';
+  const locale = LANGUAGE_LOCALES[state.language] || 'de-DE';
+  return new Intl.DateTimeFormat(locale, {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit'
+  }).format(date);
+}
+
+function formatOrderId(orderId) {
+  const raw = normalize(orderId);
+  if (!raw) return '-';
+  return `#${raw.slice(0, 8)}`;
+}
+
+function getOrderStatusClass(status) {
+  const normalized = normalize(status).toLowerCase();
+  if (['paid', 'completed', 'pending_confirmation', 'payment_pending'].includes(normalized)) {
+    return 'is-live';
+  }
+  if (['cancelled', 'payment_failed', 'failed'].includes(normalized)) {
+    return 'is-sold';
+  }
+  return 'is-neutral';
+}
+
+function formatOrderStatus(status) {
+  const normalized = normalize(status).toLowerCase();
+  if (!normalized) return '-';
+  return normalized.replace(/_/g, ' ');
+}
+
+function formatOrderPayment(payment) {
+  const normalized = normalize(payment).toLowerCase();
+  if (normalized === 'paypal') return 'PayPal';
+  if (normalized === 'cash') return 'Cash';
+  return normalized || '-';
+}
+
+function stringifyPayload(payload) {
+  if (typeof payload === 'string') {
+    return payload.length > 280 ? `${payload.slice(0, 277)}...` : payload;
+  }
+  if (!payload || typeof payload !== 'object') return '-';
+  try {
+    const serialized = JSON.stringify(payload);
+    return serialized.length > 280 ? `${serialized.slice(0, 277)}...` : serialized;
+  } catch {
+    return '-';
+  }
 }
 
 function getTotalPages(totalCount, pageSize) {
@@ -1202,6 +1419,143 @@ function renderVouchers() {
   );
 }
 
+function buildOrderSearchBlob(order) {
+  return [
+    order.id,
+    order.customer_name,
+    order.customer_phone,
+    order.customer_email,
+    order.payment_method,
+    order.order_status,
+    order.payment_reference,
+    order.order_total
+  ]
+    .map((value) => normalize(value).toLowerCase())
+    .filter(Boolean)
+    .join(' ');
+}
+
+function getFilteredOrders() {
+  const query = normalize(state.orderSearch).toLowerCase();
+  if (!query) return state.orders;
+  return state.orders.filter((order) => buildOrderSearchBlob(order).includes(query));
+}
+
+function renderOrders() {
+  if (!ordersTableBody) return;
+
+  const filteredOrders = getFilteredOrders();
+  const pagination = paginateEntries(filteredOrders, state.ordersPage, ORDERS_PER_PAGE);
+  state.ordersPage = pagination.page;
+
+  if (!pagination.total) {
+    ordersTableBody.innerHTML = `<tr class="table-empty"><td data-label="" colspan="7">${escapeHtml(
+      state.orders.length ? t('statusNoOrdersFiltered') : t('statusNoOrders')
+    )}</td></tr>`;
+    renderTablePagination(
+      {
+        container: ordersPagination,
+        prevButton: ordersPrevPageButton,
+        nextButton: ordersNextPageButton,
+        infoNode: ordersPageInfo
+      },
+      pagination
+    );
+    return;
+  }
+
+  const idLabel = escapeHtml(t('orderTableId'));
+  const dateLabel = escapeHtml(t('orderTableDate'));
+  const customerLabel = escapeHtml(t('orderTableCustomer'));
+  const paymentLabel = escapeHtml(t('orderTablePayment'));
+  const statusLabel = escapeHtml(t('orderTableStatus'));
+  const totalLabel = escapeHtml(t('orderTableTotal'));
+  const actionsLabel = escapeHtml(t('orderTableActions'));
+
+  ordersTableBody.innerHTML = pagination.entries
+    .map((order) => {
+      const isSelected = String(order.id) === String(state.selectedOrderId);
+      const customerText = [normalize(order.customer_name), normalize(order.customer_phone)].filter(Boolean).join(' · ') || '-';
+      const statusClass = getOrderStatusClass(order.order_status);
+      return `
+        <tr class="${isSelected ? 'is-selected' : ''}">
+          <td data-label="${idLabel}">${escapeHtml(formatOrderId(order.id))}</td>
+          <td data-label="${dateLabel}">${escapeHtml(formatDateTime(order.ordered_at))}</td>
+          <td data-label="${customerLabel}">${escapeHtml(customerText)}</td>
+          <td data-label="${paymentLabel}">${escapeHtml(formatOrderPayment(order.payment_method))}</td>
+          <td data-label="${statusLabel}">
+            <span class="status-pill ${statusClass}">
+              ${escapeHtml(formatOrderStatus(order.order_status))}
+            </span>
+          </td>
+          <td data-label="${totalLabel}">${escapeHtml(formatEuro(order.order_total))}</td>
+          <td data-label="${actionsLabel}">
+            <div class="row-actions">
+              <button type="button" data-order-view="${escapeHtml(order.id)}">${escapeHtml(t('orderActionViewTimeline'))}</button>
+            </div>
+          </td>
+        </tr>
+      `;
+    })
+    .join('');
+
+  renderTablePagination(
+    {
+      container: ordersPagination,
+      prevButton: ordersPrevPageButton,
+      nextButton: ordersNextPageButton,
+      infoNode: ordersPageInfo
+    },
+    pagination
+  );
+}
+
+function renderOrderEvents() {
+  if (!orderEventsTableBody) return;
+
+  const selectedId = normalize(state.selectedOrderId);
+  if (orderEventsMeta) {
+    orderEventsMeta.textContent = selectedId
+      ? formatT('orderEventsFor', { orderId: formatOrderId(selectedId) })
+      : t('orderEventsHint');
+  }
+
+  if (!selectedId) {
+    orderEventsTableBody.innerHTML = `<tr class="table-empty"><td data-label="" colspan="4">${escapeHtml(
+      t('orderEventsHint')
+    )}</td></tr>`;
+    return;
+  }
+
+  if (!state.orderEvents.length) {
+    orderEventsTableBody.innerHTML = `<tr class="table-empty"><td data-label="" colspan="4">${escapeHtml(
+      t('statusNoOrderEvents')
+    )}</td></tr>`;
+    return;
+  }
+
+  const timeLabel = escapeHtml(t('eventTableTime'));
+  const typeLabel = escapeHtml(t('eventTableType'));
+  const sourceLabel = escapeHtml(t('eventTableSource'));
+  const payloadLabel = escapeHtml(t('eventTablePayload'));
+
+  orderEventsTableBody.innerHTML = state.orderEvents
+    .map((eventRow) => {
+      const payload = stringifyPayload(eventRow.event_payload);
+      return `
+        <tr>
+          <td data-label="${timeLabel}">${escapeHtml(formatDateTime(eventRow.created_at))}</td>
+          <td data-label="${typeLabel}">${escapeHtml(formatOrderStatus(eventRow.event_type))}</td>
+          <td data-label="${sourceLabel}">${escapeHtml(normalize(eventRow.source) || '-')}</td>
+          <td data-label="${payloadLabel}">
+            <pre class="event-payload" title="${escapeHtml(payload)}">${escapeHtml(payload)}</pre>
+          </td>
+        </tr>
+      `;
+    })
+    .join('');
+}
+
 function closeLanguageMenu() {
   if (!languageMenu || !languageToggle) return;
   languageMenu.hidden = true;
@@ -1249,6 +1603,8 @@ function applyLanguage() {
   applyStaticTranslations();
   renderItems();
   renderVouchers();
+  renderOrders();
+  renderOrderEvents();
   renderOpeningHours();
 }
 
@@ -1331,6 +1687,92 @@ async function refreshVouchers() {
   setStatus(voucherStatus, formatT('statusVouchersLoaded', { count: state.vouchers.length }));
 }
 
+async function fetchOrders() {
+  return supabaseClient
+    .from(ORDERS_TABLE)
+    .select(
+      'id, ordered_at, customer_name, customer_phone, customer_email, payment_method, order_status, order_total, payment_reference, is_scheduled, scheduled_for'
+    )
+    .order('ordered_at', { ascending: false });
+}
+
+async function fetchOrderEvents(orderId) {
+  return supabaseClient
+    .from(ORDER_EVENTS_TABLE)
+    .select('id, order_id, event_type, source, event_payload, created_at')
+    .eq('order_id', orderId)
+    .order('created_at', { ascending: false });
+}
+
+async function refreshOrderEvents(orderId, options = {}) {
+  if (!state.session || !orderEventsTableBody) return;
+
+  const selectedOrderId = normalize(orderId);
+  state.selectedOrderId = selectedOrderId;
+  if (!selectedOrderId) {
+    state.orderEvents = [];
+    renderOrderEvents();
+    setStatus(orderEventsStatus, '');
+    return;
+  }
+
+  if (!options.silentStatus) {
+    setStatus(orderEventsStatus, t('statusOrderEventsLoading'));
+  }
+
+  const { data, error } = await fetchOrderEvents(selectedOrderId);
+  if (error) {
+    const missingTable =
+      /relation .*order_events.* does not exist|table .*order_events.* does not exist|could not find the table/i.test(
+        error.message || ''
+      );
+    setStatus(
+      orderEventsStatus,
+      missingTable ? t('statusOrderEventsTableMissing') : formatT('statusLoadError', { message: error.message }),
+      true
+    );
+    state.orderEvents = [];
+    renderOrderEvents();
+    return;
+  }
+
+  state.orderEvents = Array.isArray(data) ? data : [];
+  renderOrderEvents();
+  if (!options.silentStatus) {
+    setStatus(orderEventsStatus, formatT('statusOrderEventsLoaded', { count: state.orderEvents.length }));
+  }
+}
+
+async function refreshOrders() {
+  if (!state.session || !ordersTableBody) return;
+  setStatus(orderTrackingStatus, t('statusOrdersLoading'));
+
+  const { data, error } = await fetchOrders();
+  if (error) {
+    setStatus(orderTrackingStatus, formatT('statusLoadError', { message: error.message }), true);
+    return;
+  }
+
+  state.orders = Array.isArray(data) ? data : [];
+  state.ordersPage = clampPage(state.ordersPage, getTotalPages(getFilteredOrders().length, ORDERS_PER_PAGE));
+
+  if (!state.selectedOrderId || !state.orders.some((entry) => String(entry.id) === String(state.selectedOrderId))) {
+    state.selectedOrderId = state.orders[0]?.id || '';
+  }
+
+  renderOrders();
+  renderOrderEvents();
+  setStatus(orderTrackingStatus, formatT('statusOrdersLoaded', { count: state.orders.length }));
+
+  if (state.selectedOrderId) {
+    await refreshOrderEvents(state.selectedOrderId, { silentStatus: true });
+  } else {
+    state.orderEvents = [];
+    renderOrderEvents();
+    setStatus(orderEventsStatus, '');
+  }
+}
+
 async function refreshOpeningHours() {
   if (!state.session || !openingHoursRows) return;
   setStatus(openingHoursStatus, t('statusOpeningHoursLoading'));
@@ -1381,22 +1823,35 @@ function setAuthState(session) {
     setStatus(loginStatus, '');
     refreshItems();
     refreshVouchers();
+    refreshOrders();
     refreshOpeningHours();
   } else {
     state.items = [];
     state.vouchers = [];
+    state.orders = [];
+    state.orderEvents = [];
     state.openingHours = normalizeOpeningHoursRows([]);
     state.itemSearch = '';
+    state.orderSearch = '';
     state.itemsPage = 1;
     state.vouchersPage = 1;
+    state.ordersPage = 1;
+    state.selectedOrderId = '';
     if (itemSearchInput) {
       itemSearchInput.value = '';
     }
+    if (orderSearchInput) {
+      orderSearchInput.value = '';
+    }
     renderItems();
     renderVouchers();
+    renderOrders();
+    renderOrderEvents();
     renderOpeningHours();
     clearVoucherForm();
     setStatus(openingHoursStatus, '');
+    setStatus(orderTrackingStatus, '');
+    setStatus(orderEventsStatus, '');
   }
 }
 
@@ -1589,6 +2044,14 @@ function changeVouchersPage(delta) {
   renderVouchers();
 }
 
+function changeOrdersPage(delta) {
+  const totalPages = getTotalPages(getFilteredOrders().length, ORDERS_PER_PAGE);
+  const nextPage = clampPage(state.ordersPage + delta, totalPages);
+  if (nextPage === state.ordersPage) return;
+  state.ordersPage = nextPage;
+  renderOrders();
+}
+
 async function handleTableActions(event) {
   const editButton = event.target.closest('[data-edit]');
   const toggleButton = event.target.closest('[data-toggle]');
@@ -1631,6 +2094,17 @@ async function handleVoucherTableActions(event) {
   if (deleteButton) {
     await deleteVoucher(deleteButton.dataset.voucherDelete);
   }
+}
+
+async function handleOrdersTableActions(event) {
+  const timelineButton = event.target.closest('[data-order-view]');
+  if (!timelineButton) return;
+
+  const orderId = normalize(timelineButton.dataset.orderView);
+  if (!orderId) return;
+
+  await refreshOrderEvents(orderId);
+  renderOrders();
 }
 
 async function initializeAuth() {
@@ -1685,6 +2159,8 @@ logoutButton.addEventListener('click', async () => {
   clearVoucherForm();
   setStatus(adminStatus, '');
   setStatus(voucherStatus, '');
+  setStatus(orderTrackingStatus, '');
+  setStatus(orderEventsStatus, '');
 });
 
 refreshItemsButton.addEventListener('click', () => {
@@ -1712,6 +2188,12 @@ if (resetVoucherFormButton) {
 if (refreshOpeningHoursButton) {
   refreshOpeningHoursButton.addEventListener('click', () => {
     refreshOpeningHours();
+  });
+}
+
+if (refreshOrdersButton) {
+  refreshOrdersButton.addEventListener('click', () => {
+    refreshOrders();
   });
 }
 
@@ -1745,6 +2227,14 @@ if (itemSearchInput) {
   });
 }
 
+if (orderSearchInput) {
+  orderSearchInput.addEventListener('input', () => {
+    state.orderSearch = orderSearchInput.value;
+    state.ordersPage = 1;
+    renderOrders();
+  });
+}
+
 itemsTableBody.addEventListener('click', (event) => {
   handleTableActions(event);
 });
@@ -1772,12 +2262,27 @@ if (vouchersTableBody) {
   });
 }
 
+if (ordersTableBody) {
+  ordersTableBody.addEventListener('click', (event) => {
+    handleOrdersTableActions(event);
+  });
+}
+
 if (vouchersPrevPageButton && vouchersNextPageButton) {
   vouchersPrevPageButton.addEventListener('click', () => {
     changeVouchersPage(-1);
   });
   vouchersNextPageButton.addEventListener('click', () => {
     changeVouchersPage(1);
+  });
+}
+
+if (ordersPrevPageButton && ordersNextPageButton) {
+  ordersPrevPageButton.addEventListener('click', () => {
+    changeOrdersPage(-1);
+  });
+  ordersNextPageButton.addEventListener('click', () => {
+    changeOrdersPage(1);
   });
 }
 

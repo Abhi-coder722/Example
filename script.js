@@ -39,7 +39,8 @@ const TRANSLATIONS = {
     scheduleTitle: 'Bestellzeit',
     scheduleAsap: 'Sofort',
     scheduleLater: 'Später planen',
-    scheduleDateTimeLabel: 'Abholdatum und Uhrzeit',
+    scheduleDateLabel: 'Abholdatum',
+    scheduleTimeLabel: 'Abholzeit',
     scheduleHelpOpen: 'Geöffnet: Du kannst jetzt bestellen oder einen späteren Zeitpunkt wählen.',
     scheduleHelpLater: 'Wähle ein Datum und eine Uhrzeit innerhalb der Öffnungszeiten.',
     scheduleHelpClosed: 'Der Laden ist aktuell geschlossen. Bitte eine Abholzeit planen.',
@@ -134,6 +135,12 @@ const TRANSLATIONS = {
     statusPaypalCancelled: 'PayPal-Zahlung wurde abgebrochen.',
     statusPaypalOrderMissing: 'PayPal-Rückkehr erkannt, aber keine gespeicherten Bestelldaten gefunden.',
     statusPaypalReturnPending: 'PayPal-Rückkehr erkannt. Zahlungsstatus nicht bestätigt.',
+    statusPaypalCheckoutFailed: 'PayPal Checkout konnte nicht geöffnet werden. Bitte erneut versuchen.',
+    whatsappConfirmTitle: 'Hast du die Bestellung bereits aufgegeben?',
+    whatsappConfirmBody: 'Wenn du die Bestellung in WhatsApp gesendet hast, können wir den Warenkorb jetzt leeren.',
+    whatsappConfirmYes: 'Ja',
+    whatsappConfirmNo: 'Nein',
+    whatsappConfirmThanks: 'Deine Bestellung wird bearbeitet, danke :)',
     waHeader: 'Neue Bestellung',
     waBusiness: 'Restaurant',
     waCustomer: 'Name',
@@ -181,7 +188,8 @@ const TRANSLATIONS = {
     scheduleTitle: 'Order time',
     scheduleAsap: 'As soon as possible',
     scheduleLater: 'Schedule for later',
-    scheduleDateTimeLabel: 'Pickup date and time',
+    scheduleDateLabel: 'Pickup date',
+    scheduleTimeLabel: 'Pickup time',
     scheduleHelpOpen: 'Open now: order immediately or schedule for later.',
     scheduleHelpLater: 'Choose a pickup date and time within opening hours.',
     scheduleHelpClosed: 'The restaurant is currently closed. Please schedule your pickup.',
@@ -275,6 +283,12 @@ const TRANSLATIONS = {
     statusPaypalCancelled: 'PayPal payment was canceled.',
     statusPaypalOrderMissing: 'PayPal returned but no saved order data was found.',
     statusPaypalReturnPending: 'PayPal returned, but payment status was not confirmed.',
+    statusPaypalCheckoutFailed: 'Could not open PayPal Checkout. Please try again.',
+    whatsappConfirmTitle: 'Did you already place the order?',
+    whatsappConfirmBody: 'If you sent the order in WhatsApp, we can clear the cart now.',
+    whatsappConfirmYes: 'Yes',
+    whatsappConfirmNo: 'No',
+    whatsappConfirmThanks: 'Your order is being processed, thanks :)',
     waHeader: 'New order',
     waBusiness: 'Restaurant',
     waCustomer: 'Name',
@@ -322,7 +336,8 @@ const TRANSLATIONS = {
     scheduleTitle: 'Время заказа',
     scheduleAsap: 'Как можно скорее',
     scheduleLater: 'Запланировать позже',
-    scheduleDateTimeLabel: 'Дата и время самовывоза',
+    scheduleDateLabel: 'Дата самовывоза',
+    scheduleTimeLabel: 'Время самовывоза',
     scheduleHelpOpen: 'Сейчас открыто: можно заказать сразу или запланировать время.',
     scheduleHelpLater: 'Выберите дату и время в рамках часов работы.',
     scheduleHelpClosed: 'Сейчас закрыто. Пожалуйста, запланируйте время самовывоза.',
@@ -417,6 +432,12 @@ const TRANSLATIONS = {
     statusPaypalCancelled: 'Оплата PayPal была отменена.',
     statusPaypalOrderMissing: 'PayPal вернул пользователя, но данные заказа не найдены.',
     statusPaypalReturnPending: 'PayPal вернул пользователя, но статус оплаты не подтвержден.',
+    statusPaypalCheckoutFailed: 'Не удалось открыть PayPal Checkout. Попробуйте еще раз.',
+    whatsappConfirmTitle: 'Вы уже отправили заказ?',
+    whatsappConfirmBody: 'Если вы отправили заказ в WhatsApp, мы можем очистить корзину.',
+    whatsappConfirmYes: 'Да',
+    whatsappConfirmNo: 'Нет',
+    whatsappConfirmThanks: 'Ваш заказ в обработке, спасибо :)',
     waHeader: 'Новый заказ',
     waBusiness: 'Ресторан',
     waCustomer: 'Имя',
@@ -464,7 +485,8 @@ const TRANSLATIONS = {
     scheduleTitle: '受け取り時間',
     scheduleAsap: 'できるだけ早く',
     scheduleLater: '日時を指定',
-    scheduleDateTimeLabel: '受け取り日時',
+    scheduleDateLabel: '受け取り日',
+    scheduleTimeLabel: '受け取り時間',
     scheduleHelpOpen: '現在営業中です。今すぐ注文するか、後の時間を指定できます。',
     scheduleHelpLater: '営業時間内の受け取り日時を選択してください。',
     scheduleHelpClosed: '現在休業中です。受け取り日時を指定してください。',
@@ -559,6 +581,12 @@ const TRANSLATIONS = {
     statusPaypalCancelled: 'PayPal支払いがキャンセルされました。',
     statusPaypalOrderMissing: 'PayPalから戻りましたが、保存済み注文データが見つかりません。',
     statusPaypalReturnPending: 'PayPalから戻りましたが、支払い状況が確認できませんでした。',
+    statusPaypalCheckoutFailed: 'PayPal Checkout を開けませんでした。もう一度お試しください。',
+    whatsappConfirmTitle: '注文はすでに送信しましたか？',
+    whatsappConfirmBody: 'WhatsAppで注文を送信済みなら、カートを空にできます。',
+    whatsappConfirmYes: 'はい',
+    whatsappConfirmNo: 'いいえ',
+    whatsappConfirmThanks: 'ご注文を受け付けました。ありがとうございます :)',
     waHeader: '新規注文',
     waBusiness: '店舗',
     waCustomer: 'お名前',
@@ -606,7 +634,8 @@ const TRANSLATIONS = {
     scheduleTitle: 'Sipariş zamanı',
     scheduleAsap: 'Mümkün olan en kısa sürede',
     scheduleLater: 'Daha sonra planla',
-    scheduleDateTimeLabel: 'Teslim alma tarihi ve saati',
+    scheduleDateLabel: 'Teslim alma tarihi',
+    scheduleTimeLabel: 'Teslim alma saati',
     scheduleHelpOpen: 'Şu an açık: hemen sipariş verebilir veya ileri bir saat seçebilirsin.',
     scheduleHelpLater: 'Açılış saatleri içinde bir tarih ve saat seçin.',
     scheduleHelpClosed: 'Restoran şu an kapalı. Lütfen teslim alma zamanını planlayın.',
@@ -701,6 +730,12 @@ const TRANSLATIONS = {
     statusPaypalCancelled: 'PayPal ödemesi iptal edildi.',
     statusPaypalOrderMissing: 'PayPal dönüşü alındı ancak kayıtlı sipariş bulunamadı.',
     statusPaypalReturnPending: 'PayPal dönüşü alındı ancak ödeme durumu doğrulanamadı.',
+    statusPaypalCheckoutFailed: 'PayPal Checkout açılamadı. Lütfen tekrar deneyin.',
+    whatsappConfirmTitle: 'Siparişi zaten gönderdin mi?',
+    whatsappConfirmBody: 'Siparişi WhatsApp ile gönderdiysen sepeti şimdi temizleyebiliriz.',
+    whatsappConfirmYes: 'Evet',
+    whatsappConfirmNo: 'Hayır',
+    whatsappConfirmThanks: 'Siparişin işleme alındı, teşekkürler :)',
     waHeader: 'Yeni sipariş',
     waBusiness: 'Restoran',
     waCustomer: 'Ad',
@@ -1065,6 +1100,7 @@ const state = {
 const THEME_STORAGE_KEY = 'bagoTheme';
 const PENDING_PAYPAL_ORDER_KEY = 'bagoPendingPaypalOrder';
 const LAST_SHARED_PAYPAL_TX_KEY = 'bagoLastSharedPaypalTx';
+const WHATSAPP_CONFIRMATION_KEY = 'bagoWhatsappConfirmation';
 const DEFAULT_SUPABASE_CONFIG = {
   url: '',
   anonKey: '',
@@ -1072,6 +1108,7 @@ const DEFAULT_SUPABASE_CONFIG = {
   customersTable: 'customers',
   ordersTable: 'orders',
   orderItemsTable: 'order_items',
+  orderEventsTable: 'order_events',
   vouchersTable: 'vouchers',
   openingHoursTable: 'opening_hours',
   storageBucket: 'menu-images',
@@ -1168,7 +1205,8 @@ const formStatus = document.querySelector('#formStatus');
 const nameInput = checkoutForm.elements.name;
 const phoneInput = checkoutForm.elements.phone;
 const emailInput = checkoutForm.elements.email;
-const scheduledAtInput = checkoutForm.elements.scheduled_at;
+const scheduledDateInput = checkoutForm.elements.scheduled_date;
+const scheduledTimeInput = checkoutForm.elements.scheduled_time;
 const scheduledAtField = document.querySelector('#scheduledAtField');
 const scheduleHelp = document.querySelector('#scheduleHelp');
 const fulfillmentAsapLabel = document.querySelector('#fulfillmentAsapLabel');
@@ -1188,6 +1226,9 @@ const legalModalTitle = document.querySelector('#legalModalTitle');
 const legalModalContent = document.querySelector('#legalModalContent');
 const legalModalClose = document.querySelector('#legalModalClose');
 const legalModalCancel = document.querySelector('#legalModalCancel');
+const whatsappConfirmModal = document.querySelector('#whatsappConfirmModal');
+const whatsappConfirmYes = document.querySelector('#whatsappConfirmYes');
+const whatsappConfirmNo = document.querySelector('#whatsappConfirmNo');
 
 function buildMoneyFormatter(language) {
   return new Intl.NumberFormat(LANGUAGE_LOCALES[language] || 'de-DE', {
@@ -1466,6 +1507,83 @@ function parseDateTimeLocalValue(value) {
   return parsed;
 }
 
+function formatDateInputValue(date) {
+  const value = date instanceof Date ? date : new Date(date);
+  if (Number.isNaN(value.getTime())) return '';
+  return `${value.getFullYear()}-${pad2(value.getMonth() + 1)}-${pad2(value.getDate())}`;
+}
+
+function formatTimeInputValue(date) {
+  const value = date instanceof Date ? date : new Date(date);
+  if (Number.isNaN(value.getTime())) return '';
+  return `${pad2(value.getHours())}:${pad2(value.getMinutes())}`;
+}
+
+function parseDateInputValue(value) {
+  const raw = String(value || '').trim();
+  const match = raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return null;
+  const year = Number.parseInt(match[1], 10);
+  const month = Number.parseInt(match[2], 10) - 1;
+  const day = Number.parseInt(match[3], 10);
+  const parsed = new Date(year, month, day, 0, 0, 0, 0);
+  return Number.isNaN(parsed.getTime()) ? null : parsed;
+}
+
+function parseScheduledDateTimeFromInputs() {
+  if (!scheduledDateInput || !scheduledTimeInput) return null;
+  const datePart = parseDateInputValue(scheduledDateInput.value);
+  const timePart = normalizeTimeText(scheduledTimeInput.value);
+  if (!datePart || !timePart) return null;
+  const [hourText, minuteText] = timePart.split(':');
+  const combined = new Date(datePart);
+  combined.setHours(Number.parseInt(hourText, 10), Number.parseInt(minuteText, 10), 0, 0);
+  return combined;
+}
+
+function setScheduledDateTimeInputs(dateValue) {
+  const date = dateValue instanceof Date ? dateValue : new Date(dateValue);
+  if (Number.isNaN(date.getTime()) || !scheduledDateInput || !scheduledTimeInput) return;
+  scheduledDateInput.value = formatDateInputValue(date);
+  scheduledTimeInput.value = formatTimeInputValue(date);
+}
+
+function findNextAvailableScheduleDate(startDate = new Date()) {
+  const base = new Date(startDate);
+  base.setSeconds(0, 0);
+  base.setMinutes(Math.ceil(base.getMinutes() / 15) * 15);
+  if (base <= startDate) {
+    base.setMinutes(base.getMinutes() + 15);
+  }
+
+  for (let dayOffset = 0; dayOffset < 14; dayOffset += 1) {
+    const probe = new Date(base);
+    probe.setDate(base.getDate() + dayOffset);
+    const entry = getOpeningHoursForDay(probe.getDay());
+    if (!entry || entry.isClosed) continue;
+
+    const openMinutes = timeToMinutes(entry.opensAt);
+    const closeMinutes = timeToMinutes(entry.closesAt);
+    if (openMinutes == null || closeMinutes == null || closeMinutes <= openMinutes) continue;
+
+    const openDate = new Date(probe);
+    openDate.setHours(Math.floor(openMinutes / 60), openMinutes % 60, 0, 0);
+    const closeDate = new Date(probe);
+    closeDate.setHours(Math.floor(closeMinutes / 60), closeMinutes % 60, 0, 0);
+
+    let candidate = dayOffset === 0 ? new Date(base) : new Date(openDate);
+    if (candidate < openDate) {
+      candidate = new Date(openDate);
+    }
+    if (candidate >= closeDate) {
+      continue;
+    }
+    return candidate;
+  }
+
+  return null;
+}
+
 function formatScheduledDateTime(date) {
   const formatter = new Intl.DateTimeFormat(LANGUAGE_LOCALES[state.language] || 'de-DE', {
     weekday: 'short',
@@ -1498,11 +1616,11 @@ function renderOpeningHoursCard() {
 }
 
 function refreshScheduleInputMinValue() {
-  if (!scheduledAtInput) return;
+  if (!scheduledDateInput) return;
   const minDate = new Date();
   minDate.setMinutes(minDate.getMinutes() + 5);
   minDate.setSeconds(0, 0);
-  scheduledAtInput.min = formatDateTimeLocalValue(minDate);
+  scheduledDateInput.min = formatDateInputValue(minDate);
 }
 
 function syncFulfillmentControls() {
@@ -1531,11 +1649,20 @@ function syncFulfillmentControls() {
   if (scheduledAtField) {
     scheduledAtField.classList.toggle('is-hidden', !scheduledMode);
   }
-  if (scheduledAtInput) {
-    scheduledAtInput.required = scheduledMode;
+  if (scheduledDateInput) {
+    scheduledDateInput.required = scheduledMode;
+  }
+  if (scheduledTimeInput) {
+    scheduledTimeInput.required = scheduledMode;
   }
 
   refreshScheduleInputMinValue();
+  if (scheduledMode && (!scheduledDateInput?.value || !scheduledTimeInput?.value)) {
+    const nextSlot = findNextAvailableScheduleDate(new Date());
+    if (nextSlot) {
+      setScheduledDateTimeInputs(nextSlot);
+    }
+  }
 
   if (scheduleHelp) {
     if (!openNow) {
@@ -2216,7 +2343,7 @@ function validateEmail() {
 }
 
 function validateScheduleSelection() {
-  if (!scheduledAtInput) return true;
+  if (!scheduledDateInput || !scheduledTimeInput) return true;
 
   const openNow = isRestaurantOpenNow();
   const fulfillment = getSelectedFulfillment();
@@ -2225,7 +2352,7 @@ function validateScheduleSelection() {
   if (!openNow && fulfillment !== 'scheduled') {
     message = t('statusClosedScheduleRequired');
   } else if (fulfillment === 'scheduled') {
-    const scheduledDate = parseDateTimeLocalValue(scheduledAtInput.value);
+    const scheduledDate = parseScheduledDateTimeFromInputs();
     if (!scheduledDate) {
       message = t('scheduleValidationRequired');
     } else if (scheduledDate.getTime() <= Date.now()) {
@@ -2235,7 +2362,8 @@ function validateScheduleSelection() {
     }
   }
 
-  setFieldValidity(scheduledAtInput, message);
+  setFieldValidity(scheduledDateInput, message);
+  setFieldValidity(scheduledTimeInput, message);
   return !message;
 }
 
@@ -2256,10 +2384,101 @@ function getWhatsAppBaseUrl() {
 function openWhatsApp(url) {
   const popup = window.open(url, '_blank', 'noopener');
   if (!popup) {
+    markWhatsappConfirmationAsLeftPage();
     window.location.href = url;
     return false;
   }
   return true;
+}
+
+function readPendingWhatsappConfirmation() {
+  try {
+    const raw = localStorage.getItem(WHATSAPP_CONFIRMATION_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object') return null;
+    const createdAt = Number(parsed.createdAt || 0);
+    if (!Number.isFinite(createdAt) || Date.now() - createdAt > 1000 * 60 * 60 * 24) {
+      localStorage.removeItem(WHATSAPP_CONFIRMATION_KEY);
+      return null;
+    }
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+
+function writePendingWhatsappConfirmation(payload) {
+  localStorage.setItem(WHATSAPP_CONFIRMATION_KEY, JSON.stringify(payload));
+}
+
+function clearPendingWhatsappConfirmation() {
+  localStorage.removeItem(WHATSAPP_CONFIRMATION_KEY);
+}
+
+function armWhatsappConfirmationPrompt(orderContext) {
+  writePendingWhatsappConfirmation({
+    orderNumber: orderContext?.orderNumber || null,
+    orderId: orderContext?.orderId || null,
+    createdAt: Date.now(),
+    hasLeftPage: false
+  });
+}
+
+function markWhatsappConfirmationAsLeftPage() {
+  const pending = readPendingWhatsappConfirmation();
+  if (!pending || pending.hasLeftPage) return;
+  writePendingWhatsappConfirmation({
+    ...pending,
+    hasLeftPage: true
+  });
+}
+
+function openWhatsappConfirmationModal() {
+  if (!whatsappConfirmModal) return;
+  whatsappConfirmModal.hidden = false;
+  document.body.classList.add('legal-open');
+}
+
+function closeWhatsappConfirmationModal() {
+  if (!whatsappConfirmModal) return;
+  whatsappConfirmModal.hidden = true;
+  document.body.classList.remove('legal-open');
+}
+
+function maybePromptWhatsappConfirmation() {
+  const pending = readPendingWhatsappConfirmation();
+  if (!pending || !pending.hasLeftPage || !whatsappConfirmModal || !whatsappConfirmModal.hidden) return;
+  if (document.visibilityState !== 'visible') return;
+  openWhatsappConfirmationModal();
+}
+
+function handleWhatsappConfirmationYes() {
+  const pending = readPendingWhatsappConfirmation();
+  if (pending?.orderId) {
+    trackOrderEvent(pending.orderId, 'whatsapp_confirmation', {
+      confirmed: true,
+      orderNumber: pending.orderNumber || null
+    });
+  }
+  clearPendingWhatsappConfirmation();
+  closeWhatsappConfirmationModal();
+  resetOrder();
+  setCartOpen(true);
+  formStatus.textContent = t('whatsappConfirmThanks');
+}
+
+function handleWhatsappConfirmationNo() {
+  const pending = readPendingWhatsappConfirmation();
+  if (pending?.orderId) {
+    trackOrderEvent(pending.orderId, 'whatsapp_confirmation', {
+      confirmed: false,
+      orderNumber: pending.orderNumber || null
+    });
+  }
+  clearPendingWhatsappConfirmation();
+  closeWhatsappConfirmationModal();
+  setCartOpen(true);
 }
 
 function clearPayPalReturnParams() {
@@ -2309,7 +2528,7 @@ function collectValidatedOrderContext() {
     return null;
   }
 
-  const scheduledDate = fulfillment === 'scheduled' ? parseDateTimeLocalValue(scheduledAtInput?.value) : null;
+  const scheduledDate = fulfillment === 'scheduled' ? parseScheduledDateTimeFromInputs() : null;
   if (fulfillment === 'scheduled' && !scheduledDate) {
     formStatus.textContent = t('scheduleValidationRequired');
     return null;
@@ -2598,7 +2817,51 @@ async function persistOrderInDatabase(orderContext, options = {}) {
     throw new Error(itemsError.message);
   }
 
+  await trackOrderEvent(
+    orderData.id,
+    'order_created',
+    {
+      orderNumber: orderContext.orderNumber,
+      paymentMethod: orderContext.payment,
+      orderTotal: orderContext.totals.total,
+      voucherCode: orderContext.voucherCode || null,
+      lineCount: orderItems.length,
+      isScheduled: orderContext.isScheduled === true,
+      scheduledForIso: orderContext.scheduledForIso || null,
+      orderStatus: options.orderStatus || 'pending_confirmation'
+    },
+    { client }
+  );
+
   return orderData.id;
+}
+
+function normalizeTrackingPayload(payload) {
+  if (!payload || typeof payload !== 'object' || Array.isArray(payload)) return {};
+  try {
+    return JSON.parse(JSON.stringify(payload));
+  } catch {
+    return {};
+  }
+}
+
+async function trackOrderEvent(orderId, eventType, payload = {}, options = {}) {
+  if (!orderId || !eventType) return;
+  const tableName = String(BAGO_SUPABASE.orderEventsTable || 'order_events').trim() || 'order_events';
+  const source = String(options.source || 'web').trim() || 'web';
+  const client = options.client || getSupabaseClient();
+  if (!client) return;
+
+  const { error } = await client.from(tableName).insert({
+    order_id: orderId,
+    event_type: String(eventType).trim(),
+    source,
+    event_payload: normalizeTrackingPayload(payload)
+  });
+
+  if (error) {
+    console.error('Order event tracking failed:', error.message);
+  }
 }
 
 async function updateOrderStatus(orderId, status, paymentReference = '') {
@@ -2678,33 +2941,63 @@ function readPendingPayPalOrder() {
   }
 }
 
+function isLocalHostName(hostname) {
+  const normalized = String(hostname || '').toLowerCase();
+  return normalized === 'localhost' || normalized === '127.0.0.1' || normalized === '::1' || normalized.endsWith('.local');
+}
+
+function resolvePayPalReturnBaseUrl() {
+  const runtimeUrl = new URL(window.location.href);
+  const runtimeSecure = runtimeUrl.protocol === 'https:' && !isLocalHostName(runtimeUrl.hostname);
+  if (runtimeSecure) {
+    runtimeUrl.search = '';
+    runtimeUrl.hash = '';
+    return runtimeUrl.toString();
+  }
+
+  const configured = String(VENUE_CONFIG.paypalReturnBaseUrl || VENUE_CONFIG.siteUrl || '').trim();
+  if (!configured) return '';
+
+  try {
+    const url = new URL(configured, runtimeUrl);
+    if (url.protocol !== 'https:') return '';
+    url.search = '';
+    url.hash = '';
+    return url.toString();
+  } catch {
+    return '';
+  }
+}
+
 function buildPayPalCheckoutUrl(orderContext) {
-  const baseUrl = new URL(window.location.href);
-  baseUrl.search = '';
-  baseUrl.hash = '';
-
-  const returnUrl = new URL('paypal-success.html', baseUrl.toString());
-
-  const cancelUrl = new URL(baseUrl.toString());
-  cancelUrl.searchParams.set('paypal_cancel', '1');
+  const merchant = String(VENUE_CONFIG.paypalEmail || '').trim();
+  if (!merchant || !merchant.includes('@')) {
+    throw new Error(t('statusPaypalCheckoutFailed'));
+  }
 
   const params = new URLSearchParams({
     cmd: '_xclick',
-    business: VENUE_CONFIG.paypalEmail,
+    business: merchant,
     item_name: `${VENUE_CONFIG.name} Order #${orderContext.orderNumber}`,
-    item_number: String(orderContext.orderNumber),
-    invoice: `BAGO-${orderContext.orderNumber}-${Date.now()}`,
-    custom: String(orderContext.orderNumber),
     currency_code: 'EUR',
     amount: orderContext.totals.total.toFixed(2),
     no_shipping: '1',
-    return: returnUrl.toString(),
-    cancel_return: cancelUrl.toString(),
     charset: 'UTF-8',
     lc: 'DE'
   });
 
-  return `https://www.paypal.com/cgi-bin/webscr?${params.toString()}`;
+  const returnBaseUrl = resolvePayPalReturnBaseUrl();
+  if (returnBaseUrl) {
+    const returnUrl = new URL('paypal-success.html', returnBaseUrl);
+    returnUrl.searchParams.set('paypal_success', '1');
+    const cancelUrl = new URL(returnBaseUrl);
+    cancelUrl.searchParams.set('paypal_cancel', '1');
+    params.set('return', returnUrl.toString());
+    params.set('cancel_return', cancelUrl.toString());
+  }
+
+  const paypalHost = VENUE_CONFIG.paypalSandbox ? 'https://www.sandbox.paypal.com' : 'https://www.paypal.com';
+  return `${paypalHost}/cgi-bin/webscr?${params.toString()}`;
 }
 
 function buildPaidWhatsAppUrlFromPayPalReturn(pendingOrder, transactionId) {
@@ -2763,7 +3056,16 @@ async function sendCashOrderToWhatsApp() {
   }
 
   const url = buildCashWhatsAppUrl(orderContext);
+  await trackOrderEvent(orderContext.orderId, 'cash_whatsapp_open_requested', {
+    orderNumber: orderContext.orderNumber
+  });
+  armWhatsappConfirmationPrompt(orderContext);
   const opened = openWhatsApp(url);
+  if (!opened) {
+    trackOrderEvent(orderContext.orderId, 'cash_whatsapp_popup_blocked', {
+      orderNumber: orderContext.orderNumber
+    });
+  }
   formStatus.textContent = opened ? t('statusWhatsappOpening') : t('statusWhatsappBlocked');
   return true;
 }
@@ -2797,7 +3099,25 @@ async function startPayPalCheckoutFlow() {
   }
 
   savePendingPayPalOrder(orderContext);
-  const paypalUrl = buildPayPalCheckoutUrl(orderContext);
+  await trackOrderEvent(orderContext.orderId, 'paypal_checkout_redirect', {
+    orderNumber: orderContext.orderNumber,
+    amount: orderContext.totals.total
+  });
+  let paypalUrl = '';
+  try {
+    paypalUrl = buildPayPalCheckoutUrl(orderContext);
+  } catch (error) {
+    console.error('PayPal checkout URL failed:', error);
+    localStorage.removeItem(PENDING_PAYPAL_ORDER_KEY);
+    if (orderContext.orderId) {
+      updateOrderStatus(orderContext.orderId, 'payment_failed');
+      trackOrderEvent(orderContext.orderId, 'paypal_checkout_failed', {
+        orderNumber: orderContext.orderNumber
+      });
+    }
+    formStatus.textContent = t('statusPaypalCheckoutFailed');
+    return false;
+  }
   formStatus.textContent = t('statusRedirectingPaypal');
   window.location.href = paypalUrl;
   return true;
@@ -2811,6 +3131,9 @@ function handlePayPalReturn() {
   if (params.get('paypal_cancel') === '1') {
     if (pendingOrder?.orderId) {
       updateOrderStatus(pendingOrder.orderId, 'cancelled');
+      trackOrderEvent(pendingOrder.orderId, 'paypal_cancelled', {
+        orderNumber: pendingOrder.orderNumber || null
+      });
     }
     formStatus.textContent = t('statusPaypalCancelled');
     clearPayPalReturnParams();
@@ -2849,6 +3172,10 @@ function handlePayPalReturn() {
   const waUrl = buildPaidWhatsAppUrlFromPayPalReturn(pendingOrder, transactionId);
   if (pendingOrder?.orderId) {
     updateOrderStatus(pendingOrder.orderId, 'paid', transactionId);
+    trackOrderEvent(pendingOrder.orderId, 'paypal_paid', {
+      transactionId,
+      paymentStatus: statusRaw || 'completed'
+    });
   }
   if (transactionId) {
     localStorage.setItem(LAST_SHARED_PAYPAL_TX_KEY, transactionId);
@@ -2859,8 +3186,16 @@ function handlePayPalReturn() {
   saveCart();
   renderOrderSurfaces();
   formStatus.textContent = t('statusWhatsappOpening');
-
-  openWhatsApp(waUrl);
+  trackOrderEvent(pendingOrder.orderId, 'paypal_whatsapp_open_requested', {
+    transactionId
+  });
+  armWhatsappConfirmationPrompt(pendingOrder);
+  const opened = openWhatsApp(waUrl);
+  if (!opened) {
+    trackOrderEvent(pendingOrder.orderId, 'paypal_whatsapp_popup_blocked', {
+      transactionId
+    });
+  }
 }
 
 async function handleCheckoutSubmit() {
@@ -2915,8 +3250,8 @@ function renderCart() {
   totalEl.textContent = money.format(totals.total);
 
   const scheduledMode = getSelectedFulfillment() === 'scheduled';
-  const hasScheduledDate = Boolean(parseDateTimeLocalValue(scheduledAtInput?.value));
-  const scheduleIncomplete = scheduledMode && !hasScheduledDate;
+  const hasScheduledDateTime = Boolean(parseScheduledDateTimeFromInputs());
+  const scheduleIncomplete = scheduledMode && !hasScheduledDateTime;
 
   checkoutButton.disabled = !lines.length || totals.minimumGap > 0 || scheduleIncomplete;
   if (!lines.length) {
@@ -2975,9 +3310,13 @@ function resetOrder() {
   if (checkoutForm.elements.fulfillment) {
     checkoutForm.elements.fulfillment.value = 'asap';
   }
-  if (scheduledAtInput) {
-    scheduledAtInput.value = '';
-    setFieldValidity(scheduledAtInput, '');
+  if (scheduledDateInput) {
+    scheduledDateInput.value = '';
+    setFieldValidity(scheduledDateInput, '');
+  }
+  if (scheduledTimeInput) {
+    scheduledTimeInput.value = '';
+    setFieldValidity(scheduledTimeInput, '');
   }
   formStatus.textContent = '';
   setVoucherStatusMessage('');
@@ -3066,6 +3405,9 @@ document.addEventListener('click', (event) => {
   if (event.target === legalModal) {
     closeLegalModal();
   }
+  if (event.target === whatsappConfirmModal) {
+    handleWhatsappConfirmationNo();
+  }
 });
 
 menuSearch.addEventListener('input', () => {
@@ -3104,7 +3446,7 @@ cancelOrderButton.addEventListener('click', () => {
 
 checkoutForm.addEventListener('input', (event) => {
   validateCheckoutFields();
-  if (event.target === scheduledAtInput) {
+  if (event.target === scheduledDateInput || event.target === scheduledTimeInput) {
     renderCart();
   }
 });
@@ -3150,10 +3492,19 @@ if (fulfillmentMethods) {
   });
 }
 
-if (scheduledAtInput) {
-  scheduledAtInput.addEventListener('change', () => {
+if (scheduledDateInput) {
+  scheduledDateInput.addEventListener('change', () => {
     validateCheckoutFields();
     renderCart();
+    scheduledDateInput.blur();
+  });
+}
+
+if (scheduledTimeInput) {
+  scheduledTimeInput.addEventListener('change', () => {
+    validateCheckoutFields();
+    renderCart();
+    scheduledTimeInput.blur();
   });
 }
 
@@ -3179,13 +3530,47 @@ if (themeToggle) {
 
 legalModalClose.addEventListener('click', closeLegalModal);
 legalModalCancel.addEventListener('click', closeLegalModal);
+if (whatsappConfirmYes) {
+  whatsappConfirmYes.addEventListener('click', handleWhatsappConfirmationYes);
+}
+if (whatsappConfirmNo) {
+  whatsappConfirmNo.addEventListener('click', handleWhatsappConfirmationNo);
+}
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
+    if (whatsappConfirmModal && !whatsappConfirmModal.hidden) {
+      handleWhatsappConfirmationNo();
+      return;
+    }
     setCartOpen(false);
     closeLanguageMenu();
     closeLegalModal();
   }
+});
+
+window.addEventListener('blur', () => {
+  markWhatsappConfirmationAsLeftPage();
+});
+
+window.addEventListener('focus', () => {
+  maybePromptWhatsappConfirmation();
+});
+
+window.addEventListener('pageshow', () => {
+  maybePromptWhatsappConfirmation();
+});
+
+window.addEventListener('pagehide', () => {
+  markWhatsappConfirmationAsLeftPage();
+});
+
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') {
+    markWhatsappConfirmationAsLeftPage();
+    return;
+  }
+  maybePromptWhatsappConfirmation();
 });
 
 if (heroImage && VENUE_CONFIG.heroImage) {
@@ -3204,6 +3589,7 @@ async function initializeApp() {
   heroItemCount.textContent = menuItems.length;
   applyLanguage();
   handlePayPalReturn();
+  maybePromptWhatsappConfirmation();
   setInterval(() => {
     renderOpeningHoursCard();
     syncFulfillmentControls();

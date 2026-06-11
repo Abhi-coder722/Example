@@ -213,10 +213,18 @@
                     <span data-i18n="scheduleLater">Später planen</span>
                   </label>
                 </div>
-                <label class="scheduled-at-field is-hidden" id="scheduledAtField">
-                  <span data-i18n="scheduleDateTimeLabel">Abholdatum und Uhrzeit</span>
-                  <input name="scheduled_at" id="scheduledAtInput" type="datetime-local" />
-                </label>
+                <div class="scheduled-at-field is-hidden" id="scheduledAtField">
+                  <div class="schedule-grid">
+                    <label class="schedule-subcard">
+                      <span data-i18n="scheduleDateLabel">Abholdatum</span>
+                      <input name="scheduled_date" id="scheduledDateInput" type="date" />
+                    </label>
+                    <label class="schedule-subcard">
+                      <span data-i18n="scheduleTimeLabel">Abholzeit</span>
+                      <input name="scheduled_time" id="scheduledTimeInput" type="time" step="900" />
+                    </label>
+                  </div>
+                </div>
                 <p class="payment-help" id="scheduleHelp" data-i18n="scheduleHelpOpen">
                   Geöffnet: Du kannst jetzt bestellen oder einen späteren Zeitpunkt wählen.
                 </p>
@@ -412,6 +420,21 @@
         <h2 id="legalModalTitle">Impressum</h2>
         <div class="legal-modal-content" id="legalModalContent"></div>
         <button class="button primary" id="legalModalCancel" type="button" data-i18n="closeButton">Schließen</button>
+      </div>
+    </div>
+    <div class="legal-modal" id="whatsappConfirmModal" hidden>
+      <div class="legal-modal-panel" role="dialog" aria-modal="true" aria-labelledby="whatsappConfirmTitle">
+        <p class="eyebrow" data-i18n="cartTitle">Dein Warenkorb</p>
+        <h2 id="whatsappConfirmTitle" data-i18n="whatsappConfirmTitle">Hast du die Bestellung bereits aufgegeben?</h2>
+        <div class="legal-modal-content">
+          <p data-i18n="whatsappConfirmBody">
+            Wenn du die Bestellung in WhatsApp gesendet hast, können wir deinen Warenkorb jetzt leeren.
+          </p>
+        </div>
+        <div class="legal-actions">
+          <button class="button primary" id="whatsappConfirmYes" type="button" data-i18n="whatsappConfirmYes">Ja</button>
+          <button class="button glass" id="whatsappConfirmNo" type="button" data-i18n="whatsappConfirmNo">Nein</button>
+        </div>
       </div>
     </div>
 

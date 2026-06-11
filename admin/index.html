@@ -261,6 +261,75 @@
           </div>
         </form>
         <p class="admin-status" id="openingHoursStatus" aria-live="polite"></p>
+
+        <hr class="admin-separator" />
+
+        <div class="admin-card-head">
+          <div>
+            <h2 data-i18n="orderTrackingTitle">Bestellverfolgung</h2>
+            <p data-i18n="orderTrackingIntro">Sieh dir Bestellungen und den Ereignisverlauf (Timeline) an.</p>
+          </div>
+          <button class="button glass" id="refreshOrders" type="button" data-i18n="refreshOrders">
+            Bestellungen aktualisieren
+          </button>
+        </div>
+
+        <div class="admin-table-tools">
+          <label class="admin-search" for="orderSearchInput">
+            <span data-i18n="orderSearchLabel">Bestellungen suchen</span>
+            <input
+              id="orderSearchInput"
+              type="search"
+              autocomplete="off"
+              data-i18n-placeholder="orderSearchPlaceholder"
+              placeholder="Nach Kunde, Telefon, Status oder Zahlungsart suchen..."
+            />
+          </label>
+        </div>
+        <p class="admin-status" id="orderTrackingStatus" aria-live="polite"></p>
+
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th data-i18n="orderTableId">Bestellung</th>
+                <th data-i18n="orderTableDate">Datum</th>
+                <th data-i18n="orderTableCustomer">Kunde</th>
+                <th data-i18n="orderTablePayment">Zahlung</th>
+                <th data-i18n="orderTableStatus">Status</th>
+                <th data-i18n="orderTableTotal">Gesamt</th>
+                <th data-i18n="orderTableActions">Aktionen</th>
+              </tr>
+            </thead>
+            <tbody id="ordersTableBody"></tbody>
+          </table>
+        </div>
+        <div class="table-pagination" id="ordersPagination" hidden>
+          <button class="button glass" id="ordersPrevPage" type="button" data-i18n="paginationPrev">Zurück</button>
+          <p class="table-pagination-info" id="ordersPageInfo"></p>
+          <button class="button glass" id="ordersNextPage" type="button" data-i18n="paginationNext">Weiter</button>
+        </div>
+
+        <div class="admin-card-head order-events-head">
+          <div>
+            <h3 data-i18n="orderEventsTitle">Bestell-Timeline</h3>
+            <p id="orderEventsMeta" data-i18n="orderEventsHint">Wähle eine Bestellung aus, um Ereignisse zu sehen.</p>
+          </div>
+        </div>
+        <p class="admin-status" id="orderEventsStatus" aria-live="polite"></p>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th data-i18n="eventTableTime">Zeit</th>
+                <th data-i18n="eventTableType">Typ</th>
+                <th data-i18n="eventTableSource">Quelle</th>
+                <th data-i18n="eventTablePayload">Details</th>
+              </tr>
+            </thead>
+            <tbody id="orderEventsTableBody"></tbody>
+          </table>
+        </div>
       </section>
     </main>
 
