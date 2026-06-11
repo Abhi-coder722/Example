@@ -44,11 +44,13 @@ const TRANSLATIONS = {
     scheduleHelpOpen: 'Geöffnet: Du kannst jetzt bestellen oder einen späteren Zeitpunkt wählen.',
     scheduleHelpLater: 'Wähle ein Datum und eine Uhrzeit innerhalb der Öffnungszeiten.',
     scheduleHelpClosed: 'Der Laden ist aktuell geschlossen. Bitte eine Abholzeit planen.',
-    paymentTitle: 'Zahlung',
+    paymentTitle: 'Zahlung im Shop',
     paymentPaypal: 'PayPal',
     paymentCash: 'Barzahlung',
+    paymentShopIntro: 'Zahlung im Shop, verfügbare Optionen:',
+    paymentShopOptions: 'Bar oder Karte',
     paymentCardAtShop: 'Kartenzahlung ist auch im Shop möglich.',
-    paymentHelp: 'Barzahlung: Beim Klick auf Bestellung aufgeben wird WhatsApp geöffnet.',
+    paymentHelp: 'Klicke auf Bestellung aufgeben, um WhatsApp zu öffnen.',
     voucherTitle: 'Gutschein',
     voucherPlaceholder: 'Code eingeben',
     applyVoucher: 'Einlösen',
@@ -193,11 +195,13 @@ const TRANSLATIONS = {
     scheduleHelpOpen: 'Open now: order immediately or schedule for later.',
     scheduleHelpLater: 'Choose a pickup date and time within opening hours.',
     scheduleHelpClosed: 'The restaurant is currently closed. Please schedule your pickup.',
-    paymentTitle: 'Payment',
+    paymentTitle: 'Payment at the shop',
     paymentPaypal: 'PayPal',
     paymentCash: 'Cash',
+    paymentShopIntro: 'Payment at the shop, available options:',
+    paymentShopOptions: 'Cash or Card',
     paymentCardAtShop: 'Card payment is also possible at the shop.',
-    paymentHelp: 'Cash: click Place Order to open WhatsApp.',
+    paymentHelp: 'Click Place Order to open WhatsApp.',
     voucherTitle: 'Voucher',
     voucherPlaceholder: 'Enter code',
     applyVoucher: 'Apply',
@@ -341,11 +345,13 @@ const TRANSLATIONS = {
     scheduleHelpOpen: 'Сейчас открыто: можно заказать сразу или запланировать время.',
     scheduleHelpLater: 'Выберите дату и время в рамках часов работы.',
     scheduleHelpClosed: 'Сейчас закрыто. Пожалуйста, запланируйте время самовывоза.',
-    paymentTitle: 'Оплата',
+    paymentTitle: 'Оплата в магазине',
     paymentPaypal: 'PayPal',
     paymentCash: 'Наличные',
+    paymentShopIntro: 'Оплата в магазине, доступные варианты:',
+    paymentShopOptions: 'Наличные или карта',
     paymentCardAtShop: 'Оплата картой также возможна в магазине.',
-    paymentHelp: 'Наличные: нажмите Place Order для отправки в WhatsApp.',
+    paymentHelp: 'Нажмите Place Order, чтобы открыть WhatsApp.',
     voucherTitle: 'Купон',
     voucherPlaceholder: 'Введите код',
     applyVoucher: 'Применить',
@@ -490,11 +496,13 @@ const TRANSLATIONS = {
     scheduleHelpOpen: '現在営業中です。今すぐ注文するか、後の時間を指定できます。',
     scheduleHelpLater: '営業時間内の受け取り日時を選択してください。',
     scheduleHelpClosed: '現在休業中です。受け取り日時を指定してください。',
-    paymentTitle: '支払い',
+    paymentTitle: '店舗でのお支払い',
     paymentPaypal: 'PayPal',
     paymentCash: '現金',
+    paymentShopIntro: '店舗でのお支払い、利用可能な方法:',
+    paymentShopOptions: '現金またはカード',
     paymentCardAtShop: '店舗でのカード決済も可能です。',
-    paymentHelp: '現金: Place Orderを押すとWhatsAppが開きます。',
+    paymentHelp: 'Place Orderを押すとWhatsAppが開きます。',
     voucherTitle: 'クーポン',
     voucherPlaceholder: 'コードを入力',
     applyVoucher: '適用',
@@ -639,11 +647,13 @@ const TRANSLATIONS = {
     scheduleHelpOpen: 'Şu an açık: hemen sipariş verebilir veya ileri bir saat seçebilirsin.',
     scheduleHelpLater: 'Açılış saatleri içinde bir tarih ve saat seçin.',
     scheduleHelpClosed: 'Restoran şu an kapalı. Lütfen teslim alma zamanını planlayın.',
-    paymentTitle: 'Ödeme',
+    paymentTitle: 'Mağazada ödeme',
     paymentPaypal: 'PayPal',
     paymentCash: 'Nakit',
+    paymentShopIntro: 'Mağazada ödeme, mevcut seçenekler:',
+    paymentShopOptions: 'Nakit veya Kart',
     paymentCardAtShop: 'Kart ile ödeme mağazada da mümkündür.',
-    paymentHelp: 'Nakit: Place Order tıklayınca WhatsApp açılır.',
+    paymentHelp: 'WhatsApp açmak için Place Order tıklayın.',
     voucherTitle: 'Kupon',
     voucherPlaceholder: 'Kod girin',
     applyVoucher: 'Uygula',
@@ -2559,7 +2569,11 @@ function collectValidatedOrderContext() {
   }
 
   const payment = getSelectedPayment();
-  const paymentLabel = payment === 'cash' ? t('paymentCash') : t('paymentPaypal');
+  const paymentLabel = isPayPalEnabled()
+    ? payment === 'cash'
+      ? t('paymentCash')
+      : t('paymentPaypal')
+    : t('paymentShopOptions');
   const fulfillment = getSelectedFulfillment();
   if (!isRestaurantOpenNow() && fulfillment !== 'scheduled') {
     formStatus.textContent = t('statusClosedScheduleRequired');

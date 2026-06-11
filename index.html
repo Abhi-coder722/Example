@@ -231,7 +231,12 @@
               </div>
 
               <div class="checkout-card">
-                <p class="payment-help payment-card-note">
+                <h3 data-i18n="paymentTitle">Zahlung im Shop</h3>
+                <p class="payment-help payment-shop-intro" data-i18n="paymentShopIntro">
+                  Zahlung im Shop, verfügbare Optionen:
+                </p>
+                <div class="payment-card-note">
+                  <span class="payment-shop-options" data-i18n="paymentShopOptions">Bar oder Karte</span>
                   <span class="payment-card-logos" aria-hidden="true">
                     <span class="card-logo card-logo-giro">girocard</span>
                     <span class="card-logo card-logo-visa">VISA</span>
@@ -241,23 +246,12 @@
                     </span>
                     <span class="card-logo card-logo-maestro">maestro</span>
                   </span>
-                  <span class="payment-card-note-text" data-i18n="paymentCardAtShop">
-                    Kartenzahlung ist auch im Shop möglich.
-                  </span>
-                </p>
-                <h3 data-i18n="paymentTitle">Zahlung</h3>
-                <div class="payment-methods" id="paymentMethods">
-                  <label id="paymentPaypalOption">
-                    <input type="radio" name="payment" value="paypal" />
-                    <span data-i18n="paymentPaypal">PayPal</span>
-                  </label>
-                  <label>
-                    <input type="radio" name="payment" value="cash" checked />
-                    <span data-i18n="paymentCash">Barzahlung</span>
-                  </label>
+                </div>
+                <div class="payment-methods" id="paymentMethods" hidden aria-hidden="true">
+                  <input type="radio" name="payment" value="cash" checked />
                 </div>
                 <p class="payment-help" data-i18n="paymentHelp">
-                  Wähle eine Zahlungsmethode, um den Bestelltext direkt per WhatsApp zu öffnen.
+                  Klicke auf Bestellung aufgeben, um WhatsApp zu öffnen.
                 </p>
               </div>
 

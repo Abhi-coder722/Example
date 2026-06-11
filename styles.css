@@ -1301,9 +1301,28 @@ img {
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-  margin-bottom: 8px;
+  margin: 4px 0 10px;
   color: var(--ink);
   font-weight: 760;
+}
+
+.payment-shop-intro {
+  margin-top: 2px;
+}
+
+.payment-shop-options {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 10px;
+  border: 1px solid rgba(123, 212, 112, 0.4);
+  border-radius: 999px;
+  background: rgba(123, 212, 112, 0.13);
+  color: var(--ink);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 .payment-card-note-text {
@@ -1398,6 +1417,12 @@ body[data-theme="light"] .card-logo-giro {
 body[data-theme="light"] .card-logo-visa,
 body[data-theme="light"] .card-logo-mastercard {
   border-color: rgba(16, 33, 28, 0.18);
+}
+
+body[data-theme="light"] .payment-shop-options {
+  border-color: rgba(15, 122, 93, 0.36);
+  background: rgba(15, 122, 93, 0.12);
+  color: #16322a;
 }
 
 .voucher-row {
