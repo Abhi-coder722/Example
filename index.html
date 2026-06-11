@@ -235,9 +235,19 @@
                 <p class="payment-help payment-shop-intro" data-i18n="paymentShopIntro">
                   Zahlung im Shop, verfügbare Optionen:
                 </p>
+                <div class="payment-chip-row" aria-hidden="true">
+                  <span class="payment-option-chip is-selected">
+                    <span class="payment-option-icon payment-option-icon-cash"><span>€</span></span>
+                    <span data-i18n="paymentCash">Barzahlung</span>
+                  </span>
+                  <span class="payment-option-chip is-selected">
+                    <span class="payment-option-icon payment-option-icon-card"><span></span></span>
+                    <span data-i18n="paymentCardChip">Karte</span>
+                  </span>
+                </div>
                 <div class="payment-card-note">
-                  <span class="payment-shop-options" data-i18n="paymentShopOptions">Bar oder Karte</span>
-                  <span class="payment-card-logos" aria-hidden="true">
+                  <span class="payment-card-types-label" data-i18n="paymentCardTypesLabel">Kartentypen</span>
+                  <span class="payment-card-logos">
                     <span class="card-logo card-logo-giro">girocard</span>
                     <span class="card-logo card-logo-visa">VISA</span>
                     <span class="card-logo card-logo-mastercard">

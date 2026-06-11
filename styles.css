@@ -1299,9 +1299,9 @@ img {
 .payment-card-note {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
-  margin: 4px 0 10px;
+  margin: 8px 0 10px;
   color: var(--ink);
   font-weight: 760;
 }
@@ -1310,23 +1310,95 @@ img {
   margin-top: 2px;
 }
 
-.payment-shop-options {
+.payment-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.payment-option-chip {
   display: inline-flex;
   align-items: center;
-  min-height: 26px;
-  padding: 0 10px;
-  border: 1px solid rgba(123, 212, 112, 0.4);
+  gap: 8px;
+  min-height: 30px;
+  padding: 0 11px 0 9px;
+  border: 1px solid rgba(123, 212, 112, 0.28);
   border-radius: 999px;
-  background: rgba(123, 212, 112, 0.13);
+  background: rgba(248, 250, 244, 0.08);
   color: var(--ink);
-  font-size: 0.76rem;
-  font-weight: 900;
+  font-size: 0.78rem;
+  font-weight: 860;
   letter-spacing: 0.01em;
   white-space: nowrap;
 }
 
-.payment-card-note-text {
-  flex: 1 1 240px;
+.payment-option-chip.is-selected {
+  border-color: rgba(123, 212, 112, 0.54);
+  background: rgba(123, 212, 112, 0.17);
+  box-shadow: inset 0 0 0 1px rgba(123, 212, 112, 0.2);
+}
+
+.payment-option-chip.is-selected::after {
+  content: "✓";
+  display: inline-grid;
+  width: 15px;
+  height: 15px;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(123, 212, 112, 0.9);
+  color: #142018;
+  font-size: 0.62rem;
+  font-weight: 900;
+}
+
+.payment-option-icon {
+  position: relative;
+  display: inline-grid;
+  width: 18px;
+  height: 13px;
+  place-items: center;
+  border-radius: 3px;
+  border: 1px solid rgba(248, 250, 244, 0.56);
+  background: rgba(8, 12, 11, 0.42);
+}
+
+.payment-option-icon-cash {
+  border-color: rgba(123, 212, 112, 0.5);
+  background: linear-gradient(135deg, rgba(30, 131, 95, 0.72), rgba(23, 83, 64, 0.78));
+}
+
+.payment-option-icon-cash span {
+  font-size: 0.62rem;
+  font-weight: 900;
+  color: #ecfff4;
+}
+
+.payment-option-icon-card {
+  border-color: rgba(139, 183, 255, 0.62);
+  background: linear-gradient(135deg, rgba(35, 71, 150, 0.82), rgba(31, 106, 183, 0.82));
+}
+
+.payment-option-icon-card span {
+  width: 9px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.payment-card-types-label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(248, 250, 244, 0.08);
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 860;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .payment-card-logos {
@@ -1419,10 +1491,27 @@ body[data-theme="light"] .card-logo-mastercard {
   border-color: rgba(16, 33, 28, 0.18);
 }
 
-body[data-theme="light"] .payment-shop-options {
+body[data-theme="light"] .payment-option-chip {
+  border-color: rgba(15, 122, 93, 0.22);
+  background: #ffffff;
+  color: #16322a;
+}
+
+body[data-theme="light"] .payment-option-chip.is-selected {
   border-color: rgba(15, 122, 93, 0.36);
   background: rgba(15, 122, 93, 0.12);
   color: #16322a;
+}
+
+body[data-theme="light"] .payment-option-chip.is-selected::after {
+  background: rgba(15, 122, 93, 0.9);
+  color: #ffffff;
+}
+
+body[data-theme="light"] .payment-card-types-label {
+  border-color: rgba(16, 33, 28, 0.18);
+  background: #ffffff;
+  color: #3a554a;
 }
 
 .voucher-row {
