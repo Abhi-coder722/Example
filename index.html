@@ -231,14 +231,28 @@
               </div>
 
               <div class="checkout-card">
+                <p class="payment-help payment-card-note">
+                  <span class="payment-card-logos" aria-hidden="true">
+                    <span class="card-logo card-logo-giro">girocard</span>
+                    <span class="card-logo card-logo-visa">VISA</span>
+                    <span class="card-logo card-logo-mastercard">
+                      <span class="mc-circles"><span></span><span></span></span>
+                      <span>mastercard</span>
+                    </span>
+                    <span class="card-logo card-logo-maestro">maestro</span>
+                  </span>
+                  <span class="payment-card-note-text" data-i18n="paymentCardAtShop">
+                    Kartenzahlung ist auch im Shop möglich.
+                  </span>
+                </p>
                 <h3 data-i18n="paymentTitle">Zahlung</h3>
                 <div class="payment-methods" id="paymentMethods">
-                  <label>
-                    <input type="radio" name="payment" value="paypal" checked />
+                  <label id="paymentPaypalOption">
+                    <input type="radio" name="payment" value="paypal" />
                     <span data-i18n="paymentPaypal">PayPal</span>
                   </label>
                   <label>
-                    <input type="radio" name="payment" value="cash" />
+                    <input type="radio" name="payment" value="cash" checked />
                     <span data-i18n="paymentCash">Barzahlung</span>
                   </label>
                 </div>

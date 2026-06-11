@@ -1296,6 +1296,110 @@ img {
   font-size: 0.84rem;
 }
 
+.payment-card-note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-weight: 760;
+}
+
+.payment-card-note-text {
+  flex: 1 1 240px;
+}
+
+.payment-card-logos {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.card-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(248, 250, 244, 0.11);
+  color: var(--ink);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.card-logo-giro {
+  color: #8bb7ff;
+  border-color: rgba(139, 183, 255, 0.45);
+  background: rgba(24, 62, 132, 0.22);
+}
+
+.card-logo-visa {
+  color: #173c96;
+  border-color: rgba(255, 255, 255, 0.74);
+  background: #f8fbff;
+}
+
+.card-logo-mastercard {
+  gap: 6px;
+  color: #17212f;
+  border-color: rgba(255, 255, 255, 0.74);
+  background: #ffffff;
+}
+
+.mc-circles {
+  position: relative;
+  width: 17px;
+  height: 11px;
+}
+
+.mc-circles span {
+  position: absolute;
+  top: 0;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.mc-circles span:first-child {
+  left: 0;
+  background: #e44f3e;
+}
+
+.mc-circles span:last-child {
+  right: 0;
+  background: #f29a2e;
+}
+
+.card-logo-maestro {
+  color: #ffffff;
+  border-color: rgba(96, 150, 255, 0.52);
+  background: linear-gradient(135deg, #1f5bbd, #48a5ef);
+}
+
+body[data-theme="light"] .card-logo {
+  border-color: rgba(16, 33, 28, 0.18);
+  background: #ffffff;
+  color: #132b23;
+}
+
+body[data-theme="light"] .card-logo-giro {
+  color: #1954c9;
+  border-color: rgba(31, 91, 189, 0.38);
+  background: #eef4ff;
+}
+
+body[data-theme="light"] .card-logo-visa,
+body[data-theme="light"] .card-logo-mastercard {
+  border-color: rgba(16, 33, 28, 0.18);
+}
+
 .voucher-row {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;

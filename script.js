@@ -47,8 +47,8 @@ const TRANSLATIONS = {
     paymentTitle: 'Zahlung',
     paymentPaypal: 'PayPal',
     paymentCash: 'Barzahlung',
-    paymentHelp:
-      'Barzahlung: Beim Klick auf Bestellung aufgeben wird WhatsApp geöffnet. PayPal: Bezahlen, dann wird WhatsApp nach erfolgreicher Rückkehr automatisch geöffnet.',
+    paymentCardAtShop: 'Kartenzahlung ist auch im Shop möglich.',
+    paymentHelp: 'Barzahlung: Beim Klick auf Bestellung aufgeben wird WhatsApp geöffnet.',
     voucherTitle: 'Gutschein',
     voucherPlaceholder: 'Code eingeben',
     applyVoucher: 'Einlösen',
@@ -196,8 +196,8 @@ const TRANSLATIONS = {
     paymentTitle: 'Payment',
     paymentPaypal: 'PayPal',
     paymentCash: 'Cash',
-    paymentHelp:
-      'Cash: click Place Order to open WhatsApp. PayPal: complete checkout first, then WhatsApp opens automatically after successful return.',
+    paymentCardAtShop: 'Card payment is also possible at the shop.',
+    paymentHelp: 'Cash: click Place Order to open WhatsApp.',
     voucherTitle: 'Voucher',
     voucherPlaceholder: 'Enter code',
     applyVoucher: 'Apply',
@@ -344,8 +344,8 @@ const TRANSLATIONS = {
     paymentTitle: 'Оплата',
     paymentPaypal: 'PayPal',
     paymentCash: 'Наличные',
-    paymentHelp:
-      'Наличные: нажмите Place Order для отправки в WhatsApp. PayPal: сначала оплатите, затем после успешного возврата WhatsApp откроется автоматически.',
+    paymentCardAtShop: 'Оплата картой также возможна в магазине.',
+    paymentHelp: 'Наличные: нажмите Place Order для отправки в WhatsApp.',
     voucherTitle: 'Купон',
     voucherPlaceholder: 'Введите код',
     applyVoucher: 'Применить',
@@ -493,8 +493,8 @@ const TRANSLATIONS = {
     paymentTitle: '支払い',
     paymentPaypal: 'PayPal',
     paymentCash: '現金',
-    paymentHelp:
-      '現金: Place Orderを押すとWhatsAppが開きます。PayPal: 決済完了後、成功画面から自動でWhatsAppが開きます。',
+    paymentCardAtShop: '店舗でのカード決済も可能です。',
+    paymentHelp: '現金: Place Orderを押すとWhatsAppが開きます。',
     voucherTitle: 'クーポン',
     voucherPlaceholder: 'コードを入力',
     applyVoucher: '適用',
@@ -642,8 +642,8 @@ const TRANSLATIONS = {
     paymentTitle: 'Ödeme',
     paymentPaypal: 'PayPal',
     paymentCash: 'Nakit',
-    paymentHelp:
-      'Nakit: Place Order tıklayınca WhatsApp açılır. PayPal: ödemeyi tamamladıktan sonra başarılı dönüşte WhatsApp otomatik açılır.',
+    paymentCardAtShop: 'Kart ile ödeme mağazada da mümkündür.',
+    paymentHelp: 'Nakit: Place Order tıklayınca WhatsApp açılır.',
     voucherTitle: 'Kupon',
     voucherPlaceholder: 'Kod girin',
     applyVoucher: 'Uygula',
@@ -1132,6 +1132,7 @@ const DEFAULT_VENUE_CONFIG = {
   serviceFeeMin: 0,
   serviceFeeMax: 0,
   whatsappNumber: '+491774675823',
+  paypalEnabled: false,
   paypalEmail: ''
 };
 const LEGACY_VENUE_CONFIG = typeof BAGO_VENUE !== 'undefined' ? BAGO_VENUE : {};
@@ -1200,6 +1201,9 @@ const totalEl = document.querySelector('#total');
 const checkoutButton = document.querySelector('#checkoutButton');
 const checkoutForm = document.querySelector('#checkoutForm');
 const paymentMethods = document.querySelector('#paymentMethods');
+const paymentPaypalOption = document.querySelector('#paymentPaypalOption');
+const paymentPaypalInput = checkoutForm.querySelector('input[name="payment"][value="paypal"]');
+const paymentCashInput = checkoutForm.querySelector('input[name="payment"][value="cash"]');
 const fulfillmentMethods = document.querySelector('#fulfillmentMethods');
 const formStatus = document.querySelector('#formStatus');
 const nameInput = checkoutForm.elements.name;
@@ -1243,6 +1247,17 @@ function t(key) {
 
 function formatT(key, values = {}) {
   return t(key).replace(/\{(\w+)\}/g, (_, token) => (values[token] == null ? '' : values[token]));
+}
+
+function parseFeatureFlag(value) {
+  if (typeof value === 'boolean') return value;
+  if (typeof value === 'number') return value === 1;
+  const normalized = String(value || '').trim().toLowerCase();
+  return ['1', 'true', 'yes', 'on'].includes(normalized);
+}
+
+function isPayPalEnabled() {
+  return parseFeatureFlag(VENUE_CONFIG.paypalEnabled);
 }
 
 function normalizePhoneValue(value) {
@@ -1671,6 +1686,27 @@ function syncFulfillmentControls() {
       scheduleHelp.textContent = t('scheduleHelpLater');
     } else {
       scheduleHelp.textContent = t('scheduleHelpOpen');
+    }
+  }
+}
+
+function syncPaymentControls() {
+  const paypalAvailable = isPayPalEnabled();
+
+  if (paymentPaypalOption) {
+    paymentPaypalOption.hidden = !paypalAvailable;
+  }
+
+  if (paymentPaypalInput) {
+    paymentPaypalInput.disabled = !paypalAvailable;
+    if (!paypalAvailable) {
+      paymentPaypalInput.checked = false;
+    }
+  }
+
+  if (paymentCashInput) {
+    if (!paymentCashInput.checked || !paypalAvailable) {
+      paymentCashInput.checked = true;
     }
   }
 }
@@ -2373,7 +2409,9 @@ function validateCheckoutFields() {
 }
 
 function getSelectedPayment() {
-  return checkoutForm.elements.payment?.value || 'paypal';
+  if (!isPayPalEnabled()) return 'cash';
+  const selected = String(checkoutForm.elements.payment?.value || '').toLowerCase();
+  return selected === 'paypal' ? 'paypal' : 'cash';
 }
 
 function getWhatsAppBaseUrl() {
@@ -3124,6 +3162,10 @@ async function startPayPalCheckoutFlow() {
 }
 
 function handlePayPalReturn() {
+  if (!isPayPalEnabled()) {
+    return;
+  }
+
   const url = new URL(window.location.href);
   const params = url.searchParams;
   const pendingOrder = readPendingPayPalOrder();
@@ -3219,6 +3261,7 @@ function renderCart() {
   const totals = getTotals();
   const totalQuantity = lines.reduce((sum, item) => sum + item.quantity, 0);
   syncFulfillmentControls();
+  syncPaymentControls();
 
   cartItems.innerHTML = lines
     .map(
@@ -3306,7 +3349,7 @@ function resetOrder() {
   saveCart();
   checkoutForm.reset();
   checkoutForm.classList.remove('was-validated');
-  checkoutForm.elements.payment.value = 'paypal';
+  checkoutForm.elements.payment.value = isPayPalEnabled() ? 'paypal' : 'cash';
   if (checkoutForm.elements.fulfillment) {
     checkoutForm.elements.fulfillment.value = 'asap';
   }
