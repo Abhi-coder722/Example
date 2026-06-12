@@ -1029,41 +1029,56 @@ const LEGAL_TEXT = {
     de: {
       title: 'Datenschutz',
       paragraphs: [
-        'Diese Website verarbeitet personenbezogene Daten zur Bestellabwicklung (Name, Telefon, Warenkorb) auf Basis von Art. 6 Abs. 1 lit. b DSGVO.',
-        'Technisch notwendige Speicherung: Der Warenkorb wird lokal im Browser gespeichert. Es werden keine Marketing- oder Tracking-Cookies gesetzt.',
-        'Betroffenenrechte: Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch sowie Beschwerde bei einer Aufsichtsbehörde.'
+        'Data Processing for Orders',
+        'When you place an order through our website, we collect the information you provide (such as your name, telephone number, and optionally your email address) solely for the purpose of processing your order.',
+        'The information entered into the order form is not stored in a separate customer database on our website. Instead, the order details are transmitted directly to us via WhatsApp so that we can verify and process your order.',
+        'The data is used exclusively for order processing and customer communication relating to your order. We do not use your data for marketing purposes and do not sell or share it with third parties except where necessary for order processing.',
+        "Please note that when you send an order via WhatsApp, your data is also processed by WhatsApp Ireland Limited and its affiliated companies in accordance with WhatsApp's own privacy policy. Further information can be found at: https://www.whatsapp.com/legal/privacy-policy",
+        'You have the rights granted under the General Data Protection Regulation (GDPR), including the right to access, rectify, erase, restrict processing, and object to the processing of your personal data.'
       ]
     },
     en: {
       title: 'Privacy',
       paragraphs: [
-        'This website processes personal data for order handling (name, phone, cart) based on Art. 6(1)(b) GDPR.',
-        'Technically required storage: the cart is stored in the local browser. No marketing or tracking cookies are set.',
-        'Data subject rights include access, correction, deletion, restriction, objection, and complaint to a supervisory authority.'
+        'Data Processing for Orders',
+        'When you place an order through our website, we collect the information you provide (such as your name, telephone number, and optionally your email address) solely for the purpose of processing your order.',
+        'The information entered into the order form is not stored in a separate customer database on our website. Instead, the order details are transmitted directly to us via WhatsApp so that we can verify and process your order.',
+        'The data is used exclusively for order processing and customer communication relating to your order. We do not use your data for marketing purposes and do not sell or share it with third parties except where necessary for order processing.',
+        "Please note that when you send an order via WhatsApp, your data is also processed by WhatsApp Ireland Limited and its affiliated companies in accordance with WhatsApp's own privacy policy. Further information can be found at: https://www.whatsapp.com/legal/privacy-policy",
+        'You have the rights granted under the General Data Protection Regulation (GDPR), including the right to access, rectify, erase, restrict processing, and object to the processing of your personal data.'
       ]
     },
     ru: {
       title: 'Конфиденциальность',
       paragraphs: [
-        'Сайт обрабатывает персональные данные для оформления заказа (имя, телефон, корзина) на основании ст. 6(1)(b) GDPR.',
-        'Технически необходимое хранение: корзина сохраняется локально в браузере. Маркетинговые и трекинговые cookie не используются.',
-        'Права субъекта данных: доступ, исправление, удаление, ограничение, возражение и жалоба в надзорный орган.'
+        'Data Processing for Orders',
+        'When you place an order through our website, we collect the information you provide (such as your name, telephone number, and optionally your email address) solely for the purpose of processing your order.',
+        'The information entered into the order form is not stored in a separate customer database on our website. Instead, the order details are transmitted directly to us via WhatsApp so that we can verify and process your order.',
+        'The data is used exclusively for order processing and customer communication relating to your order. We do not use your data for marketing purposes and do not sell or share it with third parties except where necessary for order processing.',
+        "Please note that when you send an order via WhatsApp, your data is also processed by WhatsApp Ireland Limited and its affiliated companies in accordance with WhatsApp's own privacy policy. Further information can be found at: https://www.whatsapp.com/legal/privacy-policy",
+        'You have the rights granted under the General Data Protection Regulation (GDPR), including the right to access, rectify, erase, restrict processing, and object to the processing of your personal data.'
       ]
     },
     ja: {
       title: 'プライバシー',
       paragraphs: [
-        '本サイトは注文処理（氏名・電話番号・カート）のために個人データを処理します（GDPR 第6条1項b）。',
-        '技術的に必要な保存: カートはブラウザ内に保存されます。マーケティング/トラッキングCookieは使用しません。',
-        '利用者には、開示・訂正・削除・処理制限・異議申立て・監督機関への苦情申立ての権利があります。'
+        'Data Processing for Orders',
+        'When you place an order through our website, we collect the information you provide (such as your name, telephone number, and optionally your email address) solely for the purpose of processing your order.',
+        'The information entered into the order form is not stored in a separate customer database on our website. Instead, the order details are transmitted directly to us via WhatsApp so that we can verify and process your order.',
+        'The data is used exclusively for order processing and customer communication relating to your order. We do not use your data for marketing purposes and do not sell or share it with third parties except where necessary for order processing.',
+        "Please note that when you send an order via WhatsApp, your data is also processed by WhatsApp Ireland Limited and its affiliated companies in accordance with WhatsApp's own privacy policy. Further information can be found at: https://www.whatsapp.com/legal/privacy-policy",
+        'You have the rights granted under the General Data Protection Regulation (GDPR), including the right to access, rectify, erase, restrict processing, and object to the processing of your personal data.'
       ]
     },
     tr: {
       title: 'Gizlilik',
       paragraphs: [
-        'Bu web sitesi, sipariş işlemleri için kişisel verileri (ad, telefon, sepet) GDPR Madde 6(1)(b) kapsamında işler.',
-        'Teknik olarak gerekli depolama: sepet tarayıcıda yerel olarak saklanır. Pazarlama veya takip çerezi kullanılmaz.',
-        'Veri sahibi hakları: erişim, düzeltme, silme, kısıtlama, itiraz ve denetim makamına şikayet.'
+        'Data Processing for Orders',
+        'When you place an order through our website, we collect the information you provide (such as your name, telephone number, and optionally your email address) solely for the purpose of processing your order.',
+        'The information entered into the order form is not stored in a separate customer database on our website. Instead, the order details are transmitted directly to us via WhatsApp so that we can verify and process your order.',
+        'The data is used exclusively for order processing and customer communication relating to your order. We do not use your data for marketing purposes and do not sell or share it with third parties except where necessary for order processing.',
+        "Please note that when you send an order via WhatsApp, your data is also processed by WhatsApp Ireland Limited and its affiliated companies in accordance with WhatsApp's own privacy policy. Further information can be found at: https://www.whatsapp.com/legal/privacy-policy",
+        'You have the rights granted under the General Data Protection Regulation (GDPR), including the right to access, rectify, erase, restrict processing, and object to the processing of your personal data.'
       ]
     }
   },
