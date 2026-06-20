@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "config:build": "node scripts/generate-supabase-config.js",
+    "voucher:campaign": "node scripts/create-campaign-vouchers.js",
     "test": "node --test"
   }
 }

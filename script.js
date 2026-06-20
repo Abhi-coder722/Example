@@ -12,6 +12,9 @@ const TRANSLATIONS = {
     floatingCartLabel: 'Warenkorb',
     floatingCartAria: 'Warenkorb öffnen',
     heroCopy: 'Frisch, schnell und mit Liebe zubereitet in der Luftgasse 1 in Ingolstadt.',
+    promoFootballTitle: 'Deutschland-Fussballrabatt',
+    promoFootballBody:
+      'Zur Unterstützung der deutschen Fussballnationalmannschaft: Nutze DEUTSCHLAND5 oder DE5 und erhalte 5 EUR Sofortrabatt ab 45 EUR Bestellwert.',
     startOrder: 'Jetzt bestellen',
     viewCart: 'Warenkorb anzeigen',
     heroStatItems: 'Menüeinträge',
@@ -61,6 +64,7 @@ const TRANSLATIONS = {
     voucherInvalid: 'Dieser Gutscheincode ist ungültig.',
     voucherInactive: 'Dieser Gutschein ist deaktiviert.',
     voucherLimitReached: 'Dieser Gutschein wurde bereits vollständig eingelöst.',
+    voucherMinimumNotReached: 'Dieser Gutschein gilt ab {minimum}. Bitte noch {gap} hinzufügen.',
     voucherApplyFailed: 'Gutschein konnte aktuell nicht geprüft werden.',
     subtotalLabel: 'Zwischensumme',
     serviceFeeLabel: 'Service',
@@ -165,6 +169,9 @@ const TRANSLATIONS = {
     floatingCartLabel: 'Cart',
     floatingCartAria: 'Open cart',
     heroCopy: 'Fresh, fast, and prepared with care in Luftgasse 1, Ingolstadt.',
+    promoFootballTitle: 'Germany football discount',
+    promoFootballBody:
+      'To support the German national football team, use DEUTSCHLAND5 or DE5 and get a flat EUR 5 discount on orders of EUR 45 or more.',
     startOrder: 'Start Order',
     viewCart: 'View Cart',
     heroStatItems: 'Menu Items',
@@ -214,6 +221,7 @@ const TRANSLATIONS = {
     voucherInvalid: 'This voucher code is invalid.',
     voucherInactive: 'This voucher is inactive.',
     voucherLimitReached: 'This voucher has reached its usage limit.',
+    voucherMinimumNotReached: 'This voucher is valid from {minimum}. Please add {gap} more.',
     voucherApplyFailed: 'Voucher validation is currently unavailable.',
     subtotalLabel: 'Subtotal',
     serviceFeeLabel: 'Service',
@@ -317,6 +325,9 @@ const TRANSLATIONS = {
     floatingCartLabel: 'Корзина',
     floatingCartAria: 'Открыть корзину',
     heroCopy: 'Свежо, быстро и с заботой. Luftgasse 1, Ingolstadt.',
+    promoFootballTitle: 'Футбольная скидка Германия',
+    promoFootballBody:
+      'Скидка в поддержку футбольной сборной Германии. Используйте DEUTSCHLAND5 или DE5 и получите 5 EUR скидки при заказе от 45 EUR.',
     startOrder: 'Начать заказ',
     viewCart: 'Открыть корзину',
     heroStatItems: 'Позиции меню',
@@ -366,6 +377,7 @@ const TRANSLATIONS = {
     voucherInvalid: 'Код купона недействителен.',
     voucherInactive: 'Этот купон деактивирован.',
     voucherLimitReached: 'Лимит использования купона достигнут.',
+    voucherMinimumNotReached: 'Купон действует от {minimum}. Добавьте еще {gap}.',
     voucherApplyFailed: 'Сейчас не удалось проверить купон.',
     subtotalLabel: 'Промежуточный итог',
     serviceFeeLabel: 'Сервис',
@@ -470,6 +482,9 @@ const TRANSLATIONS = {
     floatingCartLabel: 'カート',
     floatingCartAria: 'カートを開く',
     heroCopy: '新鮮でスピーディー。Luftgasse 1, Ingolstadt。',
+    promoFootballTitle: 'ドイツ代表応援割引',
+    promoFootballBody:
+      'ドイツ代表を応援するフットボール割引です。DEUTSCHLAND5 または DE5 を使うと、45 EUR以上のご注文で5 EUR割引になります。',
     startOrder: '注文を始める',
     viewCart: 'カートを見る',
     heroStatItems: 'メニュー項目',
@@ -519,6 +534,7 @@ const TRANSLATIONS = {
     voucherInvalid: 'このクーポンコードは無効です。',
     voucherInactive: 'このクーポンは無効化されています。',
     voucherLimitReached: 'このクーポンは利用上限に達しました。',
+    voucherMinimumNotReached: 'このクーポンは {minimum} 以上で利用できます。あと {gap} 追加してください。',
     voucherApplyFailed: '現在クーポンを確認できません。',
     subtotalLabel: '小計',
     serviceFeeLabel: 'サービス料',
@@ -623,6 +639,9 @@ const TRANSLATIONS = {
     floatingCartLabel: 'Sepet',
     floatingCartAria: 'Sepeti aç',
     heroCopy: 'Taze, hızlı ve özenle hazırlanır. Luftgasse 1, Ingolstadt.',
+    promoFootballTitle: 'Almanya futbol indirimi',
+    promoFootballBody:
+      'Almanya futbol takımını desteklemek için özel indirim. DEUTSCHLAND5 veya DE5 ile 45 EUR üzeri siparişlerde 5 EUR indirim alın.',
     startOrder: 'Siparişe Başla',
     viewCart: 'Sepeti Gör',
     heroStatItems: 'Menü Ürünü',
@@ -672,6 +691,7 @@ const TRANSLATIONS = {
     voucherInvalid: 'Bu kupon kodu geçersiz.',
     voucherInactive: 'Bu kupon pasif durumda.',
     voucherLimitReached: 'Bu kupon kullanım limitine ulaştı.',
+    voucherMinimumNotReached: 'Bu kupon {minimum} ve üzeri siparişlerde geçerlidir. Lütfen {gap} daha ekleyin.',
     voucherApplyFailed: 'Kupon şu anda doğrulanamadı.',
     subtotalLabel: 'Ara toplam',
     serviceFeeLabel: 'Servis',
@@ -1185,6 +1205,10 @@ const VENUE_CONFIG = mergedVenueConfig;
 const STATIC_CATEGORIES = typeof BAGO_CATEGORIES !== 'undefined' && Array.isArray(BAGO_CATEGORIES) ? BAGO_CATEGORIES : [];
 const STATIC_MOST_ORDERED = typeof BAGO_MOST_ORDERED !== 'undefined' && Array.isArray(BAGO_MOST_ORDERED) ? BAGO_MOST_ORDERED : [];
 const BAGO_BIZ = window.BagoBusiness || {};
+const CAMPAIGN_VOUCHER_MINIMUMS = {
+  DEUTSCHLAND5: 45,
+  DE5: 45
+};
 const OPENING_HOURS_DISPLAY_ORDER = [1, 2, 3, 4, 5, 6, 0];
 const DAY_LABEL_KEYS = {
   0: 'daySunday',
@@ -1319,15 +1343,33 @@ function normalizeVoucherCodeValue(value) {
   return String(value || '').trim().toUpperCase();
 }
 
-function validateVoucherRowValue(row) {
+function getVoucherMinimumValue(code, rawMinimum) {
+  const parsedMinimum = Math.max(0, Number.parseFloat(rawMinimum) || 0);
+  const fallbackMinimum = CAMPAIGN_VOUCHER_MINIMUMS[normalizeVoucherCodeValue(code)] || 0;
+  return Math.max(parsedMinimum, fallbackMinimum);
+}
+
+function validateVoucherRowValue(row, options = {}) {
   if (typeof BAGO_BIZ.validateVoucherRow === 'function') {
-    return BAGO_BIZ.validateVoucherRow(row);
+    return BAGO_BIZ.validateVoucherRow(row, options);
   }
   if (!row) return { ok: false, error: 'not_found' };
   if (row.active === false) return { ok: false, error: 'inactive' };
   const usageLimit = Math.max(1, Number.parseInt(row.usage_limit, 10) || 1);
   const timesUsed = Math.max(0, Number.parseInt(row.times_used, 10) || 0);
+  const minimumOrderValue = getVoucherMinimumValue(row.code, row.min_order_value);
+  const rawOrderValue = Number.parseFloat(options.orderValue);
+  const hasOrderValue = Number.isFinite(rawOrderValue);
+  const orderValue = hasOrderValue ? Math.max(0, rawOrderValue) : 0;
   if (timesUsed >= usageLimit) return { ok: false, error: 'usage_limit_reached' };
+  if (hasOrderValue && orderValue + 0.000001 < minimumOrderValue) {
+    return {
+      ok: false,
+      error: 'minimum_not_reached',
+      minimumOrderValue,
+      orderValue
+    };
+  }
   return {
     ok: true,
     error: '',
@@ -1335,10 +1377,21 @@ function validateVoucherRowValue(row) {
       id: row.id,
       code: normalizeVoucherCodeValue(row.code),
       discountAmount: Number.parseFloat(row.discount_amount) || 0,
+      minimumOrderValue,
       usageLimit,
       timesUsed
     }
   };
+}
+
+function getVoucherOrderValue() {
+  const subtotal = Object.entries(state.cart).reduce((sum, [id, quantity]) => {
+    const item = itemById.get(id);
+    const qty = Math.max(0, Number.parseInt(quantity, 10) || 0);
+    const price = Number.parseFloat(item?.price) || 0;
+    return sum + qty * price;
+  }, 0);
+  return Math.round(subtotal * 100) / 100;
 }
 
 function createSlug(value) {
@@ -2346,6 +2399,7 @@ function getCartLines() {
 function getTotals() {
   const lines = getCartLines();
   const voucherDiscount = state.appliedVoucher?.discountAmount || 0;
+  const voucherMinimum = Math.max(0, Number.parseFloat(state.appliedVoucher?.minimumOrderValue) || 0);
 
   if (typeof BAGO_BIZ.calculateTotals === 'function') {
     return BAGO_BIZ.calculateTotals({
@@ -2354,7 +2408,8 @@ function getTotals() {
       serviceFeePercent: VENUE_CONFIG.serviceFeePercent,
       serviceFeeMin: VENUE_CONFIG.serviceFeeMin,
       serviceFeeMax: VENUE_CONFIG.serviceFeeMax,
-      voucherDiscount
+      voucherDiscount,
+      voucherMinimum
     });
   }
 
@@ -2365,7 +2420,8 @@ function getTotals() {
     ? Math.min(VENUE_CONFIG.serviceFeeMax, Math.max(VENUE_CONFIG.serviceFeeMin, rawService))
     : 0;
   const grossTotal = subtotal + service;
-  const safeVoucher = Math.min(grossTotal, Math.max(0, Number.parseFloat(voucherDiscount) || 0));
+  const voucherQualified = subtotal + 0.000001 >= voucherMinimum;
+  const safeVoucher = voucherQualified ? Math.min(grossTotal, Math.max(0, Number.parseFloat(voucherDiscount) || 0)) : 0;
   const minimumGap = Math.max(0, VENUE_CONFIG.orderMinimum - subtotal);
 
   return {
@@ -2636,7 +2692,18 @@ function collectValidatedOrderContext() {
   };
 }
 
-function resolveVoucherErrorMessage(errorCode) {
+function resolveVoucherErrorMessage(errorCode, details = {}) {
+  if (errorCode === 'minimum_not_reached') {
+    const minimum = Number.parseFloat(details.minimumOrderValue);
+    const orderValue = Number.parseFloat(details.orderValue);
+    const safeMinimum = Number.isFinite(minimum) ? Math.max(0, minimum) : 0;
+    const safeOrderValue = Number.isFinite(orderValue) ? Math.max(0, orderValue) : getVoucherOrderValue();
+    const gap = Math.max(0, safeMinimum - safeOrderValue);
+    return formatT('voucherMinimumNotReached', {
+      minimum: money.format(safeMinimum),
+      gap: money.format(gap)
+    });
+  }
   if (errorCode === 'inactive') return t('voucherInactive');
   if (errorCode === 'usage_limit_reached' || errorCode === 'limit_reached') return t('voucherLimitReached');
   if (errorCode === 'not_found') return t('voucherInvalid');
@@ -2667,14 +2734,25 @@ async function fetchVoucherForCode(voucherCode) {
     return { ok: false, error: 'not_found' };
   }
 
-  const rpcResult = await client.rpc('validate_voucher_code', { p_code: code });
+  const orderValue = getVoucherOrderValue();
+  let rpcResult = await client.rpc('validate_voucher_code', { p_code: code, p_order_total: orderValue });
+  const firstRpcError = rpcResult.error?.message || '';
+  if (rpcResult.error && /function .*validate_voucher_code.*does not exist|schema cache|could not find/i.test(firstRpcError)) {
+    rpcResult = await client.rpc('validate_voucher_code', { p_code: code });
+  }
+
   if (!rpcResult.error) {
     const row = Array.isArray(rpcResult.data) ? rpcResult.data[0] : rpcResult.data;
     if (!row) {
       return { ok: false, error: 'not_found' };
     }
     if (row.ok === false || row.error_code) {
-      return { ok: false, error: row.error_code || 'not_found' };
+      return {
+        ok: false,
+        error: row.error_code || 'not_found',
+        minimumOrderValue: getVoucherMinimumValue(row.code, row.min_order_value),
+        orderValue
+      };
     }
     return {
       ok: true,
@@ -2682,6 +2760,7 @@ async function fetchVoucherForCode(voucherCode) {
         id: row.voucher_id || row.id,
         code: normalizeVoucherCodeValue(row.code),
         discountAmount: Number.parseFloat(row.discount_amount) || 0,
+        minimumOrderValue: getVoucherMinimumValue(row.code, row.min_order_value),
         usageLimit: Math.max(1, Number.parseInt(row.usage_limit, 10) || 1),
         timesUsed: Math.max(0, Number.parseInt(row.times_used, 10) || 0)
       }
@@ -2696,19 +2775,37 @@ async function fetchVoucherForCode(voucherCode) {
     return { ok: false, error: 'fetch_failed', details: rpcMessage };
   }
 
-  const { data, error } = await client
+  let fallbackResult = await client
     .from(BAGO_SUPABASE.vouchersTable)
-    .select('id, code, discount_amount, active, usage_limit, times_used')
+    .select('id, code, discount_amount, active, usage_limit, times_used, min_order_value')
     .eq('code', code)
     .limit(1);
+
+  if (
+    fallbackResult.error &&
+    /column .*min_order_value.* does not exist|min_order_value/i.test(fallbackResult.error.message || '')
+  ) {
+    fallbackResult = await client
+      .from(BAGO_SUPABASE.vouchersTable)
+      .select('id, code, discount_amount, active, usage_limit, times_used')
+      .eq('code', code)
+      .limit(1);
+  }
+
+  const { data, error } = fallbackResult;
 
   if (error) {
     return { ok: false, error: 'fetch_failed', details: error.message };
   }
 
-  const validation = validateVoucherRowValue(Array.isArray(data) ? data[0] : null);
+  const validation = validateVoucherRowValue(Array.isArray(data) ? data[0] : null, { orderValue });
   if (!validation.ok) {
-    return { ok: false, error: validation.error };
+    return {
+      ok: false,
+      error: validation.error,
+      minimumOrderValue: validation.minimumOrderValue,
+      orderValue: validation.orderValue
+    };
   }
 
   return { ok: true, voucher: validation.voucher };
@@ -2728,7 +2825,13 @@ async function applyVoucherCode() {
 
   if (!result.ok) {
     clearAppliedVoucher();
-    setVoucherStatusMessage(resolveVoucherErrorMessage(result.error), true);
+    setVoucherStatusMessage(
+      resolveVoucherErrorMessage(result.error, {
+        minimumOrderValue: result.minimumOrderValue,
+        orderValue: result.orderValue
+      }),
+      true
+    );
     renderCart();
     return;
   }
@@ -2754,7 +2857,16 @@ async function redeemVoucherIfNeeded(orderContext) {
     return { ok: false, error: 'client_missing' };
   }
 
-  const { data, error } = await client.rpc('redeem_voucher', { p_code: orderContext.voucherCode });
+  let redeemResult = await client.rpc('redeem_voucher', {
+    p_code: orderContext.voucherCode,
+    p_order_total: orderContext.totals?.subtotal || 0
+  });
+  const redeemMessage = redeemResult.error?.message || '';
+  if (redeemResult.error && /function .*redeem_voucher.*does not exist|schema cache|could not find/i.test(redeemMessage)) {
+    redeemResult = await client.rpc('redeem_voucher', { p_code: orderContext.voucherCode });
+  }
+
+  const { data, error } = redeemResult;
   if (error) {
     return { ok: false, error: 'fetch_failed', details: error.message };
   }
@@ -2765,7 +2877,12 @@ async function redeemVoucherIfNeeded(orderContext) {
   }
 
   if (row.error_code) {
-    return { ok: false, error: row.error_code };
+    return {
+      ok: false,
+      error: row.error_code,
+      minimumOrderValue: getVoucherMinimumValue(row.code, row.min_order_value),
+      orderValue: Math.max(0, Number.parseFloat(orderContext.totals?.subtotal) || 0)
+    };
   }
 
   return {
@@ -2773,7 +2890,8 @@ async function redeemVoucherIfNeeded(orderContext) {
     voucher: {
       id: row.voucher_id || row.id,
       code: normalizeVoucherCodeValue(row.code),
-      discountAmount: Number.parseFloat(row.discount_amount) || 0
+      discountAmount: Number.parseFloat(row.discount_amount) || 0,
+      minimumOrderValue: getVoucherMinimumValue(row.code, row.min_order_value)
     }
   };
 }
@@ -3113,7 +3231,13 @@ async function sendCashOrderToWhatsApp() {
   const voucherResult = await redeemVoucherIfNeeded(orderContext);
   if (!voucherResult.ok) {
     formStatus.textContent = t('statusVoucherRecheckFailed');
-    setVoucherStatusMessage(resolveVoucherErrorMessage(voucherResult.error), true);
+    setVoucherStatusMessage(
+      resolveVoucherErrorMessage(voucherResult.error, {
+        minimumOrderValue: voucherResult.minimumOrderValue,
+        orderValue: voucherResult.orderValue
+      }),
+      true
+    );
     return false;
   }
   if (voucherResult.voucher) {
@@ -3156,7 +3280,13 @@ async function startPayPalCheckoutFlow() {
   const voucherResult = await redeemVoucherIfNeeded(orderContext);
   if (!voucherResult.ok) {
     formStatus.textContent = t('statusVoucherRecheckFailed');
-    setVoucherStatusMessage(resolveVoucherErrorMessage(voucherResult.error), true);
+    setVoucherStatusMessage(
+      resolveVoucherErrorMessage(voucherResult.error, {
+        minimumOrderValue: voucherResult.minimumOrderValue,
+        orderValue: voucherResult.orderValue
+      }),
+      true
+    );
     return false;
   }
   if (voucherResult.voucher) {

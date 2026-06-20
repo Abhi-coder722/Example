@@ -48,6 +48,17 @@
     return String(value || '').trim().toUpperCase();
   }
 
+  const campaignVoucherMinimums = {
+    DEUTSCHLAND5: 45,
+    DE5: 45
+  };
+
+  function getVoucherMinimumValue(code, rawMinimum) {
+    const parsedMinimum = Math.max(0, toNumber(rawMinimum));
+    const fallbackMinimum = campaignVoucherMinimums[normalizeVoucherCode(code)] || 0;
+    return Math.max(parsedMinimum, fallbackMinimum);
+  }
+
   function calculateTotals(config) {
     const lines = Array.isArray(config?.lines) ? config.lines : [];
     const orderMinimum = toNumber(config?.orderMinimum);
@@ -55,6 +66,7 @@
     const serviceFeeMin = Math.max(0, toNumber(config?.serviceFeeMin));
     const serviceFeeMax = Math.max(0, toNumber(config?.serviceFeeMax));
     const voucherDiscountRaw = Math.max(0, toNumber(config?.voucherDiscount));
+    const voucherMinimum = Math.max(0, toNumber(config?.voucherMinimum));
 
     const subtotal = roundMoney(
       lines.reduce((sum, line) => {
@@ -70,7 +82,8 @@
       serviceFeeMax > 0 ? Math.min(serviceFeeMax, Math.max(serviceFeeMin, rawService)) : Math.max(serviceFeeMin, rawService);
     const service = hasItems ? roundMoney(boundedService) : 0;
     const grossTotal = roundMoney(subtotal + service);
-    const voucherDiscount = Math.min(grossTotal, roundMoney(voucherDiscountRaw));
+    const voucherQualified = subtotal + 0.000001 >= voucherMinimum;
+    const voucherDiscount = voucherQualified ? Math.min(grossTotal, roundMoney(voucherDiscountRaw)) : 0;
     const total = roundMoney(Math.max(0, grossTotal - voucherDiscount));
     const minimumGap = roundMoney(Math.max(0, orderMinimum - subtotal));
 
@@ -83,7 +96,7 @@
     };
   }
 
-  function validateVoucherRow(row) {
+  function validateVoucherRow(row, options) {
     if (!row) {
       return { ok: false, error: 'not_found' };
     }
@@ -93,8 +106,19 @@
 
     const usageLimit = Math.max(1, Number.parseInt(row.usage_limit, 10) || 1);
     const timesUsed = Math.max(0, Number.parseInt(row.times_used, 10) || 0);
+    const minimumOrderValue = getVoucherMinimumValue(row.code, row.min_order_value);
+    const orderValueRaw = toNumber(options?.orderValue);
+    const hasOrderValue = options && options.orderValue != null;
     if (timesUsed >= usageLimit) {
       return { ok: false, error: 'usage_limit_reached' };
+    }
+    if (hasOrderValue && orderValueRaw + 0.000001 < minimumOrderValue) {
+      return {
+        ok: false,
+        error: 'minimum_not_reached',
+        minimumOrderValue,
+        orderValue: orderValueRaw
+      };
     }
 
     return {
@@ -104,14 +128,15 @@
         id: row.id,
         code: normalizeVoucherCode(row.code),
         discountAmount: roundMoney(row.discount_amount),
+        minimumOrderValue,
         usageLimit,
         timesUsed
       }
     };
   }
 
-  function redeemVoucherRow(row) {
-    const validation = validateVoucherRow(row);
+  function redeemVoucherRow(row, options) {
+    const validation = validateVoucherRow(row, options);
     if (!validation.ok) {
       return validation;
     }

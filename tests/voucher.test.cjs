@@ -70,3 +70,20 @@ test('reject voucher after usage limit reached', () => {
   assert.equal(result.ok, false);
   assert.equal(result.error, 'usage_limit_reached');
 });
+
+test('reject voucher when minimum order value is not reached', () => {
+  const voucher = {
+    id: 'v-5',
+    code: 'DEUTSCHLAND5',
+    discount_amount: 5,
+    min_order_value: 45,
+    active: true,
+    usage_limit: 1000,
+    times_used: 0
+  };
+
+  const result = biz.validateVoucherRow(voucher, { orderValue: 32 });
+  assert.equal(result.ok, false);
+  assert.equal(result.error, 'minimum_not_reached');
+  assert.equal(result.minimumOrderValue, 45);
+});
