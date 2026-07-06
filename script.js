@@ -1440,7 +1440,14 @@ function resolvePopularIds(visibleItems) {
     normalized: normalizeMatchKey(itemBaseName(item))
   }));
 
-  if (STATIC_MOST_ORDERED.length) {
+  visibleItems.forEach((item) => {
+    if (resolved.length >= 8) return;
+    if (item.isPopular === true && !resolved.includes(item.id)) {
+      resolved.push(item.id);
+    }
+  });
+
+  if (resolved.length < 8 && STATIC_MOST_ORDERED.length) {
     STATIC_MOST_ORDERED.forEach((hint) => {
       if (resolved.length >= 8) return;
       const values = listHintValues(hint);
@@ -1916,16 +1923,17 @@ function buildCategoriesFromRows(rows) {
     const price = Number.parseFloat(row.price);
 
     const bucket = grouped.get(key);
-    bucket.items.push({
-      id: String(row.id || `${key}-${bucket.items.length + 1}`),
-      name: defaultName,
-      description: defaultDescription,
-      nameTranslations: rowNameTranslations,
-      descriptionTranslations: rowDescriptionTranslations,
-      price: Number.isFinite(price) ? price : 0,
-      image: normalizeImageUrl(row.image_url || row.image || row.imageUrl || ''),
-      available: row.available !== false
-    });
+   bucket.items.push({
+  id: String(row.id || `${key}-${bucket.items.length + 1}`),
+  name: defaultName,
+  description: defaultDescription,
+  nameTranslations: rowNameTranslations,
+  descriptionTranslations: rowDescriptionTranslations,
+  price: Number.isFinite(price) ? price : 0,
+  image: normalizeImageUrl(row.image_url || row.image || row.imageUrl || ''),
+  available: row.available !== false,
+  isPopular: row.is_popular === true || row.is_popular === 1 || row.is_popular === 'true'
+});
   });
 
   return [...grouped.values()];

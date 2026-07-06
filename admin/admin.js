@@ -30,6 +30,7 @@ const TRANSLATIONS = {
     imageUrlLabel: 'Bild-URL (optional)',
     imageUploadLabel: 'Bild hochladen (optional)',
     availabilityLabel: 'Verfügbar (deaktivieren = Sold Out)',
+    popularLabel: 'Als beliebtes Produkt markieren',
     namesTitle: 'Namen',
     descriptionsTitle: 'Beschreibungen',
     langGerman: 'Deutsch',
@@ -44,6 +45,7 @@ const TRANSLATIONS = {
     tableNameDe: 'Name (DE)',
     tablePrice: 'Preis',
     tableStatus: 'Status',
+    tablePopular: 'Beliebt',
     tableActions: 'Aktionen',
     itemSearchLabel: 'Einträge suchen',
     itemSearchPlaceholder: 'Nach Name, Kategorie oder Beschreibung suchen...',
@@ -132,6 +134,8 @@ const TRANSLATIONS = {
     actionDelete: 'Löschen',
     actionSetSoldOut: 'Sold Out setzen',
     actionActivate: 'Aktivieren',
+    actionSetPopular: 'Als beliebt setzen',
+    actionUnsetPopular: 'Beliebt entfernen',
     actionDeactivate: 'Deaktivieren',
     errorNameDeRequired: 'Der deutsche Name ist erforderlich.',
     errorUploadFailed: 'Upload fehlgeschlagen: {message}',
@@ -146,6 +150,7 @@ const TRANSLATIONS = {
     statusUnknownSaveError: 'Unbekannter Fehler beim Speichern.',
     statusToggleError: 'Status konnte nicht geändert werden: {message}',
     statusUpdated: 'Status aktualisiert.',
+    statusPopularUpdated: 'Beliebtes Produkt aktualisiert.',
     confirmDeleteItem: 'Soll {name} wirklich gelöscht werden?',
     statusDeleteFailed: 'Löschen fehlgeschlagen: {message}',
     statusDeleted: 'Eintrag gelöscht.',
@@ -197,6 +202,7 @@ const TRANSLATIONS = {
     imageUrlLabel: 'Image URL (optional)',
     imageUploadLabel: 'Upload image (optional)',
     availabilityLabel: 'Available (disable = Sold Out)',
+    popularLabel: 'Mark as popular item',
     namesTitle: 'Names',
     descriptionsTitle: 'Descriptions',
     langGerman: 'Deutsch',
@@ -211,6 +217,7 @@ const TRANSLATIONS = {
     tableNameDe: 'Name (DE)',
     tablePrice: 'Price',
     tableStatus: 'Status',
+    tablePopular: 'Popular',
     tableActions: 'Actions',
     itemSearchLabel: 'Search entries',
     itemSearchPlaceholder: 'Search by name, category, or description...',
@@ -297,6 +304,8 @@ const TRANSLATIONS = {
     actionDelete: 'Delete',
     actionSetSoldOut: 'Set Sold Out',
     actionActivate: 'Activate',
+    actionSetPopular: 'Set popular',
+    actionUnsetPopular: 'Remove popular',
     actionDeactivate: 'Deactivate',
     errorNameDeRequired: 'German name is required.',
     errorUploadFailed: 'Upload failed: {message}',
@@ -311,6 +320,7 @@ const TRANSLATIONS = {
     statusUnknownSaveError: 'Unknown error while saving.',
     statusToggleError: 'Could not change status: {message}',
     statusUpdated: 'Status updated.',
+    statusPopularUpdated: 'Popular item updated.',
     confirmDeleteItem: 'Delete {name}?',
     statusDeleteFailed: 'Delete failed: {message}',
     statusDeleted: 'Item deleted.',
@@ -1100,6 +1110,7 @@ function clearItemForm() {
   itemForm.reset();
   itemForm.elements.id.value = '';
   itemForm.elements.available.checked = true;
+  itemForm.elements.is_popular.checked = false;
   setFormMode(false);
 }
 
@@ -1291,6 +1302,7 @@ function buildPayload(imageUrl) {
     category,
     price: Number.isFinite(price) ? price : 0,
     available: itemForm.elements.available.checked,
+    is_popular: itemForm.elements.is_popular.checked,
     image_url: imageUrl,
     image: imageUrl,
     name: names.de,
@@ -1316,6 +1328,7 @@ function populateForm(item) {
   itemForm.elements.category.value = item.category || '';
   itemForm.elements.price.value = Number.parseFloat(item.price || 0).toFixed(2);
   itemForm.elements.available.checked = item.available !== false;
+  itemForm.elements.is_popular.checked = item.is_popular === true;
   itemForm.elements.image_url.value = item.image_url || item.image || '';
 
   itemForm.elements.name_de.value = item.name_de || item.name || '';
@@ -1342,7 +1355,7 @@ function renderItems() {
   state.itemsPage = pagination.page;
 
   if (!pagination.total) {
-    itemsTableBody.innerHTML = `<tr class="table-empty"><td data-label="" colspan="5">${escapeHtml(
+    itemsTableBody.innerHTML = `<tr class="table-empty"><td data-label="" colspan="6">${escapeHtml(
       state.items.length ? t('statusNoMenuItemsFiltered') : t('statusNoMenuItems')
     )}</td></tr>`;
     renderTablePagination(
@@ -1361,12 +1374,14 @@ function renderItems() {
   const nameLabel = escapeHtml(t('tableNameDe'));
   const priceLabel = escapeHtml(t('tablePrice'));
   const statusLabel = escapeHtml(t('tableStatus'));
+  const popularLabel = escapeHtml(t('tablePopular'));
   const actionsLabel = escapeHtml(t('tableActions'));
 
   itemsTableBody.innerHTML = pagination.entries
     .map((item) => {
       const name = item.name_de || item.name || '-';
       const statusLive = item.available !== false;
+      const isPopular = item.is_popular === true;
 
       return `
         <tr>
@@ -1378,11 +1393,15 @@ function renderItems() {
               ${statusLive ? t('statusAvailable') : t('statusSoldOut')}
             </span>
           </td>
+          <td data-label="${popularLabel}">${isPopular ? '⭐' : '—'}</td>
           <td data-label="${actionsLabel}">
             <div class="row-actions">
               <button type="button" data-edit="${escapeHtml(item.id)}">${escapeHtml(t('actionEdit'))}</button>
               <button type="button" data-toggle="${escapeHtml(item.id)}">${escapeHtml(
                 statusLive ? t('actionSetSoldOut') : t('actionActivate')
+              )}</button>
+              <button type="button" data-popular="${escapeHtml(item.id)}">${escapeHtml(
+                isPopular ? t('actionUnsetPopular') : t('actionSetPopular')
               )}</button>
               <button type="button" data-delete="${escapeHtml(item.id)}">${escapeHtml(t('actionDelete'))}</button>
             </div>
@@ -1744,14 +1763,24 @@ async function uploadImage(file) {
 }
 
 async function fetchItems() {
-  let result = await supabaseClient.from(MENU_TABLE).select('*').order('category', { ascending: true }).order('name_de', {
-    ascending: true
-  });
-
-  if (result.error && /name_de/i.test(result.error.message || '')) {
-    result = await supabaseClient.from(MENU_TABLE).select('*').order('category', { ascending: true }).order('name', {
+  let result = await supabaseClient
+    .from(MENU_TABLE)
+    .select('*')
+    .order('is_popular', { ascending: false })
+    .order('category', { ascending: true })
+    .order('name_de', {
       ascending: true
     });
+
+  if (result.error && /name_de/i.test(result.error.message || '')) {
+    result = await supabaseClient
+      .from(MENU_TABLE)
+      .select('*')
+      .order('is_popular', { ascending: false })
+      .order('category', { ascending: true })
+      .order('name', {
+        ascending: true
+      });
   }
 
   return result;
@@ -2033,6 +2062,7 @@ async function saveItem(event) {
     const currentId = normalize(itemForm.elements.id.value);
     const file = itemForm.elements.image_file.files?.[0] || null;
     let imageUrl = normalize(itemForm.elements.image_url.value);
+    const wantsPopular = itemForm.elements.is_popular.checked;
 
     if (file) {
       imageUrl = await uploadImage(file);
@@ -2040,6 +2070,22 @@ async function saveItem(event) {
 
     const payload = buildPayload(imageUrl);
     let response;
+
+    if (wantsPopular) {
+      let clearPopularQuery = supabaseClient
+        .from(MENU_TABLE)
+        .update({ is_popular: false, updated_at: new Date().toISOString() })
+        .eq('is_popular', true);
+
+      if (currentId) {
+        clearPopularQuery = clearPopularQuery.neq('id', currentId);
+      }
+
+      const clearPopularResult = await clearPopularQuery;
+      if (clearPopularResult.error) {
+        throw new Error(clearPopularResult.error.message);
+      }
+    }
 
     if (currentId) {
       response = await supabaseClient.from(MENU_TABLE).update(payload).eq('id', currentId);
@@ -2076,6 +2122,43 @@ async function toggleAvailability(id) {
   }
 
   setStatus(adminStatus, t('statusUpdated'));
+  await refreshItems();
+}
+
+async function togglePopular(id) {
+  const item = state.items.find((entry) => String(entry.id) === String(id));
+  if (!item) return;
+
+  const nextPopular = item.is_popular !== true;
+
+  if (nextPopular) {
+    const clearPopularResult = await supabaseClient
+      .from(MENU_TABLE)
+      .update({ is_popular: false, updated_at: new Date().toISOString() })
+      .eq('is_popular', true)
+      .neq('id', id);
+
+    if (clearPopularResult.error) {
+      setStatus(adminStatus, formatT('statusToggleError', { message: clearPopularResult.error.message }), true);
+      return;
+    }
+  }
+
+  const { error } = await supabaseClient
+    .from(MENU_TABLE)
+    .update({ is_popular: nextPopular, updated_at: new Date().toISOString() })
+    .eq('id', id);
+
+  if (error) {
+    setStatus(adminStatus, formatT('statusToggleError', { message: error.message }), true);
+    return;
+  }
+
+  if (normalize(itemForm.elements.id.value) === String(id)) {
+    itemForm.elements.is_popular.checked = nextPopular;
+  }
+
+  setStatus(adminStatus, t('statusPopularUpdated'));
   await refreshItems();
 }
 
@@ -2222,6 +2305,7 @@ function changeOrdersPage(delta) {
 async function handleTableActions(event) {
   const editButton = event.target.closest('[data-edit]');
   const toggleButton = event.target.closest('[data-toggle]');
+  const popularButton = event.target.closest('[data-popular]');
   const deleteButton = event.target.closest('[data-delete]');
 
   if (editButton) {
@@ -2234,6 +2318,10 @@ async function handleTableActions(event) {
 
   if (toggleButton) {
     await toggleAvailability(toggleButton.dataset.toggle);
+  }
+
+  if (popularButton) {
+    await togglePopular(popularButton.dataset.popular);
   }
 
   if (deleteButton) {
