@@ -5,7 +5,7 @@ const BAGO_VENUE = {
   "address": "Luftgasse 1, 85049 Ingolstadt",
   "pickupLat": 48.76340717227785,
   "pickupLng": 11.42234503860289,
-  "orderMinimum": 12,
+  "orderMinimum": 5,
   "preparationTime": "25-35 Min",
   "serviceFeePercent": 0,
   "serviceFeeMin": 0,
