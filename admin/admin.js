@@ -163,7 +163,7 @@ const TRANSLATIONS = {
     errorOpeningHoursRange: 'Die Endzeit muss nach der Startzeit liegen.',
     statusEditLoaded: 'Eintrag zum Bearbeiten geladen.',
     statusVoucherEditLoaded: 'Voucher zum Bearbeiten geladen.',
-    statusSupabaseMissing:
+    statusAdminMissing:
       'Admin Login ist nicht konfiguriert. Bitte BAGO_ADMIN_EMAIL und BAGO_ADMIN_PASSWORD in .env setzen.',
     statusSessionLoadFailed: 'Session konnte nicht geladen werden: {message}',
     statusLoginRunning: 'Login läuft...',
@@ -333,7 +333,7 @@ const TRANSLATIONS = {
     errorOpeningHoursRange: 'End time must be later than start time.',
     statusEditLoaded: 'Item loaded for editing.',
     statusVoucherEditLoaded: 'Voucher loaded for editing.',
-    statusSupabaseMissing: 'Admin login is not configured. Set BAGO_ADMIN_EMAIL and BAGO_ADMIN_PASSWORD in .env.',
+    statusAdminMissing: 'Admin login is not configured. Set BAGO_ADMIN_EMAIL and BAGO_ADMIN_PASSWORD in .env.',
     statusSessionLoadFailed: 'Could not load session: {message}',
     statusLoginRunning: 'Signing in...',
     statusLoginFailed: 'Login failed: {message}',
@@ -499,7 +499,7 @@ const TRANSLATIONS = {
     errorOpeningHoursRange: 'Время окончания должно быть позже времени начала.',
     statusEditLoaded: 'Запись загружена для редактирования.',
     statusVoucherEditLoaded: 'Ваучер загружен для редактирования.',
-    statusSupabaseMissing: 'Вход администратора не настроен. Укажите BAGO_ADMIN_EMAIL и BAGO_ADMIN_PASSWORD в .env.',
+    statusAdminMissing: 'Вход администратора не настроен. Укажите BAGO_ADMIN_EMAIL и BAGO_ADMIN_PASSWORD в .env.',
     statusSessionLoadFailed: 'Не удалось загрузить сессию: {message}',
     statusLoginRunning: 'Вход...',
     statusLoginFailed: 'Ошибка входа: {message}',
@@ -663,7 +663,7 @@ const TRANSLATIONS = {
     errorOpeningHoursRange: '終了時刻は開始時刻より後にしてください。',
     statusEditLoaded: '編集用に読み込みました。',
     statusVoucherEditLoaded: 'クーポンを編集用に読み込みました。',
-    statusSupabaseMissing: '管理者ログインが未設定です。.env に BAGO_ADMIN_EMAIL と BAGO_ADMIN_PASSWORD を設定してください。',
+    statusAdminMissing: '管理者ログインが未設定です。.env に BAGO_ADMIN_EMAIL と BAGO_ADMIN_PASSWORD を設定してください。',
     statusSessionLoadFailed: 'セッションを読み込めませんでした: {message}',
     statusLoginRunning: 'ログイン中...',
     statusLoginFailed: 'ログイン失敗: {message}',
@@ -827,7 +827,7 @@ const TRANSLATIONS = {
     errorOpeningHoursRange: 'Bitiş saati başlangıçtan sonra olmalıdır.',
     statusEditLoaded: 'Kayıt düzenleme için yüklendi.',
     statusVoucherEditLoaded: 'Kupon düzenleme için yüklendi.',
-    statusSupabaseMissing: 'Admin girişi yapılandırılmadı. .env içinde BAGO_ADMIN_EMAIL ve BAGO_ADMIN_PASSWORD ayarla.',
+    statusAdminMissing: 'Admin girişi yapılandırılmadı. .env içinde BAGO_ADMIN_EMAIL ve BAGO_ADMIN_PASSWORD ayarla.',
     statusSessionLoadFailed: 'Oturum yüklenemedi: {message}',
     statusLoginRunning: 'Giriş yapılıyor...',
     statusLoginFailed: 'Giriş başarısız: {message}',
@@ -2274,7 +2274,7 @@ async function handleOrdersTableActions(event) {
 
 async function initializeAuth() {
   if (!BAGO_API.adminSession) {
-    setStatus(loginStatus, t('statusSupabaseMissing'), true);
+    setStatus(loginStatus, t('statusAdminMissing'), true);
     loginForm.querySelectorAll('input,button').forEach((node) => {
       node.disabled = true;
     });

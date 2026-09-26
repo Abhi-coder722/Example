@@ -1156,23 +1156,6 @@ const THEME_STORAGE_KEY = 'bagoTheme';
 const PENDING_PAYPAL_ORDER_KEY = 'bagoPendingPaypalOrder';
 const LAST_SHARED_PAYPAL_TX_KEY = 'bagoLastSharedPaypalTx';
 const WHATSAPP_CONFIRMATION_KEY = 'bagoWhatsappConfirmation';
-const DEFAULT_SUPABASE_CONFIG = {
-  url: '',
-  anonKey: '',
-  menuTable: 'menu_items',
-  customersTable: 'customers',
-  ordersTable: 'orders',
-  orderItemsTable: 'order_items',
-  orderEventsTable: 'order_events',
-  vouchersTable: 'vouchers',
-  openingHoursTable: 'opening_hours',
-  storageBucket: 'menu-images',
-  useStaticFallback: true
-};
-const BAGO_SUPABASE = {
-  ...DEFAULT_SUPABASE_CONFIG,
-  ...(window.BAGO_SUPABASE || {})
-};
 const BAGO_PRIVATE = window.BAGO_PRIVATE && typeof window.BAGO_PRIVATE === 'object' ? window.BAGO_PRIVATE : {};
 const BAGO_API = window.BagoApi || {};
 
@@ -2007,7 +1990,7 @@ async function initializeMenuData() {
 
   const remoteCategories = await fetchMenuFromApi();
   const hasRemoteData = Array.isArray(remoteCategories) && remoteCategories.length > 0;
-  const fallbackAllowed = BAGO_SUPABASE.useStaticFallback || typeof BAGO_API.getMenuItems !== 'function';
+  const fallbackAllowed = typeof BAGO_API.getMenuItems !== 'function';
   const fallbackCategories = fallbackAllowed ? STATIC_CATEGORIES : [];
   const chosenCategories = hasRemoteData ? remoteCategories : fallbackCategories;
 
@@ -2798,76 +2781,6 @@ async function redeemVoucherIfNeeded(orderContext) {
       orderValue: payload.orderValue
     };
   }
-}
-
-async function findExistingCustomer(client, contact) {
-  if (contact.phoneNormalized) {
-    const byPhone = await client
-      .from(BAGO_SUPABASE.customersTable)
-      .select('*')
-      .eq('phone_normalized', contact.phoneNormalized)
-      .limit(1);
-    if (!byPhone.error && Array.isArray(byPhone.data) && byPhone.data.length) {
-      return byPhone.data[0];
-    }
-  }
-
-  if (contact.emailNormalized) {
-    const byEmail = await client
-      .from(BAGO_SUPABASE.customersTable)
-      .select('*')
-      .eq('email_normalized', contact.emailNormalized)
-      .limit(1);
-    if (!byEmail.error && Array.isArray(byEmail.data) && byEmail.data.length) {
-      return byEmail.data[0];
-    }
-  }
-
-  return null;
-}
-
-async function upsertCustomerForOrder(client, orderContext) {
-  const phoneNormalized = normalizePhoneValue(orderContext.customerPhone);
-  const emailNormalized = normalizeEmailValue(orderContext.customerEmail);
-  const now = new Date().toISOString();
-
-  const existing = await findExistingCustomer(client, { phoneNormalized, emailNormalized });
-  const payload = {
-    name: orderContext.customerName,
-    phone: orderContext.customerPhone,
-    phone_normalized: phoneNormalized,
-    email: orderContext.customerEmail || null,
-    email_normalized: emailNormalized || null,
-    last_activity_at: now
-  };
-
-  if (existing) {
-    const { data, error } = await client
-      .from(BAGO_SUPABASE.customersTable)
-      .update(payload)
-      .eq('id', existing.id)
-      .select('id')
-      .single();
-    if (error) {
-      throw new Error(error.message);
-    }
-    return data.id;
-  }
-
-  const { data, error } = await client
-    .from(BAGO_SUPABASE.customersTable)
-    .insert({
-      ...payload,
-      created_at: now
-    })
-    .select('id')
-    .single();
-
-  if (error) {
-    throw new Error(error.message);
-  }
-
-  return data.id;
 }
 
 async function persistOrderInDatabase(orderContext, options = {}) {

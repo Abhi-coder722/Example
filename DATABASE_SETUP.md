@@ -39,7 +39,7 @@ BAGO_ADMIN_EMAIL=owner@example.com
 BAGO_ADMIN_PASSWORD=change-me
 ```
 
-You can put them in `.env` for local development. See `.env.example`.
+You can put them in `.env` for local development.
 
 ## Checkout Settings
 
