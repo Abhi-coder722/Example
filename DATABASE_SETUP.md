@@ -1,4 +1,4 @@
-# JSON Database Setup
+# Local JSON Database Setup
 
 This app now uses a local JSON file for CRUD instead of Supabase.
 
@@ -75,3 +75,21 @@ BAGO_PAYPAL_ENABLED=false
 BAGO_PAYPAL_SANDBOX=false
 BAGO_SITE_URL=https://example.com
 ```
+
+## Cloudflare Pages + D1 deployment
+
+The production API is implemented in `functions/api/[[path]].js`. Cloudflare
+Pages runs it automatically for every `/api/*` request; do not configure a
+build command or a static API rewrite.
+
+1. Create a **D1 database** in Cloudflare. In the Pages project's **Settings →
+   Bindings**, add it with the variable name `BAGO_DB`.
+2. In **Settings → Variables and secrets**, add `BAGO_ADMIN_EMAIL` and
+   `BAGO_ADMIN_PASSWORD` as secrets. Add `BAGO_SESSION_SECRET` as a secret
+   too, using a long random value (at least 32 characters).
+3. Add the optional `BAGO_*` venue and checkout variables there if used.
+4. Redeploy. On its first API request, the function creates its D1 table and
+   imports the current `data/db.json` menu/opening-hour data once.
+
+The D1 binding does not expose its credentials to the browser. Do not put the
+admin password or session secret in frontend JavaScript.
