@@ -11,7 +11,7 @@ const TRANSLATIONS = {
     cartLabel: 'Warenkorb',
     floatingCartLabel: 'Warenkorb',
     floatingCartAria: 'Warenkorb öffnen',
-    heroCopy: 'Frisch, schnell und mit Liebe zubereitet in der Sample Street 12 in Demo City.',
+    heroCopy: 'Frisch, schnell und mit Liebe zubereitet.',
     promoFootballTitle: 'Deutschland-Fussballrabatt',
     promoFootballBody:
       'Zur Unterstützung der deutschen Fussballnationalmannschaft: Nutze DEUTSCHLAND5 oder DE5 und erhalte 5 EUR Sofortrabatt ab 45 EUR Bestellwert.',
@@ -20,7 +20,7 @@ const TRANSLATIONS = {
     heroStatItems: 'Menüeinträge',
     heroStatMinimum: 'Mindestbestellwert',
     heroStatPreparationTime: 'Vorbereitungszeit',
-    heroStatPreparationTimeValue: '25-35 Min',
+    heroStatPreparationTimeValue: '',
     heroStatPickup: 'Bestellmodus',
     heroStatPickupValue: 'Nur Abholung',
     popularEyebrow: 'Schnelle Auswahl',
@@ -34,7 +34,7 @@ const TRANSLATIONS = {
     cartTitle: 'Dein Warenkorb',
     emptyCart: 'Wähle eine Roll, Bowl, einen Burger oder eine Beilage, um zu starten.',
     pickupTitle: 'Abholung',
-    pickupNote: 'Deine Bestellung wird zur Abholung in der Sample Street 12 vorbereitet.',
+    pickupNote: 'Deine Bestellung wird zur Abholung vorbereitet.',
     contactTitle: 'Kontakt',
     nameLabel: 'Name',
     phoneLabel: 'Telefon',
@@ -77,7 +77,7 @@ const TRANSLATIONS = {
     loadingMenu: 'Menü wird geladen...',
     menuUnavailable: 'Menü ist gerade nicht verfügbar.',
     detailsEyebrow: 'Restaurantdetails',
-    detailsAddress: 'Adresse: Sample Street 12, 12345 Demo City. Aktuell nur Abholung.',
+    detailsAddress: 'Aktuell nur Abholung.',
     openMaps: 'In Google Maps öffnen',
     pickupOnlyNote: 'Alle Bestellungen werden aktuell zur Abholung im Laden vorbereitet.',
     hoursTitle: 'Öffnungszeiten',
@@ -101,10 +101,10 @@ const TRANSLATIONS = {
     legalStreitbeilegung: 'Verbraucherstreitbeilegung',
     closeButton: 'Schließen',
     aboutEyebrow: 'Über uns',
-    aboutTitle: 'Entdecke neue Geschmäcker bei Demo Sushi House',
+    aboutTitle: 'Entdecke neue Geschmäcker',
     aboutBody1: 'Sushi, Burger, Burritos und mehr - probiere unsere frisch zubereiteten Lieblingsgerichte.',
     aboutBody2:
-      'Wir sind ein Beispielrestaurant im Herzen von Demo City in der Sample Street 12. Geführt von einem Beispielteam mit mehr als fünf Jahren Praxiserfahrung in Sushi, Burgern, Burritos und weiteren Spezialitäten.',
+      'Wir sind ein Beispielrestaurant. Geführt von einem Beispielteam mit Praxiserfahrung in Sushi, Burgern, Burritos und weiteren Spezialitäten.',
     aboutBody3:
       'Jedes Gericht entsteht mit Leidenschaft, Sorgfalt und Fokus auf Qualität. Wir setzen auf frische Zutaten, ehrlichen Geschmack und eine Bestellung, die für unsere Gäste schnell, zuverlässig und unkompliziert ist.',
     aboutBody4:
@@ -121,7 +121,7 @@ const TRANSLATIONS = {
     itemSingle: 'Eintrag',
     itemPlural: 'Einträge',
     noMenuMatch: 'Keine passenden Menüeinträge gefunden.',
-    itemDescriptionFallback: 'Frisch zubereitet bei Demo Sushi House.',
+    itemDescriptionFallback: 'Frisch zubereitet bei Restaurant.',
     addItemsToCheckout: 'Artikel hinzufügen',
     addMoreAmount: 'Noch {amount} hinzufügen',
     nameValidation: 'Bitte den vollständigen Namen eingeben.',
@@ -168,7 +168,7 @@ const TRANSLATIONS = {
     cartLabel: 'Cart',
     floatingCartLabel: 'Cart',
     floatingCartAria: 'Open cart',
-    heroCopy: 'Fresh, fast, and prepared with care in Sample Street 12, Demo City.',
+    heroCopy: 'Fresh, fast, and prepared with care.',
     promoFootballTitle: 'Germany football discount',
     promoFootballBody:
       'To support the German national football team, use DEUTSCHLAND5 or DE5 and get a flat EUR 5 discount on orders of EUR 45 or more.',
@@ -177,7 +177,7 @@ const TRANSLATIONS = {
     heroStatItems: 'Menu Items',
     heroStatMinimum: 'Minimum Order',
     heroStatPreparationTime: 'Preparation Time',
-    heroStatPreparationTimeValue: '25-35 min',
+    heroStatPreparationTimeValue: '',
     heroStatPickup: 'Order mode',
     heroStatPickupValue: 'Pickup only',
     popularEyebrow: 'Quick picks',
@@ -191,7 +191,7 @@ const TRANSLATIONS = {
     cartTitle: 'Your cart',
     emptyCart: 'Pick a roll, bowl, burger, or side to start your order.',
     pickupTitle: 'Pickup',
-    pickupNote: 'Your order is prepared for pickup at Sample Street 12.',
+    pickupNote: 'Your order is prepared for pickup.',
     contactTitle: 'Contact',
     nameLabel: 'Name',
     phoneLabel: 'Phone',
@@ -234,7 +234,7 @@ const TRANSLATIONS = {
     loadingMenu: 'Loading menu...',
     menuUnavailable: 'Menu is currently unavailable.',
     detailsEyebrow: 'Restaurant details',
-    detailsAddress: 'Address: Sample Street 12, 12345 Demo City. Pickup only at the moment.',
+    detailsAddress: 'Pickup only at the moment.',
     openMaps: 'Open in Google Maps',
     pickupOnlyNote: 'All orders are currently prepared for pickup at our shop.',
     hoursTitle: 'Opening hours',
@@ -258,10 +258,10 @@ const TRANSLATIONS = {
     legalStreitbeilegung: 'Consumer dispute resolution',
     closeButton: 'Close',
     aboutEyebrow: 'About Us',
-    aboutTitle: 'Discover new tastes at Demo Sushi House',
+    aboutTitle: 'Discover new tastes',
     aboutBody1: 'Sushi, burgers, burritos, and more. Come and enjoy our fresh favorites.',
     aboutBody2:
-      'We are a demo restaurant in the heart of Demo City at Sample Street 12. Run by a sample team with more than five years of proven expertise in sushi, burgers, burritos, and other specialties.',
+      'We are a demo restaurant run by a sample team with experience in sushi, burgers, burritos, and other specialties.',
     aboutBody3:
       'Every dish is made with passion, care, and attention to quality. We focus on fresh ingredients, authentic taste, and a smooth customer experience.',
     aboutBody4: 'Our goal is to serve our neighborhood with creativity, fair prices, and genuine hospitality.',
@@ -277,7 +277,7 @@ const TRANSLATIONS = {
     itemSingle: 'item',
     itemPlural: 'items',
     noMenuMatch: 'No menu items match that search.',
-    itemDescriptionFallback: 'Freshly prepared by Demo Sushi House.',
+    itemDescriptionFallback: 'Freshly prepared by Restaurant.',
     addItemsToCheckout: 'Add items to checkout',
     addMoreAmount: 'Add {amount} more',
     nameValidation: "Please enter the customer's full name.",
@@ -324,7 +324,7 @@ const TRANSLATIONS = {
     cartLabel: 'Корзина',
     floatingCartLabel: 'Корзина',
     floatingCartAria: 'Открыть корзину',
-    heroCopy: 'Свежо, быстро и с заботой. Sample Street 12, Demo City.',
+    heroCopy: 'Свежо, быстро и с заботой.',
     promoFootballTitle: 'Футбольная скидка Германия',
     promoFootballBody:
       'Скидка в поддержку футбольной сборной Германии. Используйте DEUTSCHLAND5 или DE5 и получите 5 EUR скидки при заказе от 45 EUR.',
@@ -333,7 +333,7 @@ const TRANSLATIONS = {
     heroStatItems: 'Позиции меню',
     heroStatMinimum: 'Минимальный заказ',
     heroStatPreparationTime: 'Время приготовления',
-    heroStatPreparationTimeValue: '25-35 мин',
+    heroStatPreparationTimeValue: '',
     heroStatPickup: 'Формат заказа',
     heroStatPickupValue: 'Только самовывоз',
     popularEyebrow: 'Быстрый выбор',
@@ -347,7 +347,7 @@ const TRANSLATIONS = {
     cartTitle: 'Ваша корзина',
     emptyCart: 'Выберите товар, чтобы начать заказ.',
     pickupTitle: 'Самовывоз',
-    pickupNote: 'Ваш заказ будет подготовлен для самовывоза по адресу Sample Street 12.',
+    pickupNote: 'Ваш заказ будет подготовлен для самовывоза.',
     contactTitle: 'Контакты',
     nameLabel: 'Имя',
     phoneLabel: 'Телефон',
@@ -391,7 +391,7 @@ const TRANSLATIONS = {
     loadingMenu: 'Загрузка меню...',
     menuUnavailable: 'Меню временно недоступно.',
     detailsEyebrow: 'Информация о ресторане',
-    detailsAddress: 'Адрес: Sample Street 12, 12345 Demo City. Сейчас доступен только самовывоз.',
+    detailsAddress: 'Сейчас доступен только самовывоз.',
     openMaps: 'Открыть в Google Maps',
     pickupOnlyNote: 'Сейчас все заказы подготавливаются для самовывоза из нашего магазина.',
     hoursTitle: 'Часы работы',
@@ -415,10 +415,10 @@ const TRANSLATIONS = {
     legalStreitbeilegung: 'Разрешение потребительских споров',
     closeButton: 'Закрыть',
     aboutEyebrow: 'О нас',
-    aboutTitle: 'Откройте новые вкусы в Demo Sushi House',
+    aboutTitle: 'Откройте новые вкусы',
     aboutBody1: 'Суши, бургеры, буррито и многое другое. Попробуйте наши свежие блюда.',
     aboutBody2:
-      'Мы демонстрационный ресторан в центре Demo City по адресу Sample Street 12. Наша примерная команда готовит суши, бургеры, буррито и другие блюда.',
+      'Мы демонстрационный ресторан. Наша примерная команда готовит суши, бургеры, буррито и другие блюда.',
     aboutBody3:
       'Каждое блюдо готовится с вниманием и любовью к качеству. Мы используем свежие ингредиенты и заботимся о высоком уровне сервиса.',
     aboutBody4: 'Наша цель — радовать гостей креативными блюдами, честными ценами и настоящим гостеприимством.',
@@ -434,7 +434,7 @@ const TRANSLATIONS = {
     itemSingle: 'позиция',
     itemPlural: 'позиций',
     noMenuMatch: 'По вашему запросу ничего не найдено.',
-    itemDescriptionFallback: 'Свежеприготовлено в Demo Sushi House.',
+    itemDescriptionFallback: 'Свежеприготовлено в Restaurant.',
     addItemsToCheckout: 'Добавьте позиции',
     addMoreAmount: 'Добавьте еще на {amount}',
     nameValidation: 'Пожалуйста, укажите полное имя.',
@@ -481,7 +481,7 @@ const TRANSLATIONS = {
     cartLabel: 'カート',
     floatingCartLabel: 'カート',
     floatingCartAria: 'カートを開く',
-    heroCopy: '新鮮でスピーディー。Sample Street 12, Demo City。',
+    heroCopy: '新鮮でスピーディー。',
     promoFootballTitle: 'ドイツ代表応援割引',
     promoFootballBody:
       'ドイツ代表を応援するフットボール割引です。DEUTSCHLAND5 または DE5 を使うと、45 EUR以上のご注文で5 EUR割引になります。',
@@ -490,7 +490,7 @@ const TRANSLATIONS = {
     heroStatItems: 'メニュー項目',
     heroStatMinimum: '最低注文額',
     heroStatPreparationTime: '準備時間',
-    heroStatPreparationTimeValue: '25-35 分',
+    heroStatPreparationTimeValue: '',
     heroStatPickup: '注文方法',
     heroStatPickupValue: '店頭受け取りのみ',
     popularEyebrow: 'おすすめ',
@@ -504,7 +504,7 @@ const TRANSLATIONS = {
     cartTitle: 'カート',
     emptyCart: '注文を始めるには商品を追加してください。',
     pickupTitle: '受け取り',
-    pickupNote: 'ご注文はSample Street 12で店頭受け取り用に準備されます。',
+    pickupNote: 'ご注文は店頭受け取り用に準備されます。',
     contactTitle: '連絡先',
     nameLabel: '名前',
     phoneLabel: '電話番号',
@@ -548,7 +548,7 @@ const TRANSLATIONS = {
     loadingMenu: 'メニューを読み込み中...',
     menuUnavailable: '現在メニューを表示できません。',
     detailsEyebrow: '店舗情報',
-    detailsAddress: '住所: Sample Street 12, 12345 Demo City。現在は店頭受け取りのみです。',
+    detailsAddress: '現在は店頭受け取りのみです。',
     openMaps: 'Google Mapsで開く',
     pickupOnlyNote: '現在すべてのご注文は店舗受け取りでご用意しています。',
     hoursTitle: '営業時間',
@@ -572,10 +572,10 @@ const TRANSLATIONS = {
     legalStreitbeilegung: '消費者紛争解決',
     closeButton: '閉じる',
     aboutEyebrow: '私たちについて',
-    aboutTitle: 'Demo Sushi Houseで新しい味を発見',
+    aboutTitle: '新しい味を発見',
     aboutBody1: '寿司、バーガー、ブリトーなど、できたての料理をお楽しみください。',
     aboutBody2:
-      '私たちはDemo City中心部（Sample Street 12）にあるデモ用レストランです。サンプルチームが寿司・バーガー・ブリトーなどを用意します。',
+      '私たちはデモ用レストランです。サンプルチームが寿司・バーガー・ブリトーなどを用意します。',
     aboutBody3:
       'すべての料理を情熱と丁寧さを持って作り、品質を大切にしています。新鮮な食材と満足度の高いサービスを重視しています。',
     aboutBody4: '地域のお客様に、創造的な料理と適正価格、温かいおもてなしを届けることが目標です。',
@@ -591,7 +591,7 @@ const TRANSLATIONS = {
     itemSingle: '件',
     itemPlural: '件',
     noMenuMatch: '条件に一致する商品が見つかりません。',
-    itemDescriptionFallback: 'Demo Sushi Houseで新鮮に調理。',
+    itemDescriptionFallback: 'Restaurantで新鮮に調理。',
     addItemsToCheckout: '商品を追加',
     addMoreAmount: '{amount} 追加してください',
     nameValidation: '氏名を入力してください。',
@@ -638,7 +638,7 @@ const TRANSLATIONS = {
     cartLabel: 'Sepet',
     floatingCartLabel: 'Sepet',
     floatingCartAria: 'Sepeti aç',
-    heroCopy: 'Taze, hızlı ve özenle hazırlanır. Sample Street 12, Demo City.',
+    heroCopy: 'Taze, hızlı ve özenle hazırlanır.',
     promoFootballTitle: 'Almanya futbol indirimi',
     promoFootballBody:
       'Almanya futbol takımını desteklemek için özel indirim. DEUTSCHLAND5 veya DE5 ile 45 EUR üzeri siparişlerde 5 EUR indirim alın.',
@@ -647,7 +647,7 @@ const TRANSLATIONS = {
     heroStatItems: 'Menü Ürünü',
     heroStatMinimum: 'Minimum Sipariş',
     heroStatPreparationTime: 'Hazırlık Süresi',
-    heroStatPreparationTimeValue: '25-35 dk',
+    heroStatPreparationTimeValue: '',
     heroStatPickup: 'Sipariş Tipi',
     heroStatPickupValue: 'Sadece gel-al',
     popularEyebrow: 'Hızlı seçim',
@@ -661,7 +661,7 @@ const TRANSLATIONS = {
     cartTitle: 'Sepetin',
     emptyCart: 'Siparişe başlamak için ürün ekleyin.',
     pickupTitle: 'Gel-al',
-    pickupNote: 'Siparişiniz Sample Street 12 adresinde teslim almak için hazırlanacaktır.',
+    pickupNote: 'Siparişiniz teslim almak için hazırlanacaktır.',
     contactTitle: 'İletişim',
     nameLabel: 'Ad',
     phoneLabel: 'Telefon',
@@ -705,7 +705,7 @@ const TRANSLATIONS = {
     loadingMenu: 'Menü yükleniyor...',
     menuUnavailable: 'Menü şu anda kullanılamıyor.',
     detailsEyebrow: 'Restoran detayları',
-    detailsAddress: 'Adres: Sample Street 12, 12345 Demo City. Şu anda sadece gel-al mevcut.',
+    detailsAddress: 'Şu anda sadece gel-al mevcut.',
     openMaps: 'Google Maps\'te aç',
     pickupOnlyNote: 'Şu anda tüm siparişler mağazamızdan teslim alınmak üzere hazırlanır.',
     hoursTitle: 'Açılış saatleri',
@@ -729,10 +729,10 @@ const TRANSLATIONS = {
     legalStreitbeilegung: 'Tüketici uyuşmazlık çözümü',
     closeButton: 'Kapat',
     aboutEyebrow: 'Hakkımızda',
-    aboutTitle: 'Demo Sushi House ile yeni tatlar keşfedin',
+    aboutTitle: 'Yeni tatlar keşfedin',
     aboutBody1: 'Sushi, burger, burrito ve daha fazlası. Taze lezzetlerimizi deneyin.',
     aboutBody2:
-      'Demo City merkezinde, Sample Street 12 adresinde bir demo restoranız. Örnek ekibimiz sushi, burger, burrito ve diğer spesiyaller hazırlar.',
+      'Bir demo restoranız. Örnek ekibimiz sushi, burger, burrito ve diğer spesiyaller hazırlar.',
     aboutBody3:
       'Her yemeği tutkuyla, özenle ve kalite odaklı hazırlıyoruz. Taze malzemeler ve müşteri memnuniyeti önceliğimizdir.',
     aboutBody4: 'Hedefimiz, mahallemize yaratıcı lezzetler, adil fiyatlar ve samimi misafirperverlik sunmaktır.',
@@ -748,7 +748,7 @@ const TRANSLATIONS = {
     itemSingle: 'ürün',
     itemPlural: 'ürün',
     noMenuMatch: 'Aramaya uygun menü ürünü bulunamadı.',
-    itemDescriptionFallback: 'Demo Sushi House tarafından taze hazırlanır.',
+    itemDescriptionFallback: 'Restaurant tarafından taze hazırlanır.',
     addItemsToCheckout: 'Ürün ekleyin',
     addMoreAmount: '{amount} daha ekleyin',
     nameValidation: 'Lütfen müşterinin tam adını girin.',
@@ -1001,48 +1001,23 @@ const LEGAL_TEXT = {
   impressum: {
     de: {
       title: 'Impressum',
-      paragraphs: [
-        'Diensteanbieter: Demo Sushi House',
-        'Anschrift: Sample Street 12, 12345 Demo City, Deutschland',
-        'Kontakt: +49 123 4567890, hello@example.com',
-        'Vertretungsberechtigte Person: Beispiel Betreiber'
-      ]
+      paragraphs: []
     },
     en: {
       title: 'Impressum',
-      paragraphs: [
-        'Service provider: Demo Sushi House',
-        'Address: Sample Street 12, 12345 Demo City, Germany',
-        'Contact: +49 123 4567890, hello@example.com',
-        'Authorized representative: Example Operator'
-      ]
+      paragraphs: []
     },
     ru: {
       title: 'Impressum',
-      paragraphs: [
-        'Поставщик услуг: Demo Sushi House',
-        'Адрес: Sample Street 12, 12345 Demo City, Германия',
-        'Контакты: +49 123 4567890, hello@example.com',
-        'Уполномоченный представитель: Example Operator'
-      ]
+      paragraphs: []
     },
     ja: {
       title: 'Impressum',
-      paragraphs: [
-        '事業者: Demo Sushi House',
-        '住所: Sample Street 12, 12345 Demo City, Germany',
-        '連絡先: +49 123 4567890, hello@example.com',
-        '代表者名: Example Operator'
-      ]
+      paragraphs: []
     },
     tr: {
       title: 'Impressum',
-      paragraphs: [
-        'Hizmet sağlayıcı: Demo Sushi House',
-        'Adres: Sample Street 12, 12345 Demo City, Almanya',
-        'İletişim: +49 123 4567890, hello@example.com',
-        'Yetkili temsilci: Example Operator'
-      ]
+      paragraphs: []
     }
   },
   datenschutz: {
@@ -1106,35 +1081,35 @@ const LEGAL_TEXT = {
     de: {
       title: 'Verbraucherstreitbeilegung',
       paragraphs: [
-        'Hinweis nach § 36 VSBG: Demo Sushi House ist derzeit nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.',
+        'Hinweis nach § 36 VSBG: Restaurant ist derzeit nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.',
         'Hinweis zur EU-OS-Plattform: Die europäische Online-Streitbeilegungsplattform wurde am 20. Juli 2025 eingestellt.'
       ]
     },
     en: {
       title: 'Consumer dispute resolution',
       paragraphs: [
-        'Notice under Section 36 VSBG: Demo Sushi House is currently neither willing nor obliged to participate in dispute resolution before a consumer arbitration board.',
+        'Notice under Section 36 VSBG: Restaurant is currently neither willing nor obliged to participate in dispute resolution before a consumer arbitration board.',
         'EU ODR platform notice: the European Online Dispute Resolution platform was discontinued on July 20, 2025.'
       ]
     },
     ru: {
       title: 'Разрешение потребительских споров',
       paragraphs: [
-        'Согласно §36 VSBG, Demo Sushi House в настоящее время не обязана и не готова участвовать в процедурах урегулирования споров через потребительскую арбитражную организацию.',
+        'Согласно §36 VSBG, Restaurant в настоящее время не обязана и не готова участвовать в процедурах урегулирования споров через потребительскую арбитражную организацию.',
         'Платформа ЕС ODR была закрыта 20 июля 2025 года.'
       ]
     },
     ja: {
       title: '消費者紛争解決',
       paragraphs: [
-        'VSBG第36条に基づき、Demo Sushi Houseは現在、消費者仲裁機関での紛争解決手続きに参加する意思および義務はありません。',
+        'VSBG第36条に基づき、Restaurantは現在、消費者仲裁機関での紛争解決手続きに参加する意思および義務はありません。',
         'EUのODRプラットフォームは2025年7月20日に終了しました。'
       ]
     },
     tr: {
       title: 'Tüketici uyuşmazlık çözümü',
       paragraphs: [
-        '§36 VSBG uyarınca Demo Sushi House, tüketici hakem heyeti önündeki uyuşmazlık çözüm süreçlerine katılmaya hazır veya yükümlü değildir.',
+        '§36 VSBG uyarınca Restaurant, tüketici hakem heyeti önündeki uyuşmazlık çözüm süreçlerine katılmaya hazır veya yükümlü değildir.',
         'AB Çevrim içi Uyuşmazlık Çözüm (ODR) platformu 20 Temmuz 2025 tarihinde kapatılmıştır.'
       ]
     }
@@ -1160,17 +1135,23 @@ const BAGO_PRIVATE = window.BAGO_PRIVATE && typeof window.BAGO_PRIVATE === 'obje
 const BAGO_API = window.BagoApi || {};
 
 const DEFAULT_VENUE_CONFIG = {
-  name: 'Demo Sushi House',
+  name: 'Restaurant',
   heroImage: 'assets/hero-table.png',
-  address: 'Sample Street 12, 12345 Demo City',
-  pickupLat: 48.76340717227785,
-  pickupLng: 11.42234503860289,
-  orderMinimum: 12,
-  preparationTime: '25-35 Min',
+  logoImage: 'assets/demo-logo.svg',
+  address: '',
+  city: '',
+  pickupLat: '',
+  pickupLng: '',
+  orderMinimum: 0,
+  preparationTime: '',
   serviceFeePercent: 0,
   serviceFeeMin: 0,
   serviceFeeMax: 0,
-  whatsappNumber: '+491234567890',
+  legalProviderName: '',
+  legalAddress: '',
+  legalContact: '',
+  legalRepresentative: '',
+  whatsappNumber: '',
   paypalEnabled: false,
   paypalEmail: ''
 };
@@ -1218,6 +1199,13 @@ const heroItemCount = document.querySelector('#heroItemCount');
 const heroImage = document.querySelector('#heroImage');
 const heroMinimumValue = document.querySelector('#heroMinimumValue');
 const mapsLink = document.querySelector('#mapsLink');
+const brandLogo = document.querySelector('.brand img');
+const brandName = document.querySelector('.brand strong');
+const brandCity = document.querySelector('.brand small');
+const brandLink = document.querySelector('.brand');
+const heroEyebrow = document.querySelector('.hero .eyebrow');
+const heroTitle = document.querySelector('.hero h1');
+const detailsTitle = document.querySelector('#detailsTitle');
 const hoursList = document.querySelector('#hoursList');
 const hoursStatusLine = document.querySelector('#hoursStatusLine');
 
@@ -1491,7 +1479,7 @@ function buildPickupMapsUrl() {
   const query =
     Number.isFinite(lat) && Number.isFinite(lng)
       ? `${lat},${lng}`
-      : String(VENUE_CONFIG.address || 'Sample Street 12, 12345 Demo City');
+      : String(VENUE_CONFIG.address || '');
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
 
@@ -1990,7 +1978,7 @@ async function initializeMenuData() {
 
   const remoteCategories = await fetchMenuFromApi();
   const hasRemoteData = Array.isArray(remoteCategories) && remoteCategories.length > 0;
-  const fallbackAllowed = typeof BAGO_API.getMenuItems !== 'function';
+  const fallbackAllowed = !hasRemoteData;
   const fallbackCategories = fallbackAllowed ? STATIC_CATEGORIES : [];
   const chosenCategories = hasRemoteData ? remoteCategories : fallbackCategories;
 
@@ -2058,8 +2046,163 @@ function getItemDisplayName(item) {
 }
 
 function itemDescription(item) {
-  const base = pickTranslation(item.descriptionTranslations, item.description || t('itemDescriptionFallback'));
+  const base = pickTranslation(item.descriptionTranslations, item.description || venueText('itemDescriptionFallback'));
   return translateMenuText(base, state.language);
+}
+
+function venueText(key) {
+  const name = VENUE_CONFIG.name || 'Restaurant';
+  const address = VENUE_CONFIG.address || '';
+  const city = VENUE_CONFIG.city || address.split(',').pop()?.trim() || '';
+  const addressDe = address ? ` in der ${address}` : '';
+  const addressEn = address ? ` at ${address}` : '';
+  const cityDe = city ? ` im Herzen von ${city}` : '';
+  const cityEn = city ? ` in ${city}` : '';
+
+  const copy = {
+    de: {
+      heroCopy: `Frisch, schnell und mit Liebe zubereitet${addressDe}.`,
+      pickupNote: `Deine Bestellung wird zur Abholung${addressDe} vorbereitet.`,
+      detailsAddress: address ? `Adresse: ${address}. Aktuell nur Abholung.` : 'Aktuell nur Abholung.',
+      aboutTitle: `Entdecke neue Geschmäcker bei ${name}`,
+      aboutBody2: `Wir sind ein Beispielrestaurant${cityDe}. Geführt von einem Beispielteam mit Praxiserfahrung in Sushi, Burgern, Burritos und weiteren Spezialitäten.`,
+      itemDescriptionFallback: `Frisch zubereitet bei ${name}.`
+    },
+    en: {
+      heroCopy: `Fresh, fast, and prepared with care${addressEn}.`,
+      pickupNote: `Your order is prepared for pickup${addressEn}.`,
+      detailsAddress: address ? `Address: ${address}. Pickup only at the moment.` : 'Pickup only at the moment.',
+      aboutTitle: `Discover new tastes at ${name}`,
+      aboutBody2: `We are a demo restaurant${cityEn}. Run by a sample team with experience in sushi, burgers, burritos, and other specialties.`,
+      itemDescriptionFallback: `Freshly prepared by ${name}.`
+    },
+    ru: {
+      heroCopy: address ? `Свежо, быстро и с заботой. ${address}.` : 'Свежо, быстро и с заботой.',
+      pickupNote: address ? `Ваш заказ будет подготовлен для самовывоза по адресу ${address}.` : 'Ваш заказ будет подготовлен для самовывоза.',
+      detailsAddress: address ? `Адрес: ${address}. Сейчас доступен только самовывоз.` : 'Сейчас доступен только самовывоз.',
+      aboutTitle: `Откройте новые вкусы в ${name}`,
+      aboutBody2: `Мы демонстрационный ресторан${city ? ` в ${city}` : ''}. Наша примерная команда готовит суши, бургеры, буррито и другие блюда.`,
+      itemDescriptionFallback: `Свежеприготовлено в ${name}.`
+    },
+    ja: {
+      heroCopy: address ? `新鮮でスピーディー。${address}。` : '新鮮でスピーディー。',
+      pickupNote: address ? `ご注文は${address}で店頭受け取り用に準備されます。` : 'ご注文は店頭受け取り用に準備されます。',
+      detailsAddress: address ? `住所: ${address}。現在は店頭受け取りのみです。` : '現在は店頭受け取りのみです。',
+      aboutTitle: `${name}で新しい味を発見`,
+      aboutBody2: `私たちは${city ? `${city}にある` : ''}デモ用レストランです。サンプルチームが寿司・バーガー・ブリトーなどを用意します。`,
+      itemDescriptionFallback: `${name}で新鮮に調理。`
+    },
+    tr: {
+      heroCopy: address ? `Taze, hızlı ve özenle hazırlanır. ${address}.` : 'Taze, hızlı ve özenle hazırlanır.',
+      pickupNote: address ? `Siparişiniz ${address} adresinde teslim alınmak üzere hazırlanır.` : 'Siparişiniz teslim alınmak üzere hazırlanır.',
+      detailsAddress: address ? `Adres: ${address}. Şu anda sadece gel-al.` : 'Şu anda sadece gel-al.',
+      aboutTitle: `${name} ile yeni tatlar keşfedin`,
+      aboutBody2: `${city ? `${city} içinde bir` : 'Bir'} demo restoranız. Örnek ekibimiz sushi, burger, burrito ve diğer spesiyaller hazırlar.`,
+      itemDescriptionFallback: `${name} tarafından taze hazırlanır.`
+    }
+  };
+
+  return copy[state.language]?.[key] || copy.en[key] || '';
+}
+
+function legalText(legalKey) {
+  const entry = LEGAL_TEXT[legalKey];
+  if (!entry) return null;
+  const content = entry[state.language] || entry.de;
+  if (legalKey !== 'impressum' && legalKey !== 'streitbeilegung') return content;
+
+  const provider = VENUE_CONFIG.legalProviderName || VENUE_CONFIG.name || 'Restaurant';
+  const address = VENUE_CONFIG.legalAddress || VENUE_CONFIG.address || '';
+  const contact = VENUE_CONFIG.legalContact || VENUE_CONFIG.whatsappNumber || '';
+  const representative = VENUE_CONFIG.legalRepresentative || '';
+
+  if (legalKey === 'impressum') {
+    const paragraphs = {
+      de: [
+        `Diensteanbieter: ${provider}`,
+        address ? `Anschrift: ${address}, Deutschland` : '',
+        contact ? `Kontakt: ${contact}` : '',
+        representative ? `Vertretungsberechtigte Person: ${representative}` : ''
+      ],
+      en: [
+        `Service provider: ${provider}`,
+        address ? `Address: ${address}, Germany` : '',
+        contact ? `Contact: ${contact}` : '',
+        representative ? `Authorized representative: ${representative}` : ''
+      ],
+      ru: [
+        `Поставщик услуг: ${provider}`,
+        address ? `Адрес: ${address}, Германия` : '',
+        contact ? `Контакты: ${contact}` : '',
+        representative ? `Уполномоченный представитель: ${representative}` : ''
+      ],
+      ja: [
+        `事業者: ${provider}`,
+        address ? `住所: ${address}, Germany` : '',
+        contact ? `連絡先: ${contact}` : '',
+        representative ? `代表者名: ${representative}` : ''
+      ],
+      tr: [
+        `Hizmet sağlayıcı: ${provider}`,
+        address ? `Adres: ${address}, Almanya` : '',
+        contact ? `İletişim: ${contact}` : '',
+        representative ? `Yetkili temsilci: ${representative}` : ''
+      ]
+    };
+
+    return {
+      ...content,
+      paragraphs: (paragraphs[state.language] || paragraphs.en).filter(Boolean)
+    };
+  }
+
+  const disputeNotice = {
+    de: `Hinweis nach § 36 VSBG: ${provider} ist derzeit nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.`,
+    en: `Notice under Section 36 VSBG: ${provider} is currently neither willing nor obliged to participate in dispute resolution before a consumer arbitration board.`,
+    ru: `Согласно §36 VSBG, ${provider} в настоящее время не обязана и не готова участвовать в процедурах урегулирования споров через потребительскую арбитражную организацию.`,
+    ja: `VSBG第36条に基づき、${provider}は現在、消費者仲裁機関での紛争解決手続きに参加する意思および義務はありません。`,
+    tr: `§36 VSBG uyarınca ${provider}, tüketici hakem heyeti önündeki uyuşmazlık çözüm süreçlerine katılmaya hazır veya yükümlü değildir.`
+  };
+
+  return {
+    ...content,
+    paragraphs: [disputeNotice[state.language] || disputeNotice.en, ...content.paragraphs.slice(1)]
+  };
+}
+
+function applyVenueContent() {
+  const name = VENUE_CONFIG.name || 'Restaurant';
+  const address = VENUE_CONFIG.address || '';
+  const city = VENUE_CONFIG.city || address.split(',').pop()?.trim() || '';
+
+  document.title = `${name}${city ? ` ${city}` : ''} | Order Online`;
+  if (brandLink) brandLink.setAttribute('aria-label', `${name} home`);
+  if (brandLogo) {
+    brandLogo.src = VENUE_CONFIG.logoImage || 'assets/demo-logo.svg';
+    brandLogo.alt = `${name} logo`;
+  }
+  if (brandName) brandName.textContent = name;
+  if (brandCity) brandCity.textContent = city;
+  if (heroImage && VENUE_CONFIG.heroImage) heroImage.src = VENUE_CONFIG.heroImage;
+  if (heroEyebrow) heroEyebrow.textContent = address;
+  if (heroTitle) heroTitle.textContent = name;
+  if (detailsTitle) detailsTitle.textContent = name;
+
+  document.querySelectorAll('[data-i18n="heroCopy"]').forEach((node) => {
+    node.textContent = venueText('heroCopy');
+  });
+  document.querySelectorAll('[data-i18n="pickupNote"]').forEach((node) => {
+    node.textContent = venueText('pickupNote');
+  });
+  document.querySelectorAll('[data-i18n="detailsAddress"]').forEach((node) => {
+    node.textContent = venueText('detailsAddress');
+  });
+  document.querySelectorAll('[data-i18n="aboutTitle"]').forEach((node) => {
+    node.textContent = venueText('aboutTitle');
+  });
+  document.querySelectorAll('[data-i18n="aboutBody2"]').forEach((node) => {
+    node.textContent = venueText('aboutBody2');
+  });
 }
 
 function applyStaticTranslations() {
@@ -2093,6 +2236,7 @@ function applyStaticTranslations() {
   if (prepTimeNode && VENUE_CONFIG.preparationTime) {
     prepTimeNode.textContent = VENUE_CONFIG.preparationTime;
   }
+  applyVenueContent();
   renderOpeningHoursCard();
   syncFulfillmentControls();
 
@@ -3315,9 +3459,8 @@ function resetOrder() {
 }
 
 function renderLegalContent(legalKey) {
-  const entry = LEGAL_TEXT[legalKey];
-  if (!entry) return;
-  const content = entry[state.language] || entry.de;
+  const content = legalText(legalKey);
+  if (!content) return;
 
   legalModalTitle.textContent = content.title;
   legalModalContent.innerHTML = content.paragraphs.map((text) => `<p>${escapeHtml(text)}</p>`).join('');

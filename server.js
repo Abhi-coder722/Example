@@ -220,8 +220,29 @@ function requireAdmin(req, res) {
 }
 
 function publicConfig() {
+  const numberValue = (name) => {
+    const value = Number.parseFloat(env[name]);
+    return Number.isFinite(value) ? value : '';
+  };
+
   return {
     venue: {
+      name: String(env.BAGO_VENUE_NAME || '').trim(),
+      city: String(env.BAGO_VENUE_CITY || '').trim(),
+      address: String(env.BAGO_VENUE_ADDRESS || '').trim(),
+      heroImage: String(env.BAGO_VENUE_HERO_IMAGE || '').trim(),
+      logoImage: String(env.BAGO_VENUE_LOGO_IMAGE || '').trim(),
+      pickupLat: numberValue('BAGO_PICKUP_LAT'),
+      pickupLng: numberValue('BAGO_PICKUP_LNG'),
+      orderMinimum: numberValue('BAGO_ORDER_MINIMUM'),
+      preparationTime: String(env.BAGO_PREPARATION_TIME || '').trim(),
+      serviceFeePercent: numberValue('BAGO_SERVICE_FEE_PERCENT'),
+      serviceFeeMin: numberValue('BAGO_SERVICE_FEE_MIN'),
+      serviceFeeMax: numberValue('BAGO_SERVICE_FEE_MAX'),
+      legalProviderName: String(env.BAGO_LEGAL_PROVIDER_NAME || env.BAGO_VENUE_NAME || '').trim(),
+      legalAddress: String(env.BAGO_LEGAL_ADDRESS || env.BAGO_VENUE_ADDRESS || '').trim(),
+      legalContact: String(env.BAGO_LEGAL_CONTACT || '').trim(),
+      legalRepresentative: String(env.BAGO_LEGAL_REPRESENTATIVE || '').trim(),
       whatsappNumber: String(env.BAGO_WHATSAPP_NUMBER || '').trim(),
       paypalEmail: String(env.BAGO_PAYPAL_EMAIL || '').trim(),
       paypalEnabled: ['1', 'true', 'yes', 'on'].includes(String(env.BAGO_PAYPAL_ENABLED || '').toLowerCase()),
@@ -606,6 +627,7 @@ const server = http.createServer((req, res) => {
 
 const port = Number.parseInt(env.PORT, 10) || 3000;
 server.listen(port, () => {
-  console.log(`Demo Sushi House server running at http://localhost:${port}`);
+  const venueName = String(env.BAGO_VENUE_NAME || 'Restaurant').trim() || 'Restaurant';
+  console.log(`${venueName} server running at http://localhost:${port}`);
   console.log(`JSON database: ${dbPath}`);
 });

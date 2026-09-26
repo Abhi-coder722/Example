@@ -11,7 +11,16 @@
     });
 
     const text = await response.text();
-    const payload = text ? JSON.parse(text) : {};
+    let payload = {};
+    try {
+      payload = text ? JSON.parse(text) : {};
+    } catch (parseError) {
+      const error = new Error(`Expected JSON from ${path}, but received ${text.trim().slice(0, 40) || 'an empty response'}`);
+      error.status = response.status;
+      error.responseText = text;
+      throw error;
+    }
+
     if (!response.ok) {
       const error = new Error(payload.error || payload.message || `Request failed (${response.status})`);
       error.status = response.status;

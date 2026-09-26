@@ -1,18 +1,4 @@
-const BAGO_VENUE = {
-  "name": "Demo Sushi House",
-  "heroImage": "https://tb-static.uber.com/prod/image-proc/processed_images/fa5cd9dd636a53eed3f9ee50e5bc9686/5283d81c664b43c5f57a3a186d273063.jpeg",
-  "logoImage": "assets/demo-logo.svg",
-  "address": "Sample Street 12, 12345 Demo City",
-  "pickupLat": 48.76340717227785,
-  "pickupLng": 11.42234503860289,
-  "orderMinimum": 5,
-  "preparationTime": "25-35 Min",
-  "serviceFeePercent": 0,
-  "serviceFeeMin": 0,
-  "serviceFeeMax": 0,
-  "whatsappNumber": "",
-  "paypalEmail": ""
-};
+const BAGO_VENUE = {};
 // 
 const BAGO_MOST_ORDERED = [
   {

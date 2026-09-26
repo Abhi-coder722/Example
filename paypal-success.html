@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Demo Sushi House | Payment Success</title>
-    <meta name="description" content="PayPal return page for Demo Sushi House orders." />
+    <title>Restaurant | Payment Success</title>
+    <meta name="description" content="PayPal return page for online orders." />
     <link rel="icon" type="image/svg+xml" href="assets/demo-logo.svg" />
     <link rel="stylesheet" href="styles.css" />
     <style>
@@ -77,8 +77,8 @@
             : {};
 
         const venue = {
-          name: 'Demo Sushi House',
-          whatsappNumber: '+491234567890',
+          name: 'Restaurant',
+          whatsappNumber: '',
           ...((window.BAGO_VENUE && typeof window.BAGO_VENUE === 'object' ? window.BAGO_VENUE : null) || {}),
           ...privateVenue
         };
@@ -186,7 +186,7 @@
 
           const messageLines = [
             `New order #${order.orderNumber || ''}`.trim(),
-            `Restaurant: ${venue.name || 'Demo Sushi House'}`,
+            `Restaurant: ${venue.name || 'Restaurant'}`,
             `Customer Name: ${order.customerName || '-'}`,
             `Phone: ${order.customerPhone || '-'}`,
             ...(order.customerEmail ? [`Email: ${order.customerEmail}`] : []),

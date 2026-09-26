@@ -41,6 +41,29 @@ BAGO_ADMIN_PASSWORD=change-me
 
 You can put them in `.env` for local development.
 
+## Venue Settings
+
+Public restaurant/site details are also read from environment variables:
+
+```bash
+BAGO_VENUE_NAME="Demo Sushi House"
+BAGO_VENUE_CITY="Demo City"
+BAGO_VENUE_ADDRESS="Sample Street 12, 12345 Demo City"
+BAGO_VENUE_HERO_IMAGE="assets/hero-table.png"
+BAGO_VENUE_LOGO_IMAGE="assets/demo-logo.svg"
+BAGO_PICKUP_LAT=48.76340717227785
+BAGO_PICKUP_LNG=11.42234503860289
+BAGO_ORDER_MINIMUM=12
+BAGO_PREPARATION_TIME="25-35 Min"
+BAGO_SERVICE_FEE_PERCENT=0
+BAGO_SERVICE_FEE_MIN=0
+BAGO_SERVICE_FEE_MAX=0
+BAGO_LEGAL_PROVIDER_NAME="Demo Sushi House"
+BAGO_LEGAL_ADDRESS="Sample Street 12, 12345 Demo City"
+BAGO_LEGAL_CONTACT="+491234567890, owner@example.com"
+BAGO_LEGAL_REPRESENTATIVE="Example Owner"
+```
+
 ## Checkout Settings
 
 These optional values are also read by `server.js`:
