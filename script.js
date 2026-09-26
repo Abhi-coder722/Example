@@ -11,7 +11,7 @@ const TRANSLATIONS = {
     cartLabel: 'Warenkorb',
     floatingCartLabel: 'Warenkorb',
     floatingCartAria: 'Warenkorb öffnen',
-    heroCopy: 'Frisch, schnell und mit Liebe zubereitet in der Luftgasse 1 in Ingolstadt.',
+    heroCopy: 'Frisch, schnell und mit Liebe zubereitet in der Sample Street 12 in Demo City.',
     promoFootballTitle: 'Deutschland-Fussballrabatt',
     promoFootballBody:
       'Zur Unterstützung der deutschen Fussballnationalmannschaft: Nutze DEUTSCHLAND5 oder DE5 und erhalte 5 EUR Sofortrabatt ab 45 EUR Bestellwert.',
@@ -34,7 +34,7 @@ const TRANSLATIONS = {
     cartTitle: 'Dein Warenkorb',
     emptyCart: 'Wähle eine Roll, Bowl, einen Burger oder eine Beilage, um zu starten.',
     pickupTitle: 'Abholung',
-    pickupNote: 'Deine Bestellung wird zur Abholung in der Luftgasse 1 vorbereitet.',
+    pickupNote: 'Deine Bestellung wird zur Abholung in der Sample Street 12 vorbereitet.',
     contactTitle: 'Kontakt',
     nameLabel: 'Name',
     phoneLabel: 'Telefon',
@@ -77,7 +77,7 @@ const TRANSLATIONS = {
     loadingMenu: 'Menü wird geladen...',
     menuUnavailable: 'Menü ist gerade nicht verfügbar.',
     detailsEyebrow: 'Restaurantdetails',
-    detailsAddress: 'Adresse: Luftgasse 1, 85049 Ingolstadt. Aktuell nur Abholung.',
+    detailsAddress: 'Adresse: Sample Street 12, 12345 Demo City. Aktuell nur Abholung.',
     openMaps: 'In Google Maps öffnen',
     pickupOnlyNote: 'Alle Bestellungen werden aktuell zur Abholung im Laden vorbereitet.',
     hoursTitle: 'Öffnungszeiten',
@@ -101,10 +101,10 @@ const TRANSLATIONS = {
     legalStreitbeilegung: 'Verbraucherstreitbeilegung',
     closeButton: 'Schließen',
     aboutEyebrow: 'Über uns',
-    aboutTitle: 'Entdecke neue Geschmäcker bei Bago Sushi & Asian',
+    aboutTitle: 'Entdecke neue Geschmäcker bei Demo Sushi House',
     aboutBody1: 'Sushi, Burger, Burritos und mehr - probiere unsere frisch zubereiteten Lieblingsgerichte.',
     aboutBody2:
-      'Wir sind ein kleines Startup im Herzen von Ingolstadt in der Luftgasse 1. Gegründet von Pyaye, einem erfahrenen Koch mit mehr als fünf Jahren Praxiserfahrung in Sushi, Burgern, Burritos und weiteren Spezialitäten.',
+      'Wir sind ein Beispielrestaurant im Herzen von Demo City in der Sample Street 12. Geführt von einem Beispielteam mit mehr als fünf Jahren Praxiserfahrung in Sushi, Burgern, Burritos und weiteren Spezialitäten.',
     aboutBody3:
       'Jedes Gericht entsteht mit Leidenschaft, Sorgfalt und Fokus auf Qualität. Wir setzen auf frische Zutaten, ehrlichen Geschmack und eine Bestellung, die für unsere Gäste schnell, zuverlässig und unkompliziert ist.',
     aboutBody4:
@@ -121,7 +121,7 @@ const TRANSLATIONS = {
     itemSingle: 'Eintrag',
     itemPlural: 'Einträge',
     noMenuMatch: 'Keine passenden Menüeinträge gefunden.',
-    itemDescriptionFallback: 'Frisch zubereitet bei Bago Sushi & Asian.',
+    itemDescriptionFallback: 'Frisch zubereitet bei Demo Sushi House.',
     addItemsToCheckout: 'Artikel hinzufügen',
     addMoreAmount: 'Noch {amount} hinzufügen',
     nameValidation: 'Bitte den vollständigen Namen eingeben.',
@@ -168,7 +168,7 @@ const TRANSLATIONS = {
     cartLabel: 'Cart',
     floatingCartLabel: 'Cart',
     floatingCartAria: 'Open cart',
-    heroCopy: 'Fresh, fast, and prepared with care in Luftgasse 1, Ingolstadt.',
+    heroCopy: 'Fresh, fast, and prepared with care in Sample Street 12, Demo City.',
     promoFootballTitle: 'Germany football discount',
     promoFootballBody:
       'To support the German national football team, use DEUTSCHLAND5 or DE5 and get a flat EUR 5 discount on orders of EUR 45 or more.',
@@ -191,7 +191,7 @@ const TRANSLATIONS = {
     cartTitle: 'Your cart',
     emptyCart: 'Pick a roll, bowl, burger, or side to start your order.',
     pickupTitle: 'Pickup',
-    pickupNote: 'Your order is prepared for pickup at Luftgasse 1.',
+    pickupNote: 'Your order is prepared for pickup at Sample Street 12.',
     contactTitle: 'Contact',
     nameLabel: 'Name',
     phoneLabel: 'Phone',
@@ -234,7 +234,7 @@ const TRANSLATIONS = {
     loadingMenu: 'Loading menu...',
     menuUnavailable: 'Menu is currently unavailable.',
     detailsEyebrow: 'Restaurant details',
-    detailsAddress: 'Address: Luftgasse 1, 85049 Ingolstadt. Pickup only at the moment.',
+    detailsAddress: 'Address: Sample Street 12, 12345 Demo City. Pickup only at the moment.',
     openMaps: 'Open in Google Maps',
     pickupOnlyNote: 'All orders are currently prepared for pickup at our shop.',
     hoursTitle: 'Opening hours',
@@ -258,10 +258,10 @@ const TRANSLATIONS = {
     legalStreitbeilegung: 'Consumer dispute resolution',
     closeButton: 'Close',
     aboutEyebrow: 'About Us',
-    aboutTitle: 'Discover new tastes at Bago Sushi & Asian',
+    aboutTitle: 'Discover new tastes at Demo Sushi House',
     aboutBody1: 'Sushi, burgers, burritos, and more. Come and enjoy our fresh favorites.',
     aboutBody2:
-      'We are a small startup in the heart of Ingolstadt at Luftgasse 1. Founded by Pyaye, an experienced chef with more than five years of proven expertise in sushi, burgers, burritos, and other specialties.',
+      'We are a demo restaurant in the heart of Demo City at Sample Street 12. Run by a sample team with more than five years of proven expertise in sushi, burgers, burritos, and other specialties.',
     aboutBody3:
       'Every dish is made with passion, care, and attention to quality. We focus on fresh ingredients, authentic taste, and a smooth customer experience.',
     aboutBody4: 'Our goal is to serve our neighborhood with creativity, fair prices, and genuine hospitality.',
@@ -277,7 +277,7 @@ const TRANSLATIONS = {
     itemSingle: 'item',
     itemPlural: 'items',
     noMenuMatch: 'No menu items match that search.',
-    itemDescriptionFallback: 'Freshly prepared by Bago Sushi & Asian.',
+    itemDescriptionFallback: 'Freshly prepared by Demo Sushi House.',
     addItemsToCheckout: 'Add items to checkout',
     addMoreAmount: 'Add {amount} more',
     nameValidation: "Please enter the customer's full name.",
@@ -324,7 +324,7 @@ const TRANSLATIONS = {
     cartLabel: 'Корзина',
     floatingCartLabel: 'Корзина',
     floatingCartAria: 'Открыть корзину',
-    heroCopy: 'Свежо, быстро и с заботой. Luftgasse 1, Ingolstadt.',
+    heroCopy: 'Свежо, быстро и с заботой. Sample Street 12, Demo City.',
     promoFootballTitle: 'Футбольная скидка Германия',
     promoFootballBody:
       'Скидка в поддержку футбольной сборной Германии. Используйте DEUTSCHLAND5 или DE5 и получите 5 EUR скидки при заказе от 45 EUR.',
@@ -347,7 +347,7 @@ const TRANSLATIONS = {
     cartTitle: 'Ваша корзина',
     emptyCart: 'Выберите товар, чтобы начать заказ.',
     pickupTitle: 'Самовывоз',
-    pickupNote: 'Ваш заказ будет подготовлен для самовывоза по адресу Luftgasse 1.',
+    pickupNote: 'Ваш заказ будет подготовлен для самовывоза по адресу Sample Street 12.',
     contactTitle: 'Контакты',
     nameLabel: 'Имя',
     phoneLabel: 'Телефон',
@@ -391,7 +391,7 @@ const TRANSLATIONS = {
     loadingMenu: 'Загрузка меню...',
     menuUnavailable: 'Меню временно недоступно.',
     detailsEyebrow: 'Информация о ресторане',
-    detailsAddress: 'Адрес: Luftgasse 1, 85049 Ingolstadt. Сейчас доступен только самовывоз.',
+    detailsAddress: 'Адрес: Sample Street 12, 12345 Demo City. Сейчас доступен только самовывоз.',
     openMaps: 'Открыть в Google Maps',
     pickupOnlyNote: 'Сейчас все заказы подготавливаются для самовывоза из нашего магазина.',
     hoursTitle: 'Часы работы',
@@ -415,10 +415,10 @@ const TRANSLATIONS = {
     legalStreitbeilegung: 'Разрешение потребительских споров',
     closeButton: 'Закрыть',
     aboutEyebrow: 'О нас',
-    aboutTitle: 'Откройте новые вкусы в Bago Sushi & Asian',
+    aboutTitle: 'Откройте новые вкусы в Demo Sushi House',
     aboutBody1: 'Суши, бургеры, буррито и многое другое. Попробуйте наши свежие блюда.',
     aboutBody2:
-      'Мы небольшой стартап в центре Ингольштадта по адресу Luftgasse 1. Проект основан Пьяе, опытным шефом с более чем 5-летней практикой в приготовлении суши, бургеров, буррито и других блюд.',
+      'Мы демонстрационный ресторан в центре Demo City по адресу Sample Street 12. Наша примерная команда готовит суши, бургеры, буррито и другие блюда.',
     aboutBody3:
       'Каждое блюдо готовится с вниманием и любовью к качеству. Мы используем свежие ингредиенты и заботимся о высоком уровне сервиса.',
     aboutBody4: 'Наша цель — радовать гостей креативными блюдами, честными ценами и настоящим гостеприимством.',
@@ -434,7 +434,7 @@ const TRANSLATIONS = {
     itemSingle: 'позиция',
     itemPlural: 'позиций',
     noMenuMatch: 'По вашему запросу ничего не найдено.',
-    itemDescriptionFallback: 'Свежеприготовлено в Bago Sushi & Asian.',
+    itemDescriptionFallback: 'Свежеприготовлено в Demo Sushi House.',
     addItemsToCheckout: 'Добавьте позиции',
     addMoreAmount: 'Добавьте еще на {amount}',
     nameValidation: 'Пожалуйста, укажите полное имя.',
@@ -481,7 +481,7 @@ const TRANSLATIONS = {
     cartLabel: 'カート',
     floatingCartLabel: 'カート',
     floatingCartAria: 'カートを開く',
-    heroCopy: '新鮮でスピーディー。Luftgasse 1, Ingolstadt。',
+    heroCopy: '新鮮でスピーディー。Sample Street 12, Demo City。',
     promoFootballTitle: 'ドイツ代表応援割引',
     promoFootballBody:
       'ドイツ代表を応援するフットボール割引です。DEUTSCHLAND5 または DE5 を使うと、45 EUR以上のご注文で5 EUR割引になります。',
@@ -504,7 +504,7 @@ const TRANSLATIONS = {
     cartTitle: 'カート',
     emptyCart: '注文を始めるには商品を追加してください。',
     pickupTitle: '受け取り',
-    pickupNote: 'ご注文はLuftgasse 1で店頭受け取り用に準備されます。',
+    pickupNote: 'ご注文はSample Street 12で店頭受け取り用に準備されます。',
     contactTitle: '連絡先',
     nameLabel: '名前',
     phoneLabel: '電話番号',
@@ -548,7 +548,7 @@ const TRANSLATIONS = {
     loadingMenu: 'メニューを読み込み中...',
     menuUnavailable: '現在メニューを表示できません。',
     detailsEyebrow: '店舗情報',
-    detailsAddress: '住所: Luftgasse 1, 85049 Ingolstadt。現在は店頭受け取りのみです。',
+    detailsAddress: '住所: Sample Street 12, 12345 Demo City。現在は店頭受け取りのみです。',
     openMaps: 'Google Mapsで開く',
     pickupOnlyNote: '現在すべてのご注文は店舗受け取りでご用意しています。',
     hoursTitle: '営業時間',
@@ -572,10 +572,10 @@ const TRANSLATIONS = {
     legalStreitbeilegung: '消費者紛争解決',
     closeButton: '閉じる',
     aboutEyebrow: '私たちについて',
-    aboutTitle: 'Bago Sushi & Asianで新しい味を発見',
+    aboutTitle: 'Demo Sushi Houseで新しい味を発見',
     aboutBody1: '寿司、バーガー、ブリトーなど、できたての料理をお楽しみください。',
     aboutBody2:
-      '私たちはインゴルシュタット中心部（Luftgasse 1）にある小さなスタートアップです。創業者のPyayeは、寿司・バーガー・ブリトーなどで5年以上の経験を持つシェフです。',
+      '私たちはDemo City中心部（Sample Street 12）にあるデモ用レストランです。サンプルチームが寿司・バーガー・ブリトーなどを用意します。',
     aboutBody3:
       'すべての料理を情熱と丁寧さを持って作り、品質を大切にしています。新鮮な食材と満足度の高いサービスを重視しています。',
     aboutBody4: '地域のお客様に、創造的な料理と適正価格、温かいおもてなしを届けることが目標です。',
@@ -591,7 +591,7 @@ const TRANSLATIONS = {
     itemSingle: '件',
     itemPlural: '件',
     noMenuMatch: '条件に一致する商品が見つかりません。',
-    itemDescriptionFallback: 'Bago Sushi & Asianで新鮮に調理。',
+    itemDescriptionFallback: 'Demo Sushi Houseで新鮮に調理。',
     addItemsToCheckout: '商品を追加',
     addMoreAmount: '{amount} 追加してください',
     nameValidation: '氏名を入力してください。',
@@ -638,7 +638,7 @@ const TRANSLATIONS = {
     cartLabel: 'Sepet',
     floatingCartLabel: 'Sepet',
     floatingCartAria: 'Sepeti aç',
-    heroCopy: 'Taze, hızlı ve özenle hazırlanır. Luftgasse 1, Ingolstadt.',
+    heroCopy: 'Taze, hızlı ve özenle hazırlanır. Sample Street 12, Demo City.',
     promoFootballTitle: 'Almanya futbol indirimi',
     promoFootballBody:
       'Almanya futbol takımını desteklemek için özel indirim. DEUTSCHLAND5 veya DE5 ile 45 EUR üzeri siparişlerde 5 EUR indirim alın.',
@@ -661,7 +661,7 @@ const TRANSLATIONS = {
     cartTitle: 'Sepetin',
     emptyCart: 'Siparişe başlamak için ürün ekleyin.',
     pickupTitle: 'Gel-al',
-    pickupNote: 'Siparişiniz Luftgasse 1 adresinde teslim almak için hazırlanacaktır.',
+    pickupNote: 'Siparişiniz Sample Street 12 adresinde teslim almak için hazırlanacaktır.',
     contactTitle: 'İletişim',
     nameLabel: 'Ad',
     phoneLabel: 'Telefon',
@@ -705,7 +705,7 @@ const TRANSLATIONS = {
     loadingMenu: 'Menü yükleniyor...',
     menuUnavailable: 'Menü şu anda kullanılamıyor.',
     detailsEyebrow: 'Restoran detayları',
-    detailsAddress: 'Adres: Luftgasse 1, 85049 Ingolstadt. Şu anda sadece gel-al mevcut.',
+    detailsAddress: 'Adres: Sample Street 12, 12345 Demo City. Şu anda sadece gel-al mevcut.',
     openMaps: 'Google Maps\'te aç',
     pickupOnlyNote: 'Şu anda tüm siparişler mağazamızdan teslim alınmak üzere hazırlanır.',
     hoursTitle: 'Açılış saatleri',
@@ -729,10 +729,10 @@ const TRANSLATIONS = {
     legalStreitbeilegung: 'Tüketici uyuşmazlık çözümü',
     closeButton: 'Kapat',
     aboutEyebrow: 'Hakkımızda',
-    aboutTitle: 'Bago Sushi & Asian ile yeni tatlar keşfedin',
+    aboutTitle: 'Demo Sushi House ile yeni tatlar keşfedin',
     aboutBody1: 'Sushi, burger, burrito ve daha fazlası. Taze lezzetlerimizi deneyin.',
     aboutBody2:
-      'Ingolstadt merkezinde, Luftgasse 1 adresinde küçük bir girişimiz. Kurucu şef Pyaye, sushi, burger, burrito ve diğer spesiyallerde 5+ yıllık deneyime sahip.',
+      'Demo City merkezinde, Sample Street 12 adresinde bir demo restoranız. Örnek ekibimiz sushi, burger, burrito ve diğer spesiyaller hazırlar.',
     aboutBody3:
       'Her yemeği tutkuyla, özenle ve kalite odaklı hazırlıyoruz. Taze malzemeler ve müşteri memnuniyeti önceliğimizdir.',
     aboutBody4: 'Hedefimiz, mahallemize yaratıcı lezzetler, adil fiyatlar ve samimi misafirperverlik sunmaktır.',
@@ -748,7 +748,7 @@ const TRANSLATIONS = {
     itemSingle: 'ürün',
     itemPlural: 'ürün',
     noMenuMatch: 'Aramaya uygun menü ürünü bulunamadı.',
-    itemDescriptionFallback: 'Bago Sushi & Asian tarafından taze hazırlanır.',
+    itemDescriptionFallback: 'Demo Sushi House tarafından taze hazırlanır.',
     addItemsToCheckout: 'Ürün ekleyin',
     addMoreAmount: '{amount} daha ekleyin',
     nameValidation: 'Lütfen müşterinin tam adını girin.',
@@ -1002,46 +1002,46 @@ const LEGAL_TEXT = {
     de: {
       title: 'Impressum',
       paragraphs: [
-        'Diensteanbieter: Bago Sushi & Asian',
-        'Anschrift: Luftgasse 1, 85049 Ingolstadt, Deutschland',
-        'Kontakt: +49 1774675823, bagosushi@gmx.de',
-        'Vertretungsberechtigte Person: Pyae sone zaw'
+        'Diensteanbieter: Demo Sushi House',
+        'Anschrift: Sample Street 12, 12345 Demo City, Deutschland',
+        'Kontakt: +49 123 4567890, hello@example.com',
+        'Vertretungsberechtigte Person: Beispiel Betreiber'
       ]
     },
     en: {
       title: 'Impressum',
       paragraphs: [
-        'Service provider: Bago Sushi & Asian',
-        'Address: Luftgasse 1, 85049 Ingolstadt, Germany',
-        'Contact: +49 1774675823, bagosushi@gmx.de',
-        'Authorized representative: Pyae sone zaw'
+        'Service provider: Demo Sushi House',
+        'Address: Sample Street 12, 12345 Demo City, Germany',
+        'Contact: +49 123 4567890, hello@example.com',
+        'Authorized representative: Example Operator'
       ]
     },
     ru: {
       title: 'Impressum',
       paragraphs: [
-        'Поставщик услуг: Bago Sushi & Asian',
-        'Адрес: Luftgasse 1, 85049 Ingolstadt, Германия',
-        'Контакты: +49 1774675823, bagosushi@gmx.de',
-        'Уполномоченный представитель: Pyae sone zaw'
+        'Поставщик услуг: Demo Sushi House',
+        'Адрес: Sample Street 12, 12345 Demo City, Германия',
+        'Контакты: +49 123 4567890, hello@example.com',
+        'Уполномоченный представитель: Example Operator'
       ]
     },
     ja: {
       title: 'Impressum',
       paragraphs: [
-        '事業者: Bago Sushi & Asian',
-        '住所: Luftgasse 1, 85049 Ingolstadt, Germany',
-        '連絡先: +49 1774675823, bagosushi@gmx.de',
-        '代表者名: Pyae sone zaw'
+        '事業者: Demo Sushi House',
+        '住所: Sample Street 12, 12345 Demo City, Germany',
+        '連絡先: +49 123 4567890, hello@example.com',
+        '代表者名: Example Operator'
       ]
     },
     tr: {
       title: 'Impressum',
       paragraphs: [
-        'Hizmet sağlayıcı: Bago Sushi & Asian',
-        'Adres: Luftgasse 1, 85049 Ingolstadt, Almanya',
-        'İletişim: +49 1774675823, bagosushi@gmx.de',
-        'Yetkili temsilci: Pyae sone zaw'
+        'Hizmet sağlayıcı: Demo Sushi House',
+        'Adres: Sample Street 12, 12345 Demo City, Almanya',
+        'İletişim: +49 123 4567890, hello@example.com',
+        'Yetkili temsilci: Example Operator'
       ]
     }
   },
@@ -1106,35 +1106,35 @@ const LEGAL_TEXT = {
     de: {
       title: 'Verbraucherstreitbeilegung',
       paragraphs: [
-        'Hinweis nach § 36 VSBG: Bago Sushi & Asian ist derzeit nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.',
+        'Hinweis nach § 36 VSBG: Demo Sushi House ist derzeit nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.',
         'Hinweis zur EU-OS-Plattform: Die europäische Online-Streitbeilegungsplattform wurde am 20. Juli 2025 eingestellt.'
       ]
     },
     en: {
       title: 'Consumer dispute resolution',
       paragraphs: [
-        'Notice under Section 36 VSBG: Bago Sushi & Asian is currently neither willing nor obliged to participate in dispute resolution before a consumer arbitration board.',
+        'Notice under Section 36 VSBG: Demo Sushi House is currently neither willing nor obliged to participate in dispute resolution before a consumer arbitration board.',
         'EU ODR platform notice: the European Online Dispute Resolution platform was discontinued on July 20, 2025.'
       ]
     },
     ru: {
       title: 'Разрешение потребительских споров',
       paragraphs: [
-        'Согласно §36 VSBG, Bago Sushi & Asian в настоящее время не обязана и не готова участвовать в процедурах урегулирования споров через потребительскую арбитражную организацию.',
+        'Согласно §36 VSBG, Demo Sushi House в настоящее время не обязана и не готова участвовать в процедурах урегулирования споров через потребительскую арбитражную организацию.',
         'Платформа ЕС ODR была закрыта 20 июля 2025 года.'
       ]
     },
     ja: {
       title: '消費者紛争解決',
       paragraphs: [
-        'VSBG第36条に基づき、Bago Sushi & Asianは現在、消費者仲裁機関での紛争解決手続きに参加する意思および義務はありません。',
+        'VSBG第36条に基づき、Demo Sushi Houseは現在、消費者仲裁機関での紛争解決手続きに参加する意思および義務はありません。',
         'EUのODRプラットフォームは2025年7月20日に終了しました。'
       ]
     },
     tr: {
       title: 'Tüketici uyuşmazlık çözümü',
       paragraphs: [
-        '§36 VSBG uyarınca Bago Sushi & Asian, tüketici hakem heyeti önündeki uyuşmazlık çözüm süreçlerine katılmaya hazır veya yükümlü değildir.',
+        '§36 VSBG uyarınca Demo Sushi House, tüketici hakem heyeti önündeki uyuşmazlık çözüm süreçlerine katılmaya hazır veya yükümlü değildir.',
         'AB Çevrim içi Uyuşmazlık Çözüm (ODR) platformu 20 Temmuz 2025 tarihinde kapatılmıştır.'
       ]
     }
@@ -1174,11 +1174,12 @@ const BAGO_SUPABASE = {
   ...(window.BAGO_SUPABASE || {})
 };
 const BAGO_PRIVATE = window.BAGO_PRIVATE && typeof window.BAGO_PRIVATE === 'object' ? window.BAGO_PRIVATE : {};
+const BAGO_API = window.BagoApi || {};
 
 const DEFAULT_VENUE_CONFIG = {
-  name: 'Bago Sushi & Asian',
+  name: 'Demo Sushi House',
   heroImage: 'assets/hero-table.png',
-  address: 'Luftgasse 1, 85049 Ingolstadt',
+  address: 'Sample Street 12, 12345 Demo City',
   pickupLat: 48.76340717227785,
   pickupLng: 11.42234503860289,
   orderMinimum: 12,
@@ -1186,7 +1187,7 @@ const DEFAULT_VENUE_CONFIG = {
   serviceFeePercent: 0,
   serviceFeeMin: 0,
   serviceFeeMax: 0,
-  whatsappNumber: '+491774675823',
+  whatsappNumber: '+491234567890',
   paypalEnabled: false,
   paypalEmail: ''
 };
@@ -1507,7 +1508,7 @@ function buildPickupMapsUrl() {
   const query =
     Number.isFinite(lat) && Number.isFinite(lng)
       ? `${lat},${lng}`
-      : String(VENUE_CONFIG.address || 'Luftgasse 1, 85049 Ingolstadt');
+      : String(VENUE_CONFIG.address || 'Sample Street 12, 12345 Demo City');
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
 
@@ -1962,79 +1963,51 @@ function refreshMenuIndexes(categories) {
   }
 }
 
-function getSupabaseClient() {
-  const url = BAGO_SUPABASE.url;
-  const anonKey = BAGO_SUPABASE.anonKey;
-  const isPlaceholder = /YOUR_PROJECT|YOUR_ANON/i.test(`${url} ${anonKey}`);
-  if (!url || !anonKey || isPlaceholder || !window.supabase?.createClient) {
+async function loadRuntimeConfig() {
+  if (typeof BAGO_API.getConfig !== 'function') return;
+  try {
+    const config = await BAGO_API.getConfig();
+    if (config?.venue && typeof config.venue === 'object') {
+      Object.assign(VENUE_CONFIG, Object.fromEntries(Object.entries(config.venue).filter(([, value]) => value !== '')));
+    }
+  } catch (error) {
+    console.error('Runtime config failed:', error);
+  }
+}
+
+async function fetchMenuFromApi() {
+  if (typeof BAGO_API.getMenuItems !== 'function') return null;
+  try {
+    const { data } = await BAGO_API.getMenuItems();
+    return Array.isArray(data) && data.length ? buildCategoriesFromRows(data) : [];
+  } catch (error) {
+    console.error('Menu fetch failed:', error);
     return null;
   }
-
-  return window.supabase.createClient(url, anonKey);
 }
 
-async function fetchMenuFromSupabase() {
-  const client = getSupabaseClient();
-  if (!client) return null;
-
-  const tableNames = [...new Set([BAGO_SUPABASE.menuTable, 'menu_items', 'menu'].filter(Boolean))];
-  for (const tableName of tableNames) {
-    const { data, error } = await client.from(tableName).select('*');
-    if (!error) {
-      if (!Array.isArray(data) || !data.length) return [];
-      return buildCategoriesFromRows(data);
-    }
-
-    const message = error.message || '';
-    const tableMissing = /does not exist|could not find the table/i.test(message);
-    if (!tableMissing || tableName === tableNames[tableNames.length - 1]) {
-      console.error(`Supabase menu fetch failed for "${tableName}":`, message);
-      return null;
-    }
+async function fetchOpeningHoursFromApi() {
+  if (typeof BAGO_API.getOpeningHours !== 'function') return null;
+  try {
+    const { data } = await BAGO_API.getOpeningHours();
+    return mergeOpeningHoursRows(data);
+  } catch (error) {
+    console.error('Opening hours fetch failed:', error);
+    return null;
   }
-
-  return null;
-}
-
-async function fetchOpeningHoursFromSupabase() {
-  const client = getSupabaseClient();
-  if (!client) return null;
-
-  const tableNames = [...new Set([BAGO_SUPABASE.openingHoursTable, 'opening_hours'].filter(Boolean))];
-  for (const tableName of tableNames) {
-    const { data, error } = await client.from(tableName).select('*').order('day_of_week', { ascending: true });
-    if (!error) {
-      return mergeOpeningHoursRows(data);
-    }
-
-    const message = error.message || '';
-    const tableMissing = /does not exist|could not find the table/i.test(message);
-    if (!tableMissing || tableName === tableNames[tableNames.length - 1]) {
-      console.error(`Supabase opening hours fetch failed for "${tableName}":`, message);
-      return null;
-    }
-  }
-
-  return null;
 }
 
 async function initializeOpeningHours() {
-  const remoteHours = await fetchOpeningHoursFromSupabase();
+  const remoteHours = await fetchOpeningHoursFromApi();
   state.openingHours = remoteHours || getDefaultOpeningHours();
 }
 
 async function initializeMenuData() {
   menuSections.innerHTML = `<p class="empty-cart">${escapeHtml(t('loadingMenu'))}</p>`;
 
-  const remoteCategories = await fetchMenuFromSupabase();
+  const remoteCategories = await fetchMenuFromApi();
   const hasRemoteData = Array.isArray(remoteCategories) && remoteCategories.length > 0;
-  const supabaseConfigured = Boolean(
-    BAGO_SUPABASE.url &&
-      BAGO_SUPABASE.anonKey &&
-      !/YOUR_PROJECT|YOUR_ANON/i.test(`${BAGO_SUPABASE.url} ${BAGO_SUPABASE.anonKey}`) &&
-      window.supabase?.createClient
-  );
-  const fallbackAllowed = BAGO_SUPABASE.useStaticFallback || !supabaseConfigured;
+  const fallbackAllowed = BAGO_SUPABASE.useStaticFallback || typeof BAGO_API.getMenuItems !== 'function';
   const fallbackCategories = fallbackAllowed ? STATIC_CATEGORIES : [];
   const chosenCategories = hasRemoteData ? remoteCategories : fallbackCategories;
 
@@ -2215,7 +2188,15 @@ function setupInspectGuard() {
 }
 
 function renderMedia(item) {
-  if (!item.image) return '';
+  if (!item.image) {
+    return `
+      <div class="food-media food-media-placeholder" aria-hidden="true">
+        <div class="fallback-art">
+          <span>${escapeHtml(getItemDisplayName(item).slice(0, 1) || 'B')}</span>
+        </div>
+      </div>
+    `;
+  }
 
   return `
       <div class="food-media">
@@ -2354,7 +2335,6 @@ function renderMenu() {
   menuSections.innerHTML = categories
     .map((category) => {
       const countLabel = category.items.length === 1 ? t('itemSingle') : t('itemPlural');
-      const split = splitCategoryItems(category.items);
       return `
         <section class="menu-category" id="${escapeHtml(category.id)}">
           <div class="category-heading">
@@ -2364,8 +2344,7 @@ function renderMenu() {
             </div>
             <span>${category.items.length} ${escapeHtml(countLabel)}</span>
           </div>
-          ${split.withImage.length ? `<div class="item-grid">${split.withImage.map(renderMenuCard).join('')}</div>` : ''}
-          ${split.withoutImage.length ? `<ul class="compact-menu-list">${split.withoutImage.map(renderCompactMenuRow).join('')}</ul>` : ''}
+          <div class="item-grid">${category.items.map(renderMenuCard).join('')}</div>
         </section>
       `;
     })
@@ -2732,8 +2711,7 @@ function clearAppliedVoucher() {
 }
 
 async function fetchVoucherForCode(voucherCode) {
-  const client = getSupabaseClient();
-  if (!client) {
+  if (typeof BAGO_API.validateVoucher !== 'function') {
     return { ok: false, error: 'client_missing' };
   }
 
@@ -2743,80 +2721,21 @@ async function fetchVoucherForCode(voucherCode) {
   }
 
   const orderValue = getVoucherOrderValue();
-  let rpcResult = await client.rpc('validate_voucher_code', { p_code: code, p_order_total: orderValue });
-  const firstRpcError = rpcResult.error?.message || '';
-  if (rpcResult.error && /function .*validate_voucher_code.*does not exist|schema cache|could not find/i.test(firstRpcError)) {
-    rpcResult = await client.rpc('validate_voucher_code', { p_code: code });
-  }
-
-  if (!rpcResult.error) {
-    const row = Array.isArray(rpcResult.data) ? rpcResult.data[0] : rpcResult.data;
-    if (!row) {
-      return { ok: false, error: 'not_found' };
-    }
-    if (row.ok === false || row.error_code) {
-      return {
-        ok: false,
-        error: row.error_code || 'not_found',
-        minimumOrderValue: getVoucherMinimumValue(row.code, row.min_order_value),
-        orderValue
-      };
-    }
+  try {
+    const result = await BAGO_API.validateVoucher(code, orderValue);
     return {
       ok: true,
-      voucher: {
-        id: row.voucher_id || row.id,
-        code: normalizeVoucherCodeValue(row.code),
-        discountAmount: Number.parseFloat(row.discount_amount) || 0,
-        minimumOrderValue: getVoucherMinimumValue(row.code, row.min_order_value),
-        usageLimit: Math.max(1, Number.parseInt(row.usage_limit, 10) || 1),
-        timesUsed: Math.max(0, Number.parseInt(row.times_used, 10) || 0)
-      }
+      voucher: result.voucher
     };
-  }
-
-  const rpcMessage = rpcResult.error?.message || '';
-  const shouldFallbackSelect =
-    /validate_voucher_code|schema cache|function .* does not exist|could not find/i.test(rpcMessage);
-
-  if (!shouldFallbackSelect) {
-    return { ok: false, error: 'fetch_failed', details: rpcMessage };
-  }
-
-  let fallbackResult = await client
-    .from(BAGO_SUPABASE.vouchersTable)
-    .select('id, code, discount_amount, active, usage_limit, times_used, min_order_value')
-    .eq('code', code)
-    .limit(1);
-
-  if (
-    fallbackResult.error &&
-    /column .*min_order_value.* does not exist|min_order_value/i.test(fallbackResult.error.message || '')
-  ) {
-    fallbackResult = await client
-      .from(BAGO_SUPABASE.vouchersTable)
-      .select('id, code, discount_amount, active, usage_limit, times_used')
-      .eq('code', code)
-      .limit(1);
-  }
-
-  const { data, error } = fallbackResult;
-
-  if (error) {
-    return { ok: false, error: 'fetch_failed', details: error.message };
-  }
-
-  const validation = validateVoucherRowValue(Array.isArray(data) ? data[0] : null, { orderValue });
-  if (!validation.ok) {
+  } catch (error) {
+    const payload = error.payload || {};
     return {
       ok: false,
-      error: validation.error,
-      minimumOrderValue: validation.minimumOrderValue,
-      orderValue: validation.orderValue
+      error: payload.error || 'fetch_failed',
+      minimumOrderValue: payload.minimumOrderValue,
+      orderValue: payload.orderValue
     };
   }
-
-  return { ok: true, voucher: validation.voucher };
 }
 
 async function applyVoucherCode() {
@@ -2860,48 +2779,25 @@ async function redeemVoucherIfNeeded(orderContext) {
     return { ok: true, voucher: null };
   }
 
-  const client = getSupabaseClient();
-  if (!client) {
+  if (typeof BAGO_API.redeemVoucher !== 'function') {
     return { ok: false, error: 'client_missing' };
   }
 
-  let redeemResult = await client.rpc('redeem_voucher', {
-    p_code: orderContext.voucherCode,
-    p_order_total: orderContext.totals?.subtotal || 0
-  });
-  const redeemMessage = redeemResult.error?.message || '';
-  if (redeemResult.error && /function .*redeem_voucher.*does not exist|schema cache|could not find/i.test(redeemMessage)) {
-    redeemResult = await client.rpc('redeem_voucher', { p_code: orderContext.voucherCode });
-  }
-
-  const { data, error } = redeemResult;
-  if (error) {
-    return { ok: false, error: 'fetch_failed', details: error.message };
-  }
-
-  const row = Array.isArray(data) ? data[0] : data;
-  if (!row) {
-    return { ok: false, error: 'not_found' };
-  }
-
-  if (row.error_code) {
+  try {
+    const result = await BAGO_API.redeemVoucher(orderContext.voucherCode, orderContext.totals?.subtotal || 0);
+    return {
+      ok: true,
+      voucher: result.voucher
+    };
+  } catch (error) {
+    const payload = error.payload || {};
     return {
       ok: false,
-      error: row.error_code,
-      minimumOrderValue: getVoucherMinimumValue(row.code, row.min_order_value),
-      orderValue: Math.max(0, Number.parseFloat(orderContext.totals?.subtotal) || 0)
+      error: payload.error || 'fetch_failed',
+      minimumOrderValue: payload.minimumOrderValue,
+      orderValue: payload.orderValue
     };
   }
-
-  return {
-    ok: true,
-    voucher: {
-      id: row.voucher_id || row.id,
-      code: normalizeVoucherCodeValue(row.code),
-      discountAmount: Number.parseFloat(row.discount_amount) || 0,
-      minimumOrderValue: getVoucherMinimumValue(row.code, row.min_order_value)
-    }
-  };
 }
 
 async function findExistingCustomer(client, contact) {
@@ -2975,68 +2871,43 @@ async function upsertCustomerForOrder(client, orderContext) {
 }
 
 async function persistOrderInDatabase(orderContext, options = {}) {
-  const client = getSupabaseClient();
-  if (!client) {
-    throw new Error('Supabase client missing');
+  if (typeof BAGO_API.createOrder !== 'function') {
+    throw new Error('API client missing');
   }
 
-  const customerId = await upsertCustomerForOrder(client, orderContext);
-  const orderPayload = {
-    customer_id: customerId,
-    order_total: orderContext.totals.total,
-    payment_method: orderContext.payment,
-    order_status: options.orderStatus || 'pending_confirmation',
-    payment_reference: options.paymentReference || null,
-    voucher_code: orderContext.voucherCode || null,
-    voucher_discount: orderContext.totals.voucherDiscount || 0,
-    customer_name: orderContext.customerName,
-    customer_phone: orderContext.customerPhone,
-    customer_email: orderContext.customerEmail || null,
-    is_scheduled: orderContext.isScheduled === true,
-    scheduled_for: orderContext.scheduledForIso || null
+  const eventPayload = {
+    orderNumber: orderContext.orderNumber,
+    paymentMethod: orderContext.payment,
+    orderTotal: orderContext.totals.total,
+    voucherCode: orderContext.voucherCode || null,
+    lineCount: orderContext.lines.length,
+    isScheduled: orderContext.isScheduled === true,
+    scheduledForIso: orderContext.scheduledForIso || null,
+    orderStatus: options.orderStatus || 'pending_confirmation'
   };
 
-  const { data: orderData, error: orderError } = await client
-    .from(BAGO_SUPABASE.ordersTable)
-    .insert(orderPayload)
-    .select('id')
-    .single();
+  const result = await BAGO_API.createOrder({
+    orderTotal: orderContext.totals.total,
+    paymentMethod: orderContext.payment,
+    orderStatus: options.orderStatus || 'pending_confirmation',
+    paymentReference: options.paymentReference || null,
+    voucherCode: orderContext.voucherCode || null,
+    voucherDiscount: orderContext.totals.voucherDiscount || 0,
+    customerName: orderContext.customerName,
+    customerPhone: orderContext.customerPhone,
+    customerEmail: orderContext.customerEmail || null,
+    isScheduled: orderContext.isScheduled === true,
+    scheduledForIso: orderContext.scheduledForIso || null,
+    eventPayload,
+    lines: orderContext.lines.map((item) => ({
+      itemId: item.id,
+      itemName: pickTranslation(item.nameTranslations, item.name || ''),
+      quantity: item.quantity,
+      unitPrice: item.price
+    }))
+  });
 
-  if (orderError) {
-    throw new Error(orderError.message);
-  }
-
-  const orderItems = orderContext.lines.map((item) => ({
-    order_id: orderData.id,
-    item_id: item.id,
-    item_name: pickTranslation(item.nameTranslations, item.name || ''),
-    quantity: item.quantity,
-    unit_price: item.price,
-    line_total: item.price * item.quantity
-  }));
-
-  const { error: itemsError } = await client.from(BAGO_SUPABASE.orderItemsTable).insert(orderItems);
-  if (itemsError) {
-    throw new Error(itemsError.message);
-  }
-
-  await trackOrderEvent(
-    orderData.id,
-    'order_created',
-    {
-      orderNumber: orderContext.orderNumber,
-      paymentMethod: orderContext.payment,
-      orderTotal: orderContext.totals.total,
-      voucherCode: orderContext.voucherCode || null,
-      lineCount: orderItems.length,
-      isScheduled: orderContext.isScheduled === true,
-      scheduledForIso: orderContext.scheduledForIso || null,
-      orderStatus: options.orderStatus || 'pending_confirmation'
-    },
-    { client }
-  );
-
-  return orderData.id;
+  return result.data.order.id;
 }
 
 function normalizeTrackingPayload(payload) {
@@ -3050,38 +2921,24 @@ function normalizeTrackingPayload(payload) {
 
 async function trackOrderEvent(orderId, eventType, payload = {}, options = {}) {
   if (!orderId || !eventType) return;
-  const tableName = String(BAGO_SUPABASE.orderEventsTable || 'order_events').trim() || 'order_events';
   const source = String(options.source || 'web').trim() || 'web';
-  const client = options.client || getSupabaseClient();
-  if (!client) return;
+  if (typeof BAGO_API.createOrderEvent !== 'function') return;
 
-  const { error } = await client.from(tableName).insert({
-    order_id: orderId,
-    event_type: String(eventType).trim(),
-    source,
-    event_payload: normalizeTrackingPayload(payload)
-  });
-
-  if (error) {
-    console.error('Order event tracking failed:', error.message);
+  try {
+    await BAGO_API.createOrderEvent(orderId, String(eventType).trim(), normalizeTrackingPayload(payload), source);
+  } catch (error) {
+    console.error('Order event tracking failed:', error);
   }
 }
 
 async function updateOrderStatus(orderId, status, paymentReference = '') {
   if (!orderId) return;
-  const client = getSupabaseClient();
-  if (!client) return;
+  if (typeof BAGO_API.updateOrderStatus !== 'function') return;
 
-  const payload = {
-    order_status: status
-  };
-  if (paymentReference) {
-    payload.payment_reference = paymentReference;
-  }
-
-  const { error } = await client.from(BAGO_SUPABASE.ordersTable).update(payload).eq('id', orderId);
-  if (error) {
-    console.error('Order status update failed:', error.message);
+  try {
+    await BAGO_API.updateOrderStatus(orderId, status, paymentReference);
+  } catch (error) {
+    console.error('Order status update failed:', error);
   }
 }
 
@@ -3802,6 +3659,13 @@ if (mapsLink) {
 }
 
 async function initializeApp() {
+  await loadRuntimeConfig();
+  if (heroImage && VENUE_CONFIG.heroImage) {
+    heroImage.src = VENUE_CONFIG.heroImage;
+  }
+  if (mapsLink) {
+    mapsLink.href = buildPickupMapsUrl();
+  }
   applyTheme(getInitialTheme());
   setupInspectGuard();
   await Promise.all([initializeMenuData(), initializeOpeningHours()]);

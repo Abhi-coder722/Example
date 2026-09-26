@@ -1,0 +1,148 @@
+[
+  {
+    "at": "2026-09-24T08:31:34.787Z",
+    "step": "report_started",
+    "status": "SUCCESS",
+    "message": "Report generation initiated by alice@company.com"
+  },
+  {
+    "at": "2026-09-24T08:31:34.787Z",
+    "step": "template_validation",
+    "template": "Quarterly Finance Board Pack",
+    "status": "SUCCESS",
+    "placeholderCount": 3,
+    "errors": []
+  },
+  {
+    "at": "2026-09-24T08:31:34.787Z",
+    "step": "kpi_execution",
+    "kpi": "Q3 Revenue",
+    "status": "SUCCESS",
+    "value": "$125.4M",
+    "dataSource": "finance_dw.sales_fact",
+    "executionMs": 30,
+    "warnings": []
+  },
+  {
+    "at": "2026-09-24T08:31:34.800Z",
+    "step": "kpi_execution",
+    "kpi": "Revenue Growth YoY",
+    "status": "SUCCESS",
+    "value": "11.1%",
+    "dataSource": "DERIVED",
+    "executionMs": 19,
+    "warnings": []
+  },
+  {
+    "at": "2026-09-24T08:31:34.800Z",
+    "step": "kpi_execution",
+    "kpi": "Q3 Revenue Prior Year",
+    "status": "SUCCESS",
+    "value": "$112.9M",
+    "dataSource": "finance_dw.sales_fact",
+    "executionMs": 18,
+    "warnings": []
+  },
+  {
+    "at": "2026-09-24T08:31:34.800Z",
+    "step": "kpi_execution",
+    "kpi": "Gross Margin",
+    "status": "SUCCESS",
+    "value": "42.4%",
+    "dataSource": "DERIVED",
+    "executionMs": 18,
+    "warnings": []
+  },
+  {
+    "at": "2026-09-24T08:31:34.800Z",
+    "step": "kpi_execution",
+    "kpi": "Cost of Goods Sold",
+    "status": "SUCCESS",
+    "value": "$72.2M",
+    "dataSource": "finance_dw.cost_fact",
+    "executionMs": 18,
+    "warnings": []
+  },
+  {
+    "at": "2026-09-24T08:31:34.800Z",
+    "step": "kpi_execution",
+    "kpi": "Operating Cost",
+    "status": "SUCCESS",
+    "value": "$31.5M",
+    "dataSource": "finance_dw.opex_fact",
+    "executionMs": 18,
+    "warnings": []
+  },
+  {
+    "at": "2026-09-24T08:31:34.800Z",
+    "step": "kpi_execution",
+    "kpi": "Headcount",
+    "status": "SUCCESS",
+    "value": "512",
+    "dataSource": "hr_dw.employee_snapshot",
+    "executionMs": 18,
+    "warnings": []
+  },
+  {
+    "at": "2026-09-24T08:31:34.800Z",
+    "step": "kpi_execution",
+    "kpi": "Revenue per Employee",
+    "status": "SUCCESS",
+    "value": "$245K",
+    "dataSource": "DERIVED",
+    "executionMs": 18,
+    "warnings": []
+  },
+  {
+    "at": "2026-09-24T08:31:34.800Z",
+    "step": "kpi_execution",
+    "kpi": "North America Revenue",
+    "status": "SUCCESS",
+    "value": "$52.6M",
+    "dataSource": "finance_dw.sales_fact",
+    "executionMs": 18,
+    "warnings": []
+  },
+  {
+    "at": "2026-09-24T08:31:34.800Z",
+    "step": "kpi_execution",
+    "kpi": "EMEA Revenue",
+    "status": "SUCCESS",
+    "value": "$38.4M",
+    "dataSource": "finance_dw.sales_fact",
+    "executionMs": 18,
+    "warnings": []
+  },
+  {
+    "at": "2026-09-24T08:31:34.800Z",
+    "step": "kpi_execution",
+    "kpi": "APAC Revenue",
+    "status": "SUCCESS",
+    "value": "$22.9M",
+    "dataSource": "finance_dw.sales_fact",
+    "executionMs": 18,
+    "warnings": []
+  },
+  {
+    "at": "2026-09-24T08:31:34.800Z",
+    "step": "kpi_execution",
+    "kpi": "LATAM Revenue",
+    "status": "SUCCESS",
+    "value": "$11.5M",
+    "dataSource": "finance_dw.sales_fact",
+    "executionMs": 18,
+    "warnings": []
+  },
+  {
+    "at": "2026-09-24T08:31:34.800Z",
+    "step": "chart_generation",
+    "status": "SUCCESS",
+    "message": "Generated native PowerPoint chart for regional revenue."
+  },
+  {
+    "at": "2026-09-24T08:31:34.800Z",
+    "step": "table_generation",
+    "status": "SUCCESS",
+    "message": "Generated editable KPI table with conditional status values."
+  }
+]

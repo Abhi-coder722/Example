@@ -1,0 +1,2199 @@
+{
+  "menuItems": [
+    {
+      "id": "e93c271a-e8a7-43c8-8bbb-a877eefd6a0a",
+      "category": "Burger-Menüs 🍔🍟🥤",
+      "price": 6.65,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Vegan Burger Menü",
+      "description": "1x veganer burger 1x pommes frites 1x getränk nach wahl.",
+      "name_de": "Vegan Burger Menü",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "1x veganer burger 1x pommes frites 1x getränk nach wahl.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Vegan Burger Menü"
+      },
+      "description_translations": {
+        "de": "1x veganer burger 1x pommes frites 1x getränk nach wahl."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "6006d85c-d298-4963-921c-4d5e800b0ca4",
+      "category": "Sushi Menü 🍱",
+      "price": 11.5,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/23998dee149d08657566f477b1a28b0d/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/23998dee149d08657566f477b1a28b0d/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "L1 Futo Lachs Menü",
+      "description": "8x futo Lachs mit Frischkäse 2x nigiri Lachs.",
+      "name_de": "L1 Futo Lachs Menü",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "8x futo Lachs mit Frischkäse 2x nigiri Lachs.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "L1 Futo Lachs Menü"
+      },
+      "description_translations": {
+        "de": "8x futo Lachs mit Frischkäse 2x nigiri Lachs."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "3bbaa933-b768-4758-a52e-38398e2b3f19",
+      "category": "Sushi Menü 🍱",
+      "price": 13.8,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/1de54c89b72baa79db1d2c70aa759075/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/1de54c89b72baa79db1d2c70aa759075/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "L2 California Futo Menü",
+      "description": "4x California 4x futo Lachs-Avocado 3x nigiri Lachs.",
+      "name_de": "L2 California Futo Menü",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "4x California 4x futo Lachs-Avocado 3x nigiri Lachs.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "L2 California Futo Menü"
+      },
+      "description_translations": {
+        "de": "4x California 4x futo Lachs-Avocado 3x nigiri Lachs."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "c515ad6c-3f27-434a-909c-75a9fdcecb5c",
+      "category": "Sushi Menü 🍱",
+      "price": 16.1,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/70b0c3e11d49f387fa8227ab4b17af6d/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/70b0c3e11d49f387fa8227ab4b17af6d/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "L3 Lachs Menü",
+      "description": "8x maki Lachs 6x nigiri Lachs.",
+      "name_de": "L3 Lachs Menü",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "8x maki Lachs 6x nigiri Lachs.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "L3 Lachs Menü"
+      },
+      "description_translations": {
+        "de": "8x maki Lachs 6x nigiri Lachs."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "47dfff63-fe6e-4433-81cd-5b38a5b9d532",
+      "category": "Sushi Menü 🍱",
+      "price": 13.8,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/4b1edd3a1b0678d3af5ded8a8a962ea4/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/4b1edd3a1b0678d3af5ded8a8a962ea4/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "L5 Maki Fisch Menü",
+      "description": "12x maki Lachs 8x maki Gurke 8x maki Avocado.",
+      "name_de": "L5 Maki Fisch Menü",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "12x maki Lachs 8x maki Gurke 8x maki Avocado.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "L5 Maki Fisch Menü"
+      },
+      "description_translations": {
+        "de": "12x maki Lachs 8x maki Gurke 8x maki Avocado."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "01de9501-dafd-47c4-8af6-a89bfd6a8447",
+      "category": "Sushi Menü 🍱",
+      "price": 16.1,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/8f3f6d4d122c245ce76c201d0b877abc/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/8f3f6d4d122c245ce76c201d0b877abc/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "L6 Lachs Tunfisch Menü",
+      "description": "8x futo Lachs, Thunfisch und Avocado 2x nigiri Lachs 2x nigiri Thunfisch.",
+      "name_de": "L6 Lachs Tunfisch Menü",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "8x futo Lachs, Thunfisch und Avocado 2x nigiri Lachs 2x nigiri Thunfisch.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "L6 Lachs Tunfisch Menü"
+      },
+      "description_translations": {
+        "de": "8x futo Lachs, Thunfisch und Avocado 2x nigiri Lachs 2x nigiri Thunfisch."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "ee44e4ba-5d33-41ef-bec5-9784481e9db4",
+      "category": "Sushi Menü 🍱",
+      "price": 17.3,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/eb6a084cbdcbfac2405c1d5c5acef868/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/eb6a084cbdcbfac2405c1d5c5acef868/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "L7 Lachs Sashimi Avocado Menü",
+      "description": "6x sashimi Lachs 6x Avocado.",
+      "name_de": "L7 Lachs Sashimi Avocado Menü",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "6x sashimi Lachs 6x Avocado.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "L7 Lachs Sashimi Avocado Menü"
+      },
+      "description_translations": {
+        "de": "6x sashimi Lachs 6x Avocado."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "6e66668a-f74e-49db-8f49-e5531f061610",
+      "category": "Sushi Menü 🍱",
+      "price": 18,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/9e3710065690c6cab5778beca4ead3d3/a1681d67ebe55c76c3af5f401619c278.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/9e3710065690c6cab5778beca4ead3d3/a1681d67ebe55c76c3af5f401619c278.jpeg",
+      "name": "L8 Rainbow Mix Box",
+      "description": "8x California Lachs und Thunfisch Avocado 2x nigiri Lachs 2x nigiri Thunfisch 2x nigiri ebil.",
+      "name_de": "L8 Rainbow Mix Box",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "8x California Lachs und Thunfisch Avocado 2x nigiri Lachs 2x nigiri Thunfisch 2x nigiri ebil.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "L8 Rainbow Mix Box"
+      },
+      "description_translations": {
+        "de": "8x California Lachs und Thunfisch Avocado 2x nigiri Lachs 2x nigiri Thunfisch 2x nigiri ebil."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "0ee0d5e5-5561-4d36-b8d9-dc68555e2044",
+      "category": "Sushi Menü 🍱",
+      "price": 11.5,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "L4 Maki Vegan Menü",
+      "description": "8x maki Gurke 8x maki Avocado 8x maki Paprika 8x maki Rettich.",
+      "name_de": "L4 Maki Vegan Menü",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "8x maki Gurke 8x maki Avocado 8x maki Paprika 8x maki Rettich.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "L4 Maki Vegan Menü"
+      },
+      "description_translations": {
+        "de": "8x maki Gurke 8x maki Avocado 8x maki Paprika 8x maki Rettich."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "8416d6f4-9682-4cc3-ae43-3ce30e1e17ad",
+      "category": "Sushi Menü 🍱",
+      "price": 15,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "L9 Vegan Menü",
+      "description": "8x California vegan 6x maki Gurke 6x maki Avocado 1x nigiri tofu und wakame.",
+      "name_de": "L9 Vegan Menü",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "8x California vegan 6x maki Gurke 6x maki Avocado 1x nigiri tofu und wakame.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "L9 Vegan Menü"
+      },
+      "description_translations": {
+        "de": "8x California vegan 6x maki Gurke 6x maki Avocado 1x nigiri tofu und wakame."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "59e7496f-75d6-4af3-b0ac-53155c82a5fd",
+      "category": "Vorspeisen 🧀",
+      "price": 3.5,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/d724eb510368d6ceb55d9bd0196fd6bd/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/d724eb510368d6ceb55d9bd0196fd6bd/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "Mini Frühlingsrollen",
+      "description": "6 stück.",
+      "name_de": "Mini Frühlingsrollen",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "6 stück.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Mini Frühlingsrollen"
+      },
+      "description_translations": {
+        "de": "6 stück."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "577808d7-bab0-4a49-b607-7d178b81d73e",
+      "category": "Vorspeisen 🧀",
+      "price": 4,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/5b91b68b3b4278bf03e7fd0d65ffe50c/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/5b91b68b3b4278bf03e7fd0d65ffe50c/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "Vegetarische Samosa",
+      "description": "6 stück.",
+      "name_de": "Vegetarische Samosa",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "6 stück.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Vegetarische Samosa"
+      },
+      "description_translations": {
+        "de": "6 stück."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "19a88eb4-5d45-49a0-a43a-31eca3dcf21a",
+      "category": "Vorspeisen 🧀",
+      "price": 3.5,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Teriyaki Chicken",
+      "description": "3 stück.",
+      "name_de": "Teriyaki Chicken",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "3 stück.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Teriyaki Chicken"
+      },
+      "description_translations": {
+        "de": "3 stück."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "769e931c-3199-4a98-af1c-a6ac61dd4f8b",
+      "category": "Vorspeisen 🧀",
+      "price": 6.9,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Gyoza mit Chicken",
+      "description": "5 stück.",
+      "name_de": "Gyoza mit Chicken",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "5 stück.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Gyoza mit Chicken"
+      },
+      "description_translations": {
+        "de": "5 stück."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "65cbff55-51a3-4e26-9de6-2ddae0e4a817",
+      "category": "Salate 🥗",
+      "price": 3.5,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/7d8ae61bcebec597ce7e54115b10ece1/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/7d8ae61bcebec597ce7e54115b10ece1/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "Wakame Salat",
+      "description": "",
+      "name_de": "Wakame Salat",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Wakame Salat"
+      },
+      "description_translations": {},
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "be5a6d26-fcf6-435b-a016-e108d5bd2750",
+      "category": "Maki 🍣",
+      "price": 2.9,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/dc3a946e26df3ae6dc37becff9fee0a3/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/dc3a946e26df3ae6dc37becff9fee0a3/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "Kappa Maki",
+      "description": "Mit Gurken. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "name_de": "Kappa Maki",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Gurken. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Kappa Maki"
+      },
+      "description_translations": {
+        "de": "Mit Gurken. Es werden jeweils 6 stück servier (außer 122. Paprika maki)."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "90557aab-b0c9-4251-acd4-940173c8d99c",
+      "category": "Maki 🍣",
+      "price": 4,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/1e5351a77ea0ede45d250fca76a5d0ed/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/1e5351a77ea0ede45d250fca76a5d0ed/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "Avocado Maki",
+      "description": "Mit Avocado. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "name_de": "Avocado Maki",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Avocado. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Avocado Maki"
+      },
+      "description_translations": {
+        "de": "Mit Avocado. Es werden jeweils 6 stück servier (außer 122. Paprika maki)."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "41e5f30d-db76-43a3-a4ae-533d6472d22c",
+      "category": "Maki 🍣",
+      "price": 4.6,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/92bc2fce2625a48da6bffeae8a88969a/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/92bc2fce2625a48da6bffeae8a88969a/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "Sake Maki",
+      "description": "Mit Lachs. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "name_de": "Sake Maki",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Lachs. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Sake Maki"
+      },
+      "description_translations": {
+        "de": "Mit Lachs. Es werden jeweils 6 stück servier (außer 122. Paprika maki)."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "ca3a6399-8763-45ec-8857-eb6a5ec2bcf6",
+      "category": "Maki 🍣",
+      "price": 4,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Paprika Maki",
+      "description": "Mit paprikal. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "name_de": "Paprika Maki",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit paprikal. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Paprika Maki"
+      },
+      "description_translations": {
+        "de": "Mit paprikal. Es werden jeweils 6 stück servier (außer 122. Paprika maki)."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "bac1ea09-7c6d-4e36-aec9-28fd99336d57",
+      "category": "Maki 🍣",
+      "price": 4,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Oshinko Maki",
+      "description": "Mit eingelegten Rettich. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "name_de": "Oshinko Maki",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit eingelegten Rettich. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Oshinko Maki"
+      },
+      "description_translations": {
+        "de": "Mit eingelegten Rettich. Es werden jeweils 6 stück servier (außer 122. Paprika maki)."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "02182322-d3f2-4c34-87b8-c8b2fb930248",
+      "category": "Maki 🍣",
+      "price": 4,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Tamago Maki",
+      "description": "Mit Eier omelett. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "name_de": "Tamago Maki",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Eier omelett. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Tamago Maki"
+      },
+      "description_translations": {
+        "de": "Mit Eier omelett. Es werden jeweils 6 stück servier (außer 122. Paprika maki)."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "823f3bb1-11a5-4748-aa01-823cf800f128",
+      "category": "Maki 🍣",
+      "price": 4,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Kani Maki",
+      "description": "Mit surimi (krabbenfleisch). Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "name_de": "Kani Maki",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit surimi (krabbenfleisch). Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Kani Maki"
+      },
+      "description_translations": {
+        "de": "Mit surimi (krabbenfleisch). Es werden jeweils 6 stück servier (außer 122. Paprika maki)."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "cc47cc25-a216-4b3b-b4da-e631d20992a3",
+      "category": "Maki 🍣",
+      "price": 4.6,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Tuna Maki",
+      "description": "Mit thunfischcreme. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "name_de": "Tuna Maki",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit thunfischcreme. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Tuna Maki"
+      },
+      "description_translations": {
+        "de": "Mit thunfischcreme. Es werden jeweils 6 stück servier (außer 122. Paprika maki)."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "f82cd8ad-e10f-4596-b306-71d9d3ec5fa3",
+      "category": "Maki 🍣",
+      "price": 4.6,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Tekka Maki",
+      "description": "Mit Thunfisch. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "name_de": "Tekka Maki",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Thunfisch. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Tekka Maki"
+      },
+      "description_translations": {
+        "de": "Mit Thunfisch. Es werden jeweils 6 stück servier (außer 122. Paprika maki)."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "94f6f56e-87da-49e1-bdba-2dd4251e5ba5",
+      "category": "Maki 🍣",
+      "price": 4.6,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Ebi Maki",
+      "description": "Mit kleinen Garnelen. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "name_de": "Ebi Maki",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit kleinen Garnelen. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Ebi Maki"
+      },
+      "description_translations": {
+        "de": "Mit kleinen Garnelen. Es werden jeweils 6 stück servier (außer 122. Paprika maki)."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "ba0325f8-2b1c-42a2-ad51-72b393589de1",
+      "category": "Maki 🍣",
+      "price": 5.2,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Avocado Lachs Maki",
+      "description": "Mit Avocado und Lachs. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "name_de": "Avocado Lachs Maki",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Avocado und Lachs. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Avocado Lachs Maki"
+      },
+      "description_translations": {
+        "de": "Mit Avocado und Lachs. Es werden jeweils 6 stück servier (außer 122. Paprika maki)."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "332f1865-faa3-4993-9033-6b0108bfe7c2",
+      "category": "Maki 🍣",
+      "price": 5.2,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Spicy Tuna Maki",
+      "description": "Mit pikant gewürzten Thunfisch. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "name_de": "Spicy Tuna Maki",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit pikant gewürzten Thunfisch. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Spicy Tuna Maki"
+      },
+      "description_translations": {
+        "de": "Mit pikant gewürzten Thunfisch. Es werden jeweils 6 stück servier (außer 122. Paprika maki)."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "231e6dc8-bcf4-4723-b4b3-ed167480446f",
+      "category": "Maki 🍣",
+      "price": 5.2,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Spicy Sake Maki",
+      "description": "Mit pikant gewürzten Lachs. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "name_de": "Spicy Sake Maki",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit pikant gewürzten Lachs. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Spicy Sake Maki"
+      },
+      "description_translations": {
+        "de": "Mit pikant gewürzten Lachs. Es werden jeweils 6 stück servier (außer 122. Paprika maki)."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "7ce814da-ba1e-417d-a8d3-09bd9c44259f",
+      "category": "Maki 🍣",
+      "price": 3.5,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Frischkäse Maki",
+      "description": "Mit Frischkäse. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "name_de": "Frischkäse Maki",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Frischkäse. Es werden jeweils 6 stück servier (außer 122. Paprika maki).",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Frischkäse Maki"
+      },
+      "description_translations": {
+        "de": "Mit Frischkäse. Es werden jeweils 6 stück servier (außer 122. Paprika maki)."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "b36da041-1226-4ee9-aefe-cfa52fb5cfb3",
+      "category": "Sushi Burrito 🍣",
+      "price": 10.9,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/93601717ff9d2a1c5d3b2e73f4ecc1c7/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/93601717ff9d2a1c5d3b2e73f4ecc1c7/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "B2 Burrito Chicken",
+      "description": "",
+      "name_de": "B2 Burrito Chicken",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "B2 Burrito Chicken"
+      },
+      "description_translations": {},
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "6680e427-bf43-40fd-85d8-c8311fc63e4f",
+      "category": "Sushi Burrito 🍣",
+      "price": 10.9,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "B4 Burrito Thunfisch",
+      "description": "Mit Thunfisch, Lachs, Frischkäse, Gurken und gemischtem salat. Es werden jeweils 2 stück serviert.",
+      "name_de": "B4 Burrito Thunfisch",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Thunfisch, Lachs, Frischkäse, Gurken und gemischtem salat. Es werden jeweils 2 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "B4 Burrito Thunfisch"
+      },
+      "description_translations": {
+        "de": "Mit Thunfisch, Lachs, Frischkäse, Gurken und gemischtem salat. Es werden jeweils 2 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "ad8e00ac-8f00-4bbc-8159-ede2b2e22da1",
+      "category": "Sushi Burrito 🍣",
+      "price": 8.1,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "B1 Burrito Veggie",
+      "description": "Mit Frischkäse, Edamame, gemischter salat und Mango. Es werden jeweils 2 stück serviert.",
+      "name_de": "B1 Burrito Veggie",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Frischkäse, Edamame, gemischter salat und Mango. Es werden jeweils 2 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "B1 Burrito Veggie"
+      },
+      "description_translations": {
+        "de": "Mit Frischkäse, Edamame, gemischter salat und Mango. Es werden jeweils 2 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "4ff91690-31dd-42eb-8c0f-f10130727c9c",
+      "category": "Sushi Burrito 🍣",
+      "price": 10.4,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "B3 Burrito Lachs",
+      "description": "Mit Lachs, Frischkäse, Mango und gemischter salat. Es werden jeweils 2 stück serviert.",
+      "name_de": "B3 Burrito Lachs",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Lachs, Frischkäse, Mango und gemischter salat. Es werden jeweils 2 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "B3 Burrito Lachs"
+      },
+      "description_translations": {
+        "de": "Mit Lachs, Frischkäse, Mango und gemischter salat. Es werden jeweils 2 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "8b77010d-f3be-433d-a6ba-2515146d160b",
+      "category": "Rainbow Rolls 🍣",
+      "price": 11,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/d7b1c5f5bb46a5a3e12ea8caa9235d35/a1681d67ebe55c76c3af5f401619c278.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/d7b1c5f5bb46a5a3e12ea8caa9235d35/a1681d67ebe55c76c3af5f401619c278.jpeg",
+      "name": "R1 Rainbow Lachs",
+      "description": "Mit Lachs, Avocado und Frischkäse. Es werden jeweils 8 stück serviert.",
+      "name_de": "R1 Rainbow Lachs",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Lachs, Avocado und Frischkäse. Es werden jeweils 8 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "R1 Rainbow Lachs"
+      },
+      "description_translations": {
+        "de": "Mit Lachs, Avocado und Frischkäse. Es werden jeweils 8 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "1b87c2d3-bad3-4657-a3b5-e8e6558f70e7",
+      "category": "Rainbow Rolls 🍣",
+      "price": 10,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/d1270a1c5f1a3f4b48fba7b51747f304/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/d1270a1c5f1a3f4b48fba7b51747f304/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "R2 Rainbow Avocado",
+      "description": "Mit Avocado, Lachs, Gurken und Frischkäse. Es werden jeweils 8 stück serviert.",
+      "name_de": "R2 Rainbow Avocado",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Avocado, Lachs, Gurken und Frischkäse. Es werden jeweils 8 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "R2 Rainbow Avocado"
+      },
+      "description_translations": {
+        "de": "Mit Avocado, Lachs, Gurken und Frischkäse. Es werden jeweils 8 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "c4770ca8-16e8-4221-a194-73531b6cf671",
+      "category": "Rainbow Rolls 🍣",
+      "price": 9.2,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "R3 Rainbow Mango",
+      "description": "Mit Mango, Avocado, Gurken, Lachs und Frischkäse. Es werden jeweils 8 stück serviert.",
+      "name_de": "R3 Rainbow Mango",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Mango, Avocado, Gurken, Lachs und Frischkäse. Es werden jeweils 8 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "R3 Rainbow Mango"
+      },
+      "description_translations": {
+        "de": "Mit Mango, Avocado, Gurken, Lachs und Frischkäse. Es werden jeweils 8 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "d4f41fb5-612e-4c91-a6a4-5cd0fb6199d4",
+      "category": "Rainbow Rolls 🍣",
+      "price": 10.4,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "R4 Rainbow Mix",
+      "description": "Mit surimi (krabbenfleisch), Frischkäse, Avocado, Gurken und Mango. Es werden jeweils 8 stück serviert.",
+      "name_de": "R4 Rainbow Mix",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit surimi (krabbenfleisch), Frischkäse, Avocado, Gurken und Mango. Es werden jeweils 8 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "R4 Rainbow Mix"
+      },
+      "description_translations": {
+        "de": "Mit surimi (krabbenfleisch), Frischkäse, Avocado, Gurken und Mango. Es werden jeweils 8 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "ee407e97-7c3a-4362-acba-3e6ce2186a00",
+      "category": "Futo Maki 🍣",
+      "price": 6.9,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/4cb5a05f090478af0ee78acd15325604/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/4cb5a05f090478af0ee78acd15325604/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "F2 Futo Veggie",
+      "description": "Mit Frischkäse, Paprika, Avocado und Gurken. Es werden jeweils 8 stück serviert.",
+      "name_de": "F2 Futo Veggie",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Frischkäse, Paprika, Avocado und Gurken. Es werden jeweils 8 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "F2 Futo Veggie"
+      },
+      "description_translations": {
+        "de": "Mit Frischkäse, Paprika, Avocado und Gurken. Es werden jeweils 8 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "5589c18d-0f6a-421a-9403-46473e103022",
+      "category": "Futo Maki 🍣",
+      "price": 8.1,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/29b1f70d6b218b8ed3fbcd7b3e77cc83/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/29b1f70d6b218b8ed3fbcd7b3e77cc83/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "F3 Futo Lachs und Avocado",
+      "description": "Mit Lachs, Avocado und Frischkäse. Es werden jeweils 8 stück serviert.",
+      "name_de": "F3 Futo Lachs und Avocado",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Lachs, Avocado und Frischkäse. Es werden jeweils 8 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "F3 Futo Lachs und Avocado"
+      },
+      "description_translations": {
+        "de": "Mit Lachs, Avocado und Frischkäse. Es werden jeweils 8 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "16211323-0930-4c70-9b71-a701da4e71e0",
+      "category": "Futo Maki 🍣",
+      "price": 5.8,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "F1 Futo Eier Roll",
+      "description": "Mit Eier und Frischkäse. Es werden jeweils 8 stück serviert.",
+      "name_de": "F1 Futo Eier Roll",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Eier und Frischkäse. Es werden jeweils 8 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "F1 Futo Eier Roll"
+      },
+      "description_translations": {
+        "de": "Mit Eier und Frischkäse. Es werden jeweils 8 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "c7c5631a-e33d-4090-9b3a-79d377ee16a3",
+      "category": "California Rolls 🍣",
+      "price": 5.8,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "C1 California Gurke",
+      "description": "Mit Gurke, Frischkäse und als topping Sesam. Es werden jeweils 8 stück serviert.",
+      "name_de": "C1 California Gurke",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Gurke, Frischkäse und als topping Sesam. Es werden jeweils 8 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "C1 California Gurke"
+      },
+      "description_translations": {
+        "de": "Mit Gurke, Frischkäse und als topping Sesam. Es werden jeweils 8 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "6988b694-c58d-4d32-9454-7e201842b3ee",
+      "category": "California Rolls 🍣",
+      "price": 6.9,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "C2 California Avocado",
+      "description": "Mit Avocado und als topping Sesam. Es werden jeweils 8 stück serviert.",
+      "name_de": "C2 California Avocado",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Avocado und als topping Sesam. Es werden jeweils 8 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "C2 California Avocado"
+      },
+      "description_translations": {
+        "de": "Mit Avocado und als topping Sesam. Es werden jeweils 8 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "bf1813c7-fad9-47ac-a719-b17a5439862e",
+      "category": "California Rolls 🍣",
+      "price": 7.5,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "C3 California Avocado, Gurke",
+      "description": "Mit Avocado und Gurken und als topping Sesam. Es werden jeweils 8 stück serviert.",
+      "name_de": "C3 California Avocado, Gurke",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Avocado und Gurken und als topping Sesam. Es werden jeweils 8 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "C3 California Avocado, Gurke"
+      },
+      "description_translations": {
+        "de": "Mit Avocado und Gurken und als topping Sesam. Es werden jeweils 8 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "b3dd5c1a-0606-4c25-8444-3c534f3bcaa7",
+      "category": "California Rolls 🍣",
+      "price": 8.1,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "C4 California Lachs",
+      "description": "Mit Lachs, Avocado und Frischkäse und Sesam topping. Es werden jeweils 8 stück serviert.",
+      "name_de": "C4 California Lachs",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Lachs, Avocado und Frischkäse und Sesam topping. Es werden jeweils 8 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "C4 California Lachs"
+      },
+      "description_translations": {
+        "de": "Mit Lachs, Avocado und Frischkäse und Sesam topping. Es werden jeweils 8 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "66451b4b-f740-4c93-97cd-ca288b4cc131",
+      "category": "California Rolls 🍣",
+      "price": 8.1,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "C5 California Surimi",
+      "description": "Mit surimi (krabbenfleisch), Avocado, Gurken und Frischkäse und topping mit Sesam. Es werden jeweils 8 stück serviert.",
+      "name_de": "C5 California Surimi",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit surimi (krabbenfleisch), Avocado, Gurken und Frischkäse und topping mit Sesam. Es werden jeweils 8 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "C5 California Surimi"
+      },
+      "description_translations": {
+        "de": "Mit surimi (krabbenfleisch), Avocado, Gurken und Frischkäse und topping mit Sesam. Es werden jeweils 8 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "71f250a4-8e65-4ef8-8ace-2ad94bc8499e",
+      "category": "California Rolls 🍣",
+      "price": 6.9,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "C6 California Veggie Roll",
+      "description": "Mit salat, Frischkäse und Avocado. Es werden jeweils 8 stück serviert.",
+      "name_de": "C6 California Veggie Roll",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit salat, Frischkäse und Avocado. Es werden jeweils 8 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "C6 California Veggie Roll"
+      },
+      "description_translations": {
+        "de": "Mit salat, Frischkäse und Avocado. Es werden jeweils 8 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "52f58a5f-955e-4450-af89-3e937f6f7434",
+      "category": "California Rolls 🍣",
+      "price": 8.1,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "C7 California Lachs, Gurke",
+      "description": "Mit Lachs, Gurke und Frischkäse und topping mit Sesam. Es werden jeweils 8 stück serviert.",
+      "name_de": "C7 California Lachs, Gurke",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Lachs, Gurke und Frischkäse und topping mit Sesam. Es werden jeweils 8 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "C7 California Lachs, Gurke"
+      },
+      "description_translations": {
+        "de": "Mit Lachs, Gurke und Frischkäse und topping mit Sesam. Es werden jeweils 8 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "b3f16bf8-5f18-443f-86d2-81879466d78d",
+      "category": "California Rolls 🍣",
+      "price": 8.6,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "C8 California Lachs Rucola",
+      "description": "Mit Lachs, Rucola und Frischkäse, topping mit Sesam und . Es werden jeweils 8 stück serviert.",
+      "name_de": "C8 California Lachs Rucola",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Lachs, Rucola und Frischkäse, topping mit Sesam und . Es werden jeweils 8 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "C8 California Lachs Rucola"
+      },
+      "description_translations": {
+        "de": "Mit Lachs, Rucola und Frischkäse, topping mit Sesam und . Es werden jeweils 8 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "54850222-fc7a-4271-8da1-af5fe1b807e3",
+      "category": "California Rolls 🍣",
+      "price": 8.6,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "C9 California Masago",
+      "description": "Mit masago (roter kavier), Frischkäse, Avocado und Lachs. Es werden jeweils 8 stück serviert.",
+      "name_de": "C9 California Masago",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit masago (roter kavier), Frischkäse, Avocado und Lachs. Es werden jeweils 8 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "C9 California Masago"
+      },
+      "description_translations": {
+        "de": "Mit masago (roter kavier), Frischkäse, Avocado und Lachs. Es werden jeweils 8 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "8d6d50ef-2c01-4d96-a3b3-754855950b64",
+      "category": "California Rolls 🍣",
+      "price": 9.2,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "C10 California Crispy Lachs",
+      "description": "Mit gekochtem Lachs, Frischkäse, Gurken und zwiebeln. Es werden jeweils 8 stück serviert.",
+      "name_de": "C10 California Crispy Lachs",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit gekochtem Lachs, Frischkäse, Gurken und zwiebeln. Es werden jeweils 8 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "C10 California Crispy Lachs"
+      },
+      "description_translations": {
+        "de": "Mit gekochtem Lachs, Frischkäse, Gurken und zwiebeln. Es werden jeweils 8 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "e04d5fc9-dfed-49bc-bb01-5223be89b869",
+      "category": "California Rolls 🍣",
+      "price": 11.5,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "C12 California Tempura Shrimp",
+      "description": "Mit tempura shrimp, Frischkäse und Avocado. Es werden jeweils 8 stück serviert.",
+      "name_de": "C12 California Tempura Shrimp",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit tempura shrimp, Frischkäse und Avocado. Es werden jeweils 8 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "C12 California Tempura Shrimp"
+      },
+      "description_translations": {
+        "de": "Mit tempura shrimp, Frischkäse und Avocado. Es werden jeweils 8 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "abe26158-73ff-4bfd-b763-c5c2d5aa1c19",
+      "category": "Nigiri Sushi 🍣",
+      "price": 4,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/efa8a7b18ebd9821046d21e7b52cb905/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/efa8a7b18ebd9821046d21e7b52cb905/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "N2 Nigiri Avocado",
+      "description": "Mit Avocado. Es werden jeweils 2 stück serviert.",
+      "name_de": "N2 Nigiri Avocado",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Avocado. Es werden jeweils 2 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "N2 Nigiri Avocado"
+      },
+      "description_translations": {
+        "de": "Mit Avocado. Es werden jeweils 2 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "a011dc89-a558-4499-96fb-8ec8c387ae18",
+      "category": "Nigiri Sushi 🍣",
+      "price": 4.6,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/2c918b34b38a7d70d3a4fecb44f89537/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/2c918b34b38a7d70d3a4fecb44f89537/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "N4 Nigiri Inari",
+      "description": "Mit tofu. Es werden jeweils 2 stück serviert.",
+      "name_de": "N4 Nigiri Inari",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit tofu. Es werden jeweils 2 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "N4 Nigiri Inari"
+      },
+      "description_translations": {
+        "de": "Mit tofu. Es werden jeweils 2 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "30764b96-c7f9-4bd5-a74e-e627d7b89f3f",
+      "category": "Nigiri Sushi 🍣",
+      "price": 5.2,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/6182c1eb074bbcf31fbb122b19afaf23/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/6182c1eb074bbcf31fbb122b19afaf23/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "N6 Nigiri Lachs",
+      "description": "Mit Lachs. Es werden jeweils 2 stück serviert.",
+      "name_de": "N6 Nigiri Lachs",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Lachs. Es werden jeweils 2 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "N6 Nigiri Lachs"
+      },
+      "description_translations": {
+        "de": "Mit Lachs. Es werden jeweils 2 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "f6a3a11a-6113-4199-a487-b4a6b66d3b7f",
+      "category": "Nigiri Sushi 🍣",
+      "price": 5.8,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/0ad80f568214c4ad68b6906446ff9861/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/0ad80f568214c4ad68b6906446ff9861/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "N9 Nigiri Thunfisch",
+      "description": "Mit Thunfisch. Es werden jeweils 2 stück serviert.",
+      "name_de": "N9 Nigiri Thunfisch",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Thunfisch. Es werden jeweils 2 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "N9 Nigiri Thunfisch"
+      },
+      "description_translations": {
+        "de": "Mit Thunfisch. Es werden jeweils 2 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "72b30016-e274-47c3-a611-8369a102fb93",
+      "category": "Nigiri Sushi 🍣",
+      "price": 4,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "N1 Nigiri Gurke",
+      "description": "Mit Gurke. Es werden jeweils 2 stück serviert.",
+      "name_de": "N1 Nigiri Gurke",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Gurke. Es werden jeweils 2 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "N1 Nigiri Gurke"
+      },
+      "description_translations": {
+        "de": "Mit Gurke. Es werden jeweils 2 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "9860cdfc-abaf-41fc-899f-025dd8d76f7a",
+      "category": "Nigiri Sushi 🍣",
+      "price": 3.5,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "N3 Nigiri Tamago",
+      "description": "Mit Eier. Es werden jeweils 2 stück serviert.",
+      "name_de": "N3 Nigiri Tamago",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Eier. Es werden jeweils 2 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "N3 Nigiri Tamago"
+      },
+      "description_translations": {
+        "de": "Mit Eier. Es werden jeweils 2 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "07b73b9f-cca8-4b47-b284-0e8b6a25d3d0",
+      "category": "Nigiri Sushi 🍣",
+      "price": 5.8,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "N7 Nigiri Saba",
+      "description": "Mit mackarele. Es werden jeweils 2 stück serviert.",
+      "name_de": "N7 Nigiri Saba",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit mackarele. Es werden jeweils 2 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "N7 Nigiri Saba"
+      },
+      "description_translations": {
+        "de": "Mit mackarele. Es werden jeweils 2 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "76ae345d-f6b2-40ff-8130-8525bd38a1e6",
+      "category": "Nigiri Sushi 🍣",
+      "price": 5.8,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "N8 Nigiri Tako",
+      "description": "Mit Oktopus. Es werden jeweils 2 stück serviert.",
+      "name_de": "N8 Nigiri Tako",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Oktopus. Es werden jeweils 2 stück serviert.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "N8 Nigiri Tako"
+      },
+      "description_translations": {
+        "de": "Mit Oktopus. Es werden jeweils 2 stück serviert."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "dfa7d813-04b1-4c41-95b9-1154d6689fe4",
+      "category": "Crunchy Rolls 🍣",
+      "price": 8.1,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/9bc38f9444ca705bfa1ef896bf85c56a/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/9bc38f9444ca705bfa1ef896bf85c56a/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "Vegetarisch Crunchy Roll",
+      "description": "7 stück mit salat, Avocado, Mango und Gurke und topping mit Sesam.",
+      "name_de": "Vegetarisch Crunchy Roll",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "7 stück mit salat, Avocado, Mango und Gurke und topping mit Sesam.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Vegetarisch Crunchy Roll"
+      },
+      "description_translations": {
+        "de": "7 stück mit salat, Avocado, Mango und Gurke und topping mit Sesam."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "b0fa7045-b6b3-4b85-b21e-9d29dd55419e",
+      "category": "Crunchy Rolls 🍣",
+      "price": 10.9,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Crunchy roll Lachs",
+      "description": "Mit Lachs, Frischkäse, Avocado und Sesam.",
+      "name_de": "Crunchy roll Lachs",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit Lachs, Frischkäse, Avocado und Sesam.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Crunchy roll Lachs"
+      },
+      "description_translations": {
+        "de": "Mit Lachs, Frischkäse, Avocado und Sesam."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "23e6e321-a084-48ef-b694-a2f6d474a630",
+      "category": "Crunchy Rolls 🍣",
+      "price": 10.9,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Crunchy roll Tuna",
+      "description": "Mit tuna, Frischkäse, Avocado und Sesam.",
+      "name_de": "Crunchy roll Tuna",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit tuna, Frischkäse, Avocado und Sesam.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Crunchy roll Tuna"
+      },
+      "description_translations": {
+        "de": "Mit tuna, Frischkäse, Avocado und Sesam."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "efcaaf80-e352-4944-9375-1c8dc7d97640",
+      "category": "Crunchy Rolls 🍣",
+      "price": 10.4,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Crunchy roll Garnelen",
+      "description": "7 stück mit Garnelen, Avocado und Frischkäse.",
+      "name_de": "Crunchy roll Garnelen",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "7 stück mit Garnelen, Avocado und Frischkäse.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Crunchy roll Garnelen"
+      },
+      "description_translations": {
+        "de": "7 stück mit Garnelen, Avocado und Frischkäse."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "de23663b-4da9-476a-8543-24271f321610",
+      "category": "Crunchy Rolls 🍣",
+      "price": 9.2,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Crunchy roll Surimi",
+      "description": "7 stück mit surimi (krabbenfleisch) Eier und Avocado und topping mit Sesam.",
+      "name_de": "Crunchy roll Surimi",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "7 stück mit surimi (krabbenfleisch) Eier und Avocado und topping mit Sesam.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Crunchy roll Surimi"
+      },
+      "description_translations": {
+        "de": "7 stück mit surimi (krabbenfleisch) Eier und Avocado und topping mit Sesam."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "ab842878-c948-4b58-942b-14cc7d108e06",
+      "category": "Sushi Rice Bowls 🍚",
+      "price": 11.5,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Yakitori Chicken Rice Bowl",
+      "description": "Mit yakitori hühnchen, Avocados, Rettich, Edamame und gekochten Ei.",
+      "name_de": "Yakitori Chicken Rice Bowl",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit yakitori hühnchen, Avocados, Rettich, Edamame und gekochten Ei.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Yakitori Chicken Rice Bowl"
+      },
+      "description_translations": {
+        "de": "Mit yakitori hühnchen, Avocados, Rettich, Edamame und gekochten Ei."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "1bf9220e-6a4a-45f4-ba82-46e2430564ef",
+      "category": "Sushi Rice Bowls 🍚",
+      "price": 11.5,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Poke Bowl Lachs",
+      "description": "Mit sushi rice, masago (roter kavier), Mango, Avocado, Gurken, Edamame und Sesam.",
+      "name_de": "Poke Bowl Lachs",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Mit sushi rice, masago (roter kavier), Mango, Avocado, Gurken, Edamame und Sesam.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Poke Bowl Lachs"
+      },
+      "description_translations": {
+        "de": "Mit sushi rice, masago (roter kavier), Mango, Avocado, Gurken, Edamame und Sesam."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "8a3713c7-9c23-466a-8208-ee77d9da566f",
+      "category": "Sushi Rice Bowls 🍚",
+      "price": 10.4,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Poke Bowl Vegan",
+      "description": "Sushi rice, tofu, Edamame, Gurken, Mango, Avocado, roter salat, wakame und Sesam.",
+      "name_de": "Poke Bowl Vegan",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Sushi rice, tofu, Edamame, Gurken, Mango, Avocado, roter salat, wakame und Sesam.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Poke Bowl Vegan"
+      },
+      "description_translations": {
+        "de": "Sushi rice, tofu, Edamame, Gurken, Mango, Avocado, roter salat, wakame und Sesam."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "bbc0897e-fba2-4a16-9e1a-ddec436ff3a9",
+      "category": "Gebratener Reis 🍚",
+      "price": 6.9,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Gebratener Eier Reis",
+      "description": "Gebratener Reis mit Ei und Erbsen.",
+      "name_de": "Gebratener Eier Reis",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Gebratener Reis mit Ei und Erbsen.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Gebratener Eier Reis"
+      },
+      "description_translations": {
+        "de": "Gebratener Reis mit Ei und Erbsen."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "91d349c2-6945-4f38-a7f7-add81f6e1c83",
+      "category": "Burger und Pommes Frites🍔",
+      "price": 4,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Veganer Burger",
+      "description": "",
+      "name_de": "Veganer Burger",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Veganer Burger"
+      },
+      "description_translations": {},
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "1e5831a1-5461-4d5a-9f66-cfb63a4c4d27",
+      "category": "Burger und Pommes Frites🍔",
+      "price": 4.6,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Pommes Frites",
+      "description": "",
+      "name_de": "Pommes Frites",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Pommes Frites"
+      },
+      "description_translations": {},
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "1a660f5e-0230-40fa-b716-f79c73c6898b",
+      "category": "Alkoholfreie Getränke 🥤",
+      "price": 4,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/9f1b0562f786a639f2dfe7c30f1950a5/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/9f1b0562f786a639f2dfe7c30f1950a5/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "Coca-Cola® 0,5 L (EINWEG)",
+      "description": "Koffeinhaltiges erfrischungsgetränk mit pflanzenextrakten, Zucker und mit kohlensäure.",
+      "name_de": "Coca-Cola® 0,5 L (EINWEG)",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Koffeinhaltiges erfrischungsgetränk mit pflanzenextrakten, Zucker und mit kohlensäure.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Coca-Cola® 0,5 L (EINWEG)"
+      },
+      "description_translations": {
+        "de": "Koffeinhaltiges erfrischungsgetränk mit pflanzenextrakten, Zucker und mit kohlensäure."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "603aff36-08aa-4565-9f5c-e115e6883cbe",
+      "category": "Alkoholfreie Getränke 🥤",
+      "price": 4,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://tb-static.uber.com/prod/image-proc/processed_images/8e36f5c5dd178b99c6357fbde5a119a4/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "image": "https://tb-static.uber.com/prod/image-proc/processed_images/8e36f5c5dd178b99c6357fbde5a119a4/70aa2a4db7f990373ca9c376323e3dea.jpeg",
+      "name": "Sprite 0,5 L (EINWEG)",
+      "description": "Zitronenlimonade, gesüßt, Zucker und mit kohlensäure.",
+      "name_de": "Sprite 0,5 L (EINWEG)",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Zitronenlimonade, gesüßt, Zucker und mit kohlensäure.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Sprite 0,5 L (EINWEG)"
+      },
+      "description_translations": {
+        "de": "Zitronenlimonade, gesüßt, Zucker und mit kohlensäure."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "id": "fdcdd832-4440-47c6-a26c-2601b8c24296",
+      "category": "Besteck",
+      "price": 0,
+      "available": true,
+      "is_popular": false,
+      "image_url": "",
+      "image": "",
+      "name": "Besteck",
+      "description": "Das restaurant fügt besteck wie messer, löffel, gabeln usw. Hinzu und falls vorhanden.",
+      "name_de": "Besteck",
+      "name_en": "",
+      "name_ru": "",
+      "name_ja": "",
+      "name_tr": "",
+      "description_de": "Das restaurant fügt besteck wie messer, löffel, gabeln usw. Hinzu und falls vorhanden.",
+      "description_en": "",
+      "description_ru": "",
+      "description_ja": "",
+      "description_tr": "",
+      "name_translations": {
+        "de": "Besteck"
+      },
+      "description_translations": {
+        "de": "Das restaurant fügt besteck wie messer, löffel, gabeln usw. Hinzu und falls vorhanden."
+      },
+      "created_at": "2026-09-22T20:48:31.696Z",
+      "updated_at": "2026-09-22T20:48:31.696Z"
+    },
+    {
+      "category": "Drinks",
+      "price": 4.9,
+      "available": true,
+      "is_popular": false,
+      "image_url": "https://www.olivemagazine.com/recipes/collection/easy-fruity-cocktail-recipes/",
+      "image": "https://www.olivemagazine.com/recipes/collection/easy-fruity-cocktail-recipes/",
+      "name": "Cocktail",
+      "description": "Cocktail",
+      "name_de": "Cocktail",
+      "name_en": "Cocktail",
+      "name_ru": "Cocktail",
+      "name_ja": "Cocktail",
+      "name_tr": "Cocktail",
+      "description_de": "Cocktail",
+      "description_en": "Cocktail",
+      "description_ru": "Cocktail",
+      "description_ja": "Cocktail",
+      "description_tr": "Cocktail",
+      "name_translations": {
+        "de": "Cocktail",
+        "en": "Cocktail",
+        "ru": "Cocktail",
+        "ja": "Cocktail",
+        "tr": "Cocktail"
+      },
+      "description_translations": {
+        "de": "Cocktail",
+        "en": "Cocktail",
+        "ru": "Cocktail",
+        "ja": "Cocktail",
+        "tr": "Cocktail"
+      },
+      "updated_at": "2026-09-26T08:03:09.079Z",
+      "id": "c071babc-5510-4a85-af60-125eacc3c7cc",
+      "created_at": "2026-09-26T08:03:09.079Z"
+    }
+  ],
+  "customers": [],
+  "orders": [],
+  "orderItems": [],
+  "orderEvents": [],
+  "vouchers": [],
+  "openingHours": [
+    {
+      "day_of_week": 0,
+      "is_closed": true,
+      "opens_at": "",
+      "closes_at": ""
+    },
+    {
+      "day_of_week": 1,
+      "is_closed": false,
+      "opens_at": "11:30",
+      "closes_at": "20:00"
+    },
+    {
+      "day_of_week": 2,
+      "is_closed": false,
+      "opens_at": "11:30",
+      "closes_at": "20:00"
+    },
+    {
+      "day_of_week": 3,
+      "is_closed": false,
+      "opens_at": "11:30",
+      "closes_at": "20:00"
+    },
+    {
+      "day_of_week": 4,
+      "is_closed": false,
+      "opens_at": "11:30",
+      "closes_at": "20:00"
+    },
+    {
+      "day_of_week": 5,
+      "is_closed": false,
+      "opens_at": "11:30",
+      "closes_at": "20:00"
+    },
+    {
+      "day_of_week": 6,
+      "is_closed": false,
+      "opens_at": "13:00",
+      "closes_at": "20:00"
+    }
+  ]
+}

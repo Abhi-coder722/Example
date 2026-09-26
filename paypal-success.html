@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bago Sushi & Asian | Payment Success</title>
-    <meta name="description" content="PayPal return page for Bago Sushi & Asian orders." />
-    <link rel="icon" type="image/png" href="assets/Bago-logo.jpeg" />
+    <title>Demo Sushi House | Payment Success</title>
+    <meta name="description" content="PayPal return page for Demo Sushi House orders." />
+    <link rel="icon" type="image/svg+xml" href="assets/demo-logo.svg" />
     <link rel="stylesheet" href="styles.css" />
     <style>
       .paypal-success {
@@ -57,10 +57,9 @@
       </section>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="supabase-config.js"></script>
+    <script src="api-client.js"></script>
     <script>
-      (function () {
+      (async function () {
         const PENDING_PAYPAL_ORDER_KEY = 'bagoPendingPaypalOrder';
         const LAST_SHARED_PAYPAL_TX_KEY = 'bagoLastSharedPaypalTx';
         const WHATSAPP_CONFIRMATION_KEY = 'bagoWhatsappConfirmation';
@@ -78,11 +77,20 @@
             : {};
 
         const venue = {
-          name: 'Bago Sushi & Asian',
-          whatsappNumber: '+491774675823',
+          name: 'Demo Sushi House',
+          whatsappNumber: '+491234567890',
           ...((window.BAGO_VENUE && typeof window.BAGO_VENUE === 'object' ? window.BAGO_VENUE : null) || {}),
           ...privateVenue
         };
+
+        try {
+          const config = await window.BagoApi?.getConfig?.();
+          if (config?.venue) {
+            Object.assign(venue, Object.fromEntries(Object.entries(config.venue).filter(([, value]) => value !== '')));
+          }
+        } catch (error) {
+          console.error('Runtime config failed:', error);
+        }
 
         function getWhatsAppBaseUrl() {
           const cleanPhone = String(venue.whatsappNumber || '').replace(/\D/g, '');
@@ -143,17 +151,8 @@
         }
 
         async function updateOrderStatus(orderId, status, paymentReference) {
-          const cfg = window.BAGO_SUPABASE || {};
-          const url = String(cfg.url || '').trim();
-          const key = String(cfg.anonKey || '').trim();
-          const table = String(cfg.ordersTable || 'orders').trim();
-          if (!url || !key || !window.supabase?.createClient || !orderId) return;
-
-          const client = window.supabase.createClient(url, key);
-          const payload = { order_status: status };
-          if (paymentReference) payload.payment_reference = paymentReference;
-
-          await client.from(table).update(payload).eq('id', orderId);
+          if (!orderId || !window.BagoApi?.updateOrderStatus) return;
+          await window.BagoApi.updateOrderStatus(orderId, status, paymentReference);
         }
 
         function normalizeTrackingPayload(payload) {
@@ -167,19 +166,13 @@
 
         async function trackOrderEvent(orderId, eventType, payload, source) {
           try {
-            const cfg = window.BAGO_SUPABASE || {};
-            const url = String(cfg.url || '').trim();
-            const key = String(cfg.anonKey || '').trim();
-            const table = String(cfg.orderEventsTable || 'order_events').trim();
-            if (!url || !key || !window.supabase?.createClient || !orderId || !eventType || !table) return;
-
-            const client = window.supabase.createClient(url, key);
-            await client.from(table).insert({
-              order_id: orderId,
-              event_type: String(eventType).trim(),
-              source: String(source || 'paypal_success').trim() || 'paypal_success',
-              event_payload: normalizeTrackingPayload(payload || {})
-            });
+            if (!window.BagoApi?.createOrderEvent || !orderId || !eventType) return;
+            await window.BagoApi.createOrderEvent(
+              orderId,
+              String(eventType).trim(),
+              normalizeTrackingPayload(payload || {}),
+              String(source || 'paypal_success').trim() || 'paypal_success'
+            );
           } catch (error) {
             console.error('Order event tracking failed:', error);
           }
@@ -193,7 +186,7 @@
 
           const messageLines = [
             `New order #${order.orderNumber || ''}`.trim(),
-            `Restaurant: ${venue.name || 'Bago Sushi & Asian'}`,
+            `Restaurant: ${venue.name || 'Demo Sushi House'}`,
             `Customer Name: ${order.customerName || '-'}`,
             `Phone: ${order.customerPhone || '-'}`,
             ...(order.customerEmail ? [`Email: ${order.customerEmail}`] : []),

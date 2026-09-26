@@ -1,14 +1,4 @@
-const config = window.BAGO_SUPABASE || {};
-const SUPABASE_URL = config.url || '';
-const SUPABASE_ANON_KEY = config.anonKey || '';
-const MENU_TABLE = config.menuTable || 'menu_items';
-const ORDERS_TABLE = config.ordersTable || 'orders';
-const ORDER_EVENTS_TABLE = config.orderEventsTable || 'order_events';
-const ORDER_ITEMS_TABLE = config.orderItemsTable || 'order_items';
-const VOUCHERS_TABLE = config.vouchersTable || 'vouchers';
-const OPENING_HOURS_TABLE = config.openingHoursTable || 'opening_hours';
-const STORAGE_BUCKET = config.storageBucket || 'menu-images';
-const SUPABASE_PLACEHOLDER = /YOUR_PROJECT|YOUR_ANON/i.test(`${SUPABASE_URL} ${SUPABASE_ANON_KEY}`);
+const BAGO_API = window.BagoApi || {};
 
 const TRANSLATIONS = {
   de: {
@@ -17,7 +7,7 @@ const TRANSLATIONS = {
     adminTitle: 'Menü Verwaltung',
     logoutButton: 'Logout',
     loginTitle: 'Owner Login',
-    loginIntro: 'Melde dich mit deinem Supabase Account an, um Menüeinträge zu verwalten.',
+    loginIntro: 'Melde dich mit deinem Admin Account an, um Menüeinträge zu verwalten.',
     emailLabel: 'Email',
     passwordLabel: 'Passwort',
     loginButton: 'Einloggen',
@@ -123,9 +113,9 @@ const TRANSLATIONS = {
     statusOrderItemsLoading: 'Bestellpositionen werden geladen...',
     statusOrderItemsLoaded: '{count} Positionen geladen.',
     statusOrderEventsTableMissing:
-      'Die Tabelle order_events fehlt noch. Bitte zuerst die neueste Supabase-Migration ausführen.',
+      'Die Bestellereignisse konnten nicht aus der JSON-Datenbank geladen werden.',
     statusOrderItemsTableMissing:
-      'Die Tabelle order_items fehlt noch. Bitte zuerst die neueste Supabase-Migration ausführen.',
+      'Die Bestellpositionen konnten nicht aus der JSON-Datenbank geladen werden.',
     statusAvailable: 'Verfügbar',
     statusSoldOut: 'Sold Out',
     statusActive: 'Aktiv',
@@ -174,7 +164,7 @@ const TRANSLATIONS = {
     statusEditLoaded: 'Eintrag zum Bearbeiten geladen.',
     statusVoucherEditLoaded: 'Voucher zum Bearbeiten geladen.',
     statusSupabaseMissing:
-      'Supabase ist nicht konfiguriert. Bitte .env aktualisieren und npm run config:build ausführen.',
+      'Admin Login ist nicht konfiguriert. Bitte BAGO_ADMIN_EMAIL und BAGO_ADMIN_PASSWORD in .env setzen.',
     statusSessionLoadFailed: 'Session konnte nicht geladen werden: {message}',
     statusLoginRunning: 'Login läuft...',
     statusLoginFailed: 'Login fehlgeschlagen: {message}',
@@ -189,7 +179,7 @@ const TRANSLATIONS = {
     adminTitle: 'Menu Management',
     logoutButton: 'Logout',
     loginTitle: 'Owner Login',
-    loginIntro: 'Sign in with your Supabase account to manage menu items.',
+    loginIntro: 'Sign in with your admin account to manage menu items.',
     emailLabel: 'Email',
     passwordLabel: 'Password',
     loginButton: 'Sign in',
@@ -294,8 +284,8 @@ const TRANSLATIONS = {
     statusOrderEventsLoaded: '{count} events loaded.',
     statusOrderItemsLoading: 'Loading order items...',
     statusOrderItemsLoaded: '{count} item rows loaded.',
-    statusOrderEventsTableMissing: 'order_events table is missing. Run the latest Supabase migration first.',
-    statusOrderItemsTableMissing: 'order_items table is missing. Run the latest Supabase migration first.',
+    statusOrderEventsTableMissing: 'Order events could not be loaded from the JSON database.',
+    statusOrderItemsTableMissing: 'Order items could not be loaded from the JSON database.',
     statusAvailable: 'Available',
     statusSoldOut: 'Sold Out',
     statusActive: 'Active',
@@ -343,7 +333,7 @@ const TRANSLATIONS = {
     errorOpeningHoursRange: 'End time must be later than start time.',
     statusEditLoaded: 'Item loaded for editing.',
     statusVoucherEditLoaded: 'Voucher loaded for editing.',
-    statusSupabaseMissing: 'Supabase is not configured. Update .env and run npm run config:build.',
+    statusSupabaseMissing: 'Admin login is not configured. Set BAGO_ADMIN_EMAIL and BAGO_ADMIN_PASSWORD in .env.',
     statusSessionLoadFailed: 'Could not load session: {message}',
     statusLoginRunning: 'Signing in...',
     statusLoginFailed: 'Login failed: {message}',
@@ -358,7 +348,7 @@ const TRANSLATIONS = {
     adminTitle: 'Управление меню',
     logoutButton: 'Выйти',
     loginTitle: 'Вход владельца',
-    loginIntro: 'Войдите через Supabase, чтобы управлять позициями меню.',
+    loginIntro: 'Войдите через учетную запись администратора, чтобы управлять позициями меню.',
     emailLabel: 'Email',
     passwordLabel: 'Пароль',
     loginButton: 'Войти',
@@ -462,9 +452,9 @@ const TRANSLATIONS = {
     statusOrderItemsLoading: 'Загрузка позиций заказа...',
     statusOrderItemsLoaded: 'Загружено позиций: {count}.',
     statusOrderEventsTableMissing:
-      'Таблица order_events отсутствует. Сначала примените последнюю миграцию Supabase.',
+      'Не удалось загрузить события заказа из JSON-базы.',
     statusOrderItemsTableMissing:
-      'Таблица order_items отсутствует. Сначала примените последнюю миграцию Supabase.',
+      'Не удалось загрузить позиции заказа из JSON-базы.',
     statusAvailable: 'Доступно',
     statusSoldOut: 'Sold Out',
     statusActive: 'Активен',
@@ -509,7 +499,7 @@ const TRANSLATIONS = {
     errorOpeningHoursRange: 'Время окончания должно быть позже времени начала.',
     statusEditLoaded: 'Запись загружена для редактирования.',
     statusVoucherEditLoaded: 'Ваучер загружен для редактирования.',
-    statusSupabaseMissing: 'Supabase не настроен. Обновите .env и выполните npm run config:build.',
+    statusSupabaseMissing: 'Вход администратора не настроен. Укажите BAGO_ADMIN_EMAIL и BAGO_ADMIN_PASSWORD в .env.',
     statusSessionLoadFailed: 'Не удалось загрузить сессию: {message}',
     statusLoginRunning: 'Вход...',
     statusLoginFailed: 'Ошибка входа: {message}',
@@ -524,7 +514,7 @@ const TRANSLATIONS = {
     adminTitle: 'メニュー管理',
     logoutButton: 'ログアウト',
     loginTitle: 'オーナーログイン',
-    loginIntro: 'Supabase アカウントでログインしてメニューを管理します。',
+    loginIntro: '管理者アカウントでログインしてメニューを管理します。',
     emailLabel: 'Email',
     passwordLabel: 'パスワード',
     loginButton: 'ログイン',
@@ -627,8 +617,8 @@ const TRANSLATIONS = {
     statusOrderEventsLoaded: '{count} 件のイベントを読み込みました。',
     statusOrderItemsLoading: '注文商品を読み込み中...',
     statusOrderItemsLoaded: '{count} 件の商品を読み込みました。',
-    statusOrderEventsTableMissing: 'order_events テーブルがありません。最新の Supabase マイグレーションを適用してください。',
-    statusOrderItemsTableMissing: 'order_items テーブルがありません。最新の Supabase マイグレーションを適用してください。',
+    statusOrderEventsTableMissing: '注文イベントを JSON データベースから読み込めませんでした。',
+    statusOrderItemsTableMissing: '注文商品を JSON データベースから読み込めませんでした。',
     statusAvailable: '販売中',
     statusSoldOut: '売り切れ',
     statusActive: '有効',
@@ -673,7 +663,7 @@ const TRANSLATIONS = {
     errorOpeningHoursRange: '終了時刻は開始時刻より後にしてください。',
     statusEditLoaded: '編集用に読み込みました。',
     statusVoucherEditLoaded: 'クーポンを編集用に読み込みました。',
-    statusSupabaseMissing: 'Supabase が未設定です。.env を更新し npm run config:build を実行してください。',
+    statusSupabaseMissing: '管理者ログインが未設定です。.env に BAGO_ADMIN_EMAIL と BAGO_ADMIN_PASSWORD を設定してください。',
     statusSessionLoadFailed: 'セッションを読み込めませんでした: {message}',
     statusLoginRunning: 'ログイン中...',
     statusLoginFailed: 'ログイン失敗: {message}',
@@ -688,7 +678,7 @@ const TRANSLATIONS = {
     adminTitle: 'Menü Yönetimi',
     logoutButton: 'Çıkış',
     loginTitle: 'Sahip Girişi',
-    loginIntro: 'Menü öğelerini yönetmek için Supabase hesabınla giriş yap.',
+    loginIntro: 'Menü öğelerini yönetmek için admin hesabınla giriş yap.',
     emailLabel: 'Email',
     passwordLabel: 'Şifre',
     loginButton: 'Giriş yap',
@@ -791,8 +781,8 @@ const TRANSLATIONS = {
     statusOrderEventsLoaded: '{count} olay yüklendi.',
     statusOrderItemsLoading: 'Sipariş ürünleri yükleniyor...',
     statusOrderItemsLoaded: '{count} ürün satırı yüklendi.',
-    statusOrderEventsTableMissing: 'order_events tablosu eksik. Önce en güncel Supabase migration çalıştırılmalı.',
-    statusOrderItemsTableMissing: 'order_items tablosu eksik. Önce en güncel Supabase migration çalıştırılmalı.',
+    statusOrderEventsTableMissing: 'Sipariş olayları JSON veritabanından yüklenemedi.',
+    statusOrderItemsTableMissing: 'Sipariş kalemleri JSON veritabanından yüklenemedi.',
     statusAvailable: 'Mevcut',
     statusSoldOut: 'Tükendi',
     statusActive: 'Aktif',
@@ -837,7 +827,7 @@ const TRANSLATIONS = {
     errorOpeningHoursRange: 'Bitiş saati başlangıçtan sonra olmalıdır.',
     statusEditLoaded: 'Kayıt düzenleme için yüklendi.',
     statusVoucherEditLoaded: 'Kupon düzenleme için yüklendi.',
-    statusSupabaseMissing: 'Supabase yapılandırılmadı. .env güncelle ve npm run config:build çalıştır.',
+    statusSupabaseMissing: 'Admin girişi yapılandırılmadı. .env içinde BAGO_ADMIN_EMAIL ve BAGO_ADMIN_PASSWORD ayarla.',
     statusSessionLoadFailed: 'Oturum yüklenemedi: {message}',
     statusLoginRunning: 'Giriş yapılıyor...',
     statusLoginFailed: 'Giriş başarısız: {message}',
@@ -946,10 +936,6 @@ const state = {
 };
 
 let moneyFormatter = buildMoneyFormatter(state.language);
-
-const supabaseClient = window.supabase?.createClient && SUPABASE_URL && SUPABASE_ANON_KEY && !SUPABASE_PLACEHOLDER
-  ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-  : null;
 
 function escapeHtml(value = '') {
   return String(value)
@@ -1747,51 +1733,26 @@ function setLanguage(language) {
 async function uploadImage(file) {
   if (!file) return '';
 
-  const safeName = normalize(file.name)
-    .toLowerCase()
-    .replace(/[^a-z0-9.\-_]+/g, '-')
-    .replace(/^-+|-+$/g, '') || 'image';
-
-  const path = `menu/${Date.now()}-${Math.random().toString(36).slice(2, 8)}-${safeName}`;
-  const { error } = await supabaseClient.storage.from(STORAGE_BUCKET).upload(path, file, { upsert: false });
-  if (error) {
-    throw new Error(formatT('errorUploadFailed', { message: error.message }));
-  }
-
-  const { data } = supabaseClient.storage.from(STORAGE_BUCKET).getPublicUrl(path);
-  return data?.publicUrl || '';
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => resolve(String(reader.result || '')));
+    reader.addEventListener('error', () => reject(new Error(formatT('errorUploadFailed', { message: file.name }))));
+    reader.readAsDataURL(file);
+  });
 }
 
 async function fetchItems() {
-  let result = await supabaseClient
-    .from(MENU_TABLE)
-    .select('*')
-    .order('is_popular', { ascending: false })
-    .order('category', { ascending: true })
-    .order('name_de', {
-      ascending: true
-    });
-
-  if (result.error && /name_de/i.test(result.error.message || '')) {
-    result = await supabaseClient
-      .from(MENU_TABLE)
-      .select('*')
-      .order('is_popular', { ascending: false })
-      .order('category', { ascending: true })
-      .order('name', {
-        ascending: true
-      });
-  }
-
-  return result;
+  return BAGO_API.adminMenuItems();
 }
 
 async function refreshItems() {
   if (!state.session) return;
   setStatus(adminStatus, t('statusMenuLoading'));
 
-  const { data, error } = await fetchItems();
-  if (error) {
+  let data;
+  try {
+    ({ data } = await fetchItems());
+  } catch (error) {
     setStatus(adminStatus, formatT('statusLoadError', { message: error.message }), true);
     return;
   }
@@ -1803,19 +1764,17 @@ async function refreshItems() {
 }
 
 async function fetchVouchers() {
-  return supabaseClient
-    .from(VOUCHERS_TABLE)
-    .select('*')
-    .order('created_at', { ascending: false })
-    .order('code', { ascending: true });
+  return BAGO_API.adminVouchers();
 }
 
 async function refreshVouchers() {
   if (!state.session || !voucherForm || !vouchersTableBody) return;
   setStatus(voucherStatus, t('statusVoucherLoading'));
 
-  const { data, error } = await fetchVouchers();
-  if (error) {
+  let data;
+  try {
+    ({ data } = await fetchVouchers());
+  } catch (error) {
     setStatus(voucherStatus, formatT('statusLoadError', { message: error.message }), true);
     return;
   }
@@ -1827,28 +1786,15 @@ async function refreshVouchers() {
 }
 
 async function fetchOrders() {
-  return supabaseClient
-    .from(ORDERS_TABLE)
-    .select(
-      'id, ordered_at, customer_name, customer_phone, customer_email, payment_method, order_status, order_total, payment_reference, is_scheduled, scheduled_for'
-    )
-    .order('ordered_at', { ascending: false });
+  return BAGO_API.adminOrders();
 }
 
 async function fetchOrderEvents(orderId) {
-  return supabaseClient
-    .from(ORDER_EVENTS_TABLE)
-    .select('id, order_id, event_type, source, event_payload, created_at')
-    .eq('order_id', orderId)
-    .order('created_at', { ascending: false });
+  return BAGO_API.adminOrderEvents(orderId);
 }
 
 async function fetchOrderItems(orderId) {
-  return supabaseClient
-    .from(ORDER_ITEMS_TABLE)
-    .select('id, order_id, item_id, item_name, quantity, unit_price, line_total, created_at')
-    .eq('order_id', orderId)
-    .order('created_at', { ascending: true });
+  return BAGO_API.adminOrderItems(orderId);
 }
 
 async function refreshOrderEvents(orderId, options = {}) {
@@ -1867,17 +1813,11 @@ async function refreshOrderEvents(orderId, options = {}) {
     setStatus(orderEventsStatus, t('statusOrderEventsLoading'));
   }
 
-  const { data, error } = await fetchOrderEvents(selectedOrderId);
-  if (error) {
-    const missingTable =
-      /relation .*order_events.* does not exist|table .*order_events.* does not exist|could not find the table/i.test(
-        error.message || ''
-      );
-    setStatus(
-      orderEventsStatus,
-      missingTable ? t('statusOrderEventsTableMissing') : formatT('statusLoadError', { message: error.message }),
-      true
-    );
+  let data;
+  try {
+    ({ data } = await fetchOrderEvents(selectedOrderId));
+  } catch (error) {
+    setStatus(orderEventsStatus, formatT('statusLoadError', { message: error.message }), true);
     state.orderEvents = [];
     renderOrderEvents();
     return;
@@ -1906,17 +1846,11 @@ async function refreshOrderItems(orderId, options = {}) {
     setStatus(orderItemsStatus, t('statusOrderItemsLoading'));
   }
 
-  const { data, error } = await fetchOrderItems(selectedOrderId);
-  if (error) {
-    const missingTable =
-      /relation .*order_items.* does not exist|table .*order_items.* does not exist|could not find the table/i.test(
-        error.message || ''
-      );
-    setStatus(
-      orderItemsStatus,
-      missingTable ? t('statusOrderItemsTableMissing') : formatT('statusLoadError', { message: error.message }),
-      true
-    );
+  let data;
+  try {
+    ({ data } = await fetchOrderItems(selectedOrderId));
+  } catch (error) {
+    setStatus(orderItemsStatus, formatT('statusLoadError', { message: error.message }), true);
     state.orderItems = [];
     renderOrderItems();
     return;
@@ -1933,8 +1867,10 @@ async function refreshOrders() {
   if (!state.session || !ordersTableBody) return;
   setStatus(orderTrackingStatus, t('statusOrdersLoading'));
 
-  const { data, error } = await fetchOrders();
-  if (error) {
+  let data;
+  try {
+    ({ data } = await fetchOrders());
+  } catch (error) {
     setStatus(orderTrackingStatus, formatT('statusLoadError', { message: error.message }), true);
     return;
   }
@@ -1970,13 +1906,13 @@ async function refreshOpeningHours() {
   if (!state.session || !openingHoursRows) return;
   setStatus(openingHoursStatus, t('statusOpeningHoursLoading'));
 
-  const { data, error } = await supabaseClient.from(OPENING_HOURS_TABLE).select('*').order('day_of_week', { ascending: true });
-  if (error) {
+  try {
+    const { data } = await BAGO_API.getOpeningHours();
+    state.openingHours = normalizeOpeningHoursRows(data);
+  } catch (error) {
     setStatus(openingHoursStatus, formatT('statusLoadError', { message: error.message }), true);
     return;
   }
-
-  state.openingHours = normalizeOpeningHoursRows(data);
   renderOpeningHours();
   setStatus(openingHoursStatus, t('statusOpeningHoursLoaded'));
 }
@@ -1990,10 +1926,7 @@ async function saveOpeningHours(event) {
 
   try {
     const payload = collectOpeningHoursPayload();
-    const { error } = await supabaseClient.from(OPENING_HOURS_TABLE).upsert(payload, { onConflict: 'day_of_week' });
-    if (error) {
-      throw new Error(error.message);
-    }
+    await BAGO_API.adminSaveOpeningHours(payload);
 
     setStatus(openingHoursStatus, t('statusOpeningHoursSaved'));
     await refreshOpeningHours();
@@ -2072,29 +2005,17 @@ async function saveItem(event) {
     let response;
 
     if (wantsPopular) {
-      let clearPopularQuery = supabaseClient
-        .from(MENU_TABLE)
-        .update({ is_popular: false, updated_at: new Date().toISOString() })
-        .eq('is_popular', true);
-
-      if (currentId) {
-        clearPopularQuery = clearPopularQuery.neq('id', currentId);
-      }
-
-      const clearPopularResult = await clearPopularQuery;
-      if (clearPopularResult.error) {
-        throw new Error(clearPopularResult.error.message);
-      }
+      await Promise.all(
+        state.items
+          .filter((item) => item.is_popular === true && String(item.id) !== currentId)
+          .map((item) => BAGO_API.adminUpdateMenuItem(item.id, { is_popular: false, updated_at: new Date().toISOString() }))
+      );
     }
 
     if (currentId) {
-      response = await supabaseClient.from(MENU_TABLE).update(payload).eq('id', currentId);
+      response = await BAGO_API.adminUpdateMenuItem(currentId, payload);
     } else {
-      response = await supabaseClient.from(MENU_TABLE).insert(payload);
-    }
-
-    if (response.error) {
-      throw new Error(response.error.message);
+      response = await BAGO_API.adminCreateMenuItem(payload);
     }
 
     setStatus(adminStatus, currentId ? t('statusItemUpdated') : t('statusItemAdded'));
@@ -2111,12 +2032,9 @@ async function toggleAvailability(id) {
   const item = state.items.find((entry) => String(entry.id) === String(id));
   if (!item) return;
 
-  const { error } = await supabaseClient
-    .from(MENU_TABLE)
-    .update({ available: item.available === false, updated_at: new Date().toISOString() })
-    .eq('id', id);
-
-  if (error) {
+  try {
+    await BAGO_API.adminUpdateMenuItem(id, { available: item.available === false, updated_at: new Date().toISOString() });
+  } catch (error) {
     setStatus(adminStatus, formatT('statusToggleError', { message: error.message }), true);
     return;
   }
@@ -2132,24 +2050,21 @@ async function togglePopular(id) {
   const nextPopular = item.is_popular !== true;
 
   if (nextPopular) {
-    const clearPopularResult = await supabaseClient
-      .from(MENU_TABLE)
-      .update({ is_popular: false, updated_at: new Date().toISOString() })
-      .eq('is_popular', true)
-      .neq('id', id);
-
-    if (clearPopularResult.error) {
-      setStatus(adminStatus, formatT('statusToggleError', { message: clearPopularResult.error.message }), true);
+    try {
+      await Promise.all(
+        state.items
+          .filter((entry) => entry.is_popular === true && String(entry.id) !== String(id))
+          .map((entry) => BAGO_API.adminUpdateMenuItem(entry.id, { is_popular: false, updated_at: new Date().toISOString() }))
+      );
+    } catch (error) {
+      setStatus(adminStatus, formatT('statusToggleError', { message: error.message }), true);
       return;
     }
   }
 
-  const { error } = await supabaseClient
-    .from(MENU_TABLE)
-    .update({ is_popular: nextPopular, updated_at: new Date().toISOString() })
-    .eq('id', id);
-
-  if (error) {
+  try {
+    await BAGO_API.adminUpdateMenuItem(id, { is_popular: nextPopular, updated_at: new Date().toISOString() });
+  } catch (error) {
     setStatus(adminStatus, formatT('statusToggleError', { message: error.message }), true);
     return;
   }
@@ -2168,8 +2083,9 @@ async function deleteItem(id) {
   const confirmed = window.confirm(formatT('confirmDeleteItem', { name }));
   if (!confirmed) return;
 
-  const { error } = await supabaseClient.from(MENU_TABLE).delete().eq('id', id);
-  if (error) {
+  try {
+    await BAGO_API.adminDeleteMenuItem(id);
+  } catch (error) {
     setStatus(adminStatus, formatT('statusDeleteFailed', { message: error.message }), true);
     return;
   }
@@ -2217,17 +2133,13 @@ async function saveVoucher(event) {
     let response;
 
     if (currentId) {
-      response = await supabaseClient.from(VOUCHERS_TABLE).update(payload).eq('id', currentId);
+      response = await BAGO_API.adminUpdateVoucher(currentId, payload);
     } else {
-      response = await supabaseClient.from(VOUCHERS_TABLE).insert({
+      response = await BAGO_API.adminCreateVoucher({
         ...payload,
         times_used: 0,
         created_at: new Date().toISOString()
       });
-    }
-
-    if (response.error) {
-      throw new Error(response.error.message);
     }
 
     setStatus(voucherStatus, currentId ? t('statusVoucherUpdated') : t('statusVoucherCreated'));
@@ -2244,12 +2156,9 @@ async function toggleVoucherActive(id) {
   const voucher = state.vouchers.find((entry) => String(entry.id) === String(id));
   if (!voucher) return;
 
-  const { error } = await supabaseClient
-    .from(VOUCHERS_TABLE)
-    .update({ active: voucher.active === false, updated_at: new Date().toISOString() })
-    .eq('id', id);
-
-  if (error) {
+  try {
+    await BAGO_API.adminUpdateVoucher(id, { active: voucher.active === false, updated_at: new Date().toISOString() });
+  } catch (error) {
     setStatus(voucherStatus, formatT('statusVoucherToggleError', { message: error.message }), true);
     return;
   }
@@ -2264,8 +2173,9 @@ async function deleteVoucher(id) {
   const confirmed = window.confirm(formatT('confirmDeleteVoucher', { code }));
   if (!confirmed) return;
 
-  const { error } = await supabaseClient.from(VOUCHERS_TABLE).delete().eq('id', id);
-  if (error) {
+  try {
+    await BAGO_API.adminDeleteVoucher(id);
+  } catch (error) {
     setStatus(voucherStatus, formatT('statusVoucherDeleteFailed', { message: error.message }), true);
     return;
   }
@@ -2363,7 +2273,7 @@ async function handleOrdersTableActions(event) {
 }
 
 async function initializeAuth() {
-  if (!supabaseClient) {
+  if (!BAGO_API.adminSession) {
     setStatus(loginStatus, t('statusSupabaseMissing'), true);
     loginForm.querySelectorAll('input,button').forEach((node) => {
       node.disabled = true;
@@ -2371,45 +2281,45 @@ async function initializeAuth() {
     return;
   }
 
-  const { data, error } = await supabaseClient.auth.getSession();
-  if (error) {
+  try {
+    const { session } = await BAGO_API.adminSession();
+    setAuthState(session || null);
+  } catch (error) {
     setStatus(loginStatus, formatT('statusSessionLoadFailed', { message: error.message }), true);
+    setAuthState(null);
   }
-
-  setAuthState(data?.session || null);
-
-  supabaseClient.auth.onAuthStateChange((_event, session) => {
-    setAuthState(session);
-  });
 }
 
 loginForm.addEventListener('submit', async (event) => {
   event.preventDefault();
-  if (!supabaseClient) return;
+  if (!BAGO_API.adminLogin) return;
 
   const email = normalize(loginForm.elements.email.value);
   const password = loginForm.elements.password.value;
   setStatus(loginStatus, t('statusLoginRunning'));
 
-  const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
-  if (error) {
+  try {
+    const { session } = await BAGO_API.adminLogin(email, password);
+    loginForm.reset();
+    setStatus(loginStatus, t('statusLoginSuccess'));
+    setAuthState(session || null);
+  } catch (error) {
     setStatus(loginStatus, formatT('statusLoginFailed', { message: error.message }), true);
     return;
   }
-
-  loginForm.reset();
-  setStatus(loginStatus, t('statusLoginSuccess'));
 });
 
 logoutButton.addEventListener('click', async () => {
-  if (!supabaseClient) return;
+  if (!BAGO_API.adminLogout) return;
 
-  const { error } = await supabaseClient.auth.signOut();
-  if (error) {
+  try {
+    await BAGO_API.adminLogout();
+  } catch (error) {
     setStatus(adminStatus, formatT('statusLogoutFailed', { message: error.message }), true);
     return;
   }
 
+  setAuthState(null);
   clearItemForm();
   clearVoucherForm();
   setStatus(adminStatus, '');

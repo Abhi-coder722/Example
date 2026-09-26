@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bago Sushi & Asian | Admin</title>
+    <title>Demo Sushi House | Admin</title>
     <meta
       name="description"
-      content="Admin panel for Bago Sushi & Asian menu management with Supabase authentication and storage uploads."
+      content="Admin panel for Demo Sushi House menu management."
     />
-    <link rel="icon" type="image/png" href="../assets/Bago-logo.jpeg" />
+    <link rel="icon" type="image/svg+xml" href="../assets/demo-logo.svg" />
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="admin.css" />
   </head>
@@ -57,7 +57,7 @@
     <main class="admin-main">
       <section class="admin-card" id="loginCard">
         <h2 data-i18n="loginTitle">Owner Login</h2>
-        <p data-i18n="loginIntro">Melde dich mit deinem Supabase Account an, um Menüeinträge zu verwalten.</p>
+        <p data-i18n="loginIntro">Melde dich mit deinem Admin Account an, um Menüeinträge zu verwalten.</p>
         <form id="loginForm" class="admin-form compact">
           <label>
             <span data-i18n="emailLabel">Email</span>
@@ -360,8 +360,8 @@
       </section>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="../supabase-config.js"></script>
+    <script src="../api-client.js"></script>
+    <script src="../shared/business-logic.js"></script>
     <script src="admin.js"></script>
   </body>
 </html>

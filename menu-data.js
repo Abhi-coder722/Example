@@ -1,8 +1,8 @@
 const BAGO_VENUE = {
-  "name": "Bago Sushi & Asian",
+  "name": "Demo Sushi House",
   "heroImage": "https://tb-static.uber.com/prod/image-proc/processed_images/fa5cd9dd636a53eed3f9ee50e5bc9686/5283d81c664b43c5f57a3a186d273063.jpeg",
-  "logoImage": "assets/bago-logo.jpg",
-  "address": "Luftgasse 1, 85049 Ingolstadt",
+  "logoImage": "assets/demo-logo.svg",
+  "address": "Sample Street 12, 12345 Demo City",
   "pickupLat": 48.76340717227785,
   "pickupLng": 11.42234503860289,
   "orderMinimum": 5,

@@ -30,12 +30,22 @@ test('condensed list is available for items without images', () => {
   assert.equal(split.withoutImage.length, 2);
 });
 
-test('desktop and mobile responsive rules exist for the new menu layout', () => {
+test('fluid responsive rules exist for the menu layout', () => {
   const cssPath = path.resolve(__dirname, '..', 'styles.css');
   const css = fs.readFileSync(cssPath, 'utf8');
+  const scriptPath = path.resolve(__dirname, '..', 'script.js');
+  const script = fs.readFileSync(scriptPath, 'utf8');
 
-  assert.match(css, /\.item-grid\s*\{[\s\S]*grid-template-columns:\s*repeat\(3, minmax\(0, 1fr\)\);/m);
-  assert.match(css, /@media \(max-width: 1200px\)[\s\S]*\.item-grid[\s\S]*repeat\(2, minmax\(0, 1fr\)\)/m);
-  assert.match(css, /@media \(max-width: 660px\)[\s\S]*\.item-grid[\s\S]*grid-template-columns:\s*1fr;/m);
-  assert.match(css, /@media \(max-width: 660px\)[\s\S]*\.compact-menu-row[\s\S]*grid-template-columns:\s*1fr;/m);
+  assert.match(
+    css,
+    /\.item-grid\s*\{[\s\S]*grid-template-columns:\s*repeat\(auto-fill, minmax\(min\(100%, 280px\), 1fr\)\);/m
+  );
+  assert.match(
+    css,
+    /\.popular-grid\s*\{[\s\S]*grid-template-columns:\s*repeat\(auto-fill, minmax\(min\(100%, 250px\), 1fr\)\);/m
+  );
+  assert.match(css, /\.menu-card\s*\{[\s\S]*grid-template-rows:\s*var\(--card-media-height\) minmax\(0, 1fr\);/m);
+  assert.match(css, /\.food-media img\s*\{[\s\S]*object-fit:\s*contain;/m);
+  assert.match(script, /food-media-placeholder/);
+  assert.doesNotMatch(script, /split\.withoutImage\.length \? `<ul class="compact-menu-list"/);
 });
