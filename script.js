@@ -20,7 +20,7 @@ const TRANSLATIONS = {
     heroStatItems: 'Menüeinträge',
     heroStatMinimum: 'Mindestbestellwert',
     heroStatPreparationTime: 'Vorbereitungszeit',
-    heroStatPreparationTimeValue: '',
+    heroStatPreparationTimeValue: '5 min',
     heroStatPickup: 'Bestellmodus',
     heroStatPickupValue: 'Nur Abholung',
     popularEyebrow: 'Schnelle Auswahl',
@@ -177,7 +177,7 @@ const TRANSLATIONS = {
     heroStatItems: 'Menu Items',
     heroStatMinimum: 'Minimum Order',
     heroStatPreparationTime: 'Preparation Time',
-    heroStatPreparationTimeValue: '',
+    heroStatPreparationTimeValue: '5 min',
     heroStatPickup: 'Order mode',
     heroStatPickupValue: 'Pickup only',
     popularEyebrow: 'Quick picks',
@@ -333,7 +333,7 @@ const TRANSLATIONS = {
     heroStatItems: 'Позиции меню',
     heroStatMinimum: 'Минимальный заказ',
     heroStatPreparationTime: 'Время приготовления',
-    heroStatPreparationTimeValue: '',
+    heroStatPreparationTimeValue: '5 min',
     heroStatPickup: 'Формат заказа',
     heroStatPickupValue: 'Только самовывоз',
     popularEyebrow: 'Быстрый выбор',
@@ -490,7 +490,7 @@ const TRANSLATIONS = {
     heroStatItems: 'メニュー項目',
     heroStatMinimum: '最低注文額',
     heroStatPreparationTime: '準備時間',
-    heroStatPreparationTimeValue: '',
+    heroStatPreparationTimeValue: '5 min',
     heroStatPickup: '注文方法',
     heroStatPickupValue: '店頭受け取りのみ',
     popularEyebrow: 'おすすめ',
@@ -647,7 +647,7 @@ const TRANSLATIONS = {
     heroStatItems: 'Menü Ürünü',
     heroStatMinimum: 'Minimum Sipariş',
     heroStatPreparationTime: 'Hazırlık Süresi',
-    heroStatPreparationTimeValue: '',
+    heroStatPreparationTimeValue: '5 min',
     heroStatPickup: 'Sipariş Tipi',
     heroStatPickupValue: 'Sadece gel-al',
     popularEyebrow: 'Hızlı seçim',
@@ -2232,7 +2232,7 @@ function applyStaticTranslations() {
   if (heroMinimumValue) {
     heroMinimumValue.textContent = money.format(VENUE_CONFIG.orderMinimum || 0);
   }
-  const prepTimeNode = document.querySelector('[data-i18n="heroStatPreparationTimeValue"]');
+  const prepTimeNode = document.querySelector('[data-i18n=""]');
   if (prepTimeNode && VENUE_CONFIG.preparationTime) {
     prepTimeNode.textContent = VENUE_CONFIG.preparationTime;
   }
