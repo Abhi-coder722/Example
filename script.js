@@ -177,7 +177,7 @@ const TRANSLATIONS = {
     heroStatItems: 'Menu Items',
     heroStatMinimum: 'Minimum Order',
     heroStatPreparationTime: 'Preparation Time',
-    heroStatPreparationTimeValue: '5 min',
+    heroStatPreparationTimeValue: '5 min',//added time
     heroStatPickup: 'Order mode',
     heroStatPickupValue: 'Pickup only',
     popularEyebrow: 'Quick picks',
